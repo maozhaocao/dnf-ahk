@@ -11,11 +11,13 @@
 
 ; ==================== 配置开始 ====================
 
-global presets := Map("F5", ["无", ""],
-                      "F6", ["剑魂", "X,Z,A,D,F,G,V,Q"],
-                      "F7", ["DK", "X,Z,A,D,F,G,V,Q,T,TAB"])
+global presets := Map("F6", ["无", ""],
+                      "F7", ["剑魂无冲", "X;Z;A;G;Q;D;V;E;T;TAB"],
+                    ;   "F7", ["剑魂有冲", "X,A,G,Q,Z"],
+                    ;   "F7", ["剑魂", "X,Z,A;D,F,G,V,Q"],
+                      "F8", ["DK", "X;Z;Q;A,S,D,F,G,V;R,T;TAB"])
 
-global defaultPreset := "F5"
+global defaultPreset := "F6"
 
 ; ==================== 配置结束 ====================
 
@@ -32,17 +34,6 @@ for k, _ in presets {
 
 ApplyPreset("", defaultPreset)
 
-class AutoFireProcess {
-    __New(targetScriptPath, arg) {
-        Run '*RunAs "' A_AhkPath '" /force "' targetScriptPath '" "' arg '"', , , &pid
-        this.pid := pid
-    }
-
-    __Delete() {
-        ProcessClose this.pid
-    }
-}
-
 ApplyPreset(_, toggleKey) {
     for k, v in presets {
         if (k != toggleKey) {
@@ -51,11 +42,9 @@ ApplyPreset(_, toggleKey) {
         else {
             if (processes[k].Length == 0) {
                 for _, keys in StrSplit(v[2], ";") {
-                    processes[k].push(AutoFireProcess("AutoFireWorker.ahk", keys))
+                    processes[k].push(AHKProcess("AutoFireMPWorker.ahk", keys))
                 }
-                if (v[1] != "") {
-                    UI_ToolTip1s("切换至 -> " . v[1])
-                }
+                UI_ToolTip1s("连发方案: " . v[1])
             }
         }
     }

@@ -6,7 +6,7 @@
 
 Kbd_GetSpecialKeycode(key) {
     ; 返回对应于 key 的只被游戏识别但不影响打字的 keycode
-    base := "vkFFsc"
+    base := "vkFDsc"
     sc := GetKeySC(key)
     keycode := Format("{1}{2:X}", base, sc)
     return keycode

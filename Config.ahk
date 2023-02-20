@@ -4,10 +4,8 @@
 
 ; ==================== 说明结束 ====================
 
-; #MaxHotkeysPerInterval 99000000
-; #HotkeyInterval 99000000
 #MaxThreadsPerHotkey 10
 
-ProcessSetPriority "High"
+ProcessSetPriority "AboveNormal"
 
 SendMode "Event"

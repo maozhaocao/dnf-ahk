@@ -9,7 +9,7 @@
 
 ; ==================== 配置开始 ====================
 
-SetKeyDelay(10, -1)
+SetKeyDelay(5, -1)
 
 ; ==================== 配置结束 ====================
 
@@ -22,10 +22,10 @@ SetKeyDelay(10, -1)
 ; 加载 Config
 #Include Config.ahk
 
+; 连发进程不需要 TrayIcon 和 Log
 #NoTrayIcon
-; #KeyHistory 0
-
-; ListLines, Off
+KeyHistory 0
+ListLines 0
 
 global keys := A_Args[1]
 

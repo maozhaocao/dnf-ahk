@@ -7,9 +7,19 @@
 ; ==================== 说明结束 ====================
 
 ; 提升至管理员权限 (否则发送按键无法对 DNF 生效)
+full_command_line := DllCall("GetCommandLine", "str")
 
-if not A_IsAdmin
-	Run '*RunAs "' A_ScriptFullPath '"'
+if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
+{
+    try
+    {
+        if A_IsCompiled
+            Run '*RunAs "' A_ScriptFullPath '" /restart'
+        else
+            Run '*RunAs "' A_AhkPath '" /restart "' A_ScriptFullPath '"'
+    }
+    ExitApp
+}
 
 #SingleInstance Force
 
@@ -17,6 +27,7 @@ if not A_IsAdmin
 #Include <Const>
 #Include <Kbd>
 #Include <UI>
+#Include <Process>
 
 ; 加载 Config
 #Include "Config.ahk"
@@ -25,7 +36,8 @@ if not A_IsAdmin
 SetKeyDelay(5, -1)
 
 ; #Include 不支持 wildcard 和变量所以只能这么笨笨地写了
-#Include "Scripts/AutoFireMP.ahk"
+; #Include "Scripts/AutoFireMP.ahk"
+#Include "Scripts/AutoFireSP.ahk"
 #Include "Scripts/DevTools.ahk"
 #Include "Scripts/BUFF.ahk"
 #Include "Scripts/ChangWan.ahk"

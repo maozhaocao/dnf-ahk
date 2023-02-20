@@ -12,7 +12,7 @@
 ; 对于冷却 = 持续的药物，建议加上 0.5s
 buffTimers := []
 
-buffTimers.Push(BuffTimer("2", 3, 0))    ; 超速
+; buffTimers.Push(BuffTimer("2", 3, 0))     ; 超速
 buffTimers.Push(BuffTimer("4", 60.5, 0))  ; 斗神
 
 ; Tooltip 的位置, 这里为屏幕右下角
