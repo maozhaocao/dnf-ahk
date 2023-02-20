@@ -32,7 +32,7 @@ global defaultPreset := "F6"
 #Include Config.ahk
 
 ; 连发进程不需要 TrayIcon 和 Log
-; #NoTrayIcon
+#NoTrayIcon
 KeyHistory 0
 ListLines 0
 InstallKeybdHook
