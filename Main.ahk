@@ -39,6 +39,7 @@ SetKeyDelay(5, -1)
 #Include "Scripts/AutoFireMP.ahk"
 ; #Include "Scripts/AutoFireSP.ahk"
 #Include "Scripts/DevTools.ahk"
+#Include "Scripts/DisableWin.ahk"
 #Include "Scripts/BUFF.ahk"
 #Include "Scripts/ChangWan.ahk"
 #Include "Scripts/Personal.ahk"
