@@ -10,4 +10,5 @@
 
 ; ==================== 配置开始 ====================
 
-p := AHKProcess("AutoFireSPWorker.ahk", "")
+AutoFireSPWorkerPath := A_IsCompiled ? "AutoFireSPWorker.exe" : "AutoFireSPWorker.ahk"
+p := AHKProcess(AutoFireSPWorkerPath, "")

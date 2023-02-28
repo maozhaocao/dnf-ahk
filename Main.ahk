@@ -30,19 +30,19 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 #Include <Process>
 
 ; 加载 Config
-#Include "Config.ahk"
+#Include Config.ahk
 
 ; https://www.autohotkey.com/docs/v1/lib/SetKeyDelay.htm
 SetKeyDelay(5, -1)
 
 ; #Include 不支持 wildcard 和变量所以只能这么笨笨地写了
-#Include "Scripts/AutoFireMP.ahk"
-; #Include "Scripts/AutoFireSP.ahk"
-#Include "Scripts/DevTools.ahk"
-#Include "Scripts/DisableWin.ahk"
-#Include "Scripts/BUFF.ahk"
-#Include "Scripts/ChangWan.ahk"
-#Include "Scripts/Personal.ahk"
+#Include Scripts/AutoFireMP.ahk
+; #Include Scripts/AutoFireSP.ahk
+#Include Scripts/DevTools.ahk
+#Include Scripts/DisableWin.ahk
+#Include Scripts/BUFF.ahk
+#Include Scripts/ChangWan.ahk
+#Include Scripts/Personal.ahk
 
 ; Alt + Shift + R 重载脚本
 <!+r::Reload

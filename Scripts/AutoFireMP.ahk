@@ -34,7 +34,10 @@ for k, _ in presets {
 
 ApplyPreset("", defaultPreset)
 
+AutoFireMPWorkerPath := A_IsCompiled ? "AutoFireMPWorker.exe" : "AutoFireMPWorker.ahk"
+
 ApplyPreset(_, toggleKey) {
+    
     for k, v in presets {
         if (k != toggleKey) {
             processes[k] := []
@@ -42,7 +45,7 @@ ApplyPreset(_, toggleKey) {
         else {
             if (processes[k].Length == 0) {
                 for _, keys in StrSplit(v[2], ";") {
-                    processes[k].push(AHKProcess("AutoFireMPWorker.ahk", keys))
+                    processes[k].push(AHKProcess(AutoFireMPWorkerPath, keys))
                 }
                 UI_ToolTip1s("连发方案: " . v[1])
             }
