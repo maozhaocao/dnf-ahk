@@ -47,7 +47,7 @@ SetTimer fnAutoFireTick, 1, -1
 AutoFireTick() {
     If WinActive("ahk_exe DNF.exe") {
         For key, keycode in autoFireKeys {
-            If (GetKeyState(key)) {
+            If (GetKeyState(key) || GetKeyState(key, "P")) {
                 Kbd_RobustSend(keycode)
             }
         }

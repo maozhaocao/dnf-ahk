@@ -24,6 +24,8 @@ global defaultPreset := "F6"
 
 global processes := Map()
 
+AutoFireMPWorkerPath := A_IsCompiled ? "AutoFireMPWorker.exe" : "AutoFireMPWorker.ahk"
+
 ; Main
 
 for k, _ in presets {
@@ -33,8 +35,6 @@ for k, _ in presets {
 }
 
 ApplyPreset("", defaultPreset)
-
-AutoFireMPWorkerPath := A_IsCompiled ? "AutoFireMPWorker.exe" : "AutoFireMPWorker.ahk"
 
 ApplyPreset(_, toggleKey) {
     

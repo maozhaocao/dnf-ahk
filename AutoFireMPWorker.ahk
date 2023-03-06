@@ -28,6 +28,8 @@ SetKeyDelay(5, -1)
 KeyHistory 0
 ListLines 0
 
+A_MaxHotkeysPerInterval := 200
+
 global keys := A_Args[1]
 
 if (keys != "") {
@@ -41,7 +43,7 @@ if (keys != "") {
 }
 
 OnSelfAutofireKeyPressed(_, key, keycode) {
-    while (GetKeyState(key))
+    while (GetKeyState(key) || GetKeyState(key, "P"))
     {
         Kbd_RobustSend(keycode)
     }
