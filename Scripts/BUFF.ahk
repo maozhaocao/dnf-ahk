@@ -12,8 +12,8 @@
 ; 对于冷却 = 持续的药物，建议加上 0.5s
 buffTimers := []
 
-; buffTimers.Push(BuffTimer("2", 3, 0))     ; 超速
-buffTimers.Push(BuffTimer("4", 60.5, 0))  ; 斗神
+buffTimers.Push(BuffTimer("2", 3, 0))     ; 超速
+buffTimers.Push(BuffTimer("4", 10.1, 0))  ; 斗神
 
 ; Tooltip 的位置, 这里为屏幕右下角
 MonitorGetWorkArea(, , , &MonitorWorkAreaRight, &MonitorWorkAreaBottom)
@@ -31,7 +31,7 @@ class BuffTimer {
     ; https://www.autohotkey.com/docs/commands/SetTimer.htm
     __New(keycode, interval, firstWait) {
         this.interval := interval
-        this.keycode := keycode
+        this.keycode := Kbd_GetSpecialKeycode(keycode)
         this.firstWait := firstWait
         this.timer := ObjBindMethod(this, "Tick")
     }

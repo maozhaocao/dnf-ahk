@@ -36,7 +36,8 @@ if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
 SetKeyDelay(5, -1)
 
 ; #Include 不支持 wildcard 和变量所以只能这么笨笨地写了
-#Include Scripts/AutoFireMP.ahk
+#Include Scripts/AutoFire.ahk
+; #Include Scripts/AutoFireMP.ahk
 ; #Include Scripts/AutoFireSP.ahk
 #Include Scripts/DevTools.ahk
 #Include Scripts/DisableWin.ahk
