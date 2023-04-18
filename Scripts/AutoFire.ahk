@@ -37,10 +37,12 @@ OnSelfAutofireKeyPressed(_, key, keycode) {
 ApplyPreset(toggleKey) {
     if presets.Has(toggleKey) {
         ; 清空 autoFireKeys
+        HotIfWinActive "ahk_exe DNF.exe"
         For key, keycode in autoFireKeys {
             fn := OnSelfAutofireKeyPressed.Bind(, key, keycode)
-            Hotkey "$~*" key, fn, "Off"
+            Hotkey "$~*" key, "Off"
         }
+        HotIfWinActive
         autoFireKeys.Clear()
         ; 设置 autoFireKeys
         val := presets[toggleKey]
@@ -50,7 +52,8 @@ ApplyPreset(toggleKey) {
         HotIfWinActive "ahk_exe DNF.exe"
         For key, keycode in autoFireKeys {
             fn := OnSelfAutofireKeyPressed.Bind(, key, keycode)
-            Hotkey "$~*" key, fn, "On"
+            Hotkey "$~*" key, fn
+            Hotkey "$~*" key, "On"
         }
         HotIfWinActive
         UI_ToolTip1s("连发方案: " . val[1])
