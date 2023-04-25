@@ -43,7 +43,9 @@ SetKeyDelay(5, -1)
 #Include Scripts/DisableWin.ahk
 #Include Scripts/BUFF.ahk
 #Include Scripts/ChangWan.ahk
+#Include Scripts/DaLuanDou.ahk
 #Include Scripts/Personal.ahk
+
 
 ; Alt + Shift + R 重载脚本
 <!+r::Reload
