@@ -13,14 +13,12 @@
 #Include AHK_深渊_旅人.ahk
 #Include AHK_深渊_巫女.ahk
 #Include AHK_深渊_红眼.ahk
+#Include AHK_深渊_肥鯮.ahk
+#Include AHK_深渊_花花.ahk
+#Include AHK_深渊_瞎子.ahk
+#Include AHK_深渊_鬼泣.ahk
 
 start_abyss(index,abyss_times_total){
-if(index==6){
-return
-}
-if(index==12){
-return
-}
 
 if(abyss_times_total>0){
 skill("space",4000)
@@ -85,6 +83,22 @@ abyss_times_wunv(abyss_times_total)
 if (index ==16){
 abyss_times_hongyan(abyss_times_total)
 }
+
+if (index ==17){
+abyss_times_feizong(abyss_times_total)
+}
+
+if (index ==18){
+abyss_times_huahua(abyss_times_total)
+}
+
+if (index ==19){
+abyss_times_xiazi(abyss_times_total)
+}
+
+if (index ==20){
+abyss_times_guiqi(abyss_times_total)
+}
 }
 
 F1::
@@ -110,9 +124,7 @@ index := index+1
 
 F2::
 {
-    abyss_times_lvren(16)
-    back_city()
-    back_select_character()
+    abyss_times_guiqi(2)
 }
 
 F12::ExitApp

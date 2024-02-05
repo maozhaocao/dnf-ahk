@@ -67,6 +67,15 @@ send_key("space")
 sleep time
 }
 
+buff_up_down(time){
+send_key("up")
+sleep 10
+send_key("down")
+sleep 10
+send_key("space")
+sleep time
+}
+
 buff_left_up_right(time){
     send_key("left")
     sleep 10
@@ -92,6 +101,13 @@ buff_left_down_right(time){
 buff_left_right(time){
     send_key("left")
     sleep 10
+    send_key("right")
+    sleep 10
+    send_key("space")
+    sleep time
+}
+
+buff_right(time){
     send_key("right")
     sleep 10
     send_key("space")
