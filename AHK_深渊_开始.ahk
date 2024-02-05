@@ -14,7 +14,17 @@
 #Include AHK_深渊_巫女.ahk
 #Include AHK_深渊_红眼.ahk
 
-character_select(index,abyss_times_total){
+start_abyss(index,abyss_times_total){
+if(index==6){
+return
+}
+if(index==12){
+return
+}
+
+if(abyss_times_total>0){
+skill("space",4000)
+}
 if (index ==1){
 abyss_times(abyss_times_total)
 }
@@ -80,37 +90,18 @@ abyss_times_hongyan(abyss_times_total)
 F1::
 {
 index := 1
-abyss_times_total := 0
-while (index <=16){
-down("right")
-sleep 2000
-up("right")
-sleep 500
-MouseMove 970,400
-sleep 500
-MouseMove 970,400
-sleep 500
-click_times(100)
-sleep 2000
-down("right")
-sleep 2000
-up("right")
-sleep 500
-skill("space",4000)
-
-character_select(index,abyss_times_total)
-
-skill("F12",4000)
-skill("esc",1000)
-MouseMove 925,840
-sleep 500
-MouseMove 925,840
-sleep 500
-click_times(100)
+ch_count :=16
+abyss_times_total := 32
+while (index <=ch_count){
+if(have_pl()){
+    go_abyss_door()
+    start_abyss(index,abyss_times_total)
+    back_city()
+}
+back_select_character()
 sleep 4000
 skill("right",2000)
 skill("space",5000)
-
 index := index+1
 }
 }
@@ -119,21 +110,12 @@ index := index+1
 
 F2::
 {
-index := 1
-while (index <=2){
-
-MouseClick "right", 647, 448,2
-sleep 1000
-
-if (index ==1){
-test(3)
+    if have_pl(){
+        MsgBox "have pl"
+    }else{
+        MsgBox "have no pl"
+    }
 }
 
-if (index ==2){
-test_nailuo(3)
-}
 
-index := index+1
-}
-}
 #HotIf

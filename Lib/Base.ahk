@@ -76,4 +76,65 @@ cur :=cur +1
 }
 }
 
-F2::Pause -1
+clean_screen(){
+    sleep 500
+    skill("F5",1000)
+    skill("F5",1000)
+}
+
+go_abyss_door(){
+down("right")
+sleep 2000
+up("right")
+sleep 500
+MouseMove 970,400
+sleep 500
+MouseMove 970,400
+sleep 500
+click_times(100)
+sleep 2000
+down("right")
+sleep 2000
+up("right")
+sleep 500
+}
+
+back_city(){
+clean_screen()
+skill("esc",500)
+MouseMove 1135,835
+sleep 500
+MouseMove 1135,835
+sleep 500
+click_times(100)
+sleep 500
+skill("space",2000)
+clean_screen()
+}
+
+back_select_character(){
+clean_screen()
+skill("esc",500)
+MouseMove 925,840
+sleep 500
+MouseMove 925,840
+sleep 500
+click_times(100)
+sleep 500 
+}
+
+have_no_pl(){
+    return PixelSearch(&Px, &Py, 1428, 1073, 1431, 1076, 0x171307, 3)
+}
+
+have_pl(){
+    return !have_no_pl()
+}
+
+^!r::Reload  ; Ctrl+Alt+R
+
+^!z::  ; Control+Alt+Z 热键.
+{
+    MouseGetPos &MouseX, &MouseY
+    MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
+}
