@@ -67,6 +67,37 @@ send_key("space")
 sleep time
 }
 
+buff_left_up_right(time){
+    send_key("left")
+    sleep 10
+    send_key("up")
+    sleep 10
+    send_key("right")
+    sleep 10
+    send_key("space")
+    sleep time
+}
+
+buff_left_down_right(time){
+    send_key("left")
+    sleep 10
+    send_key("down")
+    sleep 10
+    send_key("right")
+    sleep 10
+    send_key("space")
+    sleep time
+}
+
+buff_left_right(time){
+    send_key("left")
+    sleep 10
+    send_key("right")
+    sleep 10
+    send_key("space")
+    sleep time
+}
+
 click_times(times){
 cur:=0
 while (cur<times){
@@ -74,6 +105,10 @@ Click 2
 sleep 50
 cur :=cur +1
 }
+}
+
+click_for_success(){
+click_times(100)
 }
 
 clean_screen(){
@@ -91,7 +126,7 @@ MouseMove 970,400
 sleep 500
 MouseMove 970,400
 sleep 500
-click_times(100)
+click_for_success()
 sleep 2000
 down("right")
 sleep 2000
@@ -106,9 +141,10 @@ MouseMove 1135,835
 sleep 500
 MouseMove 1135,835
 sleep 500
-click_times(100)
+click_for_success()
 sleep 500
 skill("space",2000)
+skill("F12",2000)
 clean_screen()
 }
 
@@ -119,7 +155,7 @@ MouseMove 925,840
 sleep 500
 MouseMove 925,840
 sleep 500
-click_times(100)
+click_for_success()
 sleep 500 
 }
 
@@ -129,12 +165,4 @@ have_no_pl(){
 
 have_pl(){
     return !have_no_pl()
-}
-
-^!r::Reload  ; Ctrl+Alt+R
-
-^!z::  ; Control+Alt+Z 热键.
-{
-    MouseGetPos &MouseX, &MouseY
-    MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }

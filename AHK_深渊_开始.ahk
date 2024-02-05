@@ -110,11 +110,19 @@ index := index+1
 
 F2::
 {
-    if have_pl(){
-        MsgBox "have pl"
-    }else{
-        MsgBox "have no pl"
-    }
+    abyss_times_lvren(16)
+    back_city()
+    back_select_character()
+}
+
+F12::ExitApp
+
+^!r::Reload  ; Ctrl+Alt+R
+
+^!z::  ; Control+Alt+Z 热键.
+{
+    MouseGetPos &MouseX, &MouseY
+    MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
 }
 
 

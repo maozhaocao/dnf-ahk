@@ -14,9 +14,7 @@ run(1900)
 skill("a",2000)
 run(1700)
 skill("e",500)
-skill("r",500)
-skill("ctrl",500)
-skill("v",4000)
+skill("Numpad0",9000)
 pick()
 }
 }

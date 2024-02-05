@@ -1,3 +1,5 @@
 **/*.exe
 Scripts/Personal.ahk
 Log.txt
+.idea
+.vscode

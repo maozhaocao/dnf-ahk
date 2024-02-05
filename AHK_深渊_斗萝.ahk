@@ -9,7 +9,7 @@ while (count > 0)
 count := count - 1
 buff_right_right(1000)
 run(1800)
-skill("s",500)
+skill("d",500)
 run(1800)
 skill("v",1000)
 run(1800)
