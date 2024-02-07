@@ -104,8 +104,8 @@ abyss_times_guiqi(abyss_times_total)
 F1::
 {
 index := 1
-ch_count :=16
-abyss_times_total := 32
+ch_count :=20
+abyss_times_total := 24
 while (index <=ch_count){
 if(have_pl()){
     go_abyss_door()
@@ -124,17 +124,34 @@ index := index+1
 
 F2::
 {
-    abyss_times_guiqi(2)
+abyss_times_guiqi(20)
+}
+
+F3::
+{
+if have_pl()
+    MsgBox "yes"
+else
+    MsgBox "no"
 }
 
 F12::ExitApp
 
 ^!r::Reload  ; Ctrl+Alt+R
 
-^!z::  ; Control+Alt+Z 热键.
+mouseColor :=""
+
+^!z::  ; Control+Alt+Z 复制当前鼠标所在像素.
 {
     MouseGetPos &MouseX, &MouseY
-    MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
+    global mouseColor
+    mouseColor:= PixelGetColor(MouseX, MouseY)
+}
+
+^!x::  ; Control+Alt+x 粘贴复制的像素.
+{
+    global mouseColor
+    Send mouseColor
 }
 
 
