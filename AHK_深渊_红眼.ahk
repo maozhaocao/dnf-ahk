@@ -2,11 +2,7 @@
 
 #Include <Base>
 
-abyss_times_hongyan(times){
-count := times
-while (count > 0)
-{
-count := count - 1
+abyss_times_hongyan(){
 buff_right_right(800)
 skill("space",500)
 run(1200)
@@ -17,7 +13,5 @@ run(1400)
 skill("d",1000)
 skill("a",1000)
 skill("w",5000)
-pick()
-}
 }
 #HotIf

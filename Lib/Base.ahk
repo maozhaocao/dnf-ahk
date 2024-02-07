@@ -25,6 +25,10 @@ sleep time
 }
 
 pick(){
+count := 5
+while (count>0){
+count:=count-1
+if(can_back_city()){
 skill("numpaddiv",2000)
 skill("x",200)
 skill("x",200)
@@ -37,7 +41,10 @@ skill("x",200)
 skill("x",200)
 skill("x",200)
 skill("esc",500)
-skill("f10",6000)
+break
+}
+sleep 1000
+}
 }
 
 buff_right_right(time){

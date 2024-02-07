@@ -2,11 +2,7 @@
 
 #Include <Base>
 
-abyss_times_zhaohuan(times){
-count := times
-while (count > 0)
-{
-    count := count - 1
+abyss_times_zhaohuan(){
     buff_right_right(1200)
     buff_left_up_right(2000)
     skill("q",500)
@@ -19,7 +15,5 @@ while (count > 0)
     skill("g",500)
     skill("d",500)
     buff_left_right(7000)
-    pick()
-}
 }
 #HotIf

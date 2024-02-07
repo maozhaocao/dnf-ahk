@@ -2,11 +2,7 @@
 
 #Include <Base>
 
-abyss_times_douluo(times){
-count := times
-while (count > 0)
-{
-count := count - 1
+abyss_times_douluo(){
 buff_right_right(1000)
 run(1800)
 skill("d",500)
@@ -15,7 +11,5 @@ skill("v",1000)
 run(1800)
 skill("r",1000)
 skill("g",4000)
-pick()
-}
 }
 #HotIf

@@ -19,85 +19,98 @@
 #Include AHK_深渊_鬼泣.ahk
 
 start_abyss(index,abyss_times_total){
-
-if(abyss_times_total>0){
-skill("space",4000)
+    count := abyss_times_total
+    while (count > 0)
+    {
+    count := count - 1
+    abyss_times_one(index)
+    pick()
+    if(have_no_pl()){
+        break
+    }
+    if(count >0){
+        skill("F10",6000)
+    }
+    }
 }
+
+abyss_times_one(index){
+
 if (index ==1){
-abyss_times(abyss_times_total)
+abyss_times()
 }
 if (index ==4){
-abyss_times(abyss_times_total)
+abyss_times()
 }
 if (index ==8){
-abyss_times(abyss_times_total)
+abyss_times()
 }
 
 if (index ==2){
-abyss_times_douluo(abyss_times_total)
+abyss_times_douluo()
 }
 
 if (index ==3){
-abyss_times_nailuo(abyss_times_total)
+abyss_times_nailuo()
 }
 if (index ==5){
-abyss_times_nailuo(abyss_times_total)
+abyss_times_nailuo()
 }
 
 if (index ==6){
-abyss_times_zhaohuan(abyss_times_total)
+abyss_times_zhaohuan()
 }
 
 if (index ==7){
-abyss_times_jinggai(abyss_times_total)
+abyss_times_jinggai()
 }
 
 if (index ==9){
-abyss_times_naiba(abyss_times_total)
+abyss_times_naiba()
 }
 
 if (index ==10){
-abyss_times_naima(abyss_times_total)
+abyss_times_naima()
 }
 
 if (index ==11){
-abyss_times_renying(abyss_times_total)
+abyss_times_renying()
 }
 
 if (index ==12){
-abyss_times_jianhun(abyss_times_total)
+abyss_times_jianhun()
 }
 
 if (index ==13){
-abyss_times_miusi(abyss_times_total)
+abyss_times_miusi()
 }
 
 if (index ==14){
-abyss_times_lvren(abyss_times_total)
+abyss_times_lvren()
 }
 
 if (index ==15){
-abyss_times_wunv(abyss_times_total)
+abyss_times_wunv()
 }
 
 if (index ==16){
-abyss_times_hongyan(abyss_times_total)
+abyss_times_hongyan()
 }
 
 if (index ==17){
-abyss_times_feizong(abyss_times_total)
+abyss_times_feizong()
 }
 
 if (index ==18){
-abyss_times_huahua(abyss_times_total)
+abyss_times_huahua()
 }
 
 if (index ==19){
-abyss_times_xiazi(abyss_times_total)
+abyss_times_xiazi()
 }
 
 if (index ==20){
-abyss_times_guiqi(abyss_times_total)
+abyss_times_guiqi()
 }
 }
 
@@ -124,7 +137,7 @@ index := index+1
 
 F2::
 {
-abyss_times_guiqi(20)
+abyss_times_guiqi()
 }
 
 F3::

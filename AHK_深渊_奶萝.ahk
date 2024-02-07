@@ -2,11 +2,7 @@
 
 #Include <Base>
 
-abyss_times_nailuo(times){
-count := times
-while (count > 0)
-{
-count := count - 1
+abyss_times_nailuo(){
 buff_right_right(2000)
 run(2100)
 skill("q",500)
@@ -18,8 +14,6 @@ skill("r",300)
 skill("s",100)
 skill("e",1000)
 skill("r",4000)
-pick()
-}
 }
 
 test_nailuo(times){

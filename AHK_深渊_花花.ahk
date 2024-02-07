@@ -2,11 +2,7 @@
 
 #Include <Base>
 
-abyss_times_huahua(times){
-count := times
-while (count > 0)
-{
-count := count - 1
+abyss_times_huahua(){
 buff_right_right(1500)
 buff_right(1000)
 run(1800)
@@ -17,7 +13,5 @@ run(1300)
 skill("s",1000)
 skill("g",500)
 skill("Numpad4",9000)
-pick()
-}
 }
 #HotIf
