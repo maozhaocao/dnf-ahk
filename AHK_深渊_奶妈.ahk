@@ -6,12 +6,9 @@ abyss_times_naima(){
 buff_right_right(1000)
 run(1800)
 skill("e",1000)
-run(1800)
-skill("e",1000)
-run(1400)
-skill("f",1000)
-skill("ctrl",500)
-skill("q",500)
-skill("ctrl",4000)
+run(3200)
+skill("v",5000)
+run(500)
+skill("r",500)
 }
 #HotIf

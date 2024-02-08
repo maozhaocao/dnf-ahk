@@ -43,6 +43,10 @@ skill("x",200)
 skill("esc",500)
 break
 }
+if(count<=1){
+    skill("Numpad0",500)
+    skill("Numpad4",500)
+}
 sleep 1000
 }
 }

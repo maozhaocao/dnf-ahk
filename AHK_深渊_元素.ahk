@@ -9,9 +9,8 @@ abyss_times(){
     run(2100)
     skill("w",500)
     run(1500)
-    skill("g",700)
-    skill("d",1000)
-    skill("d",4000)
+    skill("d",500)
+    skill("Numpad0",5000)
 }
 
 test(times){

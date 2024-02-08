@@ -19,6 +19,7 @@
 #Include AHK_深渊_鬼泣.ahk
 
 start_abyss(index,abyss_times_total){
+    skill("space",4000)
     count := abyss_times_total
     while (count > 0)
     {
@@ -26,7 +27,7 @@ start_abyss(index,abyss_times_total){
     abyss_times_one(index)
     pick()
     if(have_no_pl()){
-        break
+        ; break
     }
     if(count >0){
         skill("F10",6000)
@@ -137,11 +138,13 @@ index := index+1
 
 F2::
 {
-abyss_times_guiqi()
+abyss_times()
+pick()
 }
 
 F3::
 {
+    ; Click
 if have_pl()
     MsgBox "yes"
 else
