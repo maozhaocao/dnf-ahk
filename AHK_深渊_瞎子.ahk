@@ -11,6 +11,7 @@ run(2100)
 skill("ctrl",2500)
 run(1300)
 skill("s",1000)
-skill("Numpad4",9000)
+skill("Numpad4",1000)
+skill("Numpad0",8000)
 }
 #HotIf
