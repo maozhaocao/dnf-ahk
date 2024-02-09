@@ -27,8 +27,9 @@ start_abyss(index,abyss_times_total){
     abyss_times_one(index)
     pick()
     if(have_no_pl()){
-        ; break
+        break
     }
+    sleep 500
     if(count >0){
         skill("F10",6000)
     }
@@ -119,7 +120,7 @@ F1::
 {
 index := 1
 ch_count :=20
-abyss_times_total := 24
+abyss_times_total := 26
 while (index <=ch_count){
 if(have_pl()){
     go_abyss_door()
@@ -138,7 +139,7 @@ index := index+1
 
 F2::
 {
-abyss_times()
+abyss_times_hongyan()
 pick()
 }
 

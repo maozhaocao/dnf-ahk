@@ -10,7 +10,8 @@ abyss_times(){
     skill("w",500)
     run(1500)
     skill("d",500)
-    skill("Numpad0",5000)
+    skill("Numpad0",1000)
+    skill("d",4500)
 }
 
 test(times){

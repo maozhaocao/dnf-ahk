@@ -11,6 +11,7 @@ up(key) {
 }
 
 run(time) {
+sleep 50
 send_key("right")
 sleep 10
 down("right")
@@ -19,9 +20,35 @@ up("right")
 sleep 50
 }
 
+run_left(time) {
+    sleep 50
+    send_key("left")
+    sleep 10
+    down("left")
+    sleep time
+    up("left")
+    sleep 50
+}
+
 skill(name,time){
+sleep 10
 send_key(name)
 sleep time
+}
+
+pick2(){
+    skill("numpaddiv",2000)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("esc",500)
 }
 
 pick(){
@@ -29,6 +56,7 @@ count := 5
 while (count>0){
 count:=count-1
 if(can_back_city()){
+sleep 1000
 skill("numpaddiv",2000)
 skill("x",200)
 skill("x",200)
@@ -44,8 +72,13 @@ skill("esc",500)
 break
 }
 if(count<=1){
-    skill("Numpad0",500)
-    skill("Numpad4",500)
+    run(3000)
+    run_left(1000)
+    if(count==1){
+        skill("Numpad4",7000)
+    }else{
+        skill("Numpad0",4000)
+    }
 }
 sleep 1000
 }

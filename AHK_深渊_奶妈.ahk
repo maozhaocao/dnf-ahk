@@ -7,7 +7,7 @@ buff_right_right(1000)
 run(1800)
 skill("e",1000)
 run(3200)
-skill("v",5000)
+skill("v",7000)
 run(500)
 skill("r",500)
 }
