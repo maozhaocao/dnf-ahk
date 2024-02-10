@@ -36,6 +36,14 @@ send_key(name)
 sleep time
 }
 
+skill_down_up(name,time,delay){
+    sleep 10
+    down(name)
+    sleep time
+    up(name)
+    sleep delay
+}
+
 pick2(){
     skill("numpaddiv",2000)
     skill("x",200)

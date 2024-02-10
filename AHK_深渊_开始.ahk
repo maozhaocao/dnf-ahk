@@ -17,6 +17,10 @@
 #Include AHK_深渊_花花.ahk
 #Include AHK_深渊_瞎子.ahk
 #Include AHK_深渊_鬼泣.ahk
+#Include AHK_深渊_合金.ahk
+#Include AHK_深渊_血法.ahk
+#Include AHK_深渊_啪啪.ahk
+#Include AHK_深渊_娘嫚.ahk
 
 start_abyss(index,abyss_times_total){
     skill("space",4000)
@@ -114,12 +118,28 @@ abyss_times_xiazi()
 if (index ==20){
 abyss_times_guiqi()
 }
+
+if (index ==21){
+    abyss_times_hejin()
+}
+
+if (index ==22){
+    abyss_times_xuefa()
+}
+
+if (index ==23){
+    abyss_times_papa()
+}
+
+if (index ==24){
+    abyss_times_niangman()
+}
 }
 
 F1::
 {
 index := 1
-ch_count :=20
+ch_count :=24
 abyss_times_total := 26
 while (index <=ch_count){
 if(have_pl()){
@@ -139,7 +159,7 @@ index := index+1
 
 F2::
 {
-abyss_times_hongyan()
+    abyss_times_niangman()
 pick()
 }
 
