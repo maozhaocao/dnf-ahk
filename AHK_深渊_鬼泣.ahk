@@ -11,9 +11,10 @@ run(1700)
 skill("g",1500)
 run(1500)
 skill("a",500)
-skill("q",300)
+skill("q",100)
 skill("w",1200)
 skill("Numpad4",9000)
-skill("d",1200)
+run(500)
+skill("v",1200)
 }
 #HotIf

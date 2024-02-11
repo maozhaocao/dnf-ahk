@@ -14,6 +14,7 @@ skill("r",300)
 skill("s",100)
 skill("e",1000)
 skill("r",4000)
+skill("f",500)
 }
 
 test_nailuo(times){

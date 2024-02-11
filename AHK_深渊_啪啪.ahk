@@ -14,6 +14,6 @@ skill("s",800)
 skill("g",800)
 skill("v",1000)
 skill("Numpad4",9000)
-skill("s",1000)
+skill("w",1000)
 }
 #HotIf
