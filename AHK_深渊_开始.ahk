@@ -31,11 +31,17 @@ start_abyss(index,abyss_times_total){
     abyss_times_one(index)
     pick()
     if(have_no_pl()){
+        ToolTip "have_no_pl", 200, 200, 1
+        break
+    }
+    sleep 500
+    if(have_no_ticket()){
+        ToolTip "have_no_ticket", 200, 200, 1
         break
     }
     sleep 500
     if(count >0){
-        skill("F10",6000)
+        skill("F10",4000)
     }
     }
 }
@@ -138,11 +144,18 @@ if (index ==24){
 
 F1::
 {
-index := 1
+IB := InputBox("", "请输入当前角色id", "w200 h150")
+if IB.Result = "Cancel"{
+    MsgBox "操作被取消"
+    return
+}
+index := IB.value
 ch_count :=24
 abyss_times_total := 26
 while (index <=ch_count){
+sleep 500
 if(have_pl()){
+    ToolTip "have_pl", 200, 200, 1
     go_abyss_door()
     start_abyss(index,abyss_times_total)
     back_city()
@@ -166,29 +179,32 @@ pick()
 F3::
 {
     ; Click
-if have_pl()
+if have_no_ticket()
     MsgBox "yes"
 else
     MsgBox "no"
+ToolTip "BUFF ON", 200, 200, 1
 }
 
 F12::ExitApp
 
 ^!r::Reload  ; Ctrl+Alt+R
 
+MouseX := 0 
+MouseY := 0 
 mouseColor :=""
 
 ^!z::  ; Control+Alt+Z 复制当前鼠标所在像素.
 {
+    global MouseX,MouseY,mouseColor
     MouseGetPos &MouseX, &MouseY
-    global mouseColor
     mouseColor:= PixelGetColor(MouseX, MouseY)
 }
 
 ^!x::  ; Control+Alt+x 粘贴复制的像素.
 {
-    global mouseColor
-    Send mouseColor
+    global MouseX,MouseY,mouseColor
+    Send MouseX-3 "," MouseY-3 "," MouseX+3 "," MouseY+3 "," mouseColor
 }
 
 

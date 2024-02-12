@@ -242,6 +242,44 @@ have_pl(){
     return false
 }
 
+have_ticket(){
+    score :=0
+    if(PixelSearch(&Px, &Py, 1632,152,1638,158,0xCEB37D, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1661,154,1667,160,0xEEC88E, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1685,151,1691,157,0xEAC484, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1715,148,1721,154,0xDCC38A, 30)){
+        score :=score+50
+    }
+    return score>=150
+}
+
+have_no_ticket(){
+return !have_ticket()
+}
+
+have_no_ticket2(){
+    score :=0
+    if(PixelSearch(&Px, &Py, 1623,155,1629,161,0x818181, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1657,148,1663,154,0xBBBBBB, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1686,151,1692,157,0xADADAD, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1707,151,1713,157,0xA6A6A6, 30)){
+        score :=score+50
+    }
+    return score>=150
+}
+
 can_back_city(){
     score :=0
     if(PixelSearch(&Px, &Py, 1625, 263, 1631, 269, 0xF5DF9E, 30)){
