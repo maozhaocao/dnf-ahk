@@ -24,6 +24,12 @@
 
 start_abyss(index,abyss_times_total){
     skill("space",4000)
+    if(!can_enter_abyss()){
+        ToolTip "can_not_enter_abyss", 200, 200, 1
+        sleep 1000
+        return
+    }
+    sleep 1000
     count := abyss_times_total
     while (count > 0)
     {

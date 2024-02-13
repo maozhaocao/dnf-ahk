@@ -84,8 +84,12 @@ if(count<=1){
     run_left(1000)
     if(count==1){
         skill("Numpad4",7000)
+        skill("q",1000)
+        skill("w",1000)
     }else{
         skill("Numpad0",4000)
+        skill("d",1000)
+        skill("f",1000)
     }
 }
 sleep 1000
@@ -259,11 +263,11 @@ have_ticket(){
     return score>=150
 }
 
-have_no_ticket(){
+have_no_ticket2(){
 return !have_ticket()
 }
 
-have_no_ticket2(){
+have_no_ticket(){
     score :=0
     if(PixelSearch(&Px, &Py, 1623,155,1629,161,0x818181, 30)){
         score :=score+50
@@ -278,6 +282,24 @@ have_no_ticket2(){
         score :=score+50
     }
     return score>=150
+}
+
+can_enter_abyss(){
+    score :=0
+    if(PixelSearch(&Px, &Py,1575,992,1581,998,0x0B2C54, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1700,993,1706,999,0x0B2B51, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py, 1761,994,1767,1000,0x0B2A50, 30)){
+        score :=score+50
+    }
+    if(PixelSearch(&Px, &Py,1881,990,1887,996,0x0D2E58 , 30)){
+        score :=score+50
+    }
+    ;score>=150说明实际因为没有票或者pl没有进去
+    return score<150
 }
 
 can_back_city(){
