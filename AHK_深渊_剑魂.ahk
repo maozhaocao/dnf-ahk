@@ -1,4 +1,4 @@
-﻿#HotIf WinActive("ahk_exe DNF.exe")
+﻿;#HotIf WinActive("ahk_exe DNF.exe")
 
 #Include <Base>
 
@@ -12,4 +12,4 @@ abyss_times_jianhun(){
     skill("ctrl",1000)
     skill("Numpad4",9000)
 }
-#HotIf
+;#HotIf

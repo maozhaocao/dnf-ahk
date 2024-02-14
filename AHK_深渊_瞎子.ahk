@@ -1,4 +1,4 @@
-﻿#HotIf WinActive("ahk_exe DNF.exe")
+﻿;#HotIf WinActive("ahk_exe DNF.exe")
 
 #Include <Base>
 
@@ -15,4 +15,4 @@ skill("Numpad4",1000)
 skill("Numpad0",8000)
 skill("d",1000)
 }
-#HotIf
+;#HotIf

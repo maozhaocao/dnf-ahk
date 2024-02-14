@@ -1,4 +1,4 @@
-﻿#HotIf WinActive("ahk_exe DNF.exe")
+﻿;#HotIf WinActive("ahk_exe DNF.exe")
 
 #Include <Base>
 
@@ -16,4 +16,4 @@ abyss_times_zhaohuan(){
     skill("d",500)
     buff_left_right(7000)
 }
-#HotIf
+;#HotIf
