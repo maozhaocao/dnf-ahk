@@ -1,4 +1,18 @@
-﻿;#HotIf WinActive("ahk_exe DNF.exe")
+﻿full_command_line := DllCall("GetCommandLine", "str")
+
+if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
+{
+    try
+    {
+        if A_IsCompiled
+            Run *RunAs "%A_ScriptFullPath%" /restart
+        else
+            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
+    }
+    ExitApp
+}
+
+;#HotIf WinActive("ahk_exe DNF.exe")
 
 #Include AHK_深渊_元素.ahk
 #Include AHK_深渊_斗萝.ahk
