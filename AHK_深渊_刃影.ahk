@@ -1,6 +1,6 @@
 ﻿;#HotIf WinActive("ahk_exe DNF.exe")
 
-#Include <Base>
+#Include AHK_角色操作.ahk
 
 abyss_times_renying(){
 buff_right_right(1000)

@@ -1,21 +1,4 @@
-sleep(time){
-sleep,time
-}
-
-send_key(key) {
-    SendInput, {Blind}{%key% DownTemp}
-    Sleep, 1
-    SendInput, {Blind}{%key% Up}
-    Sleep, 1
-}
-
-down(key) {
-    SendInput, {Blind}{%key% DownTemp}
-}
-
-up(key) {
-    SendInput, {Blind}{%key% Up}
-}
+﻿#Include AHK_版本v1.ahk
 
 run(time) {
 sleep(50)
@@ -239,20 +222,19 @@ click_for_success()
 sleep(500)
 }
 
+pixel_search_point(pointX,pointY,colorId){
+return pixel_search(pointX-3,pointY-3,pointX+3,pointY+3,colorId)
+}
+
 have_no_pl(){
     return !have_pl()
 }
 
-PixelSearch( X1, Y1, X2, Y2, ColorID){
-    PixelSearch, Px, Py, X1, Y1, X2, Y2, ColorID, 30, Fast RGB
-    return ErrorLevel==0
-}
-
 have_pl(){
-    if(PixelSearch(1427, 1070, 1430, 1073, 0x00CEDE)){
+    if(pixel_search_point(1429, 1071, 0x00CEDE)){
         return true
     }
-    if(PixelSearch(1421, 1066, 1427, 1072, 0x8F1E00)){
+    if(pixel_search_point(1424, 1069, 0x8F1E00)){
         return true
     }
     return false
@@ -260,16 +242,16 @@ have_pl(){
 
 have_ticket(){
     score :=0
-    if(PixelSearch(1632,152,1638,158,0xCEB37D)){
+    if(pixel_search_point(1635,155,0xCEB37D)){
         score :=score+50
     }
-    if(PixelSearch(1661,154,1667,160,0xEEC88E)){
+    if(pixel_search_point(1664,157,0xEEC88E)){
         score :=score+50
     }
-    if(PixelSearch(1685,151,1691,157,0xEAC484)){
+    if(pixel_search_point(1688,154,0xEAC484)){
         score :=score+50
     }
-    if(PixelSearch(1715,148,1721,154,0xDCC38A)){
+    if(pixel_search_point(1718,151,0xDCC38A)){
         score :=score+50
     }
     return score>=150
@@ -281,16 +263,16 @@ return !have_ticket()
 
 have_no_ticket(){
     score :=0
-    if(PixelSearch(1623,155,1629,161,0x818181)){
+    if(pixel_search_point(1625,158,0x818181)){
         score :=score+50
     }
-    if(PixelSearch(1657,148,1663,154,0xBBBBBB)){
+    if(pixel_search_point(1660,151,0xBBBBBB)){
         score :=score+50
     }
-    if(PixelSearch(1686,151,1692,157,0xADADAD)){
+    if(pixel_search_point(1689,154,0xADADAD)){
         score :=score+50
     }
-    if(PixelSearch(1707,151,1713,157,0xA6A6A6)){
+    if(pixel_search_point(1710,154,0xA6A6A6)){
         score :=score+50
     }
     return score>=150
@@ -298,16 +280,16 @@ have_no_ticket(){
 
 can_enter_abyss(){
     score :=0
-    if(PixelSearch(1575,992,1581,998,0x0B2C54)){
+    if(pixel_search_point(1578,995,0x0B2C54)){
         score :=score+50
     }
-    if(PixelSearch(1700,993,1706,999,0x0B2B51)){
+    if(pixel_search_point(1703,996,0x0B2B51)){
         score :=score+50
     }
-    if(PixelSearch(1761,994,1767,1000,0x0B2A50)){
+    if(pixel_search_point(1764,997,0x0B2A50)){
         score :=score+50
     }
-    if(PixelSearch(1881,990,1887,996,0x0D2E58)){
+    if(pixel_search_point(1884,993,0x0D2E58)){
         score :=score+50
     }
     ;score>=150说明实际因为没有票或者pl没有进去
@@ -316,16 +298,16 @@ can_enter_abyss(){
 
 can_back_city(){
     score :=0
-    if(PixelSearch(1625, 263, 1631, 269, 0xF5DF9E)){
+    if(pixel_search_point(1628, 266, 0xF5DF9E)){
         score :=score+50
     }
-    if(PixelSearch(1656, 263, 1661, 269, 0xF5DF9E)){
+    if(pixel_search_point(1659, 266, 0xF5DF9E)){
         score :=score+50
     }
-    if(PixelSearch(1678, 263, 1684, 269, 0xF5DF9E)){
+    if(pixel_search_point(1681, 266, 0xF5DF9E)){
         score :=score+50
     }
-    if(PixelSearch(1705, 263, 1711, 269, 0xF5DF9E)){
+    if(pixel_search_point(1708, 266, 0xF5DF9E)){
         score :=score+50
     }
     return score>=150
@@ -337,9 +319,3 @@ can_back_city(){
 ;     else
 ;         MsgBox "Icon could not be found on the screen."
 ; }
-
-PixelGetColor(MouseX, MouseY){
-    MouseGetPos, MouseX, MouseY
-    PixelGetColor, color, %MouseX%, %MouseY%
-    return "%color%"
-}
