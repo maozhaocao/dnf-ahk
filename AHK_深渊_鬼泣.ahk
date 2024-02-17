@@ -3,18 +3,16 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_guiqi(){
-buff_up_down(1500)
+buff_right_right(1500)
 run(1900)
-skill("f",300)
-skill("r",1200)
+skill("a",800)
 run(1700)
-skill("g",1500)
-run(1500)
-skill("a",500)
-skill("q",100)
-skill("w",1200)
-skill("Numpad4",9000)
+skill("e",800)
+run(1200)
+skill("r",100)
+skill("w",1500)
+skill("t",4000)
 run(500)
-skill("v",1200)
+skill("h",1200)
 }
 ;#HotIf

@@ -1,4 +1,4 @@
-sleep(time){
+﻿sleep(time){
     sleep,time
 }
     
@@ -29,7 +29,7 @@ pixel_getColor(){
 }
 
 input_value(title){
-    InputBox,index, title,, 100,150
+    InputBox,index, %title%
     if ErrorLevel{
         MsgBox,"操作被取消"
         return -1

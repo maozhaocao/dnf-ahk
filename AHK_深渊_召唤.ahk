@@ -4,16 +4,13 @@
 
 abyss_times_zhaohuan(){
     buff_right_right(1200)
-    buff_left_up_right(2000)
-    skill("q",500)
-    run(2100)
-    skill("f",500)
-    run(2200)
-    skill("ctrl",500)
-    skill("s",500)
-    run(1700)
-    skill("g",500)
-    skill("d",500)
-    buff_left_right(7000)
+    buff_up_up(2000)
+    skill("w",500)
+    skill("a",1000)
+    run(1500)
+    down_down_z(1000)
+    run(3000)
+    down_down_down_z(8000)
+    run(1000)
 }
 ;#HotIf

@@ -3,13 +3,13 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_jinggai(){
-buff_up_up(1000)
-run(1900)
+buff_right_right(1000)
+run(2300)
 skill("f",500)
-run(1900)
-skill("a",2000)
-run(1700)
-skill("e",500)
-skill("Numpad0",9000)
+run(2300)
+skill("w",2000)
+run(2000)
+skill("t",500)
+down_down_z(9000)
 }
 ;#HotIf

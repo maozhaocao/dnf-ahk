@@ -2,16 +2,15 @@
 
 #Include AHK_角色操作.ahk
 
-abyss_times_huahua(){
+abyss_times_jianmo(){
 buff_right_right(1500)
-; buff_up_up(1000)
-run(1800)
+run(1500)
 skill("h",1500)
-run(1400)
-skill("r",1500)
-run(1000)
+run(1500)
+skill("alt",2500)
+run(1700)
 skill("a",1000)
-skill("w",4000)
-skill("f",1000)
+down_down_z(5000)
+skill("w",1000)
 }
 ;#HotIf

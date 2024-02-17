@@ -55,7 +55,7 @@ while (count>0){
 count:=count-1
 if(can_back_city()){
 sleep(1000)
-skill("numpaddiv",2000)
+skill("F1",2000)
 skill("x",200)
 skill("x",200)
 skill("x",200)
@@ -160,6 +160,26 @@ buff_right(time){
     sleep(time)
 }
 
+down_down_z(time){
+    send_key("down")
+    sleep(10)
+    send_key("down")
+    sleep(10)
+    send_key("z")
+    sleep(time) 
+}
+
+down_down_down_z(time){
+    send_key("down")
+    sleep(10)
+    send_key("down")
+    sleep(10)
+    send_key("down")
+    sleep(10)
+    send_key("z")
+    sleep(time) 
+}
+
 click_times(times){
 cur:=0
 while (cur<times){
@@ -185,6 +205,16 @@ sleep(2000)
 up("right")
 sleep(500)
 MouseMove 970,400
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
+skill("WheelUp",100)
 sleep(500)
 MouseMove 970,400
 sleep(500)
@@ -200,9 +230,9 @@ sleep(500)
 back_city(){
 clean_screen()
 skill("esc",500)
-MouseMove 1135,835
+MouseMove 1135,750
 sleep(500)
-MouseMove 1135,835
+MouseMove 1135,750
 sleep(500)
 click_for_success()
 sleep(500)
@@ -214,9 +244,9 @@ clean_screen()
 back_select_character(){
 clean_screen()
 skill("esc",500)
-MouseMove 925,840
+MouseMove 925,750
 sleep(500)
-MouseMove 925,840
+MouseMove 925,750
 sleep(500)
 click_for_success()
 sleep(500)

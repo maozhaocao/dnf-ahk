@@ -32,7 +32,7 @@ start_abyss(index,abyss_times_total){
     }
 }
 
-F1::
+F3::
 {
 index := input_value("请输入当前角色id")
 if(index <=0){
@@ -42,12 +42,12 @@ if(index <=0){
 ; if(ch_count <=0){
 ;     return
 ; }
-; abyss_times_total := input_value("深渊次数")
-; if(abyss_times_total <=0){
-;     return
-; }
-ch_count :=24
-abyss_times_total := 26
+abyss_times_total := input_value("深渊次数")
+if(abyss_times_total <=0){
+    return
+}
+ch_count :=16
+; abyss_times_total := 1
 while (index <=ch_count){
 sleep(500)
 if(have_pl()){
@@ -67,23 +67,24 @@ return
 
 
 
-F2::
-{
-abyss_times_feizong()
-pick()
-return
-}
+; F2::
+; {
+;     sleep(100)
+;     abyss_times_zhaohuan()
+; pick()
+; return
+; }
 
-F3::
-{
-    ; Click
-if have_pl()
-    MsgBox "yes"
-else
-    MsgBox "no"
-; ToolTip,"BUFF ON", 200, 200, 1
-return
-}
+; F3::
+; {
+;     ; Click
+; if have_pl()
+;     MsgBox "yes"
+; else
+;     MsgBox "no"
+; ; ToolTip,"BUFF ON", 200, 200, 1
+; return
+; }
 
 F12::ExitApp
 

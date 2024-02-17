@@ -5,16 +5,16 @@
 abyss_times_nailuo(){
 buff_right_right(2000)
 run(2100)
-skill("q",500)
+skill("w",500)
 run(1500)
-skill("f",500)
-run(1000)
-skill("d",1000)
-skill("r",300)
+skill("w",500)
+run(1700)
+skill("r",1000)
+skill("CapsLock",300)
 skill("s",100)
-skill("e",1000)
-skill("r",4000)
-skill("f",500)
+skill("d",1000)
+skill("caps",4000)
+skill("g",500)
 }
 
 test_nailuo(times){
