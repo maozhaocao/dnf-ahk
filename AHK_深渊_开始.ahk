@@ -75,16 +75,16 @@ return
 ; return
 ; }
 
-; F3::
-; {
-;     ; Click
-; if have_pl()
-;     MsgBox "yes"
-; else
-;     MsgBox "no"
-; ; ToolTip,"BUFF ON", 200, 200, 1
-; return
-; }
+F2::
+{
+    ; Click
+if have_pl()
+    ToolTip "have_pl", 200, 200, 1
+else
+    ToolTip "have_no_pl", 200, 200, 1
+; ToolTip,"BUFF ON", 200, 200, 1
+return
+}
 
 F12::ExitApp
 
