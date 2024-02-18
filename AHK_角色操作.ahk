@@ -261,7 +261,7 @@ have_no_pl(){
 }
 
 have_pl(){
-    if(pixel_search_point(1429, 1071, 0x00CEDE)){
+    if(pixel_search_point(1429, 1071, 0x23CDEE)){
         return true
     }
     if(pixel_search_point(1424, 1069, 0x8F1E00)){
@@ -328,16 +328,16 @@ can_enter_abyss(){
 
 can_back_city(){
     score :=0
-    if(pixel_search_point(1628, 266, 0xF5DF9E)){
+    if(pixel_search_point(1628, 266, 0xB39155)){
         score :=score+50
     }
-    if(pixel_search_point(1659, 266, 0xF5DF9E)){
+    if(pixel_search_point(1659, 266, 0xB39155)){
         score :=score+50
     }
-    if(pixel_search_point(1681, 266, 0xF5DF9E)){
+    if(pixel_search_point(1681, 266, 0xB39155)){
         score :=score+50
     }
-    if(pixel_search_point(1708, 266, 0xF5DF9E)){
+    if(pixel_search_point(1708, 266, 0xB39155)){
         score :=score+50
     }
     return score>=150
