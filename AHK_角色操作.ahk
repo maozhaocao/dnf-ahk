@@ -50,7 +50,7 @@ pick2(){
 }
 
 pick(){
-count := 5
+count := 8
 while (count>0){
 count:=count-1
 if(can_back_city()){
@@ -69,17 +69,23 @@ skill("x",200)
 skill("esc",500)
 break
 }
-if(count<=1){
+if(count<=3){
     run(3000)
     run_left(1000)
-    if(count==1){
-        skill("Numpad4",7000)
+    if(count==3){
         skill("q",1000)
         skill("w",1000)
-    }else{
-        skill("Numpad0",4000)
+        skill("e",1000)
+    } 
+    if(count==2){
+        skill("a",1000)
+        skill("s",1000)
         skill("d",1000)
+    }    
+    if(count==1){
+        skill("r",1000)
         skill("f",1000)
+        skill("g",1000)
     }
 }
 sleep(1000)

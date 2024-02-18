@@ -10,6 +10,7 @@ run(2300)
 skill("w",2000)
 run(2000)
 skill("t",500)
-down_down_z(9000)
+skill("h",9000)
+; down_down_z(9000)
 }
 ;#HotIf

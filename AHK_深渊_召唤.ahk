@@ -7,9 +7,9 @@ abyss_times_zhaohuan(){
     buff_up_up(2000)
     skill("w",500)
     skill("a",1000)
-    run(1500)
+    run(2500)
     down_down_z(1000)
-    run(3000)
+    run(4500)
     down_down_down_z(8000)
     run(1000)
 }
