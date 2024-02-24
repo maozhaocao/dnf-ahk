@@ -70,6 +70,7 @@ skill("esc",500)
 break
 }
 if(count<=1){
+    log.info("深渊疑似卡住,执行修正流程")
     run(3000)
     run_left(1000)
     if(count==1){

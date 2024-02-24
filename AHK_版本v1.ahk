@@ -1,3 +1,9 @@
+#include <log>
+; log.is_out_console := true
+log.is_out_file := true
+log.is_use_editor := true
+log.level := log.level_debug
+
 sleep(time){
     sleep,time
 }

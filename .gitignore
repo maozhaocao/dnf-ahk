@@ -3,3 +3,5 @@ Scripts/Personal.ahk
 Log.txt
 .idea
 .vscode
+/logs/
+/logs/*.txt
