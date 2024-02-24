@@ -319,3 +319,39 @@ can_back_city(){
 ;     else
 ;         MsgBox "Icon could not be found on the screen."
 ; }
+move_and_click(mouse_x,mouse_y,delay){
+    sleep(200)
+    MouseMove mouse_x,mouse_y
+    sleep(delay)
+    click_for_success()
+}
+
+finish_daily_task(){
+sleep(200)
+MouseMove 1386,977
+sleep(800)
+click_times(1)
+move_and_click(890,420,800)
+move_and_click(890,536,800)
+move_and_click(890,658,800)
+move_and_click(890,805,800)
+move_and_click(890,307,800)
+sleep(500)
+skill("F5",1000)
+skill("F5",1000)
+}
+
+finish_abyss_task(){
+sleep(200)
+MouseMove 1576,930
+sleep(800)
+click_times(1)
+move_and_click(1158,460,800)
+move_and_click(1158,572,800)
+move_and_click(1158,709,800)
+move_and_click(1158,800,800)
+move_and_click(1158,884,800)
+sleep(500)
+skill("F5",1000)
+skill("F5",1000)
+}

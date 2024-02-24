@@ -55,6 +55,8 @@ if(have_pl()){
     go_abyss_door()
     start_abyss(index,abyss_times_total)
     back_city()
+    finish_daily_task()
+    finish_abyss_task()
 }
 back_select_character()
 sleep(4000)
