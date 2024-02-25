@@ -70,18 +70,19 @@ skill("esc",500)
 break
 }
 if(count<=3){
+    log.info("深渊疑似卡住,执行修正流程")
     run(3000)
     run_left(1000)
     if(count==3){
         skill("q",1000)
         skill("w",1000)
         skill("e",1000)
-    } 
+    }
     if(count==2){
         skill("a",1000)
         skill("s",1000)
         skill("d",1000)
-    }    
+    }
     if(count==1){
         skill("r",1000)
         skill("f",1000)
@@ -172,7 +173,7 @@ down_down_z(time){
     send_key("down")
     sleep(10)
     send_key("z")
-    sleep(time) 
+    sleep(time)
 }
 
 down_down_down_z(time){
@@ -183,7 +184,7 @@ down_down_down_z(time){
     send_key("down")
     sleep(10)
     send_key("z")
-    sleep(time) 
+    sleep(time)
 }
 
 click_times(times){
@@ -268,6 +269,9 @@ have_no_pl(){
 
 have_pl(){
     if(pixel_search_point(1429, 1071, 0x23CDEE)){
+        ;return true
+    }
+    if(pixel_search_point(1429, 1071, 0x00CEDE)){
         return true
     }
     if(pixel_search_point(1424, 1069, 0x8F1E00)){
@@ -334,16 +338,17 @@ can_enter_abyss(){
 
 can_back_city(){
     score :=0
-    if(pixel_search_point(1628, 266, 0xB39155)){
+    ;0xB39155
+    if(pixel_search_point(1628, 266, 0xF5DF9E)){
         score :=score+50
     }
-    if(pixel_search_point(1659, 266, 0xB39155)){
+    if(pixel_search_point(1659, 266, 0xF5DF9E)){
         score :=score+50
     }
-    if(pixel_search_point(1681, 266, 0xB39155)){
+    if(pixel_search_point(1681, 266, 0xF5DF9E)){
         score :=score+50
     }
-    if(pixel_search_point(1708, 266, 0xB39155)){
+    if(pixel_search_point(1708, 266, 0xF5DF9E)){
         score :=score+50
     }
     return score>=150
@@ -355,3 +360,39 @@ can_back_city(){
 ;     else
 ;         MsgBox "Icon could not be found on the screen."
 ; }
+move_and_click(mouse_x,mouse_y,delay){
+    sleep(200)
+    MouseMove mouse_x,mouse_y
+    sleep(delay)
+    click_for_success()
+}
+
+finish_daily_task(){
+sleep(200)
+MouseMove 1386,977
+sleep(800)
+click_times(1)
+move_and_click(890,420,800)
+move_and_click(890,536,800)
+move_and_click(890,658,800)
+move_and_click(890,805,800)
+move_and_click(890,307,800)
+sleep(500)
+skill("F5",1000)
+skill("F5",1000)
+}
+
+finish_abyss_task(){
+sleep(200)
+MouseMove 1576,930
+sleep(800)
+click_times(1)
+move_and_click(1158,460,800)
+move_and_click(1158,572,800)
+move_and_click(1158,709,800)
+move_and_click(1158,800,800)
+move_and_click(1158,884,800)
+sleep(500)
+skill("F5",1000)
+skill("F5",1000)
+}

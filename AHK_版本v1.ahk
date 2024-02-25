@@ -1,4 +1,10 @@
-﻿sleep(time){
+#include <log>
+; log.is_out_console := true
+log.is_out_file := true
+log.is_use_editor := true
+log.level := log.level_debug
+
+sleep(time){
     sleep,time
 }
     
@@ -18,7 +24,7 @@ up(key) {
 }
 
 pixel_search( X1, Y1, X2, Y2, ColorID){
-    PixelSearch, Px, Py, X1, Y1, X2, Y2, ColorID, 60, Fast RGB
+    PixelSearch, Px, Py, X1, Y1, X2, Y2, ColorID, 30, Fast RGB
     return ErrorLevel==0
 }
 
