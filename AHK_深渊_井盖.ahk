@@ -4,11 +4,11 @@
 
 abyss_times_jinggai(){
 buff_right_right(1000)
-run(2300)
+run(1800)
 skill("f",500)
-run(2300)
+run(1800)
 skill("w",2000)
-run(2000)
+run(1700)
 skill("t",500)
 skill("h",9000)
 ; down_down_z(9000)

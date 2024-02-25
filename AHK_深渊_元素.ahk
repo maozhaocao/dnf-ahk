@@ -4,9 +4,9 @@
 
 abyss_times(){
     buff_right_right(500)
-    run(2100)
+    run(2400)
     skill("f",500)
-    run(2100)
+    run(2400)
     skill("e",500)
     run(1800)
     skill("g",500)
