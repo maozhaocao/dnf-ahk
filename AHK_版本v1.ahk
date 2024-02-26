@@ -57,3 +57,8 @@ run_with_admin(){
         ExitApp
     }
 }
+
+image_search( X1, Y1, X2, Y2, file_path){
+    ImageSearch, Px, Py, X1, Y1, X2, Y2, file_path
+    return ErrorLevel==0
+}
