@@ -365,7 +365,24 @@ move_and_click(mouse_x,mouse_y,delay){
     MouseMove mouse_x,mouse_y
     sleep(delay)
     click_for_success()
+    sleep(200)
 }
+
+move_and_click_one(mouse_x,mouse_y,delay){
+    sleep(200)
+    MouseMove mouse_x,mouse_y
+    sleep(delay)
+    click_times(1)
+    sleep(200)
+}
+
+receive_daily_ticket(){
+    sleep(200)
+    move_and_click_one(1386,977,800)
+    move_and_click_one(890,307,800)
+    clean_screen()    
+}
+
 
 finish_daily_task(){
 sleep(200)
@@ -387,6 +404,12 @@ sleep(200)
 MouseMove 1576,930
 sleep(800)
 click_times(1)
+global index
+if(index == 20 or index == 24){
+    move_and_click_one(1340,890,800)
+}else{
+    move_and_click_one(1575,930,800)
+}
 move_and_click(1158,460,800)
 move_and_click(1158,572,800)
 move_and_click(1158,709,800)
@@ -395,4 +418,44 @@ move_and_click(1158,884,800)
 sleep(500)
 skill("F5",1000)
 skill("F5",1000)
+}
+
+receive_abyss_login_gift(){
+sleep(200)
+global index
+if(index == 20 or index == 24){
+    move_and_click_one(1575,930,800)
+}else{
+    move_and_click_one(1475,930,800)
+}
+move_and_click_one(1158,460,800)
+sleep(500)
+skill("esc",500)
+receive_email()
+open_abyss_login_gift()
+}
+
+receive_email(){
+    move_and_click_one(1600,650,800)
+    move_and_click_one(730,820,800)
+    sleep(4000)
+    clean_screen()
+}
+
+open_abyss_login_gift(){
+    skill("i",1000)
+    move_and_click_one(1220,470,800)
+    sleep(2000)
+    ImageSearch, FoundX, FoundY, 1080, 490, 1530, 886,*100 D:\GitProject\maozhaocao\dnf-ahk\image\bmp\激战登录礼盒.bmp
+    if (ErrorLevel == 0){
+        log.info("找到激战登录礼盒，准备开启")
+        Sleep(300)
+        MouseMove FoundX+25,FoundY+25
+        sleep(800)
+        Click,Right
+        sleep(1000)
+    }else{
+        log.info("未找到激战登录礼盒，跳过开启")
+    }
+    clean_screen()
 }

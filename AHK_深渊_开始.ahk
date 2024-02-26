@@ -14,6 +14,7 @@ start_abyss(index,abyss_times_total){
     while (count > 0)
     {
     count := count - 1
+    log.info("当前深渊次数:" ,abyss_times_total-count)
     abyss_times_one(index)
     pick()
     if(have_no_pl()){
@@ -33,8 +34,11 @@ start_abyss(index,abyss_times_total){
     log.info("当前角色深渊已刷完,实际循环次数:" ,abyss_times_total-count)
 }
 
+global index:=-1
+
 F3::
 {
+global index
 index := input_value("请输入当前角色id")
 if(index <=0){
     return
@@ -57,6 +61,8 @@ start_time := A_Now
 log.info("切换角色,当前角色id:",index,"当前时间:",start_time)
 if(have_pl()){
     log.info("有pl,开始深渊")
+    receive_daily_ticket()
+    receive_abyss_login_gift()
     go_abyss_door()
     start_abyss(index,abyss_times_total)
     back_city()
@@ -97,7 +103,7 @@ else
 return
 }
 
-F12::ExitApp
+F12::Reload
 
 ^!r::Reload  ; Ctrl+Alt+R
 
