@@ -405,7 +405,7 @@ MouseMove 1576,930
 sleep(800)
 click_times(1)
 global index
-if(index == 20 or index == 24){
+if(index == 16){
     move_and_click_one(1340,890,800)
 }else{
     move_and_click_one(1575,930,800)
@@ -423,7 +423,7 @@ skill("F5",1000)
 receive_abyss_login_gift(){
 sleep(200)
 global index
-if(index == 20 or index == 24){
+if(index == 16){
     move_and_click_one(1575,930,800)
 }else{
     move_and_click_one(1475,930,800)
