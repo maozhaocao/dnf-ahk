@@ -344,7 +344,7 @@ skill("F5",1000)
 
 finish_abyss_task(){
 sleep(200)
-MouseMove 1576,930
+MouseMove 1620,930
 sleep(800)
 click_times(1)
 move_and_click(1158,460,800)
