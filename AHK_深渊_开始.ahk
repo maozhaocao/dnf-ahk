@@ -61,7 +61,7 @@ if(have_pl()){
     start_abyss(index,abyss_times_total)
     back_city()
     finish_daily_task()
-    finish_abyss_task()
+    ; finish_abyss_task()
 }else{
     log.info("无pl")
 }
