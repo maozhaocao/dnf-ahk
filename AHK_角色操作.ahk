@@ -325,6 +325,22 @@ move_and_click(mouse_x,mouse_y,delay){
     MouseMove mouse_x,mouse_y
     sleep(delay)
     click_for_success()
+    sleep(200)
+}
+
+move_and_click_one(mouse_x,mouse_y,delay){
+    sleep(200)
+    MouseMove mouse_x,mouse_y
+    sleep(delay)
+    click_times(1)
+    sleep(200)
+}
+
+receive_daily_ticket(){
+    sleep(200)
+    move_and_click_one(1386,977,800)
+    move_and_click_one(890,307,800)
+    clean_screen()    
 }
 
 finish_daily_task(){

@@ -57,6 +57,7 @@ start_time := A_Now
 log.info("切换角色,当前角色id:",index,"当前时间:",start_time) 
 if(have_pl()){
     log.info("有pl,开始深渊")
+    receive_daily_ticket()
     go_abyss_door()
     start_abyss(index,abyss_times_total)
     back_city()
