@@ -82,21 +82,21 @@ return
 ; F2::
 ; {
 ;     sleep(100)
-;     abyss_times_zhaohuan()
+;     abyss_times_mudan()
 ; pick()
 ; return
 ; }
 
-F2::
-{
-    ; Click
-if have_pl()
-    ToolTip "have_pl", 200, 200, 1
-else
-    ToolTip "have_no_pl", 200, 200, 1
-; ToolTip,"BUFF ON", 200, 200, 1
-return
-}
+; F2::
+; {
+;     ; Click
+; if have_pl()
+;     ToolTip "have_pl", 200, 200, 1
+; else
+;     ToolTip "have_no_pl", 200, 200, 1
+; ; ToolTip,"BUFF ON", 200, 200, 1
+; return
+; }
 
 F12::ExitApp
 
