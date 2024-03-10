@@ -176,7 +176,7 @@ click_times(5)
 
 clean_screen(){
     sleep(500)
-    skill("F5",1000)
+    skill("F5",2000)
     skill("F5",1000)
 }
 
@@ -232,6 +232,7 @@ have_no_pl(){
 }
 
 have_pl(){
+    sleep(100)
     if(pixel_search_point(1429, 1071, 0x00CEDE)){
         return true
     }
