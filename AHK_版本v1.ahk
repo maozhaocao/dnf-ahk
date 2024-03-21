@@ -24,7 +24,7 @@ up(key) {
 }
 
 pixel_search( X1, Y1, X2, Y2, ColorID){
-    PixelSearch, Px, Py, X1, Y1, X2, Y2, ColorID, 30, Fast RGB
+    PixelSearch, Px, Py, X1, Y1, X2, Y2, ColorID, 40, Fast RGB
     return ErrorLevel==0
 }
 
