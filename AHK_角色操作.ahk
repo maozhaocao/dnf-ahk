@@ -185,9 +185,9 @@ down("right")
 sleep(2000)
 up("right")
 sleep(500)
-MouseMove 970,400
+MouseMove 360,550
 sleep(500)
-MouseMove 970,400
+MouseMove 360,550
 sleep(500)
 click_for_success()
 skill("space",1000)
