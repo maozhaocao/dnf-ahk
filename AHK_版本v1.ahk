@@ -57,3 +57,12 @@ run_with_admin(){
         ExitApp
     }
 }
+
+list_contains_key(list,key){
+    for index, element in list{
+        if(element == key){
+            return true
+        }
+    }
+    return false 
+}

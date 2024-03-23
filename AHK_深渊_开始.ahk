@@ -49,20 +49,25 @@ if(index <=0){
 ; }
 ch_count :=24
 abyss_times_total := 26
+skip_list := []
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
 sleep(500)
 log.info("--------------------")
 start_time := A_Now  
-log.info("切换角色,当前角色id:",index,"当前时间:",start_time) 
+log.info("切换角色,当前角色id:",index,"当前时间:",start_time)
 if(have_pl()){
-    log.info("有pl,开始深渊")
-    receive_daily_ticket()
-    go_abyss_door()
-    start_abyss(index,abyss_times_total)
-    back_city()
-    finish_daily_task()
-    ; finish_abyss_task()
+    if(list_contains_key(skip_list,index)){
+        log.info("配置角色跳过")
+    }else{
+        log.info("有pl,开始深渊")
+        receive_daily_ticket()
+        go_abyss_door()
+        start_abyss(index,abyss_times_total)
+        back_city()
+        finish_daily_task()
+        ; finish_abyss_task()
+    }
 }else{
     log.info("无pl")
 }
@@ -81,9 +86,17 @@ return
 
 F2::
 {
-abyss_times_feizong()
-pick()
-return
+    skip_list := [10,30]
+    
+    if(list_contains_key(skip_list,1)){
+        MsgBox "yes"
+    }else{
+        MsgBox "no1111"
+    }
+    return
+; abyss_times_feizong()
+; pick()
+; return
 }
 
 F3::
