@@ -49,7 +49,7 @@ if(index <=0){
 ; }
 ch_count :=24
 abyss_times_total := 26
-skip_list := []
+skip_list := [2,6,11,12,14,15,16]
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
 sleep(500)
@@ -86,17 +86,17 @@ return
 
 F2::
 {
-    skip_list := [10,30]
+    ; skip_list := [10,30]
     
-    if(list_contains_key(skip_list,1)){
-        MsgBox "yes"
-    }else{
-        MsgBox "no1111"
-    }
-    return
-; abyss_times_feizong()
-; pick()
-; return
+    ; if(list_contains_key(skip_list,1)){
+    ;     MsgBox "yes"
+    ; }else{
+    ;     MsgBox "no1111"
+    ; }
+    ; return
+    abyss_times_hongyan()
+pick()
+return
 }
 
 F3::

@@ -4,9 +4,9 @@
 
 abyss_times_wunv(){
 buff_right_right(1000)
-run(1800)
+run(1500)
 skill("v",500)
-run(1700)
+run(1400)
 skill("e",500)
 run(1600)
 skill("s",700)

@@ -10,6 +10,6 @@ abyss_times_jianhun(){
     skill("g",500)
     run(1500)
     skill("ctrl",1000)
-    skill("Numpad4",9000)
+    skill("q",2000)
 }
 ;#HotIf

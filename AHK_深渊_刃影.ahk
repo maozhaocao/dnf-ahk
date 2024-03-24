@@ -4,9 +4,9 @@
 
 abyss_times_renying(){
 buff_right_right(1000)
-run(1800)
+run(1600)
 skill("g",2500)
-run(1800)
+run(1600)
 skill("s",1500)
 run(1500)
 skill("f",1000)

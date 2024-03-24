@@ -4,7 +4,7 @@
 
 abyss_times_douluo(){
 buff_right_right(1000)
-run(1800)
+run(1900)
 skill("d",500)
 run(1800)
 skill("v",1000)
