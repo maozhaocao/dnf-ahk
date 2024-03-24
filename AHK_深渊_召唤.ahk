@@ -9,7 +9,7 @@ abyss_times_zhaohuan(){
     run(2100)
     skill("f",500)
     run(3500)
-    buff_left_down_right(8000)
+    buff_left_down_right(10000)
     skill("g",1000)
 }
 ;#HotIf
