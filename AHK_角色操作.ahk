@@ -211,7 +211,7 @@ down("right")
 sleep(2000)
 up("right")
 sleep(500)
-MouseMove 970,400
+MouseMove 360,550
 skill("WheelUp",100)
 skill("WheelUp",100)
 skill("WheelUp",100)
