@@ -6,7 +6,7 @@ abyss_times_papa(){
 sleep(10)
 buff_right_right(1500)
 run(2500)
-skill_down_up("e",1000,500)
+skill_down_up("e",500,500)
 run(1400)
 skill("ctrl",2500)
 run(2200)
