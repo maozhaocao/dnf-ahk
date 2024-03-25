@@ -48,7 +48,7 @@ if(index <=0){
 ;     return
 ; }
 ch_count :=16
-abyss_times_total := 16
+abyss_times_total := 26
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
 sleep(500)
