@@ -3,11 +3,11 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_nailuo(){
-buff_right_right(2000)
-run(2100)
+; buff_right_right(2000)
+run(1900)
 skill("q",500)
 run(1500)
-skill("f",500)
+skill("q",500)
 run(1000)
 skill("d",1000)
 skill("r",300)
