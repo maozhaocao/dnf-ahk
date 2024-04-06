@@ -95,7 +95,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_feizong()
+    abyss_times_naiba()
 pick()
 return
 }
