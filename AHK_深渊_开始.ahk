@@ -48,7 +48,7 @@ if(index <=0){
 ;     return
 ; }
 ch_count :=24
-abyss_times_total := 26
+abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
