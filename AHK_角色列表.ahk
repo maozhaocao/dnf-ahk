@@ -2,6 +2,7 @@
 #Include AHK_深渊_元素.ahk
 #Include AHK_深渊_斗萝.ahk
 #Include AHK_深渊_奶萝.ahk
+#Include AHK_深渊_奶萝2.ahk
 #Include AHK_深渊_召唤.ahk
 #Include AHK_深渊_井盖.ahk
 #Include AHK_深渊_奶爸.ahk
@@ -113,5 +114,9 @@ abyss_times_one(index){
     
     if (index ==24){
         abyss_times_niangman()
+    }
+
+    if (index ==25){
+        abyss_times_nailuo2()
     }
 }

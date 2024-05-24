@@ -47,7 +47,7 @@ if(index <=0){
 ; if(abyss_times_total <=0){
 ;     return
 ; }
-ch_count :=24
+ch_count :=25
 abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
@@ -95,7 +95,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_naiba()
+    abyss_times_nailuo2()
 pick()
 return
 }
