@@ -51,6 +51,7 @@ ch_count :=25
 abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
+all_pl_list := [1,2,5,7,23,25]
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
 sleep(500)
@@ -64,7 +65,12 @@ if(have_pl()){
         log.info("有pl,开始深渊")
         receive_daily_ticket()
         go_abyss_door()
-        start_abyss(index,abyss_times_total)
+        if(!list_contains_key(all_pl_list,index)){
+            log.info("非全PL角色")
+            start_abyss(index,4)
+        }else{
+            start_abyss(index,abyss_times_total)
+        }
         back_city()
         finish_daily_task()
         ; finish_abyss_task()
