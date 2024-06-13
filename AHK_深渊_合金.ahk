@@ -15,4 +15,23 @@ skill("d",500)
 skill("Numpad4",9000)
 skill("q",1000)
 }
+
+storm_hejin(){
+    skill("s",2000)
+    buff_right_right(1500)
+    skill("f",1000)
+    run_search_next(2500)
+
+    run(1000)
+    skill("r",1500)
+    run_search_next(1400)
+
+    run(1000)
+    skill("g",1500)
+    run_search_next(1300)
+
+    run(1000)
+    skill("d",1000)
+    skill("ctrl",3000)
+}
 ;#HotIf

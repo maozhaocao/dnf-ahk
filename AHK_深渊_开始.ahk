@@ -33,6 +33,32 @@ start_abyss(index,abyss_times_total){
     log.info("当前角色深渊已刷完,实际循环次数:" ,abyss_times_total-count)
 }
 
+start_storm(index,storm_times_total){
+    move_and_click(1270,410,800)
+    Sleep(2000)
+    count := storm_times_total
+    while (count > 0)
+    {
+    count := count - 1
+    storm_times_one(index)
+    pick_no_check()
+    if(have_no_pl()){
+        log.info("pl不足,停止继续风暴")
+        break
+    }
+    sleep(500)
+    if(have_no_ticket()){
+        log.info("金绿不足,停止继续风暴")
+        break
+    }
+    sleep(500)
+    if(count >0){
+        skill("F10",5000)
+    }
+    }
+    log.info("当前角色风暴已刷完,实际循环次数:" ,storm_times_total-count)
+}
+
 F1::
 {
 index := input_value("请输入当前角色id")
@@ -52,6 +78,8 @@ abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
 all_pl_list := [1,2,5,7,23,25]
+; storm_list := [18,19,20,21,22,24]
+storm_list := []
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
 sleep(500)
@@ -65,7 +93,9 @@ if(have_pl()){
         log.info("有pl,开始深渊")
         receive_daily_ticket()
         go_abyss_door()
-        if(!list_contains_key(all_pl_list,index)){
+        if(list_contains_key(storm_list,index)){
+            start_storm(index,32)
+        }else if(!list_contains_key(all_pl_list,index)){
             log.info("非全PL角色")
             start_abyss(index,4)
         }else{
@@ -73,6 +103,7 @@ if(have_pl()){
         }
         back_city()
         finish_daily_task()
+        decompose()
         ; finish_abyss_task()
     }
 }else{
@@ -101,7 +132,8 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_nailuo2()
+    ; abyss_times_huahua()
+    storm_niangman()
 pick()
 return
 }

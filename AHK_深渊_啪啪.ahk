@@ -16,4 +16,23 @@ skill("v",1000)
 skill("Numpad4",9000)
 skill("w",1000)
 }
+
+storm_papa(){
+    run(500)
+    skill("Numpad0",3000)
+    buff_right_right(1500)
+    run_search_next(1500)
+
+    run(700)
+    skill("s",1500)
+    run_search_next(1400)
+
+    run(700)
+    skill("g",1500)
+    run_search_next(1300)
+
+    run(1000)
+    skill("q",1000)
+    skill("w",1000)
+}
 ;#HotIf

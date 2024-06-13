@@ -17,4 +17,22 @@ skill("Numpad4",9000)
 run(500)
 skill("v",1200)
 }
+
+storm_guiqi(){
+    skill("g",2000)
+    buff_up_down(1500)
+    run_search_next(2000)
+
+    run(1000)
+    skill("r",1500)
+    run_search_next(1400)
+
+    run(1000)
+    skill("q",1500)
+    run_search_next(1300)
+
+    run(1000)
+    skill("w",1000)
+    skill("d",1000)
+}
 ;#HotIf

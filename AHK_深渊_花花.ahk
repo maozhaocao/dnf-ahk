@@ -14,4 +14,24 @@ skill("s",1000)
 skill("g",4000)
 skill("f",1000)
 }
+
+storm_huahua(){
+    skill("g",2000)
+    buff_right_right(1500)
+    buff_right(1000)
+    run_search_next(2500)
+
+    run(1000)
+    skill("w",1500)
+    run_search_next(1400)
+
+    run(1000)
+    skill("v",1500)
+    run_search_next(1300)
+
+    run(1000)
+    skill("e",1000)
+    skill("f",1000)
+    }
+
 ;#HotIf

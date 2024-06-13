@@ -120,3 +120,37 @@ abyss_times_one(index){
         abyss_times_nailuo2()
     }
 }
+
+storm_times_one(index){
+    if (index ==18){
+        storm_huahua()
+    }
+
+    if (index ==19){
+        storm_xiazi()
+    }
+
+    if (index ==20){
+        storm_guiqi()
+    }
+    
+    if (index ==21){
+        storm_hejin()
+    }
+    
+    if (index ==22){
+        storm_xuefa()
+    }
+    
+    if (index ==23){
+        storm_papa()
+    }
+    
+    if (index ==24){
+        storm_niangman()
+    }
+
+    if (index ==25){
+        abyss_times_nailuo2()
+    }
+}

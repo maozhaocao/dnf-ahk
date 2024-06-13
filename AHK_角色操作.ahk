@@ -93,6 +93,52 @@ sleep(1000)
 }
 }
 
+pick_no_check(){
+    count := 8
+    while (count>0){
+    count:=count-1
+    if(can_back_city()){
+    sleep(1000)
+    skill("numpaddiv",2000)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("x",200)
+    skill("esc",500)
+    break
+    }
+    if(count<=3){
+        log.info("深渊疑似卡住,执行修正流程")
+        run_search_next(3000)
+        run_left(1000)
+        if(count==3){
+            skill_down_up("up",500,100)
+            skill("q",1000)
+            skill("w",1000)
+            skill("e",1000)
+        }
+        if(count==2){
+            skill_down_up("down",500,100)
+            skill("a",1000)
+            skill("s",1000)
+            skill("d",1000)
+        }
+        if(count==1){
+            skill("r",1000)
+            skill("f",1000)
+            skill("g",1000)
+        }
+    }
+    sleep(1000)
+    }
+}
+
 buff_right_right(time){
 send_key("right")
 sleep(10)
@@ -388,4 +434,30 @@ move_and_click(1158,884,800)
 sleep(500)
 skill("F5",1000)
 skill("F5",1000)
+}
+
+run_search_next(time){
+    run(time)
+    skill_down_up("up",300,100)
+    skill_down_up("down",300,1000)
+}
+
+decompose(){
+    clean_screen()
+    skill("esc",500)
+    move_and_click(547,513,800)
+
+    fix_decompose_machine()
+
+    move_and_click(988,610,800)
+    move_and_click(725,467,800)
+    move_and_click(835,700,800)
+    Sleep(3000)
+    skill("esc",500)
+}
+
+fix_decompose_machine(){
+    move_and_click(1100,600,800)
+    move_and_click(1100,600,800)
+    skill("space",500)
 }
