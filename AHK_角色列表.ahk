@@ -21,6 +21,7 @@
 #Include AHK_深渊_血法.ahk
 #Include AHK_深渊_啪啪.ahk
 #Include AHK_深渊_娘嫚.ahk
+#Include AHK_深渊_狞猫.ahk
 
 abyss_times_one(index){
     if (index ==1){
@@ -118,6 +119,11 @@ abyss_times_one(index){
 
     if (index ==25){
         abyss_times_nailuo2()
+    }
+
+    
+    if (index ==26){
+        abyss_times_ningmao()
     }
 }
 

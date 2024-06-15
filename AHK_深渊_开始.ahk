@@ -73,11 +73,11 @@ if(index <=0){
 ; if(abyss_times_total <=0){
 ;     return
 ; }
-ch_count :=25
+ch_count :=26
 abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
-all_pl_list := [1,2,5,7,23,25]
+all_pl_list := [1,2,5,7,26]
 ; storm_list := [18,19,20,21,22,24]
 storm_list := []
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
@@ -133,7 +133,7 @@ F2::
     ; }
     ; return
     ; abyss_times_huahua()
-    storm_niangman()
+    abyss_times_ningmao()
 pick()
 return
 }
