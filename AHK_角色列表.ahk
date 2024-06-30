@@ -157,6 +157,6 @@ storm_times_one(index){
     }
 
     if (index ==25){
-        abyss_times_nailuo2()
+        storm_nailuo2()
     }
 }

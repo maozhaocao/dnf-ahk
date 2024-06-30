@@ -77,9 +77,10 @@ ch_count :=26
 abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
-all_pl_list := [1,2,5,7,26]
-; storm_list := [18,19,20,21,22,24]
-storm_list := []
+all_pl_list := [1,2,5,7,14,15,26]
+; all_pl_list := [1,2,5,7,14,15,26,18,19,20,21,22,23,24,25]
+storm_list := [18,19,20,21,22,23,24,25]
+; storm_list := []
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
 sleep(500)
@@ -102,8 +103,9 @@ if(have_pl()){
             start_abyss(index,abyss_times_total)
         }
         back_city()
-        finish_daily_task()
+        chat_daily()
         decompose()
+        finish_daily_task()
         ; finish_abyss_task()
     }
 }else{
@@ -132,9 +134,9 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    ; abyss_times_huahua()
-    abyss_times_ningmao()
-pick()
+    chat_daily()
+    ; storm_nailuo2()
+; pick()
 return
 }
 

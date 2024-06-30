@@ -362,16 +362,16 @@ can_enter_abyss(){
 
 can_back_city(){
     score :=0
-    if(pixel_search_point(1628, 266, 0xF5DF9E)){
+    if(pixel_search_point(1628, 266, 0x90784D)){
         score :=score+50
     }
-    if(pixel_search_point(1659, 266, 0xF5DF9E)){
+    if(pixel_search_point(1659, 266, 0x90784D)){
         score :=score+50
     }
-    if(pixel_search_point(1681, 266, 0xF5DF9E)){
+    if(pixel_search_point(1681, 266, 0x90784D)){
         score :=score+50
     }
-    if(pixel_search_point(1708, 266, 0xF5DF9E)){
+    if(pixel_search_point(1708, 266, 0x90784D)){
         score :=score+50
     }
     return score>=150
@@ -460,4 +460,20 @@ fix_decompose_machine(){
     move_and_click(1100,600,800)
     move_and_click(1100,600,800)
     skill("space",500)
+}
+
+chat_daily(){
+    skill("enter",500)
+    skill("/",500)
+    skill("a",500)
+    skill("space",500)
+    skill("space",500)
+    skill("enter",1500)
+
+    skill("enter",500)
+    skill("/",500)
+    skill("g",500)
+    skill("space",500)
+    skill("space",500)
+    skill("enter",500)
 }

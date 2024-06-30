@@ -20,15 +20,15 @@ storm_hejin(){
     skill("s",2000)
     buff_right_right(1500)
     skill("f",1000)
-    run_search_next(2500)
+    run_search_next(2300)
 
     run(1000)
     skill("r",1500)
-    run_search_next(1400)
+    run_search_next(1300)
 
     run(1000)
     skill("g",1500)
-    run_search_next(1300)
+    run_search_next(1200)
 
     run(1000)
     skill("d",1000)
