@@ -128,6 +128,10 @@ abyss_times_one(index){
 }
 
 storm_times_one(index){
+    if (index ==17){
+        storm_feizong()
+    }
+
     if (index ==18){
         storm_huahua()
     }

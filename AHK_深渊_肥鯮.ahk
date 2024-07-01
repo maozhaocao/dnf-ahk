@@ -20,4 +20,29 @@ skill("v",3000)
 ; skill("Numpad4",9000)
 skill("r",1000)
 }
+
+
+storm_feizong(){
+    run(500)
+    skill("g",2000)
+    buff_right_right(1500)
+    buff_right(1000)
+    skill("left",1000)
+    run_search_next(1500)
+
+    run(500)
+    skill("r",2000)
+    run_search_next(1200)
+
+    run(700)
+    down("q")
+sleep(500)
+up("q")
+sleep(500)
+    run_search_next(1400)
+
+    run(1000)
+    skill("v",1000)
+    skill("w",1000)
+    }
 ;#HotIf

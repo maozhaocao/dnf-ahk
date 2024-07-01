@@ -79,7 +79,7 @@ abyss_times_total := 18
 skip_list := []
 all_pl_list := [1,2,5,7,14,15,26]
 ; all_pl_list := [1,2,5,7,14,15,26,18,19,20,21,22,23,24,25]
-storm_list := [18,19,20,21,22,23,24,25]
+storm_list := [17,18,19,20,21,22,23,24,25]
 ; storm_list := []
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
@@ -134,9 +134,9 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    chat_daily()
+    storm_feizong()
     ; storm_nailuo2()
-; pick()
+pick()
 return
 }
 
