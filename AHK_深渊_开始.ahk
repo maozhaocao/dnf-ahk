@@ -77,7 +77,7 @@ ch_count :=26
 abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
-all_pl_list := [1,2,5,7,14,15,26]
+all_pl_list := [1,2,5,7,14,15,26,27]
 ; all_pl_list := [1,2,5,7,14,15,26,18,19,20,21,22,23,24,25]
 storm_list := [17,18,19,20,21,22,23,24,25]
 ; storm_list := []
@@ -134,7 +134,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    storm_feizong()
+    abyss_times_zhiying()
     ; storm_nailuo2()
 pick()
 return
