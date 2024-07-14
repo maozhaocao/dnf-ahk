@@ -2,14 +2,25 @@
 
 #Include AHK_角色操作.ahk
 
-abyss_times_zhaohuan(){
+abyss_times_zhaohuan() {
     buff_right_right(1500)
     buff_left_up_right(2000)
-    skill("space",500)
+    skill("space", 500)
     run(2100)
-    skill("f",500)
+    skill("f", 500)
     run(3500)
     buff_left_down_right(10000)
-    skill("g",1000)
+    skill("g", 1000)
+}
+
+abyss_times_new_zhaohuan() {
+    buff_right_right(1500)
+    buff_left_up_right(2000)
+    skill("space", 500)
+    run(1500)
+    skill("f", 500)
+    run(3500)
+    buff_left_down_right(10000)
+    skill("g", 1000)
 }
 ;#HotIf

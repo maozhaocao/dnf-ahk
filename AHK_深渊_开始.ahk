@@ -183,7 +183,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_new_nailuo()
+    abyss_times_new_zhaohuan()
     ; storm_nailuo2()
 pick()
 return
