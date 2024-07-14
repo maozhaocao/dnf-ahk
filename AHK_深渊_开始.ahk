@@ -34,8 +34,11 @@ start_abyss(index, abyss_times_total) {
 }
 
 start_abyss_new(index, abyss_times_total) {
-    skill("up", 1000)
-    skill("space", 4000)
+    sleep(500)
+    MouseMove 1250, 400
+    sleep(500)
+    click_for_success()
+    sleep(4000)
     if (!can_enter_abyss()) {
         log.info("记忆落痕不足,进入深渊失败")
         sleep(1000)
@@ -109,15 +112,26 @@ F1::
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
     skip_list := []
-    all_pl_list := [2, 5, 7, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+    all_pl_list := []
 
-    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    abyss_list := []
     abyss_new_list := []
     abyss_storm_list := []
 
-    ; all_pl_list := [1,2,5,7,14,15,26,27]
-    ; all_pl_list := [1,2,5,7,14,15,26,18,19,20,21,22,23,24,25]
-    ; storm_list := [17,18,19,20,21,22,23,24,25]
+    if (is_wednesday()) {
+        log.info("当天为星期三")
+        all_pl_list := [2, 5, 7, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_list := [27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        abyss_storm_list := []
+    } else {
+        log.info("当天不为星期三")
+        all_pl_list := [2, 5, 7, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_list := [26, 27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        abyss_storm_list := [17, 18, 19, 20, 21, 22, 23, 24, 25]
+    }
+
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
         sleep(500)
@@ -137,7 +151,7 @@ F1::
                     abyss_times_total := 18
                 } else if (list_contains_key(abyss_new_list, index)) {
                     abyss_times_total := 26
-                } else {
+                } else if (list_contains_key(abyss_storm_list, index)) {
                     abyss_times_total := 32
                 }
 
@@ -147,7 +161,7 @@ F1::
                 } else if (list_contains_key(abyss_new_list, index)) {
                     go_abyss_new_door()
                     start_abyss_new(index, abyss_times_total)
-                } else {
+                } else if (list_contains_key(abyss_storm_list, index)) {
                     go_abyss_door()
                     start_storm(index, abyss_times_total)
                 }
