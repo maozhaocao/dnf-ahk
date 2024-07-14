@@ -33,6 +33,38 @@ start_abyss(index,abyss_times_total){
     log.info("当前角色深渊已刷完,实际循环次数:" ,abyss_times_total-count)
 }
 
+start_abyss_new(index,abyss_times_total){
+    skill("up",1000)
+    skill("space",4000)
+    if(!can_enter_abyss()){
+        log.info("记忆落痕不足,进入深渊失败")
+        sleep(1000)
+        return
+    }
+    sleep(1000)
+    count := abyss_times_total
+    while (count > 0)
+    {
+    count := count - 1
+    abyss_times_one(index)
+    pick()
+    if(have_no_pl()){
+        log.info("pl不足,停止继续深渊")
+        break
+    }
+    sleep(500)
+    if(have_no_ticket()){
+        log.info("记忆落痕不足,停止继续深渊")
+        break
+    }
+    sleep(500)
+    if(count >0){
+        skill("F10",4000)
+    }
+    }
+    log.info("当前角色深渊已刷完,实际循环次数:" ,abyss_times_total-count)
+}
+
 start_storm(index,storm_times_total){
     move_and_click(1270,410,800)
     Sleep(2000)
@@ -73,14 +105,19 @@ if(index <=0){
 ; if(abyss_times_total <=0){
 ;     return
 ; }
-ch_count :=26
+ch_count :=27
 abyss_times_total := 18
 ; skip_list := [2,6,11,12,14,15,16]
 skip_list := []
-all_pl_list := [1,2,5,7,14,15,26,27]
+all_pl_list := [2,5,7,18,19,20,21,22,23,24,25,26,27]
+
+abyss_list := [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] 
+abyss_new_list := []
+abyss_storm_list := [] 
+
+; all_pl_list := [1,2,5,7,14,15,26,27]
 ; all_pl_list := [1,2,5,7,14,15,26,18,19,20,21,22,23,24,25]
-storm_list := [17,18,19,20,21,22,23,24,25]
-; storm_list := []
+; storm_list := [17,18,19,20,21,22,23,24,25]
 log.info("设置当前角色id:",index,",设置深渊次数:",abyss_times_total)
 while (index <=ch_count){
 sleep(500)
@@ -93,14 +130,26 @@ if(have_pl()){
     }else{
         log.info("有pl,开始深渊")
         receive_daily_ticket()
-        go_abyss_door()
-        if(list_contains_key(storm_list,index)){
-            start_storm(index,32)
-        }else if(!list_contains_key(all_pl_list,index)){
-            log.info("非全PL角色")
-            start_abyss(index,4)
+        abyss_times_total :=0
+        if(!list_contains_key(all_pl_list,index)){
+            abyss_times_total :=4
+        }else if(list_contains_key(abyss_list,index)){
+            abyss_times_total :=18
+        }else if(list_contains_key(abyss_new_list,index)){
+            abyss_times_total :=26
         }else{
-            start_abyss(index,abyss_times_total)
+            abyss_times_total :=32
+        }
+
+        if(list_contains_key(abyss_list,index)){
+            go_abyss_door()
+            start_abyss(index,abyss_times_total)           
+        }else if(list_contains_key(abyss_new_list,index)){
+            go_abyss_new_door()
+            start_abyss_new(index,abyss_times_total)
+        }else{
+            go_abyss_door()
+            start_storm(index,abyss_times_total)
         }
         back_city()
         chat_daily()
@@ -134,7 +183,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_zhiying()
+    abyss_times()
     ; storm_nailuo2()
 pick()
 return

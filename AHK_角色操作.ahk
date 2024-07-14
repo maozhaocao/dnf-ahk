@@ -260,6 +260,21 @@ up("right")
 sleep(500)
 }
 
+go_abyss_new_door(){
+    down("right")
+    sleep(2000)
+    up("right")
+    sleep(500)
+    MouseMove 813,700
+    sleep(500)
+    click_for_success()
+    sleep(2000)
+    down("right")
+    sleep(2000)
+    up("right")
+    sleep(500)
+    }
+
 back_city(){
 clean_screen()
 skill("esc",500)
