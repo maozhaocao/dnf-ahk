@@ -49,7 +49,7 @@ start_abyss_new(index, abyss_times_total) {
     while (count > 0)
     {
         count := count - 1
-        abyss_times_one(index)
+        abyss_new_times_one(index)
         pick()
         if (have_no_pl()) {
             log.info("pl不足,停止继续深渊")
@@ -111,7 +111,7 @@ F1::
     ch_count := 27
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
-    skip_list := []
+    skip_list := [3]
     all_pl_list := []
 
     abyss_list := []
@@ -120,16 +120,20 @@ F1::
 
     if (is_wednesday()) {
         log.info("当天为星期三")
-        all_pl_list := [2, 5, 7, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-        abyss_list := [27]
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-        abyss_storm_list := []
-    } else {
-        log.info("当天不为星期三")
-        all_pl_list := [2, 5, 7, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        all_pl_list := [1, 2, 5, 7, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
         abyss_list := [26, 27]
         abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
         abyss_storm_list := [17, 18, 19, 20, 21, 22, 23, 24, 25]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+    } else {
+        log.info("当天不为星期三")
+        all_pl_list := [1, 2, 5, 7, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_list := [2, 5, 7, 26, 27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        abyss_storm_list := [17, 18, 19, 20, 21, 22, 23, 24, 25]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
