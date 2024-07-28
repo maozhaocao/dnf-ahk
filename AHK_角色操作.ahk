@@ -212,6 +212,7 @@ sleep(2000)
 up("right")
 sleep(500)
 MouseMove 360,550
+sleep(500)
 skill("WheelUp",100)
 skill("WheelUp",100)
 skill("WheelUp",100)
@@ -233,6 +234,21 @@ sleep(2000)
 up("right")
 sleep(500)
 }
+
+go_abyss_new_door(){
+    down("right")
+    sleep(2000)
+    up("right")
+    sleep(500)
+    MouseMove 813,700
+    sleep(500)
+    click_for_success()
+    sleep(2000)
+    down("right")
+    sleep(2000)
+    up("right")
+    sleep(500)
+    }
 
 back_city(){
 clean_screen()
@@ -380,7 +396,7 @@ receive_daily_ticket(){
     sleep(200)
     move_and_click_one(1386,977,800)
     move_and_click_one(890,307,800)
-    clean_screen()    
+    clean_screen()
 }
 
 finish_daily_task(){
@@ -411,4 +427,46 @@ move_and_click(1158,884,800)
 sleep(500)
 skill("F5",1000)
 skill("F5",1000)
+}
+
+run_search_next(time){
+    run(time)
+    skill_down_up("up",300,100)
+    skill_down_up("down",300,1000)
+}
+
+decompose(){
+    clean_screen()
+    skill("esc",500)
+    move_and_click(547,513,800)
+
+    fix_decompose_machine()
+
+    move_and_click(988,610,800)
+    move_and_click(725,467,800)
+    move_and_click(835,700,800)
+    Sleep(3000)
+    skill("esc",500)
+}
+
+fix_decompose_machine(){
+    move_and_click(1100,600,800)
+    move_and_click(1100,600,800)
+    skill("space",500)
+}
+
+chat_daily(){
+    skill("enter",500)
+    skill("/",500)
+    skill("a",500)
+    skill("space",500)
+    skill("space",500)
+    skill("enter",1500)
+
+    skill("enter",500)
+    skill("/",500)
+    skill("g",500)
+    skill("space",500)
+    skill("space",500)
+    skill("enter",500)
 }

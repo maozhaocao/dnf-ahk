@@ -13,4 +13,16 @@ skill("t",500)
 skill("h",9000)
 ; down_down_z(9000)
 }
+
+abyss_times_new_jinggai() {
+    buff_up_up(1000)
+    run(1100)
+    skill("f", 500)
+    run(1500)
+    skill("a", 2000)
+    run(1400)
+    skill("e", 500)
+    skill("g", 3000)
+}
 ;#HotIf
+
