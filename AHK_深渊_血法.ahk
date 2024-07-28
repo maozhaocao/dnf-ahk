@@ -37,17 +37,17 @@ storm_xuefa() {
     run(1000)
     skill("f", 2000)
     buff_right_right(1000)
-    run_search_next(2000)
+    run_search_next(1700)
 
-    run(1000)
+    run(900)
     skill("a", 1500)
-    run_search_next(2400)
+    run_search_next(1400)
 
-    run(1000)
+    run(900)
     skill("w", 1500)
-    run_search_next(2300)
+    run_search_next(1400)
 
-    run(1000)
+    run(900)
     skill("g", 1000)
     skill("ctrl", 2000)
 }

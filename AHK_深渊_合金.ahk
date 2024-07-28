@@ -32,10 +32,11 @@ abyss_times_new_hejin() {
 
 
 storm_hejin() {
+    run(300)
     skill("s", 2000)
     buff_right_right(1500)
     skill("f", 1000)
-    run_search_next(2300)
+    run_search_next(2000)
 
     run(1000)
     skill("r", 1500)

@@ -35,19 +35,20 @@ abyss_times_new_guiqi() {
 
 
 storm_guiqi() {
+    run(400)
     skill("g", 2000)
     buff_up_down(1500)
-    run_search_next(2000)
-
-    run(1000)
-    skill("r", 1500)
-    run_search_next(1400)
-
-    run(1000)
-    skill("q", 1500)
     run_search_next(1300)
 
-    run(1000)
+    run(800)
+    skill("r", 1500)
+    run_search_next(1100)
+
+    run(800)
+    skill("q", 1500)
+    run_search_next(1100)
+
+    run(800)
     skill("w", 1000)
     skill("d", 1000)
 }

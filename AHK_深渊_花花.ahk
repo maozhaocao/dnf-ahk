@@ -32,17 +32,17 @@ storm_huahua() {
     skill("g", 2000)
     buff_right_right(1500)
     buff_right(1000)
-    run_search_next(2500)
+    run_search_next(2200)
 
-    run(1000)
+    run(800)
     skill("w", 1500)
-    run_search_next(1400)
+    run_search_next(1100)
 
-    run(1000)
+    run(800)
     skill("v", 1500)
-    run_search_next(1300)
+    run_search_next(1100)
 
-    run(1000)
+    run(800)
     skill("e", 1000)
     skill("f", 1000)
 }

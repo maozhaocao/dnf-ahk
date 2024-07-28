@@ -111,7 +111,7 @@ F1::
     ch_count := 27
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
-    skip_list := [3]
+    skip_list := []
     all_pl_list := []
 
     abyss_list := []
@@ -126,10 +126,10 @@ F1::
         abyss_storm_list := []
     } else {
         log.info("当天不为星期三")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-        abyss_list := [3, 8, 9, 10, 11, 12, 14, 15, 16, 26, 27]
-        abyss_new_list := [1, 2, 4, 5, 6, 7, 13]
-        abyss_storm_list := [17, 18, 19, 20, 21, 22, 23, 24, 25]
+        all_pl_list := [1, 2, 4, 5, 6, 7, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 26, 27]
+        abyss_list := [11, 27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 26]
+        abyss_storm_list := [18, 19, 20, 21, 22, 23, 24, 25]
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -153,6 +153,11 @@ F1::
                     abyss_times_total := 26
                 } else if (list_contains_key(abyss_storm_list, index)) {
                     abyss_times_total := 32
+                }
+
+                skip_list2 := [2, 4, 5, 6, 7]
+                if (list_contains_key(skip_list2, index)) {
+                    abyss_times_total := 8
                 }
 
                 if (list_contains_key(abyss_list, index)) {
@@ -196,7 +201,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_new_jinggai()
+    storm_nailuo2()
     ; storm_nailuo2()
     pick()
     return
