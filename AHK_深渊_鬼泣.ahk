@@ -18,11 +18,11 @@ abyss_times_guiqi() {
 
 abyss_times_new_guiqi() {
     buff_right_right(1500)
-    run(1400)
+    run(1300)
     skill("a", 800)
-    run(1700)
+    run(1500)
     skill("e", 800)
-    run(1400)
+    run(1200)
     skill("r", 100)
     skill("w", 1500)
     skill("t", 4000)

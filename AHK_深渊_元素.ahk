@@ -16,13 +16,13 @@ abyss_times() {
 
 abyss_times_new() {
     buff_right_right(500)
-    run(1800)
+    run(1200)
     skill("f", 500)
-    run(2400)
+    run(1400)
     skill("e", 500)
-    run(1800)
+    run(1400)
     skill("g", 500)
-    skill("CapsLock", 1000)
+    skill("t", 1000)
     skill("g", 4500)
 }
 

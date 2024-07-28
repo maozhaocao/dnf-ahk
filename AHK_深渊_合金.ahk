@@ -20,11 +20,11 @@ abyss_times_new_hejin() {
     skill("w", 1000)
     run(1300)
     skill("f", 1500)
-    run(1200)
+    run(2000)
     skill("s", 1000)
-    run(2100)
+    run(2200)
     skill("t", 500)
-    skill("h", 6000)
+    ; skill("h", 6000)
     skill("g", 1000)
 }
 ;#HotIf

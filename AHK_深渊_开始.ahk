@@ -69,29 +69,7 @@ start_abyss_new(index, abyss_times_total) {
 }
 
 start_storm(index, storm_times_total) {
-    move_and_click(1270, 410, 800)
-    Sleep(2000)
-    count := storm_times_total
-    while (count > 0)
-    {
-        count := count - 1
-        storm_times_one(index)
-        pick_no_check()
-        if (have_no_pl()) {
-            log.info("pl不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (have_no_ticket()) {
-            log.info("金绿不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (count > 0) {
-            skill("F10", 5000)
-        }
-    }
-    log.info("当前角色风暴已刷完,实际循环次数:", storm_times_total - count)
+
 }
 
 F3::
@@ -120,16 +98,16 @@ F3::
 
     if (is_wednesday()) {
         log.info("当天为星期三")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-        abyss_list := [27]
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        abyss_list := []
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
         abyss_storm_list := []
     } else {
         log.info("当天不为星期三")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-        abyss_list := [3, 8, 9, 10, 11, 12, 14, 15, 16, 26, 27]
-        abyss_new_list := [1, 2, 4, 5, 6, 7, 13]
-        abyss_storm_list := [17, 18, 19, 20, 21, 22, 23, 24, 25]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        abyss_list := []
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        abyss_storm_list := []
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -167,7 +145,7 @@ F3::
                 }
                 back_city()
                 chat_daily()
-                decompose()
+                ; decompose()
                 finish_daily_task()
                 ; finish_abyss_task()
             }
@@ -186,21 +164,21 @@ F3::
 }
 
 
-; F2::
-; {
-;     ; skip_list := [10,30]
+F4::
+{
+    ; skip_list := [10,30]
 
-;     ; if(list_contains_key(skip_list,1)){
-;     ;     MsgBox "yes"
-;     ; }else{
-;     ;     MsgBox "no1111"
-;     ; }
-;     ; return
-;     abyss_times_new_jinggai()
-;     ; storm_nailuo2()
-;     pick()
-;     return
-; }
+    ; if(list_contains_key(skip_list,1)){
+    ;     MsgBox "yes"
+    ; }else{
+    ;     MsgBox "no1111"
+    ; }
+    ; return
+    abyss_times_new_mohuang()
+    ; storm_nailuo2()
+    pick()
+    return
+}
 
 ; F3::
 ; {

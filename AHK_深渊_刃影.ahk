@@ -22,7 +22,7 @@ abyss_times_new_renying() {
     skill("alt", 1500)
     run(1500)
     skill("f", 1000)
-    skill("e", 4000)
+    skill("e", 2000)
     skill("q", 1000)
 }
 ;#HotIf

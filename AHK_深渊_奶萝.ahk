@@ -18,17 +18,14 @@ abyss_times_nailuo() {
 }
 
 abyss_times_new_nailuo() {
-    buff_right_right(2000)
-    run(1600)
+    run(1300)
     skill("w", 500)
-    run(1500)
+    run(1200)
     skill("w", 500)
-    run(1700)
-    skill("r", 1000)
+    run(1200)
     skill("CapsLock", 300)
     skill("s", 100)
     skill("d", 1000)
-    skill("caps", 4000)
     skill("g", 500)
 }
 

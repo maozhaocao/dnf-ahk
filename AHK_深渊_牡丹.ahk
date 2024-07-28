@@ -18,7 +18,7 @@ abyss_times_mudan() {
 abyss_times_new_mudan() {
     buff_right_right(1000)
     skill("right", 500)
-    run(2300)
+    run(1600)
     skill("f", 2500)
     run(4400)
     ; skill("g",1500)

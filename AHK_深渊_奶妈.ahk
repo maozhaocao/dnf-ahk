@@ -17,7 +17,7 @@ abyss_times_new_naima() {
     run(1200)
     skill("CapsLock", 1000)
     run(3200)
-    skill("r", 8000)
+    skill("q", 8000)
     run(500)
     skill("d", 1000)
 }

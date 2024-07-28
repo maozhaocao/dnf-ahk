@@ -20,8 +20,8 @@ abyss_times_new_jinggai() {
     skill("f", 500)
     run(1800)
     skill("w", 2000)
-    run(1700)
+    run(1500)
     skill("t", 500)
-    skill("h", 9000)
+    skill("r", 2000)
 }
 ;#HotIf

@@ -18,15 +18,13 @@ abyss_times_mohuang() {
 
 abyss_times_new_mohuang() {
     buff_right_right(1000)
-    run(1800)
-    skill("d", 1000)
-    run(2300)
-    skill("f", 500)
-    skill("W", 1500)
-    run(2500)
-    skill("q", 500)
-    skill("g", 1000)
-    skill("CapsLock", 8000)
-    skill("f", 1000)
+    run(1400)
+    skill("s", 500)
+    skill("w", 500)
+    run(2000)
+    skill("q", 1500)
+    run(2000)
+    skill("g", 800)
+    skill("h", 2000)
 }
 ;#HotIf
