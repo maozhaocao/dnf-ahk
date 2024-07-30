@@ -39,11 +39,11 @@ storm_nailuo2() {
 
     run(700)
     skill("q", 1500)
-    run_search_next(900)
+    run_search_next(1000)
 
     run(800)
     skill("q", 1000)
-    run_search_next(900)
+    run_search_next(1000)
 
     run(800)
     skill("e", 1000)

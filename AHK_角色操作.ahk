@@ -139,6 +139,25 @@ pick_no_check() {
     }
 }
 
+try_search_next(){
+    sleep(300)
+    down("right")
+    sleep(2000)
+
+    down("up")
+    sleep(2000)
+    up("up")
+    sleep(500)
+
+    down("down")
+    sleep(1000)
+    up("down")
+    sleep(500)
+
+    up("right")
+    sleep(500)
+}
+
 buff_right_right(time) {
     send_key("right")
     sleep(10)
