@@ -235,7 +235,7 @@ abyss_new_times_one(index) {
     }
 
     if (index == 27) {
-        abyss_times_zhiying()
+        abyss_times_new_zhiying()
     }
 }
 

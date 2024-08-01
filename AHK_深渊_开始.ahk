@@ -126,9 +126,9 @@ F1::
         abyss_storm_list := []
     } else {
         log.info("当天不为星期三")
-        all_pl_list := [1, 2, 4, 5, 6, 7, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21,22, 23, 24, 25, 26, 27]
-        abyss_list := [11, 27]
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 26]
+        all_pl_list := [1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_list := [3, 8, 11, 13, 17, 26]
+        abyss_new_list := [1, 2, 4, 5, 6, 7, 9, 10, 12, 14, 15, 16, 27]
         abyss_storm_list := [18, 19, 20, 21, 22, 23, 24, 25]
     }
 
@@ -196,7 +196,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    storm_nailuo2()
+    abyss_times_new_zhiying()
     ; storm_nailuo2()
     pick()
     return
