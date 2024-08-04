@@ -156,6 +156,7 @@ F1::
         end_time := A_Now
         log.info("当前时间:", end_time, "当前角色花费时间:", end_time - start_time)
     }
+    auto_resume(ch_count)
     return
 }
 
@@ -170,7 +171,7 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    storm_guiqi()
+    auto_resume(26)
     ; storm_nailuo2()
     pick()
     return

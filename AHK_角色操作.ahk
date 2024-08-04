@@ -26,6 +26,14 @@ skill(name, time) {
     sleep(time)
 }
 
+skill_many(name, time, times) {
+    current_times := 1
+    while (current_times <= times) {
+        skill(name, time)
+        current_times := current_times + 1
+    }
+}
+
 skill_down_up(name, time, delay) {
     sleep(10)
     down(name)
@@ -594,4 +602,45 @@ chat_daily() {
     skill("space", 500)
     skill("space", 500)
     skill("enter", 500)
+}
+
+auto_resume(ch_count) {
+    clean_screen()
+    back_select_character()
+    sleep(4000)
+    skill_many("up", 1000, 5)
+    skill_many("left", 1000, 2)
+    index := 17
+    skill_many("right", 1000, index - 1)
+    skill("space", 5000)
+    while (index <= ch_count) {
+        sleep(500)
+        check_count := 1
+        while (check_count <= 20) {
+            if (is_max_hp()) {
+                log.info("恢复角色:", index, "check_count:", check_count)
+                break
+            }
+            check_count := check_count + 1
+            sleep(30000)
+        }
+        back_select_character()
+        skill("right", 2000)
+        skill("space", 5000)
+        index := index + 1
+    }
+}
+
+is_max_hp() {
+    score := 0
+    if (pixel_search_point(700, 978, 0x831414)) {
+        score := score + 50
+    }
+    if (pixel_search_point(700, 978, 0x9A1414)) {
+        score := score + 50
+    }
+    if (pixel_search_point(700, 978, 0x7A1414)) {
+        score := score + 50
+    }
+    return score >= 50
 }
