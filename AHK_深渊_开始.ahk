@@ -68,32 +68,6 @@ start_abyss_new(index, abyss_times_total) {
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
 }
 
-start_storm(index, storm_times_total) {
-    move_and_click(1270, 410, 800)
-    Sleep(2000)
-    count := storm_times_total
-    while (count > 0)
-    {
-        count := count - 1
-        storm_times_one(index)
-        pick_no_check()
-        if (have_no_pl()) {
-            log.info("pl不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (have_no_ticket()) {
-            log.info("金绿不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (count > 0) {
-            skill("F10", 5000)
-        }
-    }
-    log.info("当前角色风暴已刷完,实际循环次数:", storm_times_total - count)
-}
-
 F1::
 {
     index := input_value("请输入当前角色id")

@@ -93,9 +93,86 @@ pick() {
     }
 }
 
+start_storm(index, storm_times_total) {
+    move_and_click(1270, 410, 800)
+    Sleep(2000)
+    count := storm_times_total
+    while (count > 0)
+    {
+        count := count - 1
+        storm_times_one(index)
+        check_pick_count := 8
+        while (check_pick_count > 1) {
+            check_pick_count := check_pick_count - 1
+            if (can_back_city()) {
+                sleep(1000)
+                skill("numpaddiv", 2000)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("x", 200)
+                skill("esc", 500)
+                break
+            }
+            if (check_pick_count <= 3) {
+                log.info("深渊疑似卡住,执行修正流程")
+                run_search_next(3000)
+                run_left(1000)
+                if (check_pick_count == 3) {
+                    skill_down_up("up", 500, 100)
+                    skill("Numpad4", 7000)
+                    skill("q", 1000)
+                    skill("w", 1000)
+                    skill("e", 1000)
+                }
+                if (check_pick_count == 2) {
+                    skill_down_up("down", 500, 100)
+                    skill("Numpad0", 4000)
+                    skill("a", 1000)
+                    skill("s", 1000)
+                    skill("d", 1000)
+                }
+            }
+            sleep(1000)
+        }
+        if (check_pick_count == 1) {
+            log.info("风暴卡住,执行重进流程")
+            back_city()
+            sleep(2000)
+            down("right")
+            sleep(2000)
+            up("right")
+            sleep(500)
+            move_and_click(1270, 410, 800)
+            sleep(2000)
+            continue
+        }
+        if (have_no_pl()) {
+            log.info("pl不足,停止继续风暴")
+            break
+        }
+        sleep(500)
+        if (have_no_ticket()) {
+            log.info("金绿不足,停止继续风暴")
+            break
+        }
+        sleep(500)
+        if (count > 0) {
+            skill("F10", 5000)
+        }
+    }
+    log.info("当前角色风暴已刷完,实际循环次数:", storm_times_total - count)
+}
+
 pick_no_check() {
     count := 8
-    while (count > 0) {
+    while (count > 1) {
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
@@ -132,16 +209,21 @@ pick_no_check() {
                 skill("d", 1000)
             }
             if (count == 1) {
-                skill("r", 1000)
-                skill("f", 1000)
-                skill("g", 1000)
+                back_city()
+                sleep(2000)
+                down("right")
+                sleep(2000)
+                up("right")
+                sleep(500)
+                move_and_click(1270, 410, 800)
+                sleep(500)
             }
         }
         sleep(1000)
     }
 }
 
-try_search_next(){
+try_search_next() {
     sleep(300)
     down("right")
     sleep(2000)
