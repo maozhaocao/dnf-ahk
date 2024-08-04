@@ -119,12 +119,14 @@ pick_no_check() {
             run_left(1000)
             if (count == 3) {
                 skill_down_up("up", 500, 100)
+                skill("Numpad4", 7000)
                 skill("q", 1000)
                 skill("w", 1000)
                 skill("e", 1000)
             }
             if (count == 2) {
                 skill_down_up("down", 500, 100)
+                skill("Numpad0", 4000)
                 skill("a", 1000)
                 skill("s", 1000)
                 skill("d", 1000)

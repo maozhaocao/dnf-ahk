@@ -34,8 +34,10 @@ abyss_times_new_xuefa() {
 
 
 storm_xuefa() {
+    Sleep(1000)
     run(1000)
     skill("f", 2000)
+    skill("w", 1000)
     buff_right_right(1000)
     run_search_next(1700)
 

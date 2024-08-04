@@ -38,15 +38,15 @@ storm_guiqi() {
     run(400)
     skill("g", 2000)
     buff_up_down(1500)
-    run_search_next(1300)
+    run_search_next(1700)
 
     run(800)
     skill("r", 1500)
-    run_search_next(1100)
+    run_search_next(1400)
 
     run(800)
     skill("q", 1500)
-    run_search_next(1100)
+    run_search_next(1400)
 
     run(800)
     skill("w", 1000)

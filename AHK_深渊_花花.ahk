@@ -29,18 +29,19 @@ abyss_times_new_huahua() {
 }
 
 storm_huahua() {
-    skill("g", 2000)
+    run(800)
+    skill("Numpad0", 2500)
     buff_right_right(1500)
     buff_right(1000)
-    run_search_next(2200)
+    run_search_next(1400)
 
     run(800)
     skill("w", 1500)
-    run_search_next(1100)
+    run_search_next(1300)
 
     run(800)
     skill("v", 1500)
-    run_search_next(1100)
+    run_search_next(1300)
 
     run(800)
     skill("e", 1000)
