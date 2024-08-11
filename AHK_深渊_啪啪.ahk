@@ -43,7 +43,7 @@ storm_papa() {
 
     run(700)
     skill("g", 1500)
-    run_search_next(900)
+    run_search_next(1200)
 
     run(700)
     skill("q", 1000)
