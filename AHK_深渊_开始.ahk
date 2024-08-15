@@ -171,8 +171,8 @@ F2::
     ;     MsgBox "no1111"
     ; }
     ; return
-    auto_resume(26)
-    ; storm_nailuo2()
+    ; auto_resume(26)
+    abyss_times_new_hongyan()
     pick()
     return
 }
