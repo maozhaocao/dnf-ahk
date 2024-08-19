@@ -26,4 +26,21 @@ abyss_times_new_zhiying() {
     skill("f", 700)
     skill("w", 3000)
 }
+
+storm_zhiying() {
+    skill("v", 1000)
+    buff_right_right(1000)
+    run_search_next(1900)
+
+    run(700)
+    skill("a", 1000)
+    run_search_next(1300)
+
+    run(700)
+    skill("q", 1000)
+    run_search_next(1300)
+
+    run(700)
+    skill("w", 3000)
+}
 ;#HotIf

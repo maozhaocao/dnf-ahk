@@ -25,4 +25,22 @@ abyss_times_new_ningmao() {
     skill("ctrl", 700)
     skill("w", 3000)
 }
+
+storm_ningmao() {
+    run(300)
+    skill("s", 1000)
+    buff_right_right(1000)
+    run_search_next(1100)
+
+    run(700)
+    skill("w", 1000)
+    run_search_next(1200)
+
+    run(700)
+    skill("d", 1000)
+    run_search_next(1200)
+
+    run(700)
+    skill("f", 3000)
+}
 ;#HotIf

@@ -276,4 +276,12 @@ storm_times_one(index) {
     if (index == 25) {
         storm_nailuo2()
     }
+
+    if (index == 26) {
+        storm_ningmao()
+    }
+
+    if (index == 27) {
+        storm_zhiying()
+    }
 }
