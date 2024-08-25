@@ -27,10 +27,11 @@ abyss_times_new_ningmao() {
 }
 
 storm_ningmao() {
+    sleep(300)
     run(300)
     skill("s", 1000)
     buff_right_right(1000)
-    run_search_next(1100)
+    run_search_next(1400)
 
     run(700)
     skill("w", 1000)

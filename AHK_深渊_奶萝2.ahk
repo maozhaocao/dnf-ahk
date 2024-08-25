@@ -35,18 +35,17 @@ abyss_times_new_nailuo2() {
 storm_nailuo2() {
     run(500)
     skill("q", 1500)
-    run_search_next(1100)
+    run_search_next(1300)
 
     run(700)
     skill("q", 1500)
-    run_search_next(1000)
+    run_search_next(1100)
 
-    run(800)
+    run(700)
     skill("q", 1000)
     run_search_next(1000)
 
     run(800)
-    skill("e", 1000)
-    skill("s", 2000)
+    skill("s", 2500)
 }
 ;#HotIf

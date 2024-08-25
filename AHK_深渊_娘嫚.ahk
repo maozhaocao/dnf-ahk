@@ -42,11 +42,15 @@ storm_niangman() {
     run_search_next(1500)
 
     run(700)
-    skill("ctrl", 1500)
+    skill("f", 200)
+    skill("up", 200)
+    skill("down", 200)
+    skill("right", 200)
+    skill("left", 1500)
     run_search_next(1600)
 
     run(400)
-    skill("v", 1500)
+    skill("ctrl", 1500)
     run_search_next(1500)
 
     run(1000)

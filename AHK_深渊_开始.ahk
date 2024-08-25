@@ -172,7 +172,7 @@ F2::
     ; }
     ; return
     ; auto_resume(26)
-    storm_zhiying()
+    storm_ningmao()
     pick()
     return
 }
