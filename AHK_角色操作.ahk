@@ -407,7 +407,7 @@ back_select_character() {
     sleep(500)
     MouseMove 925, 840
     sleep(500)
-    click_for_success()
+    click_times(2)
     sleep(500)
 }
 

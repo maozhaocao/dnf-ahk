@@ -22,6 +22,7 @@
 #Include AHK_深渊_娘嫚.ahk
 #Include AHK_深渊_狞猫.ahk
 #Include AHK_深渊_只鹰.ahk
+#Include AHK_深渊_暗帝.ahk
 
 abyss_times_one(index) {
     if (index == 1) {
@@ -236,6 +237,10 @@ abyss_new_times_one(index) {
 
     if (index == 27) {
         abyss_times_new_zhiying()
+    }
+
+    if (index == 28) {
+        abyss_times_new_andi()
     }
 }
 

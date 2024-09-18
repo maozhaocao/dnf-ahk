@@ -3,7 +3,7 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_nailuo2() {
-    buff_right_right(2000)
+    ; buff_right_right(2000)
     run(1900)
     skill("q", 500)
     run(1900)
@@ -18,7 +18,7 @@ abyss_times_nailuo2() {
 }
 
 abyss_times_new_nailuo2() {
-    buff_right_right(2000)
+    ; buff_right_right(2000)
     run(1300)
     skill("q", 500)
     run(1500)

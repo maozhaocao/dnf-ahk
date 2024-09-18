@@ -82,7 +82,7 @@ F1::
     ; if(abyss_times_total <=0){
     ;     return
     ; }
-    ch_count := 27
+    ch_count := 28
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
     skip_list := []
@@ -94,15 +94,15 @@ F1::
 
     if (is_wednesday()) {
         log.info("当天为星期三")
-        all_pl_list := [7, 8, 12, 13, 14, 15, 16, 18, 20, 22, 23, 24, 25, 26]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
         abyss_storm_list := []
     } else {
         log.info("当天不为星期三")
-        all_pl_list := [7, 8, 12, 13, 14, 15, 16, 18, 20, 22, 23, 24, 25, 26]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
         abyss_storm_list := []
     }
 
@@ -156,7 +156,7 @@ F1::
         end_time := A_Now
         log.info("当前时间:", end_time, "当前角色花费时间:", end_time - start_time)
     }
-    auto_resume(ch_count)
+    ; auto_resume(ch_count)
     return
 }
 
@@ -172,8 +172,8 @@ F2::
     ; }
     ; return
     ; auto_resume(26)
-    decompose()
-    pick()
+    abyss_times_new_hongyan()
+    ; pick()
     return
 }
 
