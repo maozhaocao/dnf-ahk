@@ -13,6 +13,10 @@
 #Include AHK_深渊_合金.ahk
 #Include AHK_深渊_牡丹.ahk
 #Include AHK_深渊_魔皇.ahk
+#Include AHK_深渊_刺客.ahk
+#Include AHK_深渊_狞猫.ahk
+#Include AHK_深渊_啪啪.ahk
+#Include AHK_深渊_之鹰.ahk
 
 abyss_times_one(index) {
     if (index == 1) {
@@ -106,19 +110,19 @@ abyss_new_times_one(index) {
     }
 
     if (index == 7) {
-        abyss_times_new_lvren()
-    }
-
-    if (index == 8) {
         abyss_times_new_miusi()
     }
 
-    if (index == 9) {
+    if (index == 8) {
         abyss_times_new_naima()
     }
 
-    if (index == 10) {
+    if (index == 9) {
         abyss_times_new_guiqi()
+    }
+
+    if (index == 10) {
+        abyss_times_new_mohuang()
     }
 
     if (index == 11) {
@@ -126,22 +130,42 @@ abyss_new_times_one(index) {
     }
 
     if (index == 12) {
-        abyss_times_new_jianmo()
+        abyss_times_new_lvren()
     }
 
     if (index == 13) {
-        abyss_times_new_mudan()
+        abyss_times_new_jianmo()
     }
 
     if (index == 14) {
-        abyss_times_new_hejin()
+        abyss_times_new_mudan()
     }
 
     if (index == 15) {
-        abyss_times_new_nailuo()
+        abyss_times_new_hejin()
     }
 
     if (index == 16) {
-        abyss_times_new_mohuang()
+        abyss_times_new_nailuo()
+    }
+
+    if (index == 17) {
+        abyss_times_new_cike()
+    }
+    
+    if (index == 18) {
+        abyss_times_new_ningmao()
+    }
+ 
+    if (index == 19) {
+        abyss_times_new_nailuo()
+    }
+
+    if (index == 20) {
+        abyss_times_new_papa()
+    }
+
+    if (index == 21) {
+        abyss_times_new_zhiying()
     }
 }

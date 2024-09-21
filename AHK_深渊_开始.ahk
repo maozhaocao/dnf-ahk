@@ -86,7 +86,7 @@ F3::
     ; if(abyss_times_total <=0){
     ;     return
     ; }
-    ch_count := 16
+    ch_count := 21
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
     skip_list := []
@@ -98,15 +98,15 @@ F3::
 
     if (is_wednesday()) {
         log.info("当天为星期三")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
         abyss_storm_list := []
     } else {
         log.info("当天不为星期三")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
         abyss_storm_list := []
     }
 
@@ -174,7 +174,7 @@ F4::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_new_mohuang()
+    abyss_times_new_huahua()
     ; storm_nailuo2()
     pick()
     return

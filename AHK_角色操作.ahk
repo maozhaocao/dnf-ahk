@@ -271,7 +271,7 @@ MouseMove 925,750
 sleep(500)
 MouseMove 925,750
 sleep(500)
-click_for_success()
+click_times(2)
 sleep(500)
 }
 
