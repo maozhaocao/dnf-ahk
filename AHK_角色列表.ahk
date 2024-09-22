@@ -242,6 +242,10 @@ abyss_new_times_one(index) {
     if (index == 28) {
         abyss_times_new_andi()
     }
+
+    if (index == 29) {
+        abyss_times_new_hongyan()
+    }
 }
 
 
