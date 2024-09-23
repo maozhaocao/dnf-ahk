@@ -23,6 +23,7 @@
 #Include AHK_深渊_狞猫.ahk
 #Include AHK_深渊_只鹰.ahk
 #Include AHK_深渊_暗帝.ahk
+#Include AHK_深渊_团长.ahk
 
 abyss_times_one(index) {
     if (index == 1) {
@@ -245,6 +246,10 @@ abyss_new_times_one(index) {
 
     if (index == 29) {
         abyss_times_new_hongyan()
+    }
+
+    if (index == 30) {
+        abyss_times_new_tuanzhang()
     }
 }
 
