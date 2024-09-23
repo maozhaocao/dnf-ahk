@@ -4,7 +4,7 @@
 
 abyss_times_new_andi() {
     buff_right_right(800)
-    run(1600)
+    run(1500)
     skill("s", 1000)
     run(1500)
     skill("v", 1000)
