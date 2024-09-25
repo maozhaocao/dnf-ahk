@@ -25,6 +25,7 @@
 #Include AHK_深渊_暗帝.ahk
 #Include AHK_深渊_团长.ahk
 #Include AHK_深渊_龙神.ahk
+#Include AHK_深渊_漫游.ahk
 
 abyss_times_one(index) {
     if (index == 1) {
@@ -255,6 +256,10 @@ abyss_new_times_one(index) {
 
     if (index == 31) {
         abyss_times_new_longshen()
+    }
+
+    if (index == 32) {
+        abyss_times_new_manyou()
     }
 }
 
