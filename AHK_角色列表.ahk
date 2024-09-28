@@ -26,6 +26,7 @@
 #Include AHK_深渊_团长.ahk
 #Include AHK_深渊_龙神.ahk
 #Include AHK_深渊_漫游.ahk
+#Include AHK_深渊_抱抱.ahk
 
 abyss_times_one(index) {
     if (index == 1) {
@@ -260,6 +261,10 @@ abyss_new_times_one(index) {
 
     if (index == 32) {
         abyss_times_new_manyou()
+    }
+
+    if (index == 33) {
+        abyss_times_new_baobao()
     }
 }
 
