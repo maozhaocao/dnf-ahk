@@ -4,9 +4,9 @@
 
 abyss_times_new_zhiying() {
     buff_right_right(1500)
-    run(1600)
+    run(1400)
     skill("w", 700)
-    run(1600)
+    run(1400)
     skill("q", 700)
     run(1700)
     skill("w", 700)
