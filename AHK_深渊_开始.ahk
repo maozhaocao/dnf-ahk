@@ -145,7 +145,7 @@ F3::
                 }
                 back_city()
                 chat_daily()
-                ; decompose()
+                decompose()
                 finish_daily_task()
                 ; finish_abyss_task()
             }
@@ -174,9 +174,9 @@ F4::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_new_huahua()
+    decompose()
     ; storm_nailuo2()
-    pick()
+    ; pick()
     return
 }
 

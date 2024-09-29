@@ -435,18 +435,18 @@ run_search_next(time){
     skill_down_up("down",300,1000)
 }
 
-decompose(){
+decompose() {
     clean_screen()
-    skill("esc",500)
-    move_and_click(547,513,800)
+    skill("esc", 500)
+    move_and_click(547, 513, 800)
 
     fix_decompose_machine()
 
-    move_and_click(988,610,800)
-    move_and_click(725,467,800)
-    move_and_click(835,700,800)
+    move_and_click(988, 580, 800)
+    skill("a",800)
+    skill("space",800)
     Sleep(3000)
-    skill("esc",500)
+    skill("esc", 500)
 }
 
 fix_decompose_machine(){
