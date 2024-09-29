@@ -172,7 +172,7 @@ F2::
     ; }
     ; return
     ; auto_resume(26)
-    abyss_times_new_baobao()
+    decompose()
     ; pick()
     return
 }

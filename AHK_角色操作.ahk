@@ -576,8 +576,8 @@ decompose() {
     fix_decompose_machine()
 
     move_and_click(988, 580, 800)
-    move_and_click(735, 485, 800)
-    move_and_click(872, 732, 800)
+    skill("a",800)
+    skill("space",800)
     Sleep(3000)
     skill("esc", 500)
 }
