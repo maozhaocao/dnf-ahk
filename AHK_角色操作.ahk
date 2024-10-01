@@ -253,9 +253,9 @@ go_abyss_new_door(){
 back_city(){
 clean_screen()
 skill("esc",500)
-MouseMove 1135,750
+MouseMove 1135,800
 sleep(500)
-MouseMove 1135,750
+MouseMove 1135,800
 sleep(500)
 click_for_success()
 sleep(500)
@@ -267,9 +267,9 @@ clean_screen()
 back_select_character(){
 clean_screen()
 skill("esc",500)
-MouseMove 925,750
+MouseMove 925,800
 sleep(500)
-MouseMove 925,750
+MouseMove 925,800
 sleep(500)
 click_times(2)
 sleep(500)

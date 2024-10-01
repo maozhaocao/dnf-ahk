@@ -174,7 +174,7 @@ F4::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_new_zhiying()
+    decompose()
     ; storm_nailuo2()
     ; pick()
     return
