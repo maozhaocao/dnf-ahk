@@ -18,11 +18,11 @@ abyss_times_nailuo() {
 }
 
 abyss_times_new_nailuo() {
-    run(1300)
+    run(1500)
     skill("w", 500)
-    run(1200)
+    run(1400)
     skill("w", 500)
-    run(1200)
+    run(1400)
     skill("CapsLock", 300)
     skill("s", 100)
     skill("d", 1000)
