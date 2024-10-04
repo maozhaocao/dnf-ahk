@@ -74,6 +74,11 @@ F1::
     if (index <= 0) {
         return
     }
+    start_hour := A_Hour
+    start(index)
+    end_hour := A_Hour
+
+    return
     ; ch_count := input_value("请输入最大角色id")
     ; if(ch_count <=0){
     ;     return
@@ -82,6 +87,9 @@ F1::
     ; if(abyss_times_total <=0){
     ;     return
     ; }
+}
+
+start(index) {
     ch_count := 33
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
@@ -92,14 +100,14 @@ F1::
     abyss_new_list := []
     abyss_storm_list := []
 
-    if (is_wednesday()) {
-        log.info("当天为星期三")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+    if (is_thursday()) {
+        log.info("当天为星期四")
+        all_pl_list := [28, 29, 30, 31, 32, 33]
         abyss_list := []
         abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_storm_list := []
     } else {
-        log.info("当天不为星期三")
+        log.info("当天不为星期四")
         all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_list := []
         abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
@@ -120,7 +128,7 @@ F1::
                 receive_daily_ticket()
                 abyss_times_total := 0
                 if (!list_contains_key(all_pl_list, index)) {
-                    abyss_times_total := 4
+                    abyss_times_total := 19
                 } else if (list_contains_key(abyss_list, index)) {
                     abyss_times_total := 18
                 } else if (list_contains_key(abyss_new_list, index)) {
