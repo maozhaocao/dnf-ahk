@@ -16,11 +16,11 @@ abyss_times_zhiying() {
 
 abyss_times_new_zhiying() {
     buff_right_right(1500)
-    run(1600)
+    run(1200)
     skill("d", 2000)
-    run(1600)
+    run(1200)
     skill("q", 1000)
-    run(1500)
+    run(1300)
     skill("r", 700)
     skill("ctrl", 700)
     skill("f", 700)
