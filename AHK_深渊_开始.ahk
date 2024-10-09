@@ -124,11 +124,11 @@ F3::
                 receive_daily_ticket()
                 abyss_times_total := 0
                 if (!list_contains_key(all_pl_list, index)) {
-                    abyss_times_total := 4
+                    abyss_times_total := 19
                 } else if (list_contains_key(abyss_list, index)) {
                     abyss_times_total := 18
                 } else if (list_contains_key(abyss_new_list, index)) {
-                    abyss_times_total := 19
+                    abyss_times_total := 26
                 } else if (list_contains_key(abyss_storm_list, index)) {
                     abyss_times_total := 32
                 }
