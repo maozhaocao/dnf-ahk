@@ -26,7 +26,5 @@ abyss_times_new_guiqi() {
     skill("r", 100)
     skill("w", 1500)
     skill("t", 4000)
-    run(500)
-    skill("h", 1200)
 }
 ;#HotIf
