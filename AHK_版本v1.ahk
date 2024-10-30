@@ -90,3 +90,15 @@ is_thursday() {
     }
     return false
 }
+
+is_friday() {
+    day := A_WDay - 1  ;1 位数表示的当前星期几（1-7）。 在所有区域设置中 1 都表示星期天.
+    cur_hour := A_Hour
+    if (day == 5 and cur_hour >= 6) {
+        return true
+    }
+    if (day == 6 and cur_hour < 6) {
+        return true
+    }
+    return false
+}
