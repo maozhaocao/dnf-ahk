@@ -74,19 +74,38 @@ F1::
     if (index <= 0) {
         return
     }
+    start_day := SubStr(A_DD, 2)
     start_hour := A_Hour
+    log.info("开始时间:", start_day,start_hour)
     start(index)
+    end_day := SubStr(A_DD, 2)
     end_hour := A_Hour
+    log.info("结束时间:", end_day, end_hour)
 
+
+    clean_screen()
+    back_select_character()
+    sleep(4000)
+    skill_many("up", 1000, 5)
+    skill_many("left", 1000, 5)
+    skill("space", 5000)
+    while (true) {
+        end_day := SubStr(A_DD, 2)
+        end_hour := A_Hour
+
+        if (end_hour<6){
+            sleep(1000*60*10)
+            continue
+        }
+
+        if (start_day == end_day and start_hour>=6){
+            sleep(1000*60*10)
+            continue
+        }
+        start(1)
+        break
+    }
     return
-    ; ch_count := input_value("请输入最大角色id")
-    ; if(ch_count <=0){
-    ;     return
-    ; }
-    ; abyss_times_total := input_value("深渊次数")
-    ; if(abyss_times_total <=0){
-    ;     return
-    ; }
 }
 
 start(index) {
