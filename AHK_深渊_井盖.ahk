@@ -15,12 +15,12 @@ abyss_times_jinggai() {
 
 abyss_times_new_jinggai() {
     buff_up_up(1000)
-    run(1100)
+    run(1200)
     skill("f", 500)
-    run(1500)
+    run(1800)
     skill("a", 2000)
-    run(1400)
+    run(1700)
     skill("e", 500)
-    skill("g", 3000)
+    skill("r", 3000)
 }
 ;#HotIf

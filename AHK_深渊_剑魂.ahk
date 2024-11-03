@@ -17,9 +17,9 @@ abyss_times_new_jianhun() {
     buff_right_right(1000)
     skill("r", 100)
     skill("r", 1000)
-    run(1700)
+    run(1300)
     skill("g", 500)
-    run(1500)
+    run(1300)
     skill("ctrl", 1000)
     skill("q", 2000)
 }
