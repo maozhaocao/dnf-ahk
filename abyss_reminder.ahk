@@ -14,12 +14,16 @@ build_msg(){
 }
 
 send_msg(msg){
-    try{
+    global token
+    log.info("token ",token)
+    log.info("msg ",msg)
+    ; try{
         whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
         whr.Open("GET", "http://1.94.20.64:20216/abyss/send_abyss_info?user_id=1317818309&msg="+msg+"&token=" + token, true)
         whr.Send()
         whr.WaitForResponse()
-    } catch e{
-        log.error("send_msg failed:",msg)
-    }
+        log.info("end req ")
+    ; } catch e{
+    ;     log.error("send_msg failed:",msg)
+    ; }
 }

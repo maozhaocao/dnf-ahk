@@ -1,6 +1,7 @@
 ﻿;#HotIf WinActive("ahk_exe DNF.exe")
 run_with_admin()
 #Include AHK_角色列表.ahk
+#Include abyss_reminder.ahk
 
 start_abyss(index, abyss_times_total) {
     skill("space", 4000)
@@ -199,7 +200,7 @@ F2::
     ; }
     ; return
     ; auto_resume(26)
-    decompose()
+    send_msg("hello")
     ; pick()
     return
 }
