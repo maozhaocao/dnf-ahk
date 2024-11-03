@@ -209,7 +209,7 @@ F4::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_new_jianmo()
+    abyss_times_new_jinggai()
     ; storm_nailuo2()
     ; pick()
     return

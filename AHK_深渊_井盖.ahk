@@ -16,11 +16,11 @@ abyss_times_jinggai() {
 
 abyss_times_new_jinggai() {
     buff_right_right(1000)
-    run(1100)
+    run(1300)
     skill("f", 500)
-    run(1800)
+    run(2200)
     skill("w", 2000)
-    run(1500)
+    run(2000)
     skill("t", 500)
     skill("r", 2000)
 }

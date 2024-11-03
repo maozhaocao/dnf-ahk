@@ -26,6 +26,16 @@ send_key(name)
 sleep(time)
 }
 
+
+skill_many(name, time, times) {
+    current_times := 1
+    while (current_times <= times) {
+        skill(name, time)
+        current_times := current_times + 1
+    }
+}
+
+
 skill_down_up(name,time,delay){
     sleep(10)
     down(name)
