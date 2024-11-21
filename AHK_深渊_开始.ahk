@@ -77,7 +77,7 @@ F1::
     }
     start_day := SubStr(A_DD, 2)
     start_hour := A_Hour
-    log.info("开始时间:", start_day,start_hour)
+    log.info("开始时间:", start_day, start_hour)
     start(index)
     end_day := SubStr(A_DD, 2)
     end_hour := A_Hour
@@ -94,13 +94,13 @@ F1::
         end_day := SubStr(A_DD, 2)
         end_hour := A_Hour
 
-        if (end_hour<6){
-            sleep(1000*60*10)
+        if (end_hour < 6) {
+            sleep(1000 * 60 * 10)
             continue
         }
 
-        if (start_day == end_day and start_hour>=6){
-            sleep(1000*60*10)
+        if (start_day == end_day and start_hour >= 6) {
+            sleep(1000 * 60 * 10)
             continue
         }
         start(1)
@@ -122,7 +122,7 @@ start(index) {
 
     if (is_friday()) {
         log.info("当天为星期五")
-        all_pl_list := [28, 29, 30, 31, 32, 33]
+        all_pl_list := [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_list := []
         abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_storm_list := []
