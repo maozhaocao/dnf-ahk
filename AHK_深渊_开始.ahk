@@ -72,6 +72,50 @@ start_storm(index, storm_times_total) {
 
 }
 
+go_ss_road_door() {
+    move_and_click(1267, 603, 1000)
+    move_and_click(1374, 730, 1000)
+    down("up")
+    sleep(2000)
+    up("up")
+    sleep(500)
+}
+
+start_ss_road(index, abyss_times_total) {
+    sleep(500)
+    MouseMove 1220, 337
+    sleep(500)
+    click_for_success()
+    sleep(4000)
+    ; if (!can_enter_abyss()) {
+    ;     log.info("进入史诗之路失败")
+    ;     sleep(1000)
+    ;     return
+    ; }
+    sleep(1000)
+    count := abyss_times_total
+    while (count > 0)
+    {
+        count := count - 1
+        abyss_new_times_one(index)
+        pick()
+        if (have_no_pl()) {
+            log.info("pl不足,停止继续史诗之路")
+            break
+        }
+        sleep(500)
+        if (have_no_ticket()) {
+            log.info("次数不足,停止史诗之路")
+            break
+        }
+        sleep(500)
+        if (count > 0) {
+            skill("F10", 4000)
+        }
+    }
+    log.info("当前角色史诗之路已刷完,实际循环次数:", abyss_times_total - count)
+}
+
 F3::
 {
     index := input_value("请输入当前角色id")
@@ -80,7 +124,7 @@ F3::
     }
     start_day := SubStr(A_DD, 2)
     start_hour := A_Hour
-    log.info("开始时间:", start_day,start_hour)
+    log.info("开始时间:", start_day, start_hour)
     start(index)
     end_day := SubStr(A_DD, 2)
     end_hour := A_Hour
@@ -97,13 +141,13 @@ F3::
         end_day := SubStr(A_DD, 2)
         end_hour := A_Hour
 
-        if (end_hour<6){
-            sleep(1000*60*10)
+        if (end_hour < 6) {
+            sleep(1000 * 60 * 10)
             continue
         }
 
-        if (start_day == end_day and start_hour>=6){
-            sleep(1000*60*10)
+        if (start_day == end_day and start_hour >= 6) {
+            sleep(1000 * 60 * 10)
             continue
         }
         start(1)
@@ -130,19 +174,22 @@ start(index) {
     abyss_list := []
     abyss_new_list := []
     abyss_storm_list := []
+    ss_road_list := []
 
     if (is_friday()) {
         log.info("当天为星期五")
         all_pl_list := []
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21]
         abyss_storm_list := []
+        ss_road_list := [16]
     } else {
         log.info("当天不为星期五")
         all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21]
         abyss_storm_list := []
+        ss_road_list := [16]
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -166,6 +213,8 @@ start(index) {
                     abyss_times_total := 26
                 } else if (list_contains_key(abyss_storm_list, index)) {
                     abyss_times_total := 32
+                } else if (list_contains_key(ss_road_list, index)) {
+                    abyss_times_total := 26
                 }
 
                 if (list_contains_key(abyss_list, index)) {
@@ -177,6 +226,9 @@ start(index) {
                 } else if (list_contains_key(abyss_storm_list, index)) {
                     go_abyss_door()
                     start_storm(index, abyss_times_total)
+                } else if (list_contains_key(ss_road_list, index)) {
+                    go_ss_road_door()
+                    start_ss_road(index, abyss_times_total)
                 }
                 back_city()
                 chat_daily()
