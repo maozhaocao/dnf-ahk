@@ -386,6 +386,15 @@ go_abyss_new_door() {
     sleep(500)
 }
 
+go_ss_road_door(){
+    move_and_click(1267,603,1000)
+    move_and_click(1374,730,1000)
+    down("up")
+    sleep(2000)
+    up("up")
+    sleep(500)
+}
+
 back_city() {
     clean_screen()
     skill("esc", 500)
