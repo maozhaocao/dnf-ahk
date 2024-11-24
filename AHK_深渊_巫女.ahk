@@ -16,11 +16,11 @@ abyss_times_wunv() {
 
 abyss_times_new_wunv() {
     buff_right_right(1000)
-    run(1100)
+    run(900)
     skill("v", 500)
-    run(1500)
+    run(1200)
     skill("e", 500)
-    run(1700)
+    run(1300)
     skill("s", 700)
     skill("q", 4000)
     skill("w", 1000)
