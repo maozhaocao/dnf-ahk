@@ -158,18 +158,18 @@ start(index) {
 
     if (is_friday()) {
         log.info("当天为星期五")
-        all_pl_list := [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+        all_pl_list := [8, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+        abyss_new_list := [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_storm_list := []
-        ss_road_list := [8]
+        ss_road_list := [4, 8]
     } else {
         log.info("当天不为星期五")
         all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+        abyss_new_list := [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_storm_list := []
-        ss_road_list := [8]
+        ss_road_list := [4, 8]
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -211,7 +211,7 @@ start(index) {
                     start_ss_road(index, abyss_times_total)
                 }
                 back_city()
-                chat_daily()
+                ; chat_daily()
                 decompose()
                 finish_daily_task()
                 ; finish_abyss_task()
