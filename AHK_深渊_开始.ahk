@@ -211,7 +211,7 @@ start(index) {
                     start_ss_road(index, abyss_times_total)
                 }
                 back_city()
-                ; chat_daily()
+                chat_daily()
                 decompose()
                 finish_daily_task()
                 ; finish_abyss_task()
