@@ -406,7 +406,8 @@ receive_daily_ticket(){
     sleep(200)
     move_and_click_one(1386,977,800)
     move_and_click_one(890,307,800)
-    clean_screen()
+    ; clean_screen()
+    skill("esc", 2000)
 }
 
 finish_daily_task(){
@@ -420,8 +421,9 @@ move_and_click(890,658,800)
 move_and_click(890,805,800)
 move_and_click(890,307,800)
 sleep(500)
-skill("F5",1000)
-skill("F5",1000)
+; skill("F5",1000)
+; skill("F5",1000)
+skill("esc", 2000)
 }
 
 finish_abyss_task(){
