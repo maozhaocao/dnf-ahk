@@ -38,7 +38,7 @@ start_abyss_new(index, abyss_times_total) {
     MouseMove 1250, 400
     sleep(500)
     click_for_success()
-    sleep(6000)
+    sleep(8000)
     if (!can_enter_abyss()) {
         log.info("记忆落痕不足,进入深渊失败")
         sleep(1000)
