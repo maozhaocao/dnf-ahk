@@ -69,8 +69,9 @@ open_万象固定(index) {
 decompose_ss(times) {
     skill("esc", 500)
     move_and_click(547, 513, 800)
-    ; fix_decompose_machine()
-
+    fix_decompose_machine()
+    skill("space", 500)
+    skill("space", 500)
     move_and_click(978, 593, 800)
 
     row := 3
@@ -100,6 +101,8 @@ decompose_ss(times) {
     }
 
     Sleep(500)
+    skill("space", 500)
+    skill("space", 500)
     skill("space", 500)
     skill("space", 500)
     Sleep(3000)
