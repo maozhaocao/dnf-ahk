@@ -4,8 +4,11 @@ run_with_admin()
 
 F2::
 {
+    index := input_value("请输入当前角色id")
+    if (index <= 0) {
+        return
+    }
     ch_count := 33
-    index:=17
     while (index <= ch_count) {
         open_万象固定(index)
         index := index + 1
