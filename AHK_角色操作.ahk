@@ -275,7 +275,8 @@ clean_screen()
 }
 
 back_select_character(){
-clean_screen()
+; clean_screen()
+sleep(2000)
 skill("esc",500)
 MouseMove 925,800
 sleep(500)
