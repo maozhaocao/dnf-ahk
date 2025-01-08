@@ -31,10 +31,17 @@ F3::
 
 open_万象固定(index) {
 
-    select_one_list := [17]
-    select_four_list := [17]
+    if (index == 2) {
+        return
+    }
 
-    while (true) {
+
+    select_guijian_list := [1,3,4,5,7,10,12,14,16,17,18,19,21]
+    select_one_list := [13]
+    select_two_list := [8]
+
+    decompose_times := 0
+    while (decompose_times < 20) {
         sleep(1000)
         times := 24
         cur_times := 0
@@ -42,9 +49,17 @@ open_万象固定(index) {
             skill("1", 500)
             move_and_click_one(847, 280, 400)
             move_and_click_one(847, 312, 400)
+            if (list_contains_key(select_guijian_list, index)) {
+                move_and_click_one(847, 312, 400)
+                move_and_click_one(847, 347, 400)
+            }
+
             if (list_contains_key(select_one_list, index)) {
-                move_and_click_one(847,420,400) ;1
-            }else{
+                move_and_click_one(847, 420, 400) ;1
+            } else if (list_contains_key(select_one_list, index)) {
+                move_and_click_one(847, 490, 400) ;2
+            }
+            else {
                 move_and_click_one(847, 637, 400) ;4
             }
 
@@ -67,6 +82,8 @@ open_万象固定(index) {
         if (!pixel_search_point(272, 1056, 0xFFAE00)) {
             break
         }
+        decompose_times := decompose_times + 1
+
     }
 }
 
