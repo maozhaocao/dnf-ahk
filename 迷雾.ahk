@@ -31,7 +31,7 @@ open_万象固定(index) {
     }
 
 
-    select_guijian_list := [1, 2, 3, 6, 7, 8, 13, 14]
+    select_guijian_list := [1, 2, 3, 6, 7, 8,9, 10, 13, 14]
     select_one_list := [12, 17, 27]
     select_two_list := [9, 10, 15]
 
