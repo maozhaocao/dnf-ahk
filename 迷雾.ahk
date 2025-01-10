@@ -10,7 +10,7 @@ F2::
     }
     ch_count := 33
     while (index <= ch_count) {
-        open_万象固定(index)
+        open_自定义(index)
         index := index + 1
         back_select_character()
         sleep(4000)
@@ -79,6 +79,87 @@ open_万象固定(index) {
         }
         decompose_times := decompose_times + 1
     }
+}
+
+
+open_自定义(index) {
+    if (index == 4 or index == 5) {
+        return
+    }
+
+    decompose_times := 0
+    while (decompose_times < 20) {
+        sleep(1000)
+        times := 24
+        cur_times := 0
+        while (cur_times < times) {
+            skill("1", 500)
+            move_and_click_one(847, 280, 400)
+            move_and_click_one(847, 600, 400)
+            move_and_click_one(847, 600, 400)
+            move_and_click_one(757, 740, 400)
+            skill("space", 500)
+            skill("space", 500)
+            skill("space", 500)
+            skill("space", 300)
+            cur_times := cur_times + 1
+
+            if (!pixel_search_point(272, 1056, 0xFFAE00)) {
+                break
+            }
+        }
+
+        skill("space", 300)
+        decompose_自定义(cur_times)
+
+        if (!pixel_search_point(272, 1056, 0xFFAE00)) {
+            break
+        }
+        decompose_times := decompose_times + 1
+    }
+}
+
+
+decompose_自定义(times) {
+    skill("esc", 500)
+    move_and_click(547, 513, 800)
+    fix_decompose_machine()
+    skill("space", 500)
+    skill("space", 500)
+    move_and_click(978, 593, 800)
+
+    row := 3
+    col := 8
+    start_x := 1136
+    start_y := 576
+    per_add := 54
+    cur_times := 0
+
+    row_cur := 0
+    while (row_cur < row) {
+        col_cur := 0
+        while (col_cur < col) {
+            cur_point_x := start_x + col_cur * per_add
+            cur_point_y := start_y + row_cur * per_add
+            move_and_click_one(cur_point_x, cur_point_y, 400)
+            col_cur := col_cur + 1
+            cur_times := cur_times + 1
+            if (cur_times >= times) {
+                break
+            }
+        }
+        row_cur := row_cur + 1
+        if (cur_times >= times) {
+            break
+        }
+    }
+
+    Sleep(500)
+    move_and_click(844, 730, 800)
+    move_and_click(700, 610, 800)
+    move_and_click(735, 730, 800)
+    Sleep(3000)
+    skill("esc", 500)
 }
 
 decompose_ss(times) {
