@@ -334,7 +334,7 @@ click_times(times) {
 }
 
 click_for_success() {
-    click_times(5)
+    click_times(1)
 }
 
 clean_screen() {
@@ -372,18 +372,17 @@ go_abyss_door() {
 }
 
 go_abyss_new_door() {
+    skill(";", 1000)
+    move_and_click(385,635,1000)
+    move_and_click(915,655,1000)
+    move_and_click(680,75,1000)
+    move_and_click(680,230,1000)
+    move_and_click(986,779,1000)
+    skill("space", 1000)
     down("right")
     sleep(2000)
     up("right")
-    sleep(500)
-    MouseMove 813, 700
-    sleep(500)
-    click_for_success()
-    sleep(2000)
-    down("right")
-    sleep(2000)
-    up("right")
-    sleep(500)
+    sleep(1000)
 }
 
 go_ss_road_door(){

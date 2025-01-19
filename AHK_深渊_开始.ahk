@@ -124,6 +124,7 @@ F1::
     sleep(4000)
     skill_many("up", 1000, 5)
     skill_many("left", 1000, 5)
+    skill_many("right", 1000, 19)
     skill("space", 5000)
     while (true) {
         end_day := SubStr(A_DD, 2)
@@ -138,7 +139,7 @@ F1::
             sleep(1000 * 60 * 10)
             continue
         }
-        start(1)
+        start(20)
         break
     }
     return
@@ -158,18 +159,18 @@ start(index) {
 
     if (is_friday()) {
         log.info("当天为星期五")
-        all_pl_list := [8, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+        all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+        abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_storm_list := []
-        ss_road_list := [4, 8]
+        ss_road_list := []
     } else {
         log.info("当天不为星期五")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+        all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_list := []
-        abyss_new_list := [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+        abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         abyss_storm_list := []
-        ss_road_list := [4, 8]
+        ss_road_list := []
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -183,7 +184,8 @@ start(index) {
                 log.info("配置角色跳过")
             } else {
                 log.info("有pl,开始深渊")
-                receive_daily_ticket()
+                ; receive_daily_ticket()
+                sleep(1000)
                 abyss_times_total := 0
                 if (!list_contains_key(all_pl_list, index)) {
                     abyss_times_total := 19
@@ -213,7 +215,7 @@ start(index) {
                 back_city()
                 chat_daily()
                 decompose()
-                finish_daily_task()
+                ; finish_daily_task()
                 ; finish_abyss_task()
             }
         } else {
