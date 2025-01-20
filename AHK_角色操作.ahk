@@ -334,7 +334,7 @@ click_times(times) {
 }
 
 click_for_success() {
-    click_times(1)
+    click_times(5)
 }
 
 clean_screen() {
@@ -521,7 +521,7 @@ move_and_click(mouse_x, mouse_y, delay) {
     sleep(200)
     MouseMove mouse_x, mouse_y
     sleep(delay)
-    click_for_success()
+    click_times(1)
     sleep(200)
 }
 
