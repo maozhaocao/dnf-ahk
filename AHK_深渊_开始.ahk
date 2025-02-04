@@ -249,7 +249,7 @@ F2::
         ; pick()
 
         RGBList := GetRectSampledRGBList(1785, 105, 1787, 117, 4)
-        get_map3_ch_location()
+        get_map1_ch_location()
         return
     }
 

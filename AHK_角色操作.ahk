@@ -701,17 +701,17 @@ is_map1() {
 }
 
 is_map2() {
-    ; boss是第3行第3列
-    RGB_list := [0x981100, 0xE77300, 0x3B2A12, 0x610D00, 0x0B1400, 0x1E3701, 0xAA2301, 0x2A1D08, 0x660301, 0x1F3D01]
-    similarity := CalculateSimilarity(RGB_list, 1840, 165, 1874, 188, 10)
+    ; boss是第2行第6列
+    RGB_list := [0x700802, 0xE84D02, 0xE73F01, 0xB42200, 0x1D3300, 0xE75300, 0xDB4700, 0x060C00, 0x2F5100, 0x204100]
+    similarity := CalculateSimilarity(RGB_list, 1883, 132, 1896, 153, 10)
     log.info("similarity:", similarity)
     return similarity
 }
 
 is_map3() {
-    ; boss是第2行第6列
-    RGB_list := [0x700802, 0xE84D02, 0xE73F01, 0xB42200, 0x1D3300, 0xE75300, 0xDB4700, 0x060C00, 0x2F5100, 0x204100]
-    similarity := CalculateSimilarity(RGB_list, 1883, 132, 1896, 153, 10)
+    ; boss是第3行第3列
+    RGB_list := [0x981100, 0xE77300, 0x3B2A12, 0x610D00, 0x0B1400, 0x1E3701, 0xAA2301, 0x2A1D08, 0x660301, 0x1F3D01]
+    similarity := CalculateSimilarity(RGB_list, 1840, 165, 1874, 188, 10)
     log.info("similarity:", similarity)
     return similarity
 }
@@ -721,6 +721,69 @@ get_current_map() {
     log.info("map score:", similarity_list)
     return FindMaxIndex(similarity_list)
 }
+
+
+get_map1_ch_location() {
+    similarity_list := [is_map1_loc1(), is_map1_loc2(), is_map1_loc3(), is_map1_loc4(), is_map1_loc5(), is_map1_loc6(), is_map1_loc7()]
+    log.info("loc score:", similarity_list)
+}
+
+is_map1_loc1() {
+    ; 第1行第1列
+    RGB_list := [0x0556AB,0x0F1D4C,0x0CC5DE,0x1957C9]
+    similarity := CalculateSimilarity(RGB_list, 1785, 105, 1787, 117, 4)
+    return similarity
+}
+
+is_map1_loc2() {
+    ; 第1行第2列
+    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    similarity := CalculateSimilarity(RGB_list, 1818, 105, 1820, 117, 4)
+    return similarity
+}
+
+is_map1_loc3() {
+    ; 第1行第3列
+    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    similarity := CalculateSimilarity(RGB_list, 1851, 105, 1853, 117, 4)
+    return similarity
+}
+
+is_map1_loc4() {
+    ; 第1行第4列
+    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    similarity := CalculateSimilarity(RGB_list, 1884, 105, 1886, 117, 4)
+    return similarity
+}
+
+is_map1_loc5() {
+    ; 第2行第4列
+    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    similarity := CalculateSimilarity(RGB_list, 1884, 138, 1886, 150, 4)
+    return similarity
+}
+
+is_map1_loc6() {
+    ; 第2行第3列
+    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    similarity := CalculateSimilarity(RGB_list, 1851, 138, 1853, 150, 4)
+    return similarity
+}
+
+is_map1_loc7() {
+    ; 第2行第2列
+    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    similarity := CalculateSimilarity(RGB_list, 1818, 138, 1820, 150, 4)
+    return similarity
+}
+
+is_map1_loc8() {
+    ; 第3行第2列 todo
+    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    similarity := CalculateSimilarity(RGB_list, 1851, 171, 1853, 183, 4)
+    return similarity
+}
+
 
 get_map3_ch_location() {
     similarity_list := [is_map3_loc1(), is_map3_loc2(), is_map3_loc3(), is_map3_loc4(), is_map3_loc5(), is_map3_loc6(), is_map3_loc7()]
