@@ -279,7 +279,7 @@ FindMaxIndex(arr) {
     {
         ; 获取当前元素的索引（注意AutoHotkey的索引从1开始）
         currentIndex := A_Index
-        currentValue := arr[currentIndex - 1] ; 由于A_Index从1开始，而数组索引从0开始（若使用数组表示法），故需减1
+        currentValue := arr[currentIndex ] ; 由于A_Index从1开始，而数组索引从0开始（若使用数组表示法），故需减1
         
         ; 若当前元素大于当前最大值，则更新最大值及其索引
         If (currentValue > maxValue)

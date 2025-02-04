@@ -20,6 +20,38 @@ run_left(time) {
     sleep(50)
 }
 
+walk(time) {
+    sleep(50)
+    down("right")
+    sleep(time)
+    up("right")
+    sleep(50)
+}
+
+walk_left(time) {
+    sleep(50)
+    down("left")
+    sleep(time)
+    up("left")
+    sleep(50)
+}
+
+walk_up(time) {
+    sleep(50)
+    down("up")
+    sleep(time)
+    up("up")
+    sleep(50)
+}
+
+walk_down(time) {
+    sleep(50)
+    down("down")
+    sleep(time)
+    up("down")
+    sleep(50)
+}
+
 skill(name, time) {
     sleep(10)
     send_key(name)
@@ -722,7 +754,6 @@ get_current_map() {
     return FindMaxIndex(similarity_list)
 }
 
-
 get_map1_ch_location() {
     similarity_list := [is_map1_loc1(), is_map1_loc2(), is_map1_loc3(), is_map1_loc4(), is_map1_loc5(), is_map1_loc6(), is_map1_loc7()]
     log.info("loc score:", similarity_list)
@@ -784,11 +815,254 @@ is_map1_loc8() {
     return similarity
 }
 
+map2_start(){
+    loc := 1
+
+    while(loc<8){
+        loc :=get_map2_ch_location()
+        log.info("current loc :",loc)
+
+        if(loc == 1){
+            map2_loc1_action()
+        }
+
+        if(loc == 2){
+            map2_loc2_action()
+        }
+
+        if(loc == 3){
+            map2_loc3_action()
+        }
+
+        if(loc == 4){
+            map2_loc4_action()
+        }
+
+        if(loc == 5){
+            map2_loc5_action()
+        }
+
+        if(loc == 6){
+            map2_loc6_action()
+        }
+
+        if(loc == 7){
+            map2_loc7_action()
+        }
+
+        if(loc == 8){
+            map2_loc8_action()
+        }
+    }
+
+}
+
+map2_loc1_action(){
+    down("right")
+    action_index :=1
+    while(is_map2_loc1()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map2_loc2_action(){
+    run(500)
+    down("up")
+    action_index :=1
+    while(is_map2_loc2()>=80){
+        go_up(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("up")
+}
+
+map2_loc3_action(){
+    run(500)
+    down("right")
+    action_index :=1
+    while(is_map2_loc3()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map2_loc4_action(){
+    run(500)
+    down("right")
+    action_index :=1
+    while(is_map2_loc4()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map2_loc5_action(){
+    action_index :=1
+    down("down")
+    while(is_map2_loc5()>=80){
+        go_down(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("down")
+}
+
+map2_loc6_action(){
+    down("right")
+    action_index :=1
+    while(is_map2_loc6()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map2_loc7_action(){
+    down("right")
+    action_index :=1
+    while(is_map2_loc7()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map2_loc8_action(){
+    run(500)
+    count := 8
+    while (count > 0) {
+        count := count - 1
+        if (can_back_city()) {
+            sleep(1000)
+            skill("numpaddiv", 2000)
+            skill_many("x", 200,10)
+            skill("esc", 500)
+            break
+        }
+
+        skill("a", 1000)
+
+        if (count <= 3) {
+            log.info("深渊疑似卡住,执行修正流程")
+            run(3000)
+            run_left(1000)
+            if (count == 3) {
+                skill("q", 1000)
+                skill("w", 1000)
+                skill("e", 1000)
+            }
+            if (count == 2) {
+                skill("a", 1000)
+                skill("s", 1000)
+                skill("d", 1000)
+            }
+            if (count == 1) {
+                skill("r", 1000)
+                skill("f", 1000)
+                skill("g", 1000)
+            }
+        }
+        sleep(1000)
+    }
+}
+
+
+
+go_right(action_index){
+    if(action_index == 1){
+        sleep(1000)
+    }
+
+    if(action_index == 2){
+        skill("A",500)
+    }
+
+    if(action_index == 3){
+        walk_up(1000)
+    }
+
+    if(action_index == 4){
+        sleep(1000)
+    }
+
+    if(action_index == 5){
+        walk_down(1000)
+    }
+}
+
+go_up(action_index){
+    if(action_index == 1){
+        walk(3500)
+    }
+
+    if(action_index == 2){
+        skill("A",500)
+    }
+
+    if(action_index == 3){
+        sleep(1000)
+    }
+
+    if(action_index == 4){
+        skill("A",500)
+    }
+
+    if(action_index == 5){
+        walk_left(3500)
+    }
+}
+
+go_down(action_index){
+    if(action_index == 1){
+        walk(3500)
+    }
+
+    if(action_index == 2){
+        skill("A",500)
+    }
+
+    if(action_index == 3){
+        sleep(1000)
+    }
+
+    if(action_index == 4){
+        skill("A",500)
+    }
+
+    if(action_index == 5){
+        walk_left(3500)
+    }
+}
 
 
 get_map2_ch_location() {
-    similarity_list := [is_map2_loc1(), is_map2_loc2(), is_map2_loc3(), is_map2_loc4(), is_map2_loc5(), is_map2_loc6(), is_map2_loc7()]
+    similarity_list := [is_map2_loc1(), is_map2_loc2(), is_map2_loc3(), is_map2_loc4(), is_map2_loc5(), is_map2_loc6(), is_map2_loc7(),is_map2_loc8()]
     log.info("loc score:", similarity_list)
+    return FindMaxIndex(similarity_list)
 }
 
 is_map2_loc1() {
@@ -842,12 +1116,11 @@ is_map2_loc7() {
 
 is_map2_loc8() {
     ; 第2行第6列 todo
-    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
-    similarity := CalculateSimilarity(RGB_list, 1884, 138, 1886, 150, 4)
-    return similarity
+    ; RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    ; similarity := CalculateSimilarity(RGB_list, 1884, 138, 1886, 150, 4)
+    ; return similarity
+    return 50
 }
-
-
 
 get_map3_ch_location() {
     similarity_list := [is_map3_loc1(), is_map3_loc2(), is_map3_loc3(), is_map3_loc4(), is_map3_loc5(), is_map3_loc6(), is_map3_loc7()]
