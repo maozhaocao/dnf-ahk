@@ -900,6 +900,7 @@ map2_loc3_action(){
 
 map2_loc4_action(){
     run(500)
+    skill("a", 1000)
     down("right")
     action_index :=1
     while(is_map2_loc4()>=80){
@@ -926,6 +927,8 @@ map2_loc5_action(){
 }
 
 map2_loc6_action(){
+    run(500)
+    skill("a", 1000)
     down("right")
     action_index :=1
     while(is_map2_loc6()>=80){
@@ -939,6 +942,8 @@ map2_loc6_action(){
 }
 
 map2_loc7_action(){
+    run(500)
+    skill("a", 1000)
     down("right")
     action_index :=1
     while(is_map2_loc7()>=80){
