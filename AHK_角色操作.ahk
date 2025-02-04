@@ -754,9 +754,192 @@ get_current_map() {
     return FindMaxIndex(similarity_list)
 }
 
+map1_start(){
+    loc := 1
+
+    while(loc<8){
+        loc :=get_map1_ch_location()
+        log.info("current loc :",loc)
+
+        if(loc == 1){
+            map1_loc1_action()
+        }
+
+        if(loc == 2){
+            map1_loc2_action()
+        }
+
+        if(loc == 3){
+            map1_loc3_action()
+        }
+
+        if(loc == 4){
+            map1_loc4_action()
+        }
+
+        if(loc == 5){
+            map1_loc5_action()
+        }
+
+        if(loc == 6){
+            map1_loc6_action()
+        }
+
+        if(loc == 7){
+            map1_loc7_action()
+        }
+
+        if(loc == 8){
+            map1_loc8_action()
+        }
+    }
+
+}
+
+map1_loc1_action(){
+    down("right")
+    action_index :=1
+    while(is_map1_loc1()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map1_loc2_action(){
+    run(500)
+    skill("a", 1000)
+    down("right")
+    action_index :=1
+    while(is_map1_loc2()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map1_loc3_action(){
+    run(500)
+    skill("a", 1000)
+    down("right")
+    action_index :=1
+    while(is_map1_loc3()>=80){
+        go_right(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("right")
+}
+
+map1_loc4_action(){
+    run(500)
+    skill("a", 1000)
+    down("down")
+    action_index :=1
+    while(is_map1_loc4()>=80){
+        go_down(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("down")
+}
+
+map1_loc5_action(){
+    action_index :=1
+    down("left")
+    while(is_map1_loc5()>=80){
+        go_left(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("left")
+}
+
+map1_loc6_action(){
+    run_left(500)
+    skill("a", 1000)
+    down("left")
+    action_index :=1
+    while(is_map1_loc6()>=80){
+        go_left(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("left")
+}
+
+map1_loc7_action(){
+    run_left(500)
+    skill("a", 1000)
+    down("down")
+    action_index :=1
+    while(is_map1_loc7()>=80){
+        go_down(action_index)
+        action_index := action_index+1
+        if(action_index >5){
+            action_index :=0
+        }
+    }
+    up("down")
+}
+
+map1_loc8_action(){
+    run(500)
+    count := 8
+    while (count > 0) {
+        count := count - 1
+        if (can_back_city()) {
+            sleep(1000)
+            skill("numpaddiv", 2000)
+            skill_many("x", 200,10)
+            skill("esc", 500)
+            break
+        }
+
+        skill("a", 1000)
+
+        if (count <= 3) {
+            log.info("深渊疑似卡住,执行修正流程")
+            run(3000)
+            run_left(1000)
+            if (count == 3) {
+                skill("q", 1000)
+                skill("w", 1000)
+                skill("e", 1000)
+            }
+            if (count == 2) {
+                skill("a", 1000)
+                skill("s", 1000)
+                skill("d", 1000)
+            }
+            if (count == 1) {
+                skill("r", 1000)
+                skill("f", 1000)
+                skill("g", 1000)
+            }
+        }
+        sleep(1000)
+    }
+}
+
 get_map1_ch_location() {
-    similarity_list := [is_map1_loc1(), is_map1_loc2(), is_map1_loc3(), is_map1_loc4(), is_map1_loc5(), is_map1_loc6(), is_map1_loc7()]
+    similarity_list := [is_map1_loc1(), is_map1_loc2(), is_map1_loc3(), is_map1_loc4(), is_map1_loc5(), is_map1_loc6(), is_map1_loc7(),is_map1_loc8()]
     log.info("loc score:", similarity_list)
+    return FindMaxIndex(similarity_list)
 }
 
 is_map1_loc1() {
@@ -810,9 +993,9 @@ is_map1_loc7() {
 
 is_map1_loc8() {
     ; 第3行第2列 todo
-    RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
-    similarity := CalculateSimilarity(RGB_list, 1851, 171, 1853, 183, 4)
-    return similarity
+    ; RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
+    ; similarity := CalculateSimilarity(RGB_list, 1851, 171, 1853, 183, 4)
+    return 50
 }
 
 map2_start(){
@@ -995,9 +1178,29 @@ map2_loc8_action(){
     }
 }
 
-
-
 go_right(action_index){
+    if(action_index == 1){
+        sleep(1000)
+    }
+
+    if(action_index == 2){
+        skill("A",500)
+    }
+
+    if(action_index == 3){
+        walk_up(1000)
+    }
+
+    if(action_index == 4){
+        sleep(1000)
+    }
+
+    if(action_index == 5){
+        walk_down(1000)
+    }
+}
+
+go_left(action_index){
     if(action_index == 1){
         sleep(1000)
     }
@@ -1062,7 +1265,6 @@ go_down(action_index){
         walk_left(3500)
     }
 }
-
 
 get_map2_ch_location() {
     similarity_list := [is_map2_loc1(), is_map2_loc2(), is_map2_loc3(), is_map2_loc4(), is_map2_loc5(), is_map2_loc6(), is_map2_loc7(),is_map2_loc8()]
