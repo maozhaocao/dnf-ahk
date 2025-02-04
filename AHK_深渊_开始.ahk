@@ -248,8 +248,8 @@ F2::
         ; MsgBox %point%
         ; pick()
 
-        RGBList := GetRectSampledRGBList(1840, 165, 1874, 188,10)
-        get_current_map()
+        RGBList := GetRectSampledRGBList(1785, 105, 1787, 117, 4)
+        get_map3_ch_location()
         return
     }
 
