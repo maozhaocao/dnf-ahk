@@ -742,9 +742,13 @@ get_current_point() {
     return 0
 }
 
-start_qundao(index){
-    while(index>0){
-        index:=index-1
+start_qundao(index,abyss_times_total){
+    sleep(4000)
+
+    while(abyss_times_total>0){
+        islands(index)
+
+        abyss_times_total:=abyss_times_total-1
         current_map := get_current_map()
         if (current_map ==1){
             map1_start()
@@ -768,8 +772,8 @@ start_qundao(index){
             break
         }
         sleep(500)
-        if (count > 0) {
-            skill("F10", 4000)
+        if (abyss_times_total > 0) {
+            skill("F10", 6000)
         }
     }
 }
@@ -840,7 +844,11 @@ map1_start(){
         }
 
         if(loc == 8){
-            map1_loc8_action()
+            sleep(2000)
+            loc :=get_map1_ch_location()
+            if(loc == 8){
+                map1_loc8_action()
+            }
         }
     }
 
@@ -948,8 +956,10 @@ map1_loc7_action(){
 }
 
 map1_loc8_action(){
-    run(500)
-    count := 8
+    down("down")
+    sleep(500)
+    up("down")
+    count := 4
     while (count > 0) {
         count := count - 1
         if (can_back_city()) {
@@ -966,23 +976,13 @@ map1_loc8_action(){
             log.info("深渊疑似卡住,执行修正流程")
             run(3000)
             run_left(1000)
-            if (count == 3) {
-                skill("q", 1000)
-                skill("w", 1000)
-                skill("e", 1000)
-            }
-            if (count == 2) {
-                skill("a", 1000)
-                skill("s", 1000)
-                skill("d", 1000)
-            }
             if (count == 1) {
                 skill("r", 1000)
                 skill("f", 1000)
                 skill("g", 1000)
             }
         }
-        sleep(1000)
+        ; sleep(1000)
     }
 }
 
@@ -1084,7 +1084,11 @@ map2_start(){
         }
 
         if(loc == 8){
-            map2_loc8_action()
+            sleep(2000)
+            loc :=get_map2_ch_location()
+            if(loc == 8){
+                map2_loc8_action()
+            }
         }
     }
 
@@ -1191,7 +1195,7 @@ map2_loc7_action(){
 
 map2_loc8_action(){
     run(500)
-    count := 8
+    count := 4
     while (count > 0) {
         count := count - 1
         if (can_back_city()) {
@@ -1208,23 +1212,13 @@ map2_loc8_action(){
             log.info("深渊疑似卡住,执行修正流程")
             run(3000)
             run_left(1000)
-            if (count == 3) {
-                skill("q", 1000)
-                skill("w", 1000)
-                skill("e", 1000)
-            }
-            if (count == 2) {
-                skill("a", 1000)
-                skill("s", 1000)
-                skill("d", 1000)
-            }
             if (count == 1) {
                 skill("r", 1000)
                 skill("f", 1000)
                 skill("g", 1000)
             }
         }
-        sleep(1000)
+        ; sleep(1000)
     }
 }
 
@@ -1379,7 +1373,6 @@ is_map2_loc8() {
     return 50
 }
 
-
 map3_start(){
     loc := 1
 
@@ -1416,7 +1409,11 @@ map3_start(){
         }
 
         if(loc == 8){
-            map3_loc8_action()
+            sleep(2000)
+            loc :=get_map3_ch_location()
+            if(loc == 8){
+                map3_loc8_action()
+            }
         }
     }
 
@@ -1534,8 +1531,10 @@ map3_loc7_action(){
 }
 
 map3_loc8_action(){
-    run(500)
-    count := 8
+    down("down")
+    sleep(500)
+    up("down")
+    count := 4
     while (count > 0) {
         count := count - 1
         if (can_back_city()) {
@@ -1552,26 +1551,15 @@ map3_loc8_action(){
             log.info("深渊疑似卡住,执行修正流程")
             run(3000)
             run_left(1000)
-            if (count == 3) {
-                skill("q", 1000)
-                skill("w", 1000)
-                skill("e", 1000)
-            }
-            if (count == 2) {
-                skill("a", 1000)
-                skill("s", 1000)
-                skill("d", 1000)
-            }
             if (count == 1) {
                 skill("r", 1000)
                 skill("f", 1000)
                 skill("g", 1000)
             }
         }
-        sleep(1000)
+        ; sleep(1000)
     }
 }
-
 
 get_map3_ch_location() {
     similarity_list := [is_map3_loc1(), is_map3_loc2(), is_map3_loc3(), is_map3_loc4(), is_map3_loc5(), is_map3_loc6(), is_map3_loc7(),is_map3_loc8()]

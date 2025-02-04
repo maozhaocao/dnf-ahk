@@ -126,7 +126,6 @@ abyss_times_one(index) {
         abyss_times_nailuo2()
     }
 
-
     if (index == 26) {
         abyss_times_ningmao()
     }
@@ -234,7 +233,6 @@ abyss_new_times_one(index) {
         abyss_times_new_nailuo2()
     }
 
-
     if (index == 26) {
         abyss_times_new_ningmao()
     }
@@ -267,7 +265,6 @@ abyss_new_times_one(index) {
         abyss_times_new_baobao()
     }
 }
-
 
 storm_times_one(index) {
     if (index == 17) {
@@ -312,5 +309,142 @@ storm_times_one(index) {
 
     if (index == 27) {
         storm_zhiying()
+    }
+}
+
+gbl(){
+    sleep(200)
+    send_key("up")
+    sleep(10)
+    send_key("up")
+    sleep(10)
+    send_key("z")
+    sleep(1000)
+}
+
+islands(index) {
+    if (index == 1 or index == 4 or index == 8) {
+        buff_right_right(1500)
+        gbl()
+    }
+
+    if (index == 2) {
+        abyss_times_new_douluo()
+    }
+
+    if (index == 3) {
+        gbl()
+    }
+    if (index == 5) {
+        gbl()
+    }
+
+    if (index == 6) {
+        abyss_times_new_zhaohuan()
+    }
+
+    if (index == 7) {
+        gbl()
+    }
+
+    if (index == 9) {
+        abyss_times_new_naiba()
+    }
+
+    if (index == 10) {
+        abyss_times_new_naima()
+    }
+
+    if (index == 11) {
+        abyss_times_new_renying()
+    }
+
+    if (index == 12) {
+        abyss_times_new_jianhun()
+    }
+
+    if (index == 13) {
+        abyss_times_new_miusi()
+    }
+
+    if (index == 14) {
+        abyss_times_new_lvren()
+    }
+
+    if (index == 15) {
+        abyss_times_new_wunv()
+    }
+
+    if (index == 16) {
+        abyss_times_new_hongyan()
+    }
+
+    if (index == 17) {
+        abyss_times_new_feizong()
+    }
+
+    if (index == 18) {
+        abyss_times_new_huahua()
+    }
+
+    if (index == 19) {
+        buff_right_right(1500)
+        skill("Numpad0", 1000)
+    }
+
+    if (index == 20) {
+        ; abyss_times_new_guiqi()
+    }
+
+    if (index == 21) {
+        abyss_times_new_hejin()
+    }
+
+    if (index == 22) {
+        abyss_times_new_xuefa()
+    }
+
+    if (index == 23) {
+        abyss_times_new_papa()
+    }
+
+    if (index == 24) {
+        abyss_times_new_niangman()
+    }
+
+    if (index == 25) {
+        abyss_times_new_nailuo2()
+    }
+
+    if (index == 26) {
+        abyss_times_new_ningmao()
+    }
+
+    if (index == 27) {
+        abyss_times_new_zhiying()
+    }
+
+    if (index == 28) {
+        abyss_times_new_andi()
+    }
+
+    if (index == 29) {
+        abyss_times_new_hongyan()
+    }
+
+    if (index == 30) {
+        abyss_times_new_tuanzhang()
+    }
+
+    if (index == 31) {
+        abyss_times_new_longshen()
+    }
+
+    if (index == 32) {
+        abyss_times_new_manyou()
+    }
+
+    if (index == 33) {
+        abyss_times_new_baobao()
     }
 }
