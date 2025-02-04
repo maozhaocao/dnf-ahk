@@ -426,6 +426,24 @@ go_ss_road_door() {
     sleep(500)
 }
 
+go_islands_door() {
+    down("right")
+    sleep(2000)
+    up("right")
+    sleep(500)
+    MouseMove 265, 555
+    sleep(500)
+    click_for_success()
+    sleep(3000)
+    down("left")
+    sleep(2000)
+    up("left")
+    sleep(500)
+    MouseMove 1060, 535
+    sleep(500)
+    click_for_success()
+}
+
 back_city() {
     clean_screen()
     skill("esc", 500)
@@ -722,6 +740,38 @@ get_current_point() {
         return 4
     }
     return 0
+}
+
+start_qundao(index){
+    while(index>0){
+        index:=index-1
+        current_map := get_current_map()
+        if (current_map ==1){
+            map1_start()
+        }
+
+        if (current_map ==2){
+            map2_start()
+        }
+
+        if (current_map ==3){
+            map3_start()
+        }
+
+        if (have_no_pl()) {
+            log.info("pl不足,停止群岛")
+            break
+        }
+        sleep(500)
+        if (have_no_ticket()) {
+            log.info("记忆落痕不足,停止继续深渊")
+            break
+        }
+        sleep(500)
+        if (count > 0) {
+            skill("F10", 4000)
+        }
+    }
 }
 
 is_map1() {

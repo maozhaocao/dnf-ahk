@@ -155,21 +155,24 @@ F1::
         abyss_new_list := []
         abyss_storm_list := []
         ss_road_list := []
+        islands_list := []
 
         if (is_friday()) {
             log.info("当天为星期五")
             all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_list := []
-            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            abyss_new_list := []
             abyss_storm_list := []
             ss_road_list := []
+            islands_list := []
         } else {
             log.info("当天不为星期五")
-            all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            all_pl_list := [19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_list := []
-            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            abyss_new_list := []
             abyss_storm_list := []
             ss_road_list := []
+            islands_list := [19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
         }
 
         log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -196,6 +199,8 @@ F1::
                         abyss_times_total := 32
                     } else if (list_contains_key(ss_road_list, index)) {
                         abyss_times_total := 26
+                    } else if (list_contains_key(islands_list, index)) {
+                        abyss_times_total := 12
                     }
 
                     if (list_contains_key(abyss_list, index)) {
@@ -210,6 +215,9 @@ F1::
                     } else if (list_contains_key(ss_road_list, index)) {
                         go_ss_road_door()
                         start_ss_road(index, abyss_times_total)
+                    } else if (list_contains_key(islands_list, index)) {
+                        go_islands_door()
+                        start_qundao(abyss_times_total)
                     }
                     back_city()
                     chat_daily()
