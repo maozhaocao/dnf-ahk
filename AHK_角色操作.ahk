@@ -964,6 +964,7 @@ map1_loc8_action(){
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
+            walk_up(500)
             skill("numpaddiv", 2000)
             skill_many("x", 200,10)
             skill("esc", 500)
@@ -979,7 +980,7 @@ map1_loc8_action(){
             if (count == 1) {
                 skill("r", 1000)
                 skill("f", 1000)
-                skill("g", 1000)
+                ; skill("g", 1000)
             }
         }
         ; sleep(1000)
@@ -1200,6 +1201,7 @@ map2_loc8_action(){
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
+            walk_up(500)
             skill("numpaddiv", 2000)
             skill_many("x", 200,10)
             skill("esc", 500)
@@ -1215,7 +1217,7 @@ map2_loc8_action(){
             if (count == 1) {
                 skill("r", 1000)
                 skill("f", 1000)
-                skill("g", 1000)
+                ; skill("g", 1000)
             }
         }
         ; sleep(1000)
@@ -1539,6 +1541,7 @@ map3_loc8_action(){
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
+            walk_up(500)
             skill("numpaddiv", 2000)
             skill_many("x", 200,10)
             skill("esc", 500)
@@ -1554,7 +1557,7 @@ map3_loc8_action(){
             if (count == 1) {
                 skill("r", 1000)
                 skill("f", 1000)
-                skill("g", 1000)
+                ; skill("g", 1000)
             }
         }
         ; sleep(1000)

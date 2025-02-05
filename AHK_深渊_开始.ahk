@@ -164,7 +164,7 @@ F1::
             abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_storm_list := []
             ss_road_list := []
-            islands_list := []
+            islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
         } else {
             log.info("当天不为星期五")
             all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
@@ -172,11 +172,19 @@ F1::
             abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_storm_list := []
             ss_road_list := []
-            islands_list := []
+            islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
         }
 
         log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
         while (index <= ch_count) {
+            end_hour := A_Hour
+
+            if (end_hour >= 6 and index<=19) {
+                skip_list.Push(index)
+                log.info("超6点保留PL:",index)
+            }
+
+
             sleep(500)
             log.info("--------------------")
             start_time := A_Now
@@ -190,7 +198,7 @@ F1::
                     sleep(1000)
                     abyss_times_total := 0
                     if (!list_contains_key(all_pl_list, index)) {
-                        abyss_times_total := 19
+                        abyss_times_total := 12
                     } else if (list_contains_key(abyss_list, index)) {
                         abyss_times_total := 18
                     } else if (list_contains_key(abyss_new_list, index)) {
@@ -220,8 +228,8 @@ F1::
                         start_qundao(index,abyss_times_total)
                     }
                     back_city()
-                    chat_daily()
-                    decompose()
+                    ; chat_daily()
+                    ; decompose()
                     ; finish_daily_task()
                     ; finish_abyss_task()
                 }
