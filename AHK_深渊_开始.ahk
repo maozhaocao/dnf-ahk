@@ -161,18 +161,18 @@ F1::
             log.info("当天为星期五")
             all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_list := []
-            abyss_new_list := []
+            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_storm_list := []
             ss_road_list := []
             islands_list := []
         } else {
             log.info("当天不为星期五")
-            all_pl_list := [8,19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_list := []
-            abyss_new_list := []
+            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
             abyss_storm_list := []
             ss_road_list := []
-            islands_list := [8,19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            islands_list := []
         }
 
         log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)

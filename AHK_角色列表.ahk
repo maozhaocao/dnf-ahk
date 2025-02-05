@@ -27,6 +27,9 @@
 #Include AHK_深渊_龙神.ahk
 #Include AHK_深渊_漫游.ahk
 #Include AHK_深渊_抱抱.ahk
+#Include AHK_深渊_精灵.ahk
+#Include AHK_深渊_冰结.ahk
+#Include AHK_深渊_剑帝.ahk
 
 abyss_times_one(index) {
     if (index == 1) {
@@ -263,6 +266,18 @@ abyss_new_times_one(index) {
 
     if (index == 33) {
         abyss_times_new_baobao()
+    }
+
+    if (index == 34) {
+        abyss_times_new_jingling()
+    }
+
+    if (index == 35) {
+        abyss_times_new_bingjie()
+    }
+
+    if (index == 36) {
+        abyss_times_new_jiandi()
     }
 }
 
