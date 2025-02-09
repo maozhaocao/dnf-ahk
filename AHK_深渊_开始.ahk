@@ -145,10 +145,10 @@ F1::
     }
 
     start(index) {
-        ch_count := 33
+        ch_count := 36
         abyss_times_total := 18
         ; skip_list := [2,6,11,12,14,15,16]
-        skip_list := []
+        skip_list := [34]
         all_pl_list := []
 
         abyss_list := []
@@ -159,17 +159,17 @@ F1::
 
         if (is_friday()) {
             log.info("当天为星期五")
-            all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
             abyss_list := []
-            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
             abyss_storm_list := []
             ss_road_list := []
             islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
         } else {
             log.info("当天不为星期五")
-            all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
             abyss_list := []
-            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
             abyss_storm_list := []
             ss_road_list := []
             islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
@@ -179,8 +179,8 @@ F1::
         while (index <= ch_count) {
             end_hour := A_Hour
 
-            if (end_hour >= 6 and index<=19) {
-                ; skip_list.Push(index)
+            if (end_hour == 6 and index<=19) {
+                skip_list.Push(index)
                 log.info("超6点保留PL:",index)
             }
 
@@ -269,18 +269,20 @@ F2::
         ; map1_start()
 
 
-        current_map := get_current_map()
-        if (current_map ==1){
-            map1_start()
-        }
+        ; current_map := get_current_map()
+        ; if (current_map ==1){
+        ;     map1_start()
+        ; }
 
-        if (current_map ==2){
-            map2_start()
-        }
+        ; if (current_map ==2){
+        ;     map2_start()
+        ; }
 
-        if (current_map ==3){
-            map3_start()
-        }
+        ; if (current_map ==3){
+        ;     map3_start()
+        ; }
+
+        abyss_times_new_jiandi()
         return
     }
 
