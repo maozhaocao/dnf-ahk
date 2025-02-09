@@ -856,6 +856,7 @@ map1_start(){
 }
 
 map1_loc1_action(){
+    run(1000)
     down("right")
     action_index :=1
     while(is_map1_loc1()>=80){
@@ -871,6 +872,7 @@ map1_loc1_action(){
 map1_loc2_action(){
     run(500)
     skill("a", 1000)
+    run(1000)
     down("right")
     action_index :=1
     while(is_map1_loc2()>=80){
@@ -887,6 +889,7 @@ map1_loc3_action(){
     run(500)
     skill("a", 1000)
     down("right")
+    ; run(1000)
     action_index :=1
     while(is_map1_loc3()>=80){
         go_right(action_index)
@@ -929,6 +932,7 @@ map1_loc5_action(){
 map1_loc6_action(){
     run_left(500)
     skill("a", 1000)
+    run_left(500)
     down("left")
     action_index :=1
     while(is_map1_loc6()>=80){
@@ -944,6 +948,7 @@ map1_loc6_action(){
 map1_loc7_action(){
     run_left(500)
     skill("a", 1000)
+    run_left(500)
     down("down")
     action_index :=1
     while(is_map1_loc7()>=80){
@@ -960,21 +965,27 @@ map1_loc8_action(){
     down("down")
     sleep(500)
     up("down")
+    skill("Numpad4",7000)
+
     count := 4
     while (count > 0) {
+        move_and_click_one(1637,110,500)
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
             walk_up(500)
             skill("numpaddiv", 2000)
-            skill_many("x", 200,10)
+            skill_many("x", 200,5)
+            move_and_click(630,400,500)
+            move_and_click(630,400,500)
+            move_and_click(1035,77,1000)
             skill("esc", 500)
             break
         }
 
         skill("a", 1000)
 
-        if (count <= 3) {
+        if (count <= 2) {
             log.info("深渊疑似卡住,执行修正流程")
             run(3000)
             run_left(1000)
@@ -1097,6 +1108,7 @@ map2_start(){
 }
 
 map2_loc1_action(){
+    run(1500)
     down("right")
     action_index :=1
     while(is_map2_loc1()>=80){
@@ -1111,6 +1123,8 @@ map2_loc1_action(){
 
 map2_loc2_action(){
     run(500)
+    skill("a",1000)
+    ; run(1000)
     down("up")
     action_index :=1
     while(is_map2_loc2()>=80){
@@ -1125,6 +1139,8 @@ map2_loc2_action(){
 
 map2_loc3_action(){
     run(500)
+    run_left(200)
+    skill("a",1000)
     down("right")
     action_index :=1
     while(is_map2_loc3()>=80){
@@ -1140,6 +1156,7 @@ map2_loc3_action(){
 map2_loc4_action(){
     run(500)
     skill("a", 1000)
+    run(1000)
     down("right")
     action_index :=1
     while(is_map2_loc4()>=80){
@@ -1153,6 +1170,8 @@ map2_loc4_action(){
 }
 
 map2_loc5_action(){
+    run(300)
+    skill("a", 1000)
     action_index :=1
     down("down")
     while(is_map2_loc5()>=80){
@@ -1166,8 +1185,10 @@ map2_loc5_action(){
 }
 
 map2_loc6_action(){
-    run(500)
+    run(800)
+    run_left(300)
     skill("a", 1000)
+    ; run(500)
     down("right")
     action_index :=1
     while(is_map2_loc6()>=80){
@@ -1183,6 +1204,7 @@ map2_loc6_action(){
 map2_loc7_action(){
     run(500)
     skill("a", 1000)
+    run(1000)
     down("right")
     action_index :=1
     while(is_map2_loc7()>=80){
@@ -1197,21 +1219,27 @@ map2_loc7_action(){
 
 map2_loc8_action(){
     run(500)
+    skill("Numpad4",7000)
+
     count := 4
     while (count > 0) {
+        move_and_click_one(1637,110,500)
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
             walk_up(500)
             skill("numpaddiv", 2000)
-            skill_many("x", 200,10)
+            skill_many("x", 200,5)
+            move_and_click(630,400,500)
+            move_and_click(630,400,500)
+            move_and_click(1035,77,1000)
             skill("esc", 500)
             break
         }
 
         skill("a", 1000)
 
-        if (count <= 3) {
+        if (count <= 2) {
             log.info("深渊疑似卡住,执行修正流程")
             run(3000)
             run_left(1000)
@@ -1239,7 +1267,12 @@ go_right(action_index){
     }
 
     if(action_index == 4){
-        sleep(1000)
+        sleep(200)
+        down("left")
+        sleep(200)
+        skill("A",200)
+        up("left")
+        sleep(500)
     }
 
     if(action_index == 5){
@@ -1271,7 +1304,7 @@ go_left(action_index){
 
 go_up(action_index){
     if(action_index == 1){
-        walk(3500)
+        run(1500)
     }
 
     if(action_index == 2){
@@ -1287,13 +1320,13 @@ go_up(action_index){
     }
 
     if(action_index == 5){
-        walk_left(3500)
+        run_left(1500)
     }
 }
 
 go_down(action_index){
     if(action_index == 1){
-        walk(3500)
+        run(1500)
     }
 
     if(action_index == 2){
@@ -1309,7 +1342,7 @@ go_down(action_index){
     }
 
     if(action_index == 5){
-        walk_left(3500)
+        run_left(1500)
     }
 }
 
@@ -1423,6 +1456,7 @@ map3_start(){
 }
 
 map3_loc1_action(){
+    run_left(1700)
     down("left")
     action_index :=1
     while(is_map3_loc1()>=80){
@@ -1438,6 +1472,7 @@ map3_loc1_action(){
 map3_loc2_action(){
     run_left(500)
     skill("a", 1000)
+    run_left(1000)
     down("left")
     action_index :=1
     while(is_map3_loc2()>=80){
@@ -1453,6 +1488,7 @@ map3_loc2_action(){
 map3_loc3_action(){
     run_left(500)
     skill("a", 1000)
+    run_left(1000)
     down("left")
     action_index :=1
     while(is_map3_loc3()>=80){
@@ -1498,6 +1534,7 @@ map3_loc5_action(){
         action_index := action_index+1
         if(action_index >5){
             action_index :=0
+            jump_back()
         }
     }
     up("right")
@@ -1513,6 +1550,7 @@ map3_loc6_action(){
         action_index := action_index+1
         if(action_index >5){
             action_index :=0
+            jump_back()
         }
     }
     up("right")
@@ -1522,12 +1560,16 @@ map3_loc7_action(){
     run(500)
     skill("a", 1000)
     down("down")
+    sleep(1000)
     action_index :=1
     while(is_map3_loc7()>=80){
         go_down(action_index)
         action_index := action_index+1
         if(action_index >5){
             action_index :=0
+            down("up")
+            sleep(500)
+            up("up")
         }
     }
     up("down")
@@ -1537,21 +1579,28 @@ map3_loc8_action(){
     down("down")
     sleep(500)
     up("down")
+
+    skill("Numpad4",7000)
+
     count := 4
     while (count > 0) {
+        move_and_click_one(1637,110,500)
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
             walk_up(500)
             skill("numpaddiv", 2000)
-            skill_many("x", 200,10)
+            skill_many("x", 200,5)
+            move_and_click(630,400,500)
+            move_and_click(630,400,500)
+            move_and_click(1035,77,1000)
             skill("esc", 500)
             break
         }
 
         skill("a", 1000)
 
-        if (count <= 3) {
+        if (count <= 2) {
             log.info("深渊疑似卡住,执行修正流程")
             run(3000)
             run_left(1000)
@@ -1622,7 +1671,8 @@ is_map3_loc7() {
 
 is_map3_loc8() {
     ; 第3行第3列 todo
-    ; RGB_list := [0x13A1DC, 0x142759, 0x0BABD5, 0x1995E5]
-    ; similarity := CalculateSimilarity(RGB_list, 1851, 171, 1853, 183, 4)
+    ; RGB_list := [0xC91500,0xCC3E00,0x833D00,0x0B0F01]
+    ; similarity := CalculateSimilarity(RGB_list, 1846, 170, 1861, 182, 4)
+    ; return similarity-20
     return 50
 }

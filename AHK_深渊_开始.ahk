@@ -148,7 +148,7 @@ F1::
         ch_count := 33
         abyss_times_total := 18
         ; skip_list := [2,6,11,12,14,15,16]
-        skip_list := [9]
+        skip_list := []
         all_pl_list := []
 
         abyss_list := []
@@ -180,7 +180,7 @@ F1::
             end_hour := A_Hour
 
             if (end_hour >= 6 and index<=19) {
-                skip_list.Push(index)
+                ; skip_list.Push(index)
                 log.info("超6点保留PL:",index)
             }
 
@@ -265,8 +265,22 @@ F2::
         ; MsgBox %point%
         ; pick()
 
-        ; RGBList := GetRectSampledRGBList(1785, 105, 1787, 117, 4)
-        map3_start()
+        ; RGBList := GetRectSampledRGBList(1846, 170, 1861, 182, 4)
+        ; map1_start()
+
+
+        current_map := get_current_map()
+        if (current_map ==1){
+            map1_start()
+        }
+
+        if (current_map ==2){
+            map2_start()
+        }
+
+        if (current_map ==3){
+            map3_start()
+        }
         return
     }
 
