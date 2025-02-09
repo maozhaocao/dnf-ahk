@@ -459,8 +459,9 @@ back_city() {
 }
 
 back_select_character() {
-    clean_screen()
-    skill("esc", 500)
+    sleep(500)
+    ; skill("esc", 500)
+    move_and_click(1505,1041,1000)
     MouseMove 925, 840
     sleep(500)
     MouseMove 925, 840

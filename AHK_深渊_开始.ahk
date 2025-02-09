@@ -148,7 +148,7 @@ F1::
         ch_count := 33
         abyss_times_total := 18
         ; skip_list := [2,6,11,12,14,15,16]
-        skip_list := []
+        skip_list := [9]
         all_pl_list := []
 
         abyss_list := []
@@ -236,6 +236,7 @@ F1::
             } else {
                 log.info("无pl")
             }
+            sleep(1000)
             back_select_character()
             sleep(4000)
             skill("right", 2000)
