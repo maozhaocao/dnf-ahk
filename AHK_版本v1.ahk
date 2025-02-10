@@ -23,6 +23,12 @@ up(key) {
     SendInput, {Blind}{%key% Up}
 }
 
+down_up(key,time){
+    down(key)
+    sleep(time)
+    up(key)
+}
+
 pixel_search( X1, Y1, X2, Y2, ColorID){
     PixelSearch, Px, Py, X1, Y1, X2, Y2, ColorID, 30, Fast RGB
     result := ErrorLevel
@@ -273,14 +279,14 @@ FindMaxIndex(arr) {
     ; 初始化最大值的索引为列表的第一个元素
     maxIndex := 1
     maxValue := arr[1]
-    
+
     ; 遍历列表中的每个元素
     Loop, % arr.Length()
     {
         ; 获取当前元素的索引（注意AutoHotkey的索引从1开始）
         currentIndex := A_Index
         currentValue := arr[currentIndex ] ; 由于A_Index从1开始，而数组索引从0开始（若使用数组表示法），故需减1
-        
+
         ; 若当前元素大于当前最大值，则更新最大值及其索引
         If (currentValue > maxValue)
         {
@@ -288,7 +294,7 @@ FindMaxIndex(arr) {
             maxIndex := currentIndex
         }
     }
-    
+
     ; 返回最大值的索引
     Return maxIndex
 }

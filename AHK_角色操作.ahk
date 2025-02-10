@@ -752,15 +752,15 @@ start_qundao(index,abyss_times_total){
         abyss_times_total:=abyss_times_total-1
         current_map := get_current_map()
         if (current_map ==1){
-            map1_start()
+            map1_start(index)
         }
 
         if (current_map ==2){
-            map2_start()
+            map2_start(index)
         }
 
         if (current_map ==3){
-            map3_start()
+            map3_start(index)
         }
 
         if (have_no_pl()) {
@@ -809,7 +809,7 @@ get_current_map() {
     return FindMaxIndex(similarity_list)
 }
 
-map1_start(){
+map1_start(index){
     loc := 1
 
     while(loc<8){
@@ -848,7 +848,7 @@ map1_start(){
             sleep(2000)
             loc :=get_map1_ch_location()
             if(loc == 8){
-                map1_loc8_action()
+                map1_loc8_action(index)
             }
         }
     }
@@ -961,42 +961,9 @@ map1_loc7_action(){
     up("down")
 }
 
-map1_loc8_action(){
-    down("down")
-    sleep(500)
-    up("down")
-    skill("Numpad4",7000)
-
-    count := 4
-    while (count > 0) {
-        move_and_click_one(1637,110,500)
-        count := count - 1
-        if (can_back_city()) {
-            sleep(1000)
-            walk_up(500)
-            skill("numpaddiv", 2000)
-            skill_many("x", 200,5)
-            move_and_click(630,400,500)
-            move_and_click(630,400,500)
-            move_and_click(1035,77,1000)
-            skill("esc", 500)
-            break
-        }
-
-        skill("a", 1000)
-
-        if (count <= 2) {
-            log.info("深渊疑似卡住,执行修正流程")
-            run(3000)
-            run_left(1000)
-            if (count == 1) {
-                skill("r", 1000)
-                skill("f", 1000)
-                ; skill("g", 1000)
-            }
-        }
-        ; sleep(1000)
-    }
+map1_loc8_action(index){
+    down_up("down",500)
+    islands_pick(index)
 }
 
 get_map1_ch_location() {
@@ -1061,7 +1028,7 @@ is_map1_loc8() {
     return 50
 }
 
-map2_start(){
+map2_start(index){
     loc := 1
 
     while(loc<8){
@@ -1100,7 +1067,7 @@ map2_start(){
             sleep(2000)
             loc :=get_map2_ch_location()
             if(loc == 8){
-                map2_loc8_action()
+                map2_loc8_action(index)
             }
         }
     }
@@ -1222,40 +1189,9 @@ map2_loc7_action(){
     up("right")
 }
 
-map2_loc8_action(){
+map2_loc8_action(index){
     run(500)
-    skill("Numpad4",7000)
-
-    count := 4
-    while (count > 0) {
-        move_and_click_one(1637,110,500)
-        count := count - 1
-        if (can_back_city()) {
-            sleep(1000)
-            walk_up(500)
-            skill("numpaddiv", 2000)
-            skill_many("x", 200,5)
-            move_and_click(630,400,500)
-            move_and_click(630,400,500)
-            move_and_click(1035,77,1000)
-            skill("esc", 500)
-            break
-        }
-
-        skill("a", 1000)
-
-        if (count <= 2) {
-            log.info("深渊疑似卡住,执行修正流程")
-            run(3000)
-            run_left(1000)
-            if (count == 1) {
-                skill("r", 1000)
-                skill("f", 1000)
-                ; skill("g", 1000)
-            }
-        }
-        ; sleep(1000)
-    }
+    islands_pick(index)
 }
 
 go_right(action_index){
@@ -1414,7 +1350,7 @@ is_map2_loc8() {
     return 50
 }
 
-map3_start(){
+map3_start(index){
     loc := 1
 
     while(loc<8){
@@ -1453,7 +1389,7 @@ map3_start(){
             sleep(2000)
             loc :=get_map3_ch_location()
             if(loc == 8){
-                map3_loc8_action()
+                map3_loc8_action(index)
             }
         }
     }
@@ -1580,43 +1516,9 @@ map3_loc7_action(){
     up("down")
 }
 
-map3_loc8_action(){
-    down("down")
-    sleep(500)
-    up("down")
-
-    skill("Numpad4",7000)
-
-    count := 4
-    while (count > 0) {
-        move_and_click_one(1637,110,500)
-        count := count - 1
-        if (can_back_city()) {
-            sleep(1000)
-            walk_up(500)
-            skill("numpaddiv", 2000)
-            skill_many("x", 200,5)
-            move_and_click(630,400,500)
-            move_and_click(630,400,500)
-            move_and_click(1035,77,1000)
-            skill("esc", 500)
-            break
-        }
-
-        skill("a", 1000)
-
-        if (count <= 2) {
-            log.info("深渊疑似卡住,执行修正流程")
-            run(3000)
-            run_left(1000)
-            if (count == 1) {
-                skill("r", 1000)
-                skill("f", 1000)
-                ; skill("g", 1000)
-            }
-        }
-        ; sleep(1000)
-    }
+map3_loc8_action(index){
+    down_up("down",500)
+    islands_pick(index)
 }
 
 get_map3_ch_location() {
@@ -1680,4 +1582,46 @@ is_map3_loc8() {
     ; similarity := CalculateSimilarity(RGB_list, 1846, 170, 1861, 182, 4)
     ; return similarity-20
     return 50
+}
+
+islands_pick(index){
+    skill("Numpad4",7000)
+
+    count := 4
+    while (count > 0) {
+        move_and_click_one(1637,110,500)
+        count := count - 1
+        if (can_back_city()) {
+            sleep(1000)
+            walk_up(500)
+            skill("numpaddiv", 2000)
+            skill_many("x", 200,5)
+            buy_ticket(index)
+            skill("esc", 500)
+            break
+        }
+
+        skill("a", 1000)
+
+        if (count <= 2) {
+            log.info("深渊疑似卡住,执行修正流程")
+            run(3000)
+            run_left(1000)
+            if (count == 1) {
+                skill("r", 1000)
+                skill("f", 1000)
+                ; skill("g", 1000)
+            }
+        }
+        ; sleep(1000)
+    }
+}
+
+buy_ticket(index){
+    buy_list := [1,2,4,5,6,7,12,13,14]
+    if (list_contains_key(buy_list, index)){
+        move_and_click(630,400,500)
+        move_and_click(630,400,500)
+    }
+    move_and_click(1035,77,1000)
 }
