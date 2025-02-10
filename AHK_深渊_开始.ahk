@@ -148,7 +148,7 @@ F1::
         ch_count := 36
         abyss_times_total := 18
         ; skip_list := [2,6,11,12,14,15,16]
-        skip_list := [34]
+        skip_list := [1,2,6,7,34]
         all_pl_list := []
 
         abyss_list := []
@@ -208,7 +208,7 @@ F1::
                     } else if (list_contains_key(ss_road_list, index)) {
                         abyss_times_total := 26
                     } else if (list_contains_key(islands_list, index)) {
-                        abyss_times_total := 12
+                        abyss_times_total := 10
                     }
 
                     if (list_contains_key(abyss_list, index)) {
@@ -282,7 +282,7 @@ F2::
         ;     map3_start()
         ; }
 
-        abyss_times_new_jiandi()
+        abyss_times_new_manyou()
         return
     }
 

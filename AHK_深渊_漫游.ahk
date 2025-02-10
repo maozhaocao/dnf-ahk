@@ -4,9 +4,9 @@
 
 abyss_times_new_manyou() {
     buff_right_right(1000)
-    run(1500)
+    run(1700)
     skill("e", 1500)
-    run(1200)
+    run(1500)
     skill("q", 1000)
     run(1800)
     skill("a", 4000)

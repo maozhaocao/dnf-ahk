@@ -1205,7 +1205,12 @@ map2_loc7_action(){
     run(500)
     skill("a", 1000)
     run(1000)
+    down("down")
+    sleep(500)
+    up("down")
+    sleep(500)
     down("right")
+    sleep(500)
     action_index :=1
     while(is_map2_loc7()>=80){
         go_right(action_index)
