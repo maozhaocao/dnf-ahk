@@ -198,7 +198,7 @@ F1::
                     sleep(1000)
                     abyss_times_total := 0
                     if (!list_contains_key(all_pl_list, index)) {
-                        abyss_times_total := 12
+                        abyss_times_total := 10
                     } else if (list_contains_key(abyss_list, index)) {
                         abyss_times_total := 18
                     } else if (list_contains_key(abyss_new_list, index)) {
