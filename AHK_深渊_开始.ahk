@@ -161,18 +161,18 @@ F1::
             log.info("当天为星期五")
             all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
             abyss_list := []
-            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
+            abyss_new_list := [20,  22, 23, 26, 27, 28, 29, 30, 31, 33,35,36]
             abyss_storm_list := []
             ss_road_list := []
-            islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+            islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,24,25,32]
         } else {
             log.info("当天不为星期五")
             all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
             abyss_list := []
-            abyss_new_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,35,36]
+            abyss_new_list := [20, 22, 23, 26, 27, 28, 29, 30, 31, 33,35,36]
             abyss_storm_list := []
             ss_road_list := []
-            islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+            islands_list := [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,24,25,32]
         }
 
         log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -198,7 +198,11 @@ F1::
                     sleep(1000)
                     abyss_times_total := 0
                     if (!list_contains_key(all_pl_list, index)) {
-                        abyss_times_total := 10
+                        if (list_contains_key(abyss_new_list, index)) {
+                            abyss_times_total := 26
+                        } else if (list_contains_key(islands_list, index)) {
+                            abyss_times_total := 10
+                        }
                     } else if (list_contains_key(abyss_list, index)) {
                         abyss_times_total := 18
                     } else if (list_contains_key(abyss_new_list, index)) {
@@ -208,7 +212,7 @@ F1::
                     } else if (list_contains_key(ss_road_list, index)) {
                         abyss_times_total := 26
                     } else if (list_contains_key(islands_list, index)) {
-                        abyss_times_total := 10
+                        abyss_times_total := 12
                     }
 
                     if (list_contains_key(abyss_list, index)) {

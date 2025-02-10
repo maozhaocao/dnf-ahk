@@ -413,54 +413,55 @@ islands(index) {
     }
 
     if (index == 21) {
-        abyss_times_new_hejin()
+        ; abyss_times_new_hejin()
+        skill("f",800)
     }
 
     if (index == 22) {
-        abyss_times_new_xuefa()
+        ; abyss_times_new_xuefa()
     }
 
     if (index == 23) {
-        abyss_times_new_papa()
+        ; abyss_times_new_papa()
     }
 
     if (index == 24) {
-        abyss_times_new_niangman()
+        ; abyss_times_new_niangman()
     }
 
     if (index == 25) {
-        abyss_times_new_nailuo2()
+        gbl()
     }
 
     if (index == 26) {
-        abyss_times_new_ningmao()
+        ; abyss_times_new_ningmao()
     }
 
     if (index == 27) {
-        abyss_times_new_zhiying()
+        ; abyss_times_new_zhiying()
     }
 
     if (index == 28) {
-        abyss_times_new_andi()
+        ; abyss_times_new_andi()
     }
 
     if (index == 29) {
-        abyss_times_new_hongyan()
+        ; abyss_times_new_hongyan()
     }
 
     if (index == 30) {
-        abyss_times_new_tuanzhang()
+        ; abyss_times_new_tuanzhang()
     }
 
     if (index == 31) {
-        abyss_times_new_longshen()
+        ; abyss_times_new_longshen()
     }
 
     if (index == 32) {
-        abyss_times_new_manyou()
+        ; abyss_times_new_manyou()
     }
 
     if (index == 33) {
-        abyss_times_new_baobao()
+        ; abyss_times_new_baobao()
     }
 }
