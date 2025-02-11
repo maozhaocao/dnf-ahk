@@ -327,7 +327,7 @@ storm_times_one(index) {
     }
 }
 
-gbl(){
+gbl() {
     sleep(200)
     send_key("up")
     sleep(10)
@@ -414,7 +414,7 @@ islands(index) {
 
     if (index == 21) {
         ; abyss_times_new_hejin()
-        skill("f",800)
+        skill("f", 800)
     }
 
     if (index == 22) {
@@ -463,5 +463,9 @@ islands(index) {
 
     if (index == 33) {
         ; abyss_times_new_baobao()
+    }
+
+    if (index == 37) {
+        skill("v", 700)
     }
 }
