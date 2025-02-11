@@ -4,86 +4,86 @@ log.is_out_file := true
 log.is_use_editor := true
 log.level := log.level_debug
 
-sleep(time) {
-    sleep, time
+sleep(time){
+    sleep,time
 }
 
 send_key(key) {
-    SendInput, { Blind } { %key% DownTemp }
+    SendInput, {Blind}{%key% DownTemp}
     Sleep, 1
-    SendInput, { Blind } { %key% Up }
+    SendInput, {Blind}{%key% Up}
     Sleep, 1
 }
 
 down(key) {
-    SendInput, { Blind } { %key% DownTemp }
+    SendInput, {Blind}{%key% DownTemp}
 }
 
 up(key) {
-    SendInput, { Blind } { %key% Up }
+    SendInput, {Blind}{%key% Up}
 }
 
-down_up(key, time) {
+down_up(key,time){
     down(key)
     sleep(time)
     up(key)
 }
 
-pixel_search(X1, Y1, X2, Y2, ColorID) {
+pixel_search( X1, Y1, X2, Y2, ColorID){
     PixelSearch, Px, Py, X1, Y1, X2, Y2, ColorID, 30, Fast RGB
     result := ErrorLevel
     ; log.info(result)
-    if (result == 0) {
+    if (result==0){
         ; log.info("true")
         return true
-    } else {
+    }else{
         ; log.info("false")
         return false
     }
 }
 
-pixel_search_point_threshold(pointX, pointY, colorId, threshold) {
+pixel_search_point_threshold(pointX, pointY, colorId,threshold) {
     ; log.info(pointX, pointY, colorId,threshold)
     return pixel_search(pointX - threshold, pointY - threshold, pointX + threshold, pointY + threshold, colorId)
 }
 
-pixel_getColor() {
+pixel_getColor(){
     MouseGetPos, MouseX, MouseY
     PixelGetColor, color, %MouseX%, %MouseY%
     return "%color%"
 }
 
-input_value(title) {
-    InputBox, index, title, , 100, 150
-    if ErrorLevel {
-        MsgBox, "操作被取消"
+input_value(title){
+    InputBox,index, title,, 100,150
+    if ErrorLevel{
+        MsgBox,"操作被取消"
         return -1
     }
     return index
 }
 
-run_with_admin() {
+run_with_admin(){
     full_command_line := DllCall("GetCommandLine", "str")
     if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)"))
     {
         try
         {
             if A_IsCompiled
-                Run * RunAs "%A_ScriptFullPath%" / restart
+                Run *RunAs "%A_ScriptFullPath%" /restart
             else
-                Run * RunAs "%A_AhkPath%" / restart "%A_ScriptFullPath%"
+                Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
         }
         ExitApp
     }
 }
 
-list_contains_key(list, key) {
-    for index, element in list {
-        if (element == key) {
+list_contains_key(list,key){
+    for index, element in list{
+        if(element == key){
             return true
         }
     }
-    return false
+    return false 
 }
 
 is_wednesday() {
@@ -122,9 +122,9 @@ is_friday() {
     return false
 }
 
-getColor(MouseX, MouseY) {
-    PixelGetColor, color, %MouseX%, %MouseY%, RGB
-    color_result := color
+getColor(MouseX,MouseY){
+    PixelGetColor, color, %MouseX%, %MouseY%,RGB
+    color_result:=color
     ; log.info("getColor:",MouseX,MouseY,color_result)
     return color_result
 }
@@ -134,7 +134,7 @@ GetRectRGBList(x1, y1, x2, y2) {
     RGBList := []
 
     ; 遍历矩形区域内的所有点
-    Loop, %(x2 - x1 + 1) * (y2 - y1 + 1) {
+    Loop, % (x2 - x1 + 1) * (y2 - y1 + 1) {
         ; 计算当前循环的索引对应的 x 和 y 坐标
         index := A_Index - 1
         row := Floor(index / (x2 - x1 + 1))
@@ -168,7 +168,7 @@ GetRectSampledRGBList(x1, y1, x2, y2, sampleCount) {
     SampledRGBList := []
 
     ; 遍历降采样后的坐标列表，并获取每个坐标的 RGB 值
-    Loop, %SampledCoords.Length() {
+    Loop, % SampledCoords.Length() {
         coord := SampledCoords[A_Index]
         x := coord[1]
         y := coord[2] ; 注意：这里假设 GetSampledCoords 返回的坐标是 [x, y] 格式
@@ -212,7 +212,7 @@ GetSampledCoords(x1, y1, x2, y2, sampleCount) {
     index := 0
 
     ; 遍历所有点，但按照采样间隔进行采样
-    Loop, %totalPixels {
+    Loop, % totalPixels {
         ; 检查当前索引是否是采样点
         If (Mod(index, sampleInterval) == 0) {
             ; 计算当前采样点的 x 和 y 坐标
@@ -220,16 +220,19 @@ GetSampledCoords(x1, y1, x2, y2, sampleCount) {
             col := Mod(index, x2 - x1 + 1)
             x := x1 + col
             y := y1 + row
+
             ; 创建一个数组来存储坐标，并添加到列表中
             coord := [x, y]
             SampledCoords.Push(coord)
         }
+
         ; 增加索引计数器
         index++
-        }
-        ; 返回包含降采样后坐标的列表
-        ; log.info(SampledCoords)
-        Return SampledCoords
+    }
+
+    ; 返回包含降采样后坐标的列表
+    ; log.info(SampledCoords)
+    Return SampledCoords
 }
 
 CalculateSimilarity(targetRGBList, x1, y1, x2, y2, sampleCount) {
@@ -240,19 +243,19 @@ CalculateSimilarity(targetRGBList, x1, y1, x2, y2, sampleCount) {
     similarPointsCount := 0
 
     ; 遍历采样点列表并检查颜色是否相似
-    Loop, %sampledPoints.Length() {
+    Loop, % sampledPoints.Length() {
         point := sampledPoints[A_Index]
         pointX := point[1]
         pointY := point[2]
-        targetColor := targetRGBList[A_Index]
+        targetColor := targetRGBList[A_Index] 
         ; log.info("targetColor",targetColor)
         ; log.info("similarPointsCount",similarPointsCount)
 
         ; 检查颜色是否相似
         result := pixel_search_point_threshold(pointX, pointY, targetColor, 3)
         ; log.info("result",result)
-        If (result) {
-            similarPointsCount := similarPointsCount + 1
+        If (result){
+            similarPointsCount:= similarPointsCount+1
         }
     }
 
@@ -278,11 +281,11 @@ FindMaxIndex(arr) {
     maxValue := arr[1]
 
     ; 遍历列表中的每个元素
-    Loop, %arr.Length()
+    Loop, % arr.Length()
     {
         ; 获取当前元素的索引（注意AutoHotkey的索引从1开始）
         currentIndex := A_Index
-        currentValue := arr[currentIndex] ; 由于A_Index从1开始，而数组索引从0开始（若使用数组表示法），故需减1
+        currentValue := arr[currentIndex ] ; 由于A_Index从1开始，而数组索引从0开始（若使用数组表示法），故需减1
 
         ; 若当前元素大于当前最大值，则更新最大值及其索引
         If (currentValue > maxValue)
