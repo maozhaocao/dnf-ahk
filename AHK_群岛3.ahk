@@ -1,44 +1,42 @@
-
-
-map3_start(index){
+map3_start(index) {
     loc := 1
 
-    while(loc<8){
-        loc :=get_map3_ch_location()
-        log.info("current loc :",loc)
+    while (loc < 8) {
+        loc := get_map3_ch_location()
+        log.info("current loc :", loc)
 
-        if(loc == 1){
+        if (loc == 1) {
             map3_loc1_action()
         }
 
-        if(loc == 2){
+        if (loc == 2) {
             map3_loc2_action()
         }
 
-        if(loc == 3){
+        if (loc == 3) {
             map3_loc3_action()
         }
 
-        if(loc == 4){
+        if (loc == 4) {
             map3_loc4_action()
         }
 
-        if(loc == 5){
+        if (loc == 5) {
             map3_loc5_action()
         }
 
-        if(loc == 6){
+        if (loc == 6) {
             map3_loc6_action()
         }
 
-        if(loc == 7){
+        if (loc == 7) {
             map3_loc7_action()
         }
 
-        if(loc == 8){
+        if (loc == 8) {
             sleep(2000)
-            loc :=get_map3_ch_location()
-            if(loc == 8){
+            loc := get_map3_ch_location()
+            if (loc == 8) {
                 map3_loc8_action(index)
             }
         }
@@ -46,118 +44,118 @@ map3_start(index){
 
 }
 
-map3_loc1_action(){
+map3_loc1_action() {
     run_left(1700)
     down("left")
-    action_index :=1
-    while(is_map3_loc1()>=80){
+    action_index := 1
+    while (is_map3_loc1() >= 80) {
         go_left(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("left")
 }
 
-map3_loc2_action(){
+map3_loc2_action() {
     run_left(500)
     skill("a", 1000)
     run_left(1000)
     down("left")
-    action_index :=1
-    while(is_map3_loc2()>=80){
+    action_index := 1
+    while (is_map3_loc2() >= 80) {
         go_left(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("left")
 }
 
-map3_loc3_action(){
+map3_loc3_action() {
     run_left(500)
     skill("a", 1000)
     run_left(1000)
     down("left")
-    action_index :=1
-    while(is_map3_loc3()>=80){
+    action_index := 1
+    while (is_map3_loc3() >= 80) {
         go_left(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
             jump_back()
         }
     }
     up("left")
 }
 
-jump_back(){
+jump_back() {
     down("down")
     sleep(300)
-    skill("c",500)
+    skill("c", 500)
     up("down")
     sleep(300)
 }
 
-map3_loc4_action(){
+map3_loc4_action() {
     run_left(500)
     skill("a", 1000)
     run_left(500)
     down("down")
-    action_index :=1
-    while(is_map3_loc4()>=80){
+    action_index := 1
+    while (is_map3_loc4() >= 80) {
         go_down(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("down")
 }
 
-map3_loc5_action(){
-    action_index :=1
+map3_loc5_action() {
+    action_index := 1
     down("right")
-    while(is_map3_loc5()>=80){
+    while (is_map3_loc5() >= 80) {
         go_right(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
             jump_back()
         }
     }
     up("right")
 }
 
-map3_loc6_action(){
+map3_loc6_action() {
     run(500)
     skill("a", 1000)
     down("right")
-    action_index :=1
-    while(is_map3_loc6()>=80){
+    action_index := 1
+    while (is_map3_loc6() >= 80) {
         go_right(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
             jump_back()
         }
     }
     up("right")
 }
 
-map3_loc7_action(){
+map3_loc7_action() {
     run(500)
     skill("a", 1000)
     down("down")
     sleep(1000)
-    action_index :=1
-    while(is_map3_loc7()>=80){
+    action_index := 1
+    while (is_map3_loc7() >= 80) {
         go_down(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
             down("up")
             sleep(500)
             up("up")
@@ -166,13 +164,13 @@ map3_loc7_action(){
     up("down")
 }
 
-map3_loc8_action(index){
-    down_up("down",500)
+map3_loc8_action(index) {
+    down_up("down", 500)
     islands_pick(index)
 }
 
 get_map3_ch_location() {
-    similarity_list := [is_map3_loc1(), is_map3_loc2(), is_map3_loc3(), is_map3_loc4(), is_map3_loc5(), is_map3_loc6(), is_map3_loc7(),is_map3_loc8()]
+    similarity_list := [is_map3_loc1(), is_map3_loc2(), is_map3_loc3(), is_map3_loc4(), is_map3_loc5(), is_map3_loc6(), is_map3_loc7(), is_map3_loc8()]
     log.info("loc score:", similarity_list)
     return FindMaxIndex(similarity_list)
 }
@@ -200,7 +198,7 @@ is_map3_loc3() {
 
 is_map3_loc4() {
     ; 第1行第1列
-    RGB_list := [0x0556AB,0x0F1D4C,0x0CC5DE,0x1957C9]
+    RGB_list := [0x0556AB, 0x0F1D4C, 0x0CC5DE, 0x1957C9]
     similarity := CalculateSimilarity(RGB_list, 1785, 105, 1787, 117, 4)
     return similarity
 }

@@ -1,43 +1,42 @@
-
-map2_start(index){
+map2_start(index) {
     loc := 1
 
-    while(loc<8){
-        loc :=get_map2_ch_location()
-        log.info("current loc :",loc)
+    while (loc < 8) {
+        loc := get_map2_ch_location()
+        log.info("current loc :", loc)
 
-        if(loc == 1){
+        if (loc == 1) {
             map2_loc1_action()
         }
 
-        if(loc == 2){
+        if (loc == 2) {
             map2_loc2_action()
         }
 
-        if(loc == 3){
+        if (loc == 3) {
             map2_loc3_action()
         }
 
-        if(loc == 4){
+        if (loc == 4) {
             map2_loc4_action()
         }
 
-        if(loc == 5){
+        if (loc == 5) {
             map2_loc5_action()
         }
 
-        if(loc == 6){
+        if (loc == 6) {
             map2_loc6_action()
         }
 
-        if(loc == 7){
+        if (loc == 7) {
             map2_loc7_action()
         }
 
-        if(loc == 8){
+        if (loc == 8) {
             sleep(2000)
-            loc :=get_map2_ch_location()
-            if(loc == 8){
+            loc := get_map2_ch_location()
+            if (loc == 8) {
                 map2_loc8_action(index)
             }
         }
@@ -45,101 +44,101 @@ map2_start(index){
 
 }
 
-map2_loc1_action(){
+map2_loc1_action() {
     run(1500)
     down("right")
-    action_index :=1
-    while(is_map2_loc1()>=80){
+    action_index := 1
+    while (is_map2_loc1() >= 80) {
         go_right(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("right")
 }
 
-map2_loc2_action(){
+map2_loc2_action() {
     run(500)
-    skill("a",1000)
+    skill("a", 1000)
     ; run(1000)
     down("up")
-    action_index :=1
-    while(is_map2_loc2()>=80){
+    action_index := 1
+    while (is_map2_loc2() >= 80) {
         go_up(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("up")
 }
 
-map2_loc3_action(){
+map2_loc3_action() {
     run(500)
     run_left(200)
-    skill("a",1000)
+    skill("a", 1000)
     down("right")
-    action_index :=1
-    while(is_map2_loc3()>=80){
+    action_index := 1
+    while (is_map2_loc3() >= 80) {
         go_right(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("right")
 }
 
-map2_loc4_action(){
+map2_loc4_action() {
     run(500)
     skill("a", 1000)
     run(1000)
     down("right")
-    action_index :=1
-    while(is_map2_loc4()>=80){
+    action_index := 1
+    while (is_map2_loc4() >= 80) {
         go_right(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("right")
 }
 
-map2_loc5_action(){
+map2_loc5_action() {
     run(300)
     skill("a", 1000)
-    action_index :=1
+    action_index := 1
     down("down")
-    while(is_map2_loc5()>=80){
+    while (is_map2_loc5() >= 80) {
         go_down(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("down")
 }
 
-map2_loc6_action(){
+map2_loc6_action() {
     run(800)
     run_left(300)
     skill("a", 1000)
     ; run(500)
     down("right")
-    action_index :=1
-    while(is_map2_loc6()>=80){
+    action_index := 1
+    while (is_map2_loc6() >= 80) {
         go_right(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("right")
 }
 
-map2_loc7_action(){
+map2_loc7_action() {
     run(500)
     skill("a", 1000)
     run(1000)
@@ -149,54 +148,53 @@ map2_loc7_action(){
     sleep(500)
     down("right")
     sleep(500)
-    action_index :=1
-    while(is_map2_loc7()>=80){
+    action_index := 1
+    while (is_map2_loc7() >= 80) {
         go_right(action_index)
-        action_index := action_index+1
-        if(action_index >5){
-            action_index :=0
+        action_index := action_index + 1
+        if (action_index > 5) {
+            action_index := 0
         }
     }
     up("right")
 }
 
-map2_loc8_action(index){
+map2_loc8_action(index) {
     run(500)
     islands_pick(index)
 }
 
 
-
 get_map2_ch_location() {
-    similarity_list := [is_map2_loc1(), is_map2_loc2(), is_map2_loc3(), is_map2_loc4(), is_map2_loc5(), is_map2_loc6(), is_map2_loc7(),is_map2_loc8()]
+    similarity_list := [is_map2_loc1(), is_map2_loc2(), is_map2_loc3(), is_map2_loc4(), is_map2_loc5(), is_map2_loc6(), is_map2_loc7(), is_map2_loc8()]
     log.info("loc score:", similarity_list)
     return FindMaxIndex(similarity_list)
 }
 
 is_map2_loc1() {
     ; 第2行第1列
-    RGB_list := [0x0556AB,0x0F1D4C,0x0CC5DE,0x1957C9]
+    RGB_list := [0x0556AB, 0x0F1D4C, 0x0CC5DE, 0x1957C9]
     similarity := CalculateSimilarity(RGB_list, 1719, 138, 1721, 150, 4)
     return similarity
 }
 
 is_map2_loc2() {
     ; 第2行第2列
-    RGB_list := [0x0556AB,0x0F1D4C,0x0CC5DE,0x1957C9]
+    RGB_list := [0x0556AB, 0x0F1D4C, 0x0CC5DE, 0x1957C9]
     similarity := CalculateSimilarity(RGB_list, 1752, 138, 1754, 150, 4)
     return similarity
 }
 
 is_map2_loc3() {
     ; 第1行第2列
-    RGB_list := [0x0556AB,0x0F1D4C,0x0CC5DE,0x1957C9]
+    RGB_list := [0x0556AB, 0x0F1D4C, 0x0CC5DE, 0x1957C9]
     similarity := CalculateSimilarity(RGB_list, 1752, 105, 1754, 117, 4)
     return similarity
 }
 
 is_map2_loc4() {
     ; 第1行第3列
-    RGB_list := [0x0556AB,0x0F1D4C,0x0CC5DE,0x1957C9]
+    RGB_list := [0x0556AB, 0x0F1D4C, 0x0CC5DE, 0x1957C9]
     similarity := CalculateSimilarity(RGB_list, 1785, 105, 1787, 117, 4)
     return similarity
 }

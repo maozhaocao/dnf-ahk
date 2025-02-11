@@ -428,7 +428,7 @@ back_city() {
 back_select_character() {
     sleep(500)
     ; skill("esc", 500)
-    move_and_click(1505,1041,1000)
+    move_and_click(1505, 1041, 1000)
     MouseMove 925, 840
     sleep(500)
     MouseMove 925, 840
@@ -689,23 +689,23 @@ get_current_point() {
     return 0
 }
 
-start_qundao(index,abyss_times_total){
+start_qundao(index, abyss_times_total) {
     sleep(4000)
 
-    while(abyss_times_total>0){
+    while (abyss_times_total > 0) {
         islands(index)
 
-        abyss_times_total:=abyss_times_total-1
+        abyss_times_total := abyss_times_total - 1
         current_map := get_current_map()
-        if (current_map ==1){
+        if (current_map == 1) {
             map1_start(index)
         }
 
-        if (current_map ==2){
+        if (current_map == 2) {
             map2_start(index)
         }
 
-        if (current_map ==3){
+        if (current_map == 3) {
             map3_start(index)
         }
 
@@ -755,111 +755,111 @@ get_current_map() {
     return FindMaxIndex(similarity_list)
 }
 
-go_right(action_index){
-    if(action_index == 1){
+go_right(action_index) {
+    if (action_index == 1) {
         sleep(1000)
     }
 
-    if(action_index == 2){
-        skill("A",500)
+    if (action_index == 2) {
+        skill("A", 500)
     }
 
-    if(action_index == 3){
+    if (action_index == 3) {
         walk_up(1000)
     }
 
-    if(action_index == 4){
+    if (action_index == 4) {
         sleep(200)
         down("left")
         sleep(200)
-        skill("A",200)
+        skill("A", 200)
         up("left")
         sleep(500)
     }
 
-    if(action_index == 5){
+    if (action_index == 5) {
         walk_down(1000)
     }
 }
 
-go_left(action_index){
-    if(action_index == 1){
+go_left(action_index) {
+    if (action_index == 1) {
         sleep(1000)
     }
 
-    if(action_index == 2){
-        skill("A",500)
+    if (action_index == 2) {
+        skill("A", 500)
     }
 
-    if(action_index == 3){
+    if (action_index == 3) {
         walk_up(1000)
     }
 
-    if(action_index == 4){
+    if (action_index == 4) {
         sleep(1000)
     }
 
-    if(action_index == 5){
+    if (action_index == 5) {
         walk_down(1000)
     }
 }
 
-go_up(action_index){
-    if(action_index == 1){
+go_up(action_index) {
+    if (action_index == 1) {
         run(1500)
     }
 
-    if(action_index == 2){
-        skill("A",500)
+    if (action_index == 2) {
+        skill("A", 500)
     }
 
-    if(action_index == 3){
+    if (action_index == 3) {
         sleep(1000)
     }
 
-    if(action_index == 4){
-        skill("A",500)
+    if (action_index == 4) {
+        skill("A", 500)
     }
 
-    if(action_index == 5){
+    if (action_index == 5) {
         run_left(1500)
     }
 }
 
-go_down(action_index){
-    if(action_index == 1){
+go_down(action_index) {
+    if (action_index == 1) {
         run(1500)
     }
 
-    if(action_index == 2){
-        skill("A",500)
+    if (action_index == 2) {
+        skill("A", 500)
     }
 
-    if(action_index == 3){
+    if (action_index == 3) {
         sleep(1000)
     }
 
-    if(action_index == 4){
-        skill("A",500)
+    if (action_index == 4) {
+        skill("A", 500)
     }
 
-    if(action_index == 5){
+    if (action_index == 5) {
         run_left(1500)
     }
 }
 
-islands_pick(index){
-    skill("Numpad4",7000)
+islands_pick(index) {
+    skill("Numpad4", 7000)
 
     count := 4
     while (count > 0) {
-        move_and_click_one(1637,110,500)
+        move_and_click_one(1637, 110, 500)
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
             walk_up(500)
             skill("numpaddiv", 2000)
-            skill_many("x", 200,5)
+            skill_many("x", 200, 5)
             buy_ticket(index)
             skill("esc", 500)
             break
@@ -881,11 +881,11 @@ islands_pick(index){
     }
 }
 
-buy_ticket(index){
-    buy_list := [1,2,4,5,6,7,12,13,14]
-    if (list_contains_key(buy_list, index)){
-        move_and_click(630,400,500)
-        move_and_click(630,400,500)
+buy_ticket(index) {
+    buy_list := [1, 2, 4, 5, 6, 7, 12, 13, 14]
+    if (list_contains_key(buy_list, index)) {
+        move_and_click(630, 400, 500)
+        move_and_click(630, 400, 500)
     }
-    move_and_click(1035,77,1000)
+    move_and_click(1035, 77, 1000)
 }
