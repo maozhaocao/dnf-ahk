@@ -477,4 +477,8 @@ islands(index) {
     if (index == 39) {
         buff_right_right(1000)
     }
+
+    if (index == 40) {
+        skill("RCtrl", 1000)
+    }
 }
