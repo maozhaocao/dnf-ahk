@@ -468,4 +468,9 @@ islands(index) {
     if (index == 37) {
         skill("v", 700)
     }
+
+    if (index == 37) {
+        skill("RCtrl", 1000)
+        skill("w", 500)
+    }
 }
