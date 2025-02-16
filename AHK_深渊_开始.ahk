@@ -138,7 +138,7 @@ F1::
             sleep(1000 * 60 * 10)
             continue
         }
-        start(20)
+        ; start(20)
         break
     }
     return

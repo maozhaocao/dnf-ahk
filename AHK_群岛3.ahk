@@ -18,7 +18,7 @@ map3_start(index) {
         }
 
         if (loc == 4) {
-            map3_loc4_action()
+            map3_loc4_action(index)
         }
 
         if (loc == 5) {
@@ -99,7 +99,7 @@ jump_back() {
     sleep(300)
 }
 
-map3_loc4_action() {
+map3_loc4_action(index) {
     run_left(500)
     skill("a", 1000)
     run_left(500)
@@ -110,6 +110,7 @@ map3_loc4_action() {
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0
+            run_left(200)
         }
     }
     up("down")

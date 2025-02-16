@@ -7,9 +7,9 @@ abyss_times_new_jiandi() {
     sleep(500)
     run(1500)
     skill("w", 1000)
-    run(1800)
+    run(1600)
     skill("v", 1200)
-    run(1800)
+    run(1900)
     skill("s", 4000)
 }
 ;#HotIf
