@@ -882,7 +882,7 @@ islands_pick(index) {
 }
 
 buy_ticket(index) {
-    buy_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    buy_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
     if (list_contains_key(buy_list, index)) {
         move_and_click(630, 400, 500)
         move_and_click(630, 400, 500)
