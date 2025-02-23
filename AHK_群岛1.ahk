@@ -3,7 +3,7 @@ map1_start(index) {
 
     while (loc < 8) {
         loc := get_map1_ch_location()
-        log.info("current loc :", loc)
+        ; log.info("current loc :", loc)
 
         if (loc == 1) {
             map1_loc1_action()
@@ -157,7 +157,7 @@ map1_loc8_action(index) {
 
 get_map1_ch_location() {
     similarity_list := [is_map1_loc1(), is_map1_loc2(), is_map1_loc3(), is_map1_loc4(), is_map1_loc5(), is_map1_loc6(), is_map1_loc7(), is_map1_loc8()]
-    log.info("loc score:", similarity_list)
+    ; log.info("loc score:", similarity_list)
     return FindMaxIndex(similarity_list)
 }
 
