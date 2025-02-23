@@ -45,7 +45,7 @@ map2_start(index) {
 }
 
 map2_loc1_action() {
-    run(1500)
+    run(1800)
     down("right")
     action_index := 1
     while (is_map2_loc1() >= 80) {
