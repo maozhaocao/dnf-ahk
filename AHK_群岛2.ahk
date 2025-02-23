@@ -78,6 +78,7 @@ map2_loc3_action() {
     run(500)
     run_left(200)
     skill("a", 1000)
+    down_up("up",500)
     down("right")
     action_index := 1
     while (is_map2_loc3() >= 80) {
