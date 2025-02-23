@@ -161,18 +161,18 @@ start(index) {
         log.info("当天为星期五")
         all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
         abyss_list := []
-        abyss_new_list := [20, 22, 23, 26, 27, 28, 29, 30, 31, 33, 35, 36]
+        abyss_new_list := [20, 22, 23, 27, 28, 29, 30, 31, 33, 35, 36]
         abyss_storm_list := []
         ss_road_list := []
-        islands_list := [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 24, 25, 32, 34, 37, 38, 39, 40, 41, 42, 43, 44]
+        islands_list := [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 24, 25, 26, 32, 34, 37, 38, 39, 40, 41, 42, 43, 44]
     } else {
         log.info("当天不为星期五")
         all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
         abyss_list := []
-        abyss_new_list := [20, 22, 23, 26, 27, 28, 29, 30, 31, 33, 35, 36]
+        abyss_new_list := [20, 22, 23, 27, 28, 29, 30, 31, 33, 35, 36]
         abyss_storm_list := []
         ss_road_list := []
-        islands_list := [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 24, 25, 32, 34, 37, 38, 39, 40, 41, 42, 43, 44]
+        islands_list := [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 24, 25, 26, 32, 34, 37, 38, 39, 40, 41, 42, 43, 44]
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
@@ -273,20 +273,22 @@ F2::
     ; map1_start()
 
 
-    ; current_map := get_current_map()
-    ; if (current_map ==1){
-    ;     map1_start()
-    ; }
+    index := 33
 
-    ; if (current_map ==2){
-    ;     map2_start()
-    ; }
+    current_map := get_current_map()
+    if (current_map == 1) {
+        map1_start(index)
+    }
 
-    ; if (current_map ==3){
-    ;     map3_start()
-    ; }
+    if (current_map == 2) {
+        map2_start(index)
+    }
 
-    abyss_times_new_manyou()
+    if (current_map == 3) {
+        map3_start(index)
+    }
+
+    ; abyss_times_new_manyou()
     return
 }
 

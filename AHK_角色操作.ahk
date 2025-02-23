@@ -851,9 +851,9 @@ go_down(action_index) {
 islands_pick(index) {
     skill("Numpad4", 7000)
 
-    count := 4
+    count := 7
     while (count > 0) {
-        move_and_click_one(1637, 110, 500)
+        move_and_click_one(1637, 110, 1000)
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
@@ -867,16 +867,16 @@ islands_pick(index) {
 
         skill("a", 1000)
 
-        if (count <= 2) {
-            log.info("深渊疑似卡住,执行修正流程")
-            run(3000)
-            run_left(1000)
-            if (count == 1) {
-                skill("r", 1000)
-                skill("f", 1000)
-                ; skill("g", 1000)
-            }
-        }
+        ; if (count <= 2) {
+        ;     log.info("深渊疑似卡住,执行修正流程")
+        ;     run(3000)
+        ;     run_left(1000)
+        ;     if (count == 1) {
+        ;         skill("r", 1000)
+        ;         skill("f", 1000)
+        ;         ; skill("g", 1000)
+        ;     }
+        ; }
         ; sleep(1000)
     }
 }
