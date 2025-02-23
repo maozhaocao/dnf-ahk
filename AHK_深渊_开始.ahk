@@ -269,24 +269,25 @@ F2::
     ; MsgBox %point%
     ; pick()
 
-    ; RGBList := GetRectSampledRGBList(1846, 170, 1861, 182, 4)
+    ; RGBList := GetRectSampledRGBList(928, 721, 930, 723, 4)
+    buy_panibo()
     ; map1_start()
 
 
     index := 33
 
-    current_map := get_current_map()
-    if (current_map == 1) {
-        map1_start(index)
-    }
+    ; current_map := get_current_map()
+    ; if (current_map == 1) {
+    ;     map1_start(index)
+    ; }
 
-    if (current_map == 2) {
-        map2_start(index)
-    }
+    ; if (current_map == 2) {
+    ;     map2_start(index)
+    ; }
 
-    if (current_map == 3) {
-        map3_start(index)
-    }
+    ; if (current_map == 3) {
+    ;     map3_start(index)
+    ; }
 
     ; abyss_times_new_manyou()
     return

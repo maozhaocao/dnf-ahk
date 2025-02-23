@@ -861,6 +861,7 @@ islands_pick(index) {
             skill("numpaddiv", 2000)
             skill_many("x", 200, 5)
             buy_ticket(index)
+            buy_panibo()
             skill("esc", 500)
             break
         }
@@ -888,4 +889,17 @@ buy_ticket(index) {
         move_and_click(630, 400, 500)
     }
     move_and_click(1035, 77, 1000)
+}
+
+buy_panibo() {
+    RGB_list := [0x645933,0x948556,0x7C6F49]
+    similarity := CalculateSimilarity(RGB_list, 928, 721, 930, 723, 4)
+    ; log.info("similarity",similarity)
+    if (similarity >= 75) {
+        move_and_click(290, 827, 500)
+        move_and_click(290, 827, 500)
+        move_and_click(345, 827, 500)
+        move_and_click(345, 827, 500)
+        move_and_click(928, 721, 1000)
+    }
 }
