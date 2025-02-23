@@ -755,13 +755,13 @@ get_current_map() {
     return FindMaxIndex(similarity_list)
 }
 
-go_right(action_index) {
+go_right(action_index, index) {
     if (action_index == 1) {
         sleep(1000)
     }
 
     if (action_index == 2) {
-        skill("A", 500)
+        islands_skill(index)
     }
 
     if (action_index == 3) {
@@ -772,7 +772,7 @@ go_right(action_index) {
         sleep(200)
         down("left")
         sleep(200)
-        skill("A", 200)
+        islands_skill(index)
         up("left")
         sleep(500)
     }
@@ -782,13 +782,13 @@ go_right(action_index) {
     }
 }
 
-go_left(action_index) {
+go_left(action_index, index) {
     if (action_index == 1) {
         sleep(1000)
     }
 
     if (action_index == 2) {
-        skill("A", 500)
+        islands_skill(index)
     }
 
     if (action_index == 3) {
@@ -804,13 +804,13 @@ go_left(action_index) {
     }
 }
 
-go_up(action_index) {
+go_up(action_index, index) {
     if (action_index == 1) {
         run(1500)
     }
 
     if (action_index == 2) {
-        skill("A", 500)
+        islands_skill(index)
     }
 
     if (action_index == 3) {
@@ -818,7 +818,7 @@ go_up(action_index) {
     }
 
     if (action_index == 4) {
-        skill("A", 500)
+        islands_skill(index)
     }
 
     if (action_index == 5) {
@@ -826,13 +826,13 @@ go_up(action_index) {
     }
 }
 
-go_down(action_index) {
+go_down(action_index, index) {
     if (action_index == 1) {
         run(1500)
     }
 
     if (action_index == 2) {
-        skill("A", 500)
+        islands_skill(index)
     }
 
     if (action_index == 3) {
@@ -840,7 +840,7 @@ go_down(action_index) {
     }
 
     if (action_index == 4) {
-        skill("A", 500)
+        islands_skill(index)
     }
 
     if (action_index == 5) {
@@ -849,7 +849,7 @@ go_down(action_index) {
 }
 
 islands_pick(index) {
-    skill("Numpad4", 7000)
+    islands_skill_loc8(index)
 
     count := 7
     while (count > 0) {
@@ -892,7 +892,7 @@ buy_ticket(index) {
 }
 
 buy_panibo() {
-    RGB_list := [0x645933,0x948556,0x7C6F49]
+    RGB_list := [0x645933, 0x948556, 0x7C6F49]
     similarity := CalculateSimilarity(RGB_list, 928, 721, 930, 723, 4)
     ; log.info("similarity",similarity)
     if (similarity >= 75) {

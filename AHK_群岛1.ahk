@@ -6,31 +6,31 @@ map1_start(index) {
         ; log.info("current loc :", loc)
 
         if (loc == 1) {
-            map1_loc1_action()
+            map1_loc1_action(index)
         }
 
         if (loc == 2) {
-            map1_loc2_action()
+            map1_loc2_action(index)
         }
 
         if (loc == 3) {
-            map1_loc3_action()
+            map1_loc3_action(index)
         }
 
         if (loc == 4) {
-            map1_loc4_action()
+            map1_loc4_action(index)
         }
 
         if (loc == 5) {
-            map1_loc5_action()
+            map1_loc5_action(index)
         }
 
         if (loc == 6) {
-            map1_loc6_action()
+            map1_loc6_action(index)
         }
 
         if (loc == 7) {
-            map1_loc7_action()
+            map1_loc7_action(index)
         }
 
         if (loc == 8) {
@@ -44,12 +44,12 @@ map1_start(index) {
 
 }
 
-map1_loc1_action() {
+map1_loc1_action(index) {
     run(1000)
     down("right")
     action_index := 1
     while (is_map1_loc1() >= 80) {
-        go_right(action_index)
+        go_right(action_index, index)
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0
@@ -58,14 +58,14 @@ map1_loc1_action() {
     up("right")
 }
 
-map1_loc2_action() {
+map1_loc2_action(index) {
     run(500)
     skill("a", 1000)
     run(1000)
     down("right")
     action_index := 1
     while (is_map1_loc2() >= 80) {
-        go_right(action_index)
+        go_right(action_index, index)
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0
@@ -74,14 +74,14 @@ map1_loc2_action() {
     up("right")
 }
 
-map1_loc3_action() {
+map1_loc3_action(index) {
     run(500)
     skill("a", 1000)
     down("right")
     ; run(1000)
     action_index := 1
     while (is_map1_loc3() >= 80) {
-        go_right(action_index)
+        go_right(action_index, index)
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0
@@ -90,13 +90,13 @@ map1_loc3_action() {
     up("right")
 }
 
-map1_loc4_action() {
+map1_loc4_action(index) {
     run(500)
     skill("a", 1000)
     down("down")
     action_index := 1
     while (is_map1_loc4() >= 80) {
-        go_down(action_index)
+        go_down(action_index, index)
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0
@@ -105,11 +105,11 @@ map1_loc4_action() {
     up("down")
 }
 
-map1_loc5_action() {
+map1_loc5_action(index) {
     action_index := 1
     down("left")
     while (is_map1_loc5() >= 80) {
-        go_left(action_index)
+        go_left(action_index, index)
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0
@@ -118,14 +118,14 @@ map1_loc5_action() {
     up("left")
 }
 
-map1_loc6_action() {
+map1_loc6_action(index) {
     run_left(500)
     skill("a", 1000)
     run_left(500)
     down("left")
     action_index := 1
     while (is_map1_loc6() >= 80) {
-        go_left(action_index)
+        go_left(action_index, index)
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0
@@ -134,14 +134,14 @@ map1_loc6_action() {
     up("left")
 }
 
-map1_loc7_action() {
+map1_loc7_action(index) {
     run_left(500)
     skill("a", 1000)
     run_left(500)
     down("down")
     action_index := 1
     while (is_map1_loc7() >= 80) {
-        go_down(action_index)
+        go_down(action_index, index)
         action_index := action_index + 1
         if (action_index > 5) {
             action_index := 0

@@ -451,6 +451,7 @@ islands(index) {
 
     if (index == 30) {
         ; abyss_times_new_tuanzhang()
+        skill("space", 1000)
     }
 
     if (index == 31) {
@@ -480,5 +481,351 @@ islands(index) {
 
     if (index == 40) {
         skill("RCtrl", 1000)
+    }
+}
+
+islands_skill(index) {
+    if (index == 1 or index == 4 or index == 8) {
+        skill("a", 500)
+    }
+
+    if (index == 2) {
+        skill("a", 500)
+    }
+
+    if (index == 3) {
+        skill("a", 500)
+    }
+    if (index == 5) {
+        skill("a", 500)
+    }
+
+    if (index == 6) {
+        skill("a", 500)
+    }
+
+    if (index == 7) {
+        skill("a", 500)
+    }
+
+    if (index == 9) {
+        skill("a", 500)
+    }
+
+    if (index == 10) {
+        skill("a", 500)
+    }
+
+    if (index == 11) {
+        skill("a", 500)
+    }
+
+    if (index == 12) {
+        skill("a", 500)
+    }
+
+    if (index == 13) {
+        skill("a", 500)
+    }
+
+    if (index == 14) {
+        skill("a", 500)
+    }
+
+    if (index == 15) {
+        skill("a", 500)
+    }
+
+    if (index == 16) {
+        skill("a", 500)
+    }
+
+    if (index == 17) {
+        skill("a", 500)
+    }
+
+    if (index == 18) {
+        skill("a", 500)
+    }
+
+    if (index == 19) {
+        skill("a", 500)
+    }
+
+    if (index == 20) {
+        skill("a", 500)
+    }
+
+    if (index == 21) {
+        skill("a", 500)
+    }
+
+    if (index == 22) {
+        skill("a", 500)
+    }
+
+    if (index == 23) {
+        skill("a", 500)
+    }
+
+    if (index == 24) {
+        skill("a", 500)
+    }
+
+    if (index == 25) {
+        skill("a", 500)
+    }
+
+    if (index == 26) {
+        skill("a", 500)
+    }
+
+    if (index == 27) {
+        skill("a", 500)
+    }
+
+    if (index == 28) {
+        skill("a", 500)
+    }
+
+    if (index == 29) {
+        skill("a", 500)
+    }
+
+    if (index == 30) {
+        skill("a", 500)
+        ; 生成 1-10 的随机数
+        Random, randNum, 1, 10
+
+        ; 判断随机数是否满足条件
+        if (randNum Mod 4 == 0) {
+            ; 调用 skill 函数
+            skill("space", 1000)
+        }
+    }
+
+    if (index == 31) {
+        skill("a", 500)
+    }
+
+    if (index == 32) {
+        skill("a", 500)
+    }
+
+    if (index == 33) {
+        skill("a", 500)
+    }
+
+    if (index == 34) {
+        skill("a", 500)
+    }
+
+    if (index == 35) {
+        skill("a", 500)
+    }
+
+    if (index == 36) {
+        skill("a", 500)
+    }
+
+    if (index == 37) {
+        skill("a", 500)
+    }
+
+    if (index == 38) {
+        skill("a", 500)
+    }
+
+    if (index == 39) {
+        skill("a", 500)
+    }
+
+    if (index == 40) {
+        skill("a", 500)
+    }
+
+    if (index == 41) {
+        skill("a", 500)
+    }
+
+    if (index == 42) {
+        skill("a", 500)
+    }
+
+    if (index == 43) {
+        skill("a", 500)
+    }
+
+    if (index == 44) {
+        skill("a", 500)
+    }
+}
+
+islands_skill_loc8(index) {
+    if (index == 1 or index == 4 or index == 8) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 2) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 3) {
+        skill("Numpad4", 7000)
+    }
+    if (index == 5) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 6) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 7) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 9) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 10) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 11) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 12) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 13) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 14) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 15) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 16) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 17) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 18) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 19) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 20) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 21) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 22) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 23) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 24) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 25) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 26) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 27) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 28) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 29) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 30) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 31) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 32) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 33) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 34) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 35) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 36) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 37) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 38) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 39) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 40) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 41) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 42) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 43) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 44) {
+        skill("Numpad4", 7000)
     }
 }
