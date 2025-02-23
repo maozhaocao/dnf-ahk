@@ -466,6 +466,18 @@ islands(index) {
         ; abyss_times_new_baobao()
     }
 
+    if (index == 34) {
+        ; abyss_times_new_baobao()
+    }
+
+    if (index == 35) {
+        skill("RCtrl", 1500)
+    }
+
+    if (index == 36) {
+        ; abyss_times_new_baobao()
+    }
+
     if (index == 37) {
         skill("v", 700)
     }
