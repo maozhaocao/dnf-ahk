@@ -148,7 +148,7 @@ start(index) {
     ch_count := 44
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
-    skip_list := [1, 2, 5, 6, 7, 12, 13, 14]
+    skip_list := [1, 2, 4, 5, 6, 7, 12, 13, 14]
     all_pl_list := []
 
     abyss_list := []

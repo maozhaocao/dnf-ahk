@@ -597,6 +597,7 @@ islands_skill(index) {
     }
 
     if (index == 28) {
+        skill("RCtrl", 100)
         skill("a", 500)
     }
 
