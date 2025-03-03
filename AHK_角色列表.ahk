@@ -409,7 +409,7 @@ islands(index) {
     }
 
     if (index == 20) {
-        ; abyss_times_new_guiqi()
+        buff_up_down(1500)
     }
 
     if (index == 21) {
@@ -565,6 +565,7 @@ islands_skill(index) {
     }
 
     if (index == 20) {
+        skill("s", 200)
         skill("a", 500)
     }
 

@@ -867,6 +867,8 @@ islands_pick(index) {
         }
 
         skill("a", 1000)
+        ; skill("Numpad4", 1000)
+
 
         ; if (count <= 2) {
         ;     log.info("深渊疑似卡住,执行修正流程")
