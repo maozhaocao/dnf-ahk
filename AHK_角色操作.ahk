@@ -636,8 +636,8 @@ auto_resume(ch_count) {
     clean_screen()
     back_select_character()
     sleep(4000)
-    skill_many("up", 1000, 5)
-    skill_many("left", 1000, 2)
+    skill_many("up", 1000, 7)
+    skill_many("left", 1000, 5)
     index := 17
     skill_many("right", 1000, index - 1)
     skill("space", 5000)
