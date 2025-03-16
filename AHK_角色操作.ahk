@@ -861,7 +861,8 @@ islands_pick(index) {
             skill("numpaddiv", 2000)
             skill_many("x", 200, 5)
             ; buy_ticket(index)
-            ; buy_panibo()
+            buy_panibo()
+            buy_panibo2()
             skill("esc", 500)
             break
         }
@@ -894,14 +895,23 @@ buy_ticket(index) {
 }
 
 buy_panibo() {
-    RGB_list := [0x645933, 0x948556, 0x7C6F49]
-    similarity := CalculateSimilarity(RGB_list, 928, 721, 930, 723, 4)
+    RGB_list := [0x266992, 0x4AAC95, 0x398667, 0x3BC951, 0x307F8A, 0x18612A, 0x2A9240, 0x38A34C]
+    similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)
     ; log.info("similarity",similarity)
-    if (similarity >= 75) {
+    if (similarity >= 80) {
         move_and_click(290, 827, 500)
         move_and_click(290, 827, 500)
+        sleep(500)
+    }
+}
+
+buy_panibo2() {
+    RGB_list := [0x45C0C1, 0x40D550, 0x379259, 0x1D2A52, 0x45A257, 0x2EAC54, 0x0E1736, 0x101F59]
+    similarity := CalculateSimilarity(RGB_list, 335, 820, 360, 845, 8)
+    ; log.info("similarity",similarity)
+    if (similarity >= 80) {
         move_and_click(345, 827, 500)
         move_and_click(345, 827, 500)
-        move_and_click(928, 721, 1000)
+        sleep(500)
     }
 }
