@@ -494,6 +494,10 @@ islands(index) {
     if (index == 40) {
         skill("RCtrl", 1000)
     }
+
+    if (index == 49) {
+        skill("r", 1000)
+    }
 }
 
 islands_skill(index) {
@@ -694,6 +698,11 @@ islands_skill(index) {
         skill("a", 50)
         skill("f", 500)
     }
+
+    if (index == 49) {
+        skill("a", 50)
+        skill("f", 500)
+    }
 }
 
 islands_skill_loc8(index) {
@@ -873,6 +882,10 @@ islands_skill_loc8(index) {
     }
 
     if (index == 48) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 49) {
         skill("Numpad4", 7000)
     }
 }
