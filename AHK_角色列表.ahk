@@ -684,6 +684,16 @@ islands_skill(index) {
     if (index == 46) {
         skill("a", 500)
     }
+
+    if (index == 47) {
+        skill("a", 50)
+        skill("q", 500)
+    }
+
+    if (index == 48) {
+        skill("a", 50)
+        skill("f", 500)
+    }
 }
 
 islands_skill_loc8(index) {
@@ -859,6 +869,10 @@ islands_skill_loc8(index) {
     }
 
     if (index == 46) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 48) {
         skill("Numpad4", 7000)
     }
 }
