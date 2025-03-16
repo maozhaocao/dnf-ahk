@@ -590,15 +590,17 @@ islands_skill(index) {
     }
 
     if (index == 26) {
-        skill("a", 500)
+        skill("a", 50)
+        skill("s", 500)
     }
 
     if (index == 27) {
-        skill("a", 500)
+        skill("a", 50)
+        skill("w", 500)
     }
 
     if (index == 28) {
-        skill("RCtrl", 100)
+        skill("RCtrl", 50)
         skill("a", 500)
     }
 
@@ -623,6 +625,7 @@ islands_skill(index) {
     }
 
     if (index == 32) {
+        skill("s", 100)
         skill("a", 500)
     }
 
