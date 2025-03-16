@@ -574,7 +574,7 @@ islands_skill(index) {
     }
 
     if (index == 22) {
-        skill("a", 500)
+        skill("q", 500)
     }
 
     if (index == 23) {

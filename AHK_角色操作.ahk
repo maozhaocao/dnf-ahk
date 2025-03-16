@@ -860,7 +860,7 @@ islands_pick(index) {
             walk_up(500)
             skill("numpaddiv", 2000)
             skill_many("x", 200, 5)
-            buy_ticket(index)
+            ; buy_ticket(index)
             ; buy_panibo()
             skill("esc", 500)
             break
