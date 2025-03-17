@@ -413,7 +413,8 @@ go_islands_door() {
 
 back_city() {
     clean_screen()
-    skill("esc", 500)
+    ; skill("esc", 500)
+    move_and_click(1505, 1041, 1000)
     MouseMove 1135, 835
     sleep(500)
     MouseMove 1135, 835
@@ -697,16 +698,24 @@ start_qundao(index, abyss_times_total) {
 
         abyss_times_total := abyss_times_total - 1
         current_map := get_current_map()
+        loc := 1
+
         if (current_map == 1) {
-            map1_start(index)
+            loc := map1_start(index)
         }
 
         if (current_map == 2) {
-            map2_start(index)
+            loc := map2_start(index)
         }
 
         if (current_map == 3) {
-            map3_start(index)
+            loc := map3_start(index)
+        }
+
+        if (loc == -1) {
+            log.info("疑似卡住，直接回城")
+            ; back_city()
+            break
         }
 
         if (have_no_pl()) {
@@ -769,16 +778,16 @@ go_right(action_index, index) {
     }
 
     if (action_index == 4) {
+        walk_down(1000)
+    }
+
+    if (action_index == 5) {
         sleep(200)
         down("left")
         sleep(200)
         islands_skill(index)
         up("left")
         sleep(500)
-    }
-
-    if (action_index == 5) {
-        walk_down(1000)
     }
 }
 

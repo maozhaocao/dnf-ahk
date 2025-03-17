@@ -201,7 +201,7 @@ start(index) {
                     if (list_contains_key(abyss_new_list, index)) {
                         abyss_times_total := 26
                     } else if (list_contains_key(islands_list, index)) {
-                        abyss_times_total := 8
+                        abyss_times_total := 10
                     }
                 } else if (list_contains_key(abyss_list, index)) {
                     abyss_times_total := 18
@@ -269,27 +269,27 @@ F2::
     ; MsgBox %point%
     ; pick()
 
-    RGBList := GetRectSampledRGBList(335, 820, 360, 845, 8)
-    buy_panibo()
-    buy_panibo2()
+    ; RGBList := GetRectSampledRGBList(335, 820, 360, 845, 8)
+    ; buy_panibo()
+    ; buy_panibo2()
 
     ; map1_start()
 
 
-    ; index := 33
+    index := 26
 
-    ; current_map := get_current_map()
-    ; if (current_map == 1) {
-    ;     map1_start(index)
-    ; }
+    current_map := get_current_map()
+    if (current_map == 1) {
+        map1_start(index)
+    }
 
-    ; if (current_map == 2) {
-    ;     map2_start(index)
-    ; }
+    if (current_map == 2) {
+        map2_start(index)
+    }
 
-    ; if (current_map == 3) {
-    ;     map3_start(index)
-    ; }
+    if (current_map == 3) {
+        map3_start(index)
+    }
 
     ; abyss_times_new_manyou()
     return

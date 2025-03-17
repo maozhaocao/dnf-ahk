@@ -1,7 +1,12 @@
 map3_start(index) {
-    loc := 1
+    times := 1 
 
     while (loc < 8) {
+        times := times + 1
+        if(times >100){
+            loc := -1
+            break
+        }
         loc := get_map3_ch_location()
         ; log.info("current loc :", loc)
 
@@ -41,6 +46,8 @@ map3_start(index) {
             }
         }
     }
+
+    return loc
 
 }
 
