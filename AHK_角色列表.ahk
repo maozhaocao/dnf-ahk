@@ -629,7 +629,8 @@ islands_skill(index) {
     }
 
     if (index == 31) {
-        skill("a", 500)
+        skill("a", 50)
+        skill("v", 500)
     }
 
     if (index == 32) {
@@ -643,6 +644,7 @@ islands_skill(index) {
     }
 
     if (index == 34) {
+        skill("a", 500)
     }
 
     if (index == 35) {
