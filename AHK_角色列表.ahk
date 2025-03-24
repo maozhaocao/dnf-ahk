@@ -409,7 +409,7 @@ islands(index) {
     }
 
     if (index == 20) {
-        buff_up_down(1500)
+        ; buff_up_down(1500)
     }
 
     if (index == 21) {
@@ -638,11 +638,11 @@ islands_skill(index) {
     }
 
     if (index == 33) {
-        skill("a", 500)
+        skill("a", 50)
+        skill("f", 500)
     }
 
     if (index == 34) {
-        skill("a", 500)
     }
 
     if (index == 35) {
@@ -712,6 +712,10 @@ islands_skill(index) {
     if (index == 50) {
         skill("a", 50)
         skill("f", 500)
+    }
+
+    if (index == 51) {
+        skill("a", 500)
     }
 }
 
@@ -891,6 +895,10 @@ islands_skill_loc8(index) {
         skill("Numpad4", 7000)
     }
 
+    if (index == 47) {
+        skill("Numpad4", 7000)
+    }
+
     if (index == 48) {
         skill("Numpad4", 7000)
     }
@@ -900,6 +908,10 @@ islands_skill_loc8(index) {
     }
 
     if (index == 50) {
+        skill("Numpad4", 7000)
+    }
+
+    if (index == 51) {
         skill("Numpad4", 7000)
     }
 }
