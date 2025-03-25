@@ -5,11 +5,11 @@ run_with_admin()
 
 start_abyss(index, abyss_times_total) {
     skill("space", 4000)
-    if (!can_enter_abyss()) {
-        log.info("深渊票不足,进入深渊失败")
-        sleep(1000)
-        return
-    }
+    ; if (!can_enter_abyss()) {
+    ;     log.info("深渊票不足,进入深渊失败")
+    ;     sleep(1000)
+    ;     return
+    ; }
     sleep(1000)
     count := abyss_times_total
     while (count > 0)
@@ -17,6 +17,7 @@ start_abyss(index, abyss_times_total) {
         count := count - 1
         abyss_times_one(index)
         pick()
+        skill("esc",500)
         if (have_no_pl()) {
             log.info("pl不足,停止继续深渊")
             break
@@ -148,7 +149,7 @@ start(index) {
     ch_count := 53
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
-    skip_list := [1, 2, 4, 5, 6, 7, 12, 13, 14]
+    skip_list := [1,  4, 5, 6, 7, 12, 13, 14]
     all_pl_list := []
 
     abyss_list := []
@@ -168,7 +169,7 @@ start(index) {
     } else {
         log.info("当天不为星期五")
         all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51,52,53]
-        abyss_list := []
+        abyss_list := [2]
         abyss_new_list := []
         abyss_storm_list := []
         ss_road_list := []
@@ -202,6 +203,8 @@ start(index) {
                         abyss_times_total := 26
                     } else if (list_contains_key(islands_list, index)) {
                         abyss_times_total := 10
+                    }else if (list_contains_key(abyss_list, index)) {
+                        abyss_times_total := 20
                     }
                 } else if (list_contains_key(abyss_list, index)) {
                     abyss_times_total := 18
@@ -216,7 +219,7 @@ start(index) {
                 }
 
                 if (list_contains_key(abyss_list, index)) {
-                    go_abyss_door()
+                    go_abyss_115_door()
                     start_abyss(index, abyss_times_total)
                 } else if (list_contains_key(abyss_new_list, index)) {
                     go_abyss_new_door()

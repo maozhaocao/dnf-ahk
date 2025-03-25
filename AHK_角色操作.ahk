@@ -411,6 +411,24 @@ go_islands_door() {
     click_for_success()
 }
 
+go_abyss_115_door() {
+    down("right")
+    sleep(2000)
+    up("right")
+    sleep(500)
+    MouseMove 265, 555
+    sleep(500)
+    click_for_success()
+    sleep(3000)
+    down("left")
+    sleep(2000)
+    up("left")
+    sleep(500)
+    MouseMove 1215, 850
+    sleep(500)
+    click_for_success()
+}
+
 back_city() {
     clean_screen()
     ; skill("esc", 500)
@@ -805,6 +823,9 @@ go_left(action_index, index) {
     }
 
     if (action_index == 4) {
+        down("right")
+        sleep(200)
+        up("right")
         sleep(1000)
     }
 
