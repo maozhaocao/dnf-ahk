@@ -157,15 +157,17 @@ start(index) {
     abyss_storm_list := []
     ss_road_list := []
     islands_list := []
+    pl_60_list := []
 
-    if (is_thursday() or is_friday()) {
+    if (is_friday()) {
         log.info("当天为星期四")
-        all_pl_list := [29, 30, 31, 33, 35, 36, 37, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51,52,53]
+        all_pl_list := [29, 30, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
         abyss_list := []
         abyss_new_list := []
         abyss_storm_list := []
         ss_road_list := []
         islands_list := [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51,52,53]
+        pl_60_list := [21,22,24,26,35,36,38,40,42]
     } else {
         log.info("当天不为星期五")
         all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51,52,53]
@@ -199,10 +201,10 @@ start(index) {
                 sleep(1000)
                 abyss_times_total := 0
                 if (!list_contains_key(all_pl_list, index)) {
-                    if (list_contains_key(abyss_new_list, index)) {
-                        abyss_times_total := 26
+                    if (list_contains_key(pl_60_list, index)) {
+                        abyss_times_total := 8
                     } else if (list_contains_key(islands_list, index)) {
-                        abyss_times_total := 10
+                        abyss_times_total := 5
                     }else if (list_contains_key(abyss_list, index)) {
                         abyss_times_total := 20
                     }
