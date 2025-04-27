@@ -90,7 +90,7 @@ pick() {
         if (can_back_city()) {
             sleep(1000)
             skill("numpaddiv", 2000)
-            skill_many("x", 200, 10)
+            skill_many("x", 200, 5)
             skill("esc", 500)
             break
         }
@@ -402,7 +402,15 @@ go_islands_door() {
     sleep(500)
     click_for_success()
     sleep(3000)
+    down("right")
+    sleep(500)
+    up("right")
+
     down("left")
+    sleep(200)
+    down("up")
+    sleep(500)
+    up("up")
     sleep(2000)
     up("left")
     sleep(500)
@@ -900,7 +908,6 @@ islands_pick(index) {
         skill("a", 1000)
         ; skill("Numpad4", 1000)
 
-
         ; if (count <= 2) {
         ;     log.info("深渊疑似卡住,执行修正流程")
         ;     run(3000)
@@ -944,4 +951,52 @@ buy_panibo2() {
         move_and_click(345, 827, 500)
         sleep(500)
     }
+}
+
+buy_ss_guan() {
+    RGB_list := [0x306698,0xF7F3BB,0xA77541,0xAC6632,0x634226,0xF7D423,0xE79218,0xD05B0C]
+    similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)
+    ; log.info("similarity",similarity)
+    if (similarity >= 80) {
+        move_and_click(290, 827, 500)
+        ; move_and_click(290, 827, 500)
+        sleep(500)
+    }
+}
+
+
+
+abyss_pick() {
+    count := 8
+    while (count > 0) {
+        count := count - 1
+        if (can_back_city()) {
+            sleep(1000)
+            skill("numpaddiv", 2000)
+            skill_many("x", 200, 4)
+            ; skill("esc", 500)
+            break
+        }
+        if (count <= 3) {
+            log.info("深渊疑似卡住,执行修正流程")
+            run(3000)
+            run_left(1000)
+            if (count == 3) {
+                skill("q", 1000)
+                skill("w", 1000)
+                skill("e", 1000)
+            }
+            if (count == 2) {
+                skill("a", 1000)
+                skill("s", 1000)
+                skill("d", 1000)
+            }
+            if (count == 1) {
+                skill("r", 1000)
+                skill("f", 1000)
+                skill("g", 1000)
+            }
+        }
+    }
+    move_and_click(929, 725, 500)
 }

@@ -16,8 +16,8 @@ start_abyss(index, abyss_times_total) {
     {
         count := count - 1
         abyss_times_one(index)
-        pick()
-        skill("esc",500)
+        abyss_pick()
+        ; skill("esc",500)
         if (have_no_pl()) {
             log.info("pl不足,停止继续深渊")
             break
@@ -29,7 +29,7 @@ start_abyss(index, abyss_times_total) {
         }
         sleep(500)
         if (count > 0) {
-            skill("F10", 4000)
+            skill("F10", 3000)
         }
     }
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
@@ -149,40 +149,42 @@ start(index) {
     ch_count := 53
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
-    skip_list := [1,  4, 5, 6, 7, 12, 13, 14]
-    all_pl_list := []
+    skip_list := [2, 11, 13]
 
-    abyss_list := []
-    abyss_new_list := []
-    abyss_storm_list := []
-    ss_road_list := []
-    islands_list := []
+    abyss_list := [1, 2, 4, 5, 6, 7, 11, 12, 13, 14]
+    islands_list := [3, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+
+    pl_0_list := []
+    pl_17_list := []
+    pl_30_list := []
     pl_60_list := []
+    pl_90_list := []
+    pl_107_list := []
 
-    if (is_friday()) {
+    if (is_thursday() or is_friday()) {
         log.info("当天为星期四")
-        all_pl_list := [29, 30, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
-        abyss_list := []
-        abyss_new_list := []
-        abyss_storm_list := []
-        ss_road_list := []
-        islands_list := [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51,52,53]
-        pl_60_list := [21,22,24,26,35,36,38,40,42]
+        pl_0_list := [28, 29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+        pl_17_list := []
+        pl_30_list := [35, 40, 42]
+        pl_60_list := [22, 24, 36]
+        pl_90_list := [20, 21, 23, 25, 26, 27, 30, 38]
+        pl_107_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+
     } else {
         log.info("当天不为星期五")
-        all_pl_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51,52,53]
-        abyss_list := [2]
-        abyss_new_list := []
-        abyss_storm_list := []
-        ss_road_list := []
-        islands_list := [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,51,52,53]
+        pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+        pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+        pl_30_list := []
+        pl_60_list := []
+        pl_90_list := []
+        pl_107_list := []
     }
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
         end_hour := A_Hour
 
-        if (end_hour == 6 and index <= 19) {
+        if (end_hour == 6) {
             skip_list.Push(index)
             log.info("超6点保留PL:", index)
         }
@@ -200,38 +202,51 @@ start(index) {
                 ; receive_daily_ticket()
                 sleep(1000)
                 abyss_times_total := 0
-                if (!list_contains_key(all_pl_list, index)) {
+
+                if (list_contains_key(abyss_list, index)) {
+                    if (list_contains_key(pl_0_list, index)) {
+                        abyss_times_total := 24
+                    }
+                    if (list_contains_key(pl_17_list, index)) {
+                        abyss_times_total := 21
+                    }
+                    if (list_contains_key(pl_30_list, index)) {
+                        abyss_times_total := 19
+                    }
+                    if (list_contains_key(pl_60_list, index)) {
+                        abyss_times_total := 16
+                    }
+                    if (list_contains_key(pl_90_list, index)) {
+                        abyss_times_total := 12
+                    }
+                    if (list_contains_key(pl_107_list, index)) {
+                        abyss_times_total := 10
+                    }
+                } else if (list_contains_key(islands_list, index)) {
+                    if (list_contains_key(pl_0_list, index)) {
+                        abyss_times_total := 12
+                    }
+                    if (list_contains_key(pl_17_list, index)) {
+                        abyss_times_total := 10
+                    }
+                    if (list_contains_key(pl_30_list, index)) {
+                        abyss_times_total := 9
+                    }
                     if (list_contains_key(pl_60_list, index)) {
                         abyss_times_total := 8
-                    } else if (list_contains_key(islands_list, index)) {
-                        abyss_times_total := 5
-                    }else if (list_contains_key(abyss_list, index)) {
-                        abyss_times_total := 20
                     }
-                } else if (list_contains_key(abyss_list, index)) {
-                    abyss_times_total := 18
-                } else if (list_contains_key(abyss_new_list, index)) {
-                    abyss_times_total := 26
-                } else if (list_contains_key(abyss_storm_list, index)) {
-                    abyss_times_total := 32
-                } else if (list_contains_key(ss_road_list, index)) {
-                    abyss_times_total := 26
-                } else if (list_contains_key(islands_list, index)) {
-                    abyss_times_total := 12
+                    if (list_contains_key(pl_90_list, index)) {
+                        abyss_times_total := 6
+                    }
+                    if (list_contains_key(pl_107_list, index)) {
+                        abyss_times_total := 5
+                    }
                 }
+
 
                 if (list_contains_key(abyss_list, index)) {
                     go_abyss_115_door()
                     start_abyss(index, abyss_times_total)
-                } else if (list_contains_key(abyss_new_list, index)) {
-                    go_abyss_new_door()
-                    start_abyss_new(index, abyss_times_total)
-                } else if (list_contains_key(abyss_storm_list, index)) {
-                    go_abyss_door()
-                    start_storm(index, abyss_times_total)
-                } else if (list_contains_key(ss_road_list, index)) {
-                    go_ss_road_door()
-                    start_ss_road(index, abyss_times_total)
                 } else if (list_contains_key(islands_list, index)) {
                     go_islands_door()
                     start_qundao(index, abyss_times_total)
@@ -274,29 +289,31 @@ F2::
     ; MsgBox %point%
     ; pick()
 
-    ; RGBList := GetRectSampledRGBList(335, 820, 360, 845, 8)
+    ; RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
     ; buy_panibo()
     ; buy_panibo2()
+    ; buy_ss_guan()
 
     ; map1_start()
 
 
-    index := 26
+    ; index := 26
 
-    current_map := get_current_map()
-    if (current_map == 1) {
-        map1_start(index)
-    }
+    ; current_map := get_current_map()
+    ; if (current_map == 1) {
+    ;     map1_start(index)
+    ; }
 
-    if (current_map == 2) {
-        map2_start(index)
-    }
+    ; if (current_map == 2) {
+    ;     map2_start(index)
+    ; }
 
-    if (current_map == 3) {
-        map3_start(index)
-    }
+    ; if (current_map == 3) {
+    ;     map3_start(index)
+    ; }
 
-    ; abyss_times_new_manyou()
+    abyss_times_zhaohuan()
+    abyss_pick()
     return
 }
 
