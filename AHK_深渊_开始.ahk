@@ -16,6 +16,9 @@ start_abyss(index, abyss_times_total) {
     {
         count := count - 1
         abyss_times_one(index)
+        if(count == 0){
+            run_left(500)
+        }
         abyss_pick()
         ; skill("esc",500)
         if (have_no_pl()) {
@@ -30,6 +33,36 @@ start_abyss(index, abyss_times_total) {
         sleep(500)
         if (count > 0) {
             skill("F10", 3000)
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
         }
     }
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
@@ -149,10 +182,13 @@ start(index) {
     ch_count := 53
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
-    skip_list := [2, 11, 13]
+    skip_list := [2]
 
     abyss_list := [1, 2, 4, 5, 6, 7, 11, 12, 13, 14]
     islands_list := [3, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+
+    abyss_list := [1, 2,3, 4, 5, 6, 7, 11, 12, 13, 14]
+    islands_list := [8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
     pl_0_list := []
     pl_17_list := []
@@ -312,7 +348,7 @@ F2::
     ;     map3_start(index)
     ; }
 
-    abyss_times_zhaohuan()
+    abyss_times_renying()
     abyss_pick()
     return
 }

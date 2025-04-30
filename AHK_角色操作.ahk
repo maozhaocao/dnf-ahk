@@ -428,9 +428,17 @@ go_abyss_115_door() {
     sleep(500)
     click_for_success()
     sleep(3000)
+    down("right")
+    sleep(500)
+    up("right")
     down("left")
+    sleep(200)
+    down("up")
+    sleep(500)
+    up("up")
     sleep(2000)
     up("left")
+    sleep(500)
     sleep(500)
     MouseMove 1215, 850
     sleep(500)
@@ -959,12 +967,10 @@ buy_ss_guan() {
     ; log.info("similarity",similarity)
     if (similarity >= 80) {
         move_and_click(290, 827, 500)
-        ; move_and_click(290, 827, 500)
+        move_and_click(290, 827, 500)
         sleep(500)
     }
 }
-
-
 
 abyss_pick() {
     count := 8
@@ -974,7 +980,9 @@ abyss_pick() {
             sleep(1000)
             skill("numpaddiv", 2000)
             skill_many("x", 200, 4)
-            ; skill("esc", 500)
+            buy_panibo()
+            buy_panibo2()
+            buy_ss_guan()
             break
         }
         if (count <= 3) {

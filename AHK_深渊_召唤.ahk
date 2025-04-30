@@ -12,7 +12,9 @@ abyss_times_zhaohuan() {
         skill("space", 500)
     }
 
-    run(7000)
+    skill("space", 500)
+
+    run(6000)
     if (!can_back_city()) { 
         sleep(1000) 
     }
