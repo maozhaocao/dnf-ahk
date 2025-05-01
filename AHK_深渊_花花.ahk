@@ -3,16 +3,41 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_huahua() {
-    buff_right_right(1500)
-    buff_right(1000)
-    run(1800)
-    skill("w", 1500)
-    run(1400)
-    skill("v", 1500)
-    run(1300)
-    skill("e", 1000)
-    skill("g", 4000)
-    skill("f", 1000)
+    run_left(700)
+    run(4600)
+    skill("a", 1000)
+
+    if (!can_back_city()) { 
+        sleep(1000)
+    }
+
+    if (!can_back_city()) { 
+        sleep(1000)
+    }
+
+    if (!can_back_city()) { 
+        skill("f", 2000) 
+    }
+
+    if (!can_back_city()) { 
+        skill("g", 2000) 
+    }
+
+    if (!can_back_city()) { 
+        skill("e", 2000) 
+    }
+
+    if (!can_back_city()) { 
+        skill("v", 2000) 
+    }
+    
+    if (!can_back_city()) { 
+        skill("q", 2000) 
+    }
+
+    if (!can_back_city()) { 
+        ; skill("Numpad4", 7000) 
+    }
 }
 
 abyss_times_new_huahua() {
