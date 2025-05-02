@@ -136,6 +136,10 @@ abyss_times_one(index) {
     if (index == 27) {
         abyss_times_zhiying()
     }
+
+    if (index == 34) {
+        abyss_times_jingling()
+    }
 }
 
 abyss_new_times_one(index) {

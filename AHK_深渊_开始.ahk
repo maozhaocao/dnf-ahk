@@ -326,10 +326,10 @@ F2::
     ; MsgBox %point%
     ; pick()
 
-    RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
+    ; RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
     ; buy_panibo()
     ; buy_panibo2()
-    buy_ss_guan()
+    ; buy_ss_guan()
 
     ; map1_start()
 
@@ -349,8 +349,8 @@ F2::
     ;     map3_start(index)
     ; }
 
-    ; abyss_times_xiazi()
-    ; abyss_pick()
+    abyss_times_jingling()
+    abyss_pick()
     return
 }
 
