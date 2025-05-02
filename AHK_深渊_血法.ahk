@@ -3,18 +3,33 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_xuefa() {
-    buff_right_right(1000)
-    run(1800)
-    skill("q", 500)
+    run_left(1000)
+    run(2500)
+    skill("a", 1000)
+    run(1700)
     skill("w", 500)
     run(1800)
-    skill("a", 1500)
-    run(2000)
-    skill("s", 800)
-    skill("q", 500)
-    skill("w", 500)
-    skill("z", 500)
-    skill("w", 3000)
+    skill("s", 1000)
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        skill("f", 2000) 
+    }
+
+    if (!can_back_city()) {       
+        skill("q", 2000) 
+    }
+
+    if (!can_back_city()) {       
+        skill("r", 2000) 
+    }
 }
 
 abyss_times_new_xuefa() {

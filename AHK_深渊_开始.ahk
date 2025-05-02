@@ -349,7 +349,7 @@ F2::
     ;     map3_start(index)
     ; }
 
-    abyss_times_miusi2()
+    abyss_times_xuefa()
     abyss_pick()
     return
 }
