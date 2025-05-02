@@ -962,7 +962,7 @@ buy_panibo2() {
 }
 
 buy_ss_guan() {
-    RGB_list := [0x306698,0xF7F3BB,0xA77541,0xAC6632,0x634226,0xF7D423,0xE79218,0xD05B0C]
+    RGB_list := [0xC17F48,0xB46A3B,0xCB7713,0xC24710,0xC25B0A,0xDF860E,0xAF2409,0x85211C]
     similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)
     ; log.info("similarity",similarity)
     if (similarity >= 80) {
@@ -1003,6 +1003,7 @@ abyss_pick() {
                 skill("r", 1000)
                 skill("f", 1000)
                 skill("g", 1000)
+                count := 8
             }
         }
     }

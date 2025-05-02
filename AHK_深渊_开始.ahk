@@ -16,7 +16,7 @@ start_abyss(index, abyss_times_total) {
     {
         count := count - 1
         abyss_times_one(index)
-        if(count == 0){
+        if (count == 0) {
             run_left(500)
         }
         abyss_pick()
@@ -65,6 +65,7 @@ start_abyss(index, abyss_times_total) {
             }
         }
     }
+    skill_many("x", 500, 15)
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
 }
 
@@ -187,8 +188,8 @@ start(index) {
     abyss_list := [1, 2, 4, 5, 6, 7, 11, 12, 13, 14]
     islands_list := [3, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
-    ; abyss_list := [1, 2,3, 4, 5, 6, 7,8,9, 11, 12, 13, 14]
-    ; islands_list := [10, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    islands_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
     pl_0_list := []
     pl_17_list := []
@@ -197,7 +198,7 @@ start(index) {
     pl_90_list := []
     pl_107_list := []
 
-    if (is_thursday() or is_friday()) {
+    if (is_thursday()) {
         log.info("当天为星期四")
         pl_0_list := [28, 29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
         pl_17_list := []
@@ -325,10 +326,10 @@ F2::
     ; MsgBox %point%
     ; pick()
 
-    ; RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
+    RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
     ; buy_panibo()
     ; buy_panibo2()
-    ; buy_ss_guan()
+    buy_ss_guan()
 
     ; map1_start()
 
@@ -348,8 +349,8 @@ F2::
     ;     map3_start(index)
     ; }
 
-    abyss_times_xiazi()
-    abyss_pick()
+    ; abyss_times_xiazi()
+    ; abyss_pick()
     return
 }
 
