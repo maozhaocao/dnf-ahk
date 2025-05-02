@@ -3,19 +3,19 @@
 #Include AHK_角色操作.ahk
 
 
-use_miusi_bf := false
-abyss_times_miusi() {
-    global use_miusi_bf
-    if(!use_miusi_bf){
-        use_miusi_bf := true
+use_miusi_bf2 := false
+abyss_times_miusi2() {
+    global use_miusi_bf2
+    if(!use_miusi_bf2){
+        use_miusi_bf2 := true
         buff_right_right(1000)
     }
 
 
     run(2300)
     run_left(300)
-    skill("Rctrl", 700)
-    run(2200)
+    skill("a", 700)
+    run(2500)
     run_left(300)
     skill("g", 500)
     skill("g", 500)
@@ -53,18 +53,5 @@ abyss_times_miusi() {
     if (!can_back_city()) {       
         skill("ctrl", 2000) 
     }
-}
-
-abyss_times_new_miusi() {
-    buff_right_right(1000)
-    run(1200)
-    skill("ctrl", 500)
-    run(1000)
-    skill("g", 200)
-    skill("g", 500)
-    run(1600)
-    skill("s", 500)
-    skill("w", 500)
-    skill("e", 5000)
 }
 ;#HotIf

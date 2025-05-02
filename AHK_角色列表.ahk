@@ -9,6 +9,8 @@
 #Include AHK_深渊_刃影.ahk
 #Include AHK_深渊_剑魂.ahk
 #Include AHK_深渊_缪斯.ahk
+#Include AHK_深渊_缪斯2.ahk
+#Include AHK_深渊_缪斯3.ahk
 #Include AHK_深渊_旅人.ahk
 #Include AHK_深渊_巫女.ahk
 #Include AHK_深渊_红眼.ahk
@@ -139,6 +141,14 @@ abyss_times_one(index) {
 
     if (index == 34) {
         abyss_times_jingling()
+    }
+
+    if (index == 54) {
+        abyss_times_miusi2()
+    }
+
+    if (index == 55) {
+        abyss_times_miusi3()
     }
 }
 
