@@ -3,19 +3,46 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_guiqi() {
-    buff_up_down(1500)
-    run(1900)
-    skill("f", 300)
-    skill("r", 1200)
+    run_left(1000)
+    run(2200)
+    skill("a", 1000)
     run(1700)
-    skill("g", 1500)
-    run(1500)
-    skill("a", 500)
-    skill("q", 100)
-    skill("w", 1200)
-    skill("Numpad4", 9000)
-    run(500)
-    skill("v", 1200)
+    skill("w", 500)
+    run(2000)
+    skill("s", 300)
+    skill("r", 1000)
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        skill("ctrl", 2000) 
+    }
+
+    if (!can_back_city()) {       
+        skill("f", 2000) 
+    }
+
+    if (!can_back_city()) {       
+        skill("q", 2000) 
+    }
 }
 
 abyss_times_new_guiqi() {
