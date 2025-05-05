@@ -3,19 +3,39 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_niangman() {
-    buff_right_right(1500)
-    skill("a", 200)
+    run_left(1000)
+    run(2500)
+    skill("e", 700)
     skill("s", 500)
-    run(1800)
-    skill("v", 1500)
-    run(2100)
-    skill("ctrl", 1500)
-    run(1500)
-    skill("a", 500)
-    skill("g", 1000)
-    skill("Numpad0", 2000)
-    skill("Numpad4", 9000)
-    skill("x", 1000)
+    run(1700)
+    skill("v", 1000)
+    run(1400)
+    skill("ctrl", 1000)
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        skill("g", 2500) 
+    }
+
+    if (!can_back_city()) {       
+        skill("q", 1000) 
+        skill("q", 2000) 
+    }
+
+    if (!can_back_city()) {       
+        skill("w", 2000) 
+    }
 }
 
 abyss_times_new_niangman() {

@@ -3,15 +3,37 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_ningmao() {
-    buff_right_right(1000)
+    run_left(1000)
+    run(2500)
+    skill("f", 700)
     run(1700)
-    skill("s", 1500)
-    run(1400)
     skill("a", 1000)
-    run(1300)
-    skill("z", 700)
-    skill("ctrl", 700)
-    skill("w", 3000)
+    run(1100)
+    skill("ctrl", 1000)
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {       
+        skill("w", 2500) 
+    }
+
+    if (!can_back_city()) {       
+        skill("e", 1000) 
+    }
+
+    if (!can_back_city()) {       
+        skill("d", 2000) 
+    }
 }
 
 abyss_times_new_ningmao() {
