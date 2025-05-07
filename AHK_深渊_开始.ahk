@@ -393,6 +393,20 @@ F3::
     return
 }
 
+global isPaused := false 
+ 
+; 设置热键（默认F1）
+F4::
+    isPaused := !isPaused 
+    if isPaused {
+        Pause,,1 ; 暂停所有线程 
+        SoundBeep, 500, 300
+    } else {
+        Pause, Off, 1 ; 恢复执行 
+        TrayTip, 脚本状态, 已恢复, 1, 1 
+    }
+return 
+
 F12:: ExitApp
 
 ^!r:: Reload ; Ctrl+Alt+R
