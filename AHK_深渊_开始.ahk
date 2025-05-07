@@ -146,6 +146,8 @@ F1::
 }
 
 start(index) {
+    deleteLastHeartbeat()
+    SetTimer, CheckHeartbeat, 60000
     ch_count := 53
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
@@ -182,6 +184,7 @@ start(index) {
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
+        updateHeartbeat()
         end_hour := A_Hour
 
         if (end_hour == 6) {
@@ -271,6 +274,68 @@ start(index) {
     }
     auto_resume(ch_count)
     return
+}
+
+NowToUnix() {
+    FormatTime, currentTime, %A_Now%, yyyyMMddHHmmss 
+    EnvSub, currentTime, 19700101000000, Seconds 
+    return currentTime*1000+ A_MSec 
+}
+
+deleteLastHeartbeat(){
+    ; 获取当前脚本所在目录 
+    currentDir := A_ScriptDir  
+    ; 构建完整文件路径 
+    heartbeatPath := currentDir . "\heartbeat.ini" 
+    FileDelete, %heartbeatPath%  
+}
+
+
+updateHeartbeat()
+{
+    ; 获取当前脚本所在目录 
+    currentDir := A_ScriptDir  
+    ; 构建完整文件路径 
+    heartbeatPath := currentDir . "\heartbeat.ini" 
+    ; 写入时间戳
+    current_time :=  NowToUnix()
+    IniWrite, %current_time%, %heartbeatPath%, Activity, LastAction 
+}
+
+CheckHeartbeat:
+{
+    ; 获取当前脚本所在目录 
+    currentDir := A_ScriptDir  
+    ; 构建完整文件路径 
+    heartbeatPath := currentDir . "\heartbeat.ini" 
+ 
+    ; 获取最后操作时间 
+    IniRead, lastAction, %heartbeatPath%,  Activity, LastAction 
+    log.info("lastAction:",lastAction)
+
+    timeDiff := NowToUnix() - lastAction 
+    log.info("timeDiff:",timeDiff)
+    
+    if (timeDiff > 600000) {  
+        log.info("发送邮件中")
+        ; SendAlertEmail(timeDiff)
+    }
+    Return
+} 
+
+SendAlertEmail(timeout) {
+    url := "https://your-api.com/alert"  
+    params := "script=main&timeout=" timeout "&host=" A_ComputerName 
+    
+    try {
+        whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+        whr.Open("POST", url, true)
+        whr.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+        whr.Send(params)
+        whr.WaitForResponse()
+    } catch {
+        log.info("邮件发送失败")  
+    }
 }
 
 F2::
