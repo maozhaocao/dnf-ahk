@@ -54,7 +54,7 @@ pixel_getColor(){
 }
 
 input_value(title){
-    InputBox,index, title,, 100,150
+    InputBox,index, %title%
     if ErrorLevel{
         MsgBox,"操作被取消"
         return -1
@@ -83,7 +83,7 @@ list_contains_key(list,key){
             return true
         }
     }
-    return false 
+    return false
 }
 
 is_wednesday() {
@@ -247,7 +247,7 @@ CalculateSimilarity(targetRGBList, x1, y1, x2, y2, sampleCount) {
         point := sampledPoints[A_Index]
         pointX := point[1]
         pointY := point[2]
-        targetColor := targetRGBList[A_Index] 
+        targetColor := targetRGBList[A_Index]
         ; log.info("targetColor",targetColor)
         ; log.info("similarPointsCount",similarPointsCount)
 

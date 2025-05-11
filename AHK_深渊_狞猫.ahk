@@ -2,15 +2,37 @@
 
 #Include AHK_角色操作.ahk
 
-abyss_times_new_ningmao() {
-    buff_right_right(1000)
-    run(1200)
-    skill("s", 1500)
-    run(1700)
+abyss_times_ningmao() {
+    run_left(1300)
+    run(2500)
+    skill("g", 1000)
+    run(1800)
     skill("d", 1000)
     run(1800)
-    skill("X", 700)
-    skill("CapsLock", 700)
-    skill("g", 3000)
+    skill("CapsLock", 3000)
+
+    if (!can_back_city()) {
+        skill("f", 2000)
+    }
+
+    if (!can_back_city()) {
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {
+        skill("e", 1000)
+    }
+
+    if (!can_back_city()) {
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {
+        skill("q", 1000)
+    }
+
+    if (!can_back_city()) {
+        skill("w", 1000)
+    }
 }
 ;#HotIf

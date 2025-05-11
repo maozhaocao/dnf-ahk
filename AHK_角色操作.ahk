@@ -1,7 +1,4 @@
 ﻿#Include AHK_版本v1.ahk
-#Include AHK_群岛1.ahk
-#Include AHK_群岛2.ahk
-#Include AHK_群岛3.ahk
 
 run(time) {
     sleep(50)
@@ -77,6 +74,26 @@ skill_down_up(name, time, delay) {
     sleep(delay)
 }
 
+down_down_z(time){
+    send_key("down")
+    sleep(10)
+    send_key("down")
+    sleep(10)
+    send_key("z")
+    sleep(time)
+}
+
+down_down_down_z(time){
+    send_key("down")
+    sleep(10)
+    send_key("down")
+    sleep(10)
+    send_key("down")
+    sleep(10)
+    send_key("z")
+    sleep(time)
+}
+
 pick2() {
     skill("numpaddiv", 2000)
     skill_many("x", 200, 10)
@@ -116,74 +133,6 @@ pick() {
         }
         sleep(1000)
     }
-}
-
-start_storm(index, storm_times_total) {
-    move_and_click(1270, 410, 800)
-    Sleep(2000)
-    count := storm_times_total
-    while (count > 0)
-    {
-        count := count - 1
-        storm_times_one(index)
-        check_pick_count := 8
-        while (check_pick_count > 1) {
-            check_pick_count := check_pick_count - 1
-            if (can_back_city()) {
-                sleep(1000)
-                skill("numpaddiv", 2000)
-                skill_many("x", 200, 10)
-                skill("esc", 500)
-                break
-            }
-            if (check_pick_count <= 3) {
-                log.info("深渊疑似卡住,执行修正流程")
-                run_search_next(3000)
-                run_left(1000)
-                if (check_pick_count == 3) {
-                    skill_down_up("up", 500, 100)
-                    skill("Numpad4", 7000)
-                    skill("q", 1000)
-                    skill("w", 1000)
-                    skill("e", 1000)
-                }
-                if (check_pick_count == 2) {
-                    skill_down_up("down", 500, 100)
-                    skill("Numpad0", 4000)
-                    skill("a", 1000)
-                    skill("s", 1000)
-                    skill("d", 1000)
-                }
-            }
-            sleep(1000)
-        }
-        if (check_pick_count == 1) {
-            log.info("风暴卡住,执行重进流程")
-            back_city()
-            sleep(2000)
-            down("right")
-            sleep(2000)
-            up("right")
-            sleep(500)
-            move_and_click(1270, 410, 800)
-            sleep(2000)
-            continue
-        }
-        if (have_no_pl()) {
-            log.info("pl不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (have_no_ticket()) {
-            log.info("金绿不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (count > 0) {
-            skill("F10", 5000)
-        }
-    }
-    log.info("当前角色风暴已刷完,实际循环次数:", storm_times_total - count)
 }
 
 pick_no_check() {
@@ -424,7 +373,7 @@ go_abyss_115_door() {
     sleep(2000)
     up("right")
     sleep(500)
-    MouseMove 265, 555
+    MouseMove 250, 220
     sleep(500)
     click_for_success()
     sleep(3000)
@@ -464,9 +413,9 @@ back_select_character() {
     sleep(500)
     ; skill("esc", 500)
     move_and_click(1505, 1041, 1000)
-    MouseMove 925, 840
+    MouseMove 916, 800
     sleep(500)
-    MouseMove 925, 840
+    MouseMove 916, 800
     sleep(500)
     click_times(2)
     sleep(500)
@@ -529,22 +478,11 @@ have_no_ticket() {
     return score >= 150
 }
 
-can_enter_abyss() {
-    score := 0
-    if (pixel_search_point(1578, 995, 0x0B2C54)) {
-        score := score + 50
-    }
-    if (pixel_search_point(1703, 996, 0x0B2B51)) {
-        score := score + 50
-    }
-    if (pixel_search_point(1764, 997, 0x0B2A50)) {
-        score := score + 50
-    }
-    if (pixel_search_point(1884, 993, 0x0D2E58)) {
-        score := score + 50
-    }
-    ;score>=150说明实际因为没有票或者pl没有进去
-    return score < 150
+not_enter_abyss() {
+    RGB_list := [0x49515A,0x485058,0x484F57,0x484E56,0x484D55,0x6D6558,0xAD8C5F,0x9D825B]
+    similarity := CalculateSimilarity(RGB_list, 1792, 995, 1870, 1002, 8)
+    ; log.info("similarity",similarity)
+    return similarity >= 80
 }
 
 can_back_city() {
@@ -724,50 +662,6 @@ get_current_point() {
     return 0
 }
 
-start_qundao(index, abyss_times_total) {
-    sleep(4000)
-
-    while (abyss_times_total > 0) {
-        islands(index)
-
-        abyss_times_total := abyss_times_total - 1
-        current_map := get_current_map()
-        loc := 1
-
-        if (current_map == 1) {
-            loc := map1_start(index)
-        }
-
-        if (current_map == 2) {
-            loc := map2_start(index)
-        }
-
-        if (current_map == 3) {
-            loc := map3_start(index)
-        }
-
-        if (loc == -1) {
-            log.info("疑似卡住，直接回城")
-            ; back_city()
-            break
-        }
-
-        if (have_no_pl()) {
-            log.info("pl不足,停止群岛")
-            break
-        }
-        sleep(500)
-        if (have_no_ticket()) {
-            log.info("记忆落痕不足,停止继续深渊")
-            break
-        }
-        sleep(500)
-        if (abyss_times_total > 0) {
-            skill("F10", 6000)
-        }
-    }
-}
-
 is_map1() {
     ; boss是第3行第2列
     RGB_list := [0x142700, 0x122600, 0xE72200, 0xD65900, 0x271700, 0x0D0801, 0xD44301, 0x1B4001, 0x1C2C01, 0x620301]
@@ -796,138 +690,6 @@ get_current_map() {
     similarity_list := [is_map1(), is_map2(), is_map3()]
     log.info("map score:", similarity_list)
     return FindMaxIndex(similarity_list)
-}
-
-go_right(action_index, index) {
-    if (action_index == 1) {
-        sleep(1000)
-    }
-
-    if (action_index == 2) {
-        islands_skill(index)
-    }
-
-    if (action_index == 3) {
-        walk_up(1000)
-    }
-
-    if (action_index == 4) {
-        walk_down(1000)
-    }
-
-    if (action_index == 5) {
-        sleep(200)
-        down("left")
-        sleep(200)
-        islands_skill(index)
-        up("left")
-        sleep(500)
-    }
-}
-
-go_left(action_index, index) {
-    if (action_index == 1) {
-        sleep(1000)
-    }
-
-    if (action_index == 2) {
-        islands_skill(index)
-    }
-
-    if (action_index == 3) {
-        walk_up(1000)
-    }
-
-    if (action_index == 4) {
-        down("right")
-        sleep(200)
-        up("right")
-        sleep(1000)
-    }
-
-    if (action_index == 5) {
-        walk_down(1000)
-    }
-}
-
-go_up(action_index, index) {
-    if (action_index == 1) {
-        run(1500)
-    }
-
-    if (action_index == 2) {
-        islands_skill(index)
-    }
-
-    if (action_index == 3) {
-        sleep(1000)
-    }
-
-    if (action_index == 4) {
-        islands_skill(index)
-    }
-
-    if (action_index == 5) {
-        run_left(1500)
-    }
-}
-
-go_down(action_index, index) {
-    if (action_index == 1) {
-        run(1500)
-    }
-
-    if (action_index == 2) {
-        islands_skill(index)
-    }
-
-    if (action_index == 3) {
-        sleep(1000)
-    }
-
-    if (action_index == 4) {
-        islands_skill(index)
-    }
-
-    if (action_index == 5) {
-        run_left(1500)
-    }
-}
-
-islands_pick(index) {
-    islands_skill_loc8(index)
-
-    count := 7
-    while (count > 0) {
-        move_and_click_one(1637, 110, 1000)
-        count := count - 1
-        if (can_back_city()) {
-            sleep(1000)
-            walk_up(500)
-            skill("numpaddiv", 2000)
-            skill_many("x", 200, 5)
-            ; buy_ticket(index)
-            buy_panibo()
-            buy_panibo2()
-            skill("esc", 500)
-            break
-        }
-
-        skill("a", 1000)
-        ; skill("Numpad4", 1000)
-
-        ; if (count <= 2) {
-        ;     log.info("深渊疑似卡住,执行修正流程")
-        ;     run(3000)
-        ;     run_left(1000)
-        ;     if (count == 1) {
-        ;         skill("r", 1000)
-        ;         skill("f", 1000)
-        ;         ; skill("g", 1000)
-        ;     }
-        ; }
-        ; sleep(1000)
-    }
 }
 
 buy_ticket(index) {
@@ -978,7 +740,7 @@ abyss_pick() {
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
-            skill("numpaddiv", 2000)
+            skill("F1", 2000)
             skill_many("x", 200, 4)
             buy_panibo()
             buy_panibo2()

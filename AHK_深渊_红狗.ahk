@@ -2,17 +2,18 @@
 
 #Include AHK_角色操作.ahk
 
-abyss_times_zhiying() {
+abyss_times_hongyan() {
+    ; 120移速
     run_left(1300)
     run(2500)
     skill("q", 1000)
     run(1800)
-    skill("w", 1000)
+    skill("s", 1500)
     run(1800)
-    skill("s", 3000)
+    skill("w", 3000)
 
     if (!can_back_city()) {
-        skill("CapsLock", 2000)
+        skill("g", 2000)
     }
 
     if (!can_back_city()) {
@@ -20,7 +21,7 @@ abyss_times_zhiying() {
     }
 
     if (!can_back_city()) {
-        skill("CapsLock", 1000)
+        skill("h", 1000)
     }
 
     if (!can_back_city()) {
@@ -28,11 +29,11 @@ abyss_times_zhiying() {
     }
 
     if (!can_back_city()) {
-        skill("r", 1000)
+        skill("f", 1000)
     }
 
     if (!can_back_city()) {
-        skill("g", 1000)
+        skill("tab", 1000)
     }
 }
 ;#HotIf

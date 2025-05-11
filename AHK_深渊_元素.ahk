@@ -3,15 +3,37 @@
 #Include AHK_角色操作.ahk
 
 abyss_times() {
-    buff_right_right(500)
-    run(2400)
-    skill("f", 500)
-    run(2400)
-    skill("e", 500)
-    run(1800)
-    skill("g", 500)
-    skill("CapsLock", 1000)
-    skill("g", 4500)
+    run_left(1300)
+    run(2800)
+    skill("tab", 1000)
+    run(2200)
+    skill("f", 1000)
+    run(2600)
+    skill("e", 3000)
+
+    if (!can_back_city()) {
+        skill("alt", 2000)
+    }
+
+    if (!can_back_city()) {
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {
+        skill("d", 1000)
+    }
+
+    if (!can_back_city()) {
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {
+        skill("q", 1000)
+    }
+
+    if (!can_back_city()) {
+        skill("t", 3000)
+    }
 }
 
 abyss_times_new() {

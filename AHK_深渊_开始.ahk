@@ -5,11 +5,11 @@ run_with_admin()
 
 start_abyss(index, abyss_times_total) {
     skill("space", 4000)
-    ; if (!can_enter_abyss()) {
-    ;     log.info("深渊票不足,进入深渊失败")
-    ;     sleep(1000)
-    ;     return
-    ; }
+     if (not_enter_abyss()) {
+         log.info("深渊票不足,进入深渊失败")
+         sleep(1000)
+         return
+     }
     sleep(1000)
     count := abyss_times_total
     while (count > 0)
@@ -69,77 +69,7 @@ start_abyss(index, abyss_times_total) {
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
 }
 
-start_abyss_new(index, abyss_times_total) {
-    sleep(500)
-    MouseMove 1250, 400
-    sleep(500)
-    click_for_success()
-    sleep(6000)
-    if (!can_enter_abyss()) {
-        log.info("记忆落痕不足,进入深渊失败")
-        sleep(1000)
-        return
-    }
-    sleep(1000)
-    count := abyss_times_total
-    while (count > 0)
-    {
-        count := count - 1
-        abyss_new_times_one(index)
-        pick()
-        if (have_no_pl()) {
-            log.info("pl不足,停止继续深渊")
-            break
-        }
-        sleep(500)
-        if (have_no_ticket()) {
-            log.info("记忆落痕不足,停止继续深渊")
-            break
-        }
-        sleep(500)
-        if (count > 0) {
-            skill("F10", 4000)
-        }
-    }
-    log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
-}
-
-start_ss_road(index, abyss_times_total) {
-    sleep(500)
-    MouseMove 1220, 337
-    sleep(500)
-    click_for_success()
-    sleep(4000)
-    ; if (!can_enter_abyss()) {
-    ;     log.info("进入史诗之路失败")
-    ;     sleep(1000)
-    ;     return
-    ; }
-    sleep(1000)
-    count := abyss_times_total
-    while (count > 0)
-    {
-        count := count - 1
-        abyss_new_times_one(index)
-        pick()
-        if (have_no_pl()) {
-            log.info("pl不足,停止继续史诗之路")
-            break
-        }
-        sleep(500)
-        if (have_no_ticket()) {
-            log.info("次数不足,停止史诗之路")
-            break
-        }
-        sleep(500)
-        if (count > 0) {
-            skill("F10", 4000)
-        }
-    }
-    log.info("当前角色史诗之路已刷完,实际循环次数:", abyss_times_total - count)
-}
-
-F1::
+F3::
 {
     index := input_value("请输入当前角色id")
     if (index <= 0) {
@@ -180,16 +110,12 @@ F1::
 }
 
 start(index) {
-    ch_count := 55
+    ch_count := 24
     abyss_times_total := 18
-    ; skip_list := [2,6,11,12,14,15,16]
     skip_list := []
 
-    abyss_list := [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 54, 55]
-    islands_list := [3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
-
-    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 54, 55]
-    islands_list := [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+    abyss_list := [1, 2,3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+    islands_list := []
 
     pl_0_list := []
     pl_17_list := []
@@ -201,32 +127,22 @@ start(index) {
 
     if (is_thursday()) {
         log.info("当天为星期四")
-        pl_0_list := [28, 29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+        pl_0_list := []
         pl_17_list := []
-        pl_30_list := [35, 40, 42]
-        pl_60_list := [22, 24, 36]
-        pl_90_list := [20, 21, 23, 25, 26, 27, 30, 38, 54, 55]
-        pl_107_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+        pl_30_list := []
+        pl_60_list := []
+        pl_90_list := [21, 22, 23, 24, 25, 26, 27, 28, 29]
+        pl_107_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
     } else {
-        log.info("当天不为星期五")
-        pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
-        pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+        log.info("当天不为星期四")
+        pl_0_list := [21, 22, 23, 24, 25, 26, 27, 28, 29]
+        pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
         pl_30_list := []
         pl_60_list := []
         pl_90_list := []
         pl_107_list := []
     }
-
-    ; pl_77_list := [1,2,5,6,7,9,11,12,13,14,16]
-
-
-    ; pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
-    ; pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
-    ; pl_30_list := []
-    ; pl_60_list := []
-    ; pl_90_list := [4, 8, 17]
-    ; pl_107_list := []
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
@@ -236,9 +152,6 @@ start(index) {
             skip_list.Push(index)
             log.info("超6点保留PL:", index)
         }
-        ; if (index == 21) {
-        ;     break
-        ; }
 
 
         sleep(500)
@@ -250,7 +163,6 @@ start(index) {
                 log.info("配置角色跳过")
             } else {
                 log.info("有pl,开始深渊")
-                ; receive_daily_ticket()
                 sleep(1000)
                 abyss_times_total := 0
 
@@ -276,43 +188,16 @@ start(index) {
                     if (list_contains_key(pl_107_list, index)) {
                         abyss_times_total := 10
                     }
-                } else if (list_contains_key(islands_list, index)) {
-                    if (list_contains_key(pl_0_list, index)) {
-                        abyss_times_total := 12
-                    }
-                    if (list_contains_key(pl_17_list, index)) {
-                        abyss_times_total := 10
-                    }
-                    if (list_contains_key(pl_30_list, index)) {
-                        abyss_times_total := 9
-                    }
-                    if (list_contains_key(pl_60_list, index)) {
-                        abyss_times_total := 8
-                    }
-                    if (list_contains_key(pl_90_list, index)) {
-                        abyss_times_total := 6
-                    }
-                    if (list_contains_key(pl_77_list, index)) {
-                        abyss_times_total := 6
-                    }
-                    if (list_contains_key(pl_107_list, index)) {
-                        abyss_times_total := 5
-                    }
                 }
-
 
                 if (list_contains_key(abyss_list, index)) {
                     go_abyss_115_door()
                     start_abyss(index, abyss_times_total)
                 } else if (list_contains_key(islands_list, index)) {
-                    go_islands_door()
-                    start_qundao(index, abyss_times_total)
+                    ; go_islands_door()
+                    ; start_qundao(index, abyss_times_total)
                 }
                 back_city()
-                ; chat_daily()
-                ; decompose()
-                ; finish_daily_task()
-                ; finish_abyss_task()
             }
         } else {
             log.info("无pl")
@@ -332,56 +217,13 @@ start(index) {
 
 F2::
 {
-    ; skip_list := [10,30]
-
-    ; if(list_contains_key(skip_list,1)){
-    ;     MsgBox "yes"
-    ; }else{
-    ;     MsgBox "no1111"
-    ; }
-    ; return
-    ; auto_resume(26)
-    ; qundao11()
-    ; point := get_current_point()
-    ; MsgBox %point%
-    ; pick()
-
-    ; RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
+     RGBList := GetRectSampledRGBList(1792, 995, 1870, 1002, 8)
     ; buy_panibo()
     ; buy_panibo2()
     ; buy_ss_guan()
 
-    ; map1_start()
-
-
-    ; index := 26
-
-    ; current_map := get_current_map()
-    ; if (current_map == 1) {
-    ;     map1_start(index)
-    ; }
-
-    ; if (current_map == 2) {
-    ;     map2_start(index)
-    ; }
-
-    ; if (current_map == 3) {
-    ;     map3_start(index)
-    ; }
-
-    abyss_times_douluo()
-    abyss_pick()
-    return
-}
-
-F3::
-{
-    ; Click
-    if have_pl()
-        MsgBox "yes"
-    else
-        MsgBox "no"
-    ; ToolTip,"BUFF ON", 200, 200, 1
+;    abyss_times_andi()
+;    abyss_pick()
     return
 }
 
