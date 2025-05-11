@@ -1,21 +1,26 @@
 ﻿;#HotIf WinActive("ahk_exe DNF.exe")
 run_with_admin()
 #Include AHK_角色列表.ahk
+#Include abyss_reminder.ahk
 
 start_abyss(index, abyss_times_total) {
     skill("space", 4000)
-    if (!can_enter_abyss()) {
-        log.info("深渊票不足,进入深渊失败")
-        sleep(1000)
-        return
-    }
+    ; if (!can_enter_abyss()) {
+    ;     log.info("深渊票不足,进入深渊失败")
+    ;     sleep(1000)
+    ;     return
+    ; }
     sleep(1000)
     count := abyss_times_total
     while (count > 0)
     {
         count := count - 1
         abyss_times_one(index)
-        pick()
+        if (count == 0) {
+            run_left(500)
+        }
+        abyss_pick()
+        ; skill("esc",500)
         if (have_no_pl()) {
             log.info("pl不足,停止继续深渊")
             break
@@ -27,9 +32,40 @@ start_abyss(index, abyss_times_total) {
         }
         sleep(500)
         if (count > 0) {
-            skill("F10", 4000)
+            skill("F10", 3000)
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
         }
     }
+    skill_many("x", 500, 15)
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
 }
 
@@ -38,7 +74,7 @@ start_abyss_new(index, abyss_times_total) {
     MouseMove 1250, 400
     sleep(500)
     click_for_success()
-    sleep(8000)
+    sleep(6000)
     if (!can_enter_abyss()) {
         log.info("记忆落痕不足,进入深渊失败")
         sleep(1000)
@@ -66,19 +102,6 @@ start_abyss_new(index, abyss_times_total) {
         }
     }
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
-}
-
-start_storm(index, storm_times_total) {
-
-}
-
-go_ss_road_door() {
-    move_and_click(1267, 603, 1000)
-    move_and_click(1374, 730, 1000)
-    down("up")
-    sleep(2000)
-    up("up")
-    sleep(500)
 }
 
 start_ss_road(index, abyss_times_total) {
@@ -116,7 +139,7 @@ start_ss_road(index, abyss_times_total) {
     log.info("当前角色史诗之路已刷完,实际循环次数:", abyss_times_total - count)
 }
 
-F3::
+F1::
 {
     index := input_value("请输入当前角色id")
     if (index <= 0) {
@@ -130,12 +153,12 @@ F3::
     end_hour := A_Hour
     log.info("结束时间:", end_day, end_hour)
 
-
     clean_screen()
     back_select_character()
     sleep(4000)
-    skill_many("up", 1000, 5)
+    skill_many("up", 1000, 7)
     skill_many("left", 1000, 5)
+    skill_many("right", 1000, 19)
     skill("space", 5000)
     while (true) {
         end_day := SubStr(A_DD, 2)
@@ -150,50 +173,74 @@ F3::
             sleep(1000 * 60 * 10)
             continue
         }
-        start(1)
+        ; start(20)
         break
     }
     return
 }
 
 start(index) {
-    ; ch_count := input_value("请输入最大角色id")
-    ; if(ch_count <=0){
-    ;     return
-    ; }
-    ; abyss_times_total := input_value("深渊次数")
-    ; if(abyss_times_total <=0){
-    ;     return
-    ; }
-    ch_count := 21
+    ch_count := 55
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
     skip_list := []
-    all_pl_list := []
 
-    abyss_list := []
-    abyss_new_list := []
-    abyss_storm_list := []
-    ss_road_list := []
+    abyss_list := [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 54, 55]
+    islands_list := [3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
-    if (is_friday()) {
-        log.info("当天为星期五")
-        all_pl_list := []
-        abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21]
-        abyss_storm_list := []
-        ss_road_list := [16]
+    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 54, 55]
+    islands_list := [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+
+    pl_0_list := []
+    pl_17_list := []
+    pl_30_list := []
+    pl_60_list := []
+    pl_77_list := []
+    pl_90_list := []
+    pl_107_list := []
+
+    if (is_thursday()) {
+        log.info("当天为星期四")
+        pl_0_list := [28, 29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+        pl_17_list := []
+        pl_30_list := [35, 40, 42]
+        pl_60_list := [22, 24, 36]
+        pl_90_list := [20, 21, 23, 25, 26, 27, 30, 38, 54, 55]
+        pl_107_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+
     } else {
         log.info("当天不为星期五")
-        all_pl_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
-        abyss_list := []
-        abyss_new_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21]
-        abyss_storm_list := []
-        ss_road_list := [16]
+        pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+        pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+        pl_30_list := []
+        pl_60_list := []
+        pl_90_list := []
+        pl_107_list := []
     }
+
+    ; pl_77_list := [1,2,5,6,7,9,11,12,13,14,16]
+
+
+    ; pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+    ; pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+    ; pl_30_list := []
+    ; pl_60_list := []
+    ; pl_90_list := [4, 8, 17]
+    ; pl_107_list := []
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
+        end_hour := A_Hour
+
+        if (end_hour == 6) {
+            skip_list.Push(index)
+            log.info("超6点保留PL:", index)
+        }
+        ; if (index == 21) {
+        ;     break
+        ; }
+
+
         sleep(500)
         log.info("--------------------")
         start_time := A_Now
@@ -203,42 +250,74 @@ start(index) {
                 log.info("配置角色跳过")
             } else {
                 log.info("有pl,开始深渊")
-                receive_daily_ticket()
+                ; receive_daily_ticket()
+                sleep(1000)
                 abyss_times_total := 0
-                if (!list_contains_key(all_pl_list, index)) {
-                    abyss_times_total := 19
-                } else if (list_contains_key(abyss_list, index)) {
-                    abyss_times_total := 18
-                } else if (list_contains_key(abyss_new_list, index)) {
-                    abyss_times_total := 26
-                } else if (list_contains_key(abyss_storm_list, index)) {
-                    abyss_times_total := 32
-                } else if (list_contains_key(ss_road_list, index)) {
-                    abyss_times_total := 26
-                }
 
                 if (list_contains_key(abyss_list, index)) {
-                    go_abyss_door()
+                    if (list_contains_key(pl_0_list, index)) {
+                        abyss_times_total := 24
+                    }
+                    if (list_contains_key(pl_17_list, index)) {
+                        abyss_times_total := 21
+                    }
+                    if (list_contains_key(pl_30_list, index)) {
+                        abyss_times_total := 19
+                    }
+                    if (list_contains_key(pl_60_list, index)) {
+                        abyss_times_total := 16
+                    }
+                    if (list_contains_key(pl_77_list, index)) {
+                        abyss_times_total := 13
+                    }
+                    if (list_contains_key(pl_90_list, index)) {
+                        abyss_times_total := 12
+                    }
+                    if (list_contains_key(pl_107_list, index)) {
+                        abyss_times_total := 10
+                    }
+                } else if (list_contains_key(islands_list, index)) {
+                    if (list_contains_key(pl_0_list, index)) {
+                        abyss_times_total := 12
+                    }
+                    if (list_contains_key(pl_17_list, index)) {
+                        abyss_times_total := 10
+                    }
+                    if (list_contains_key(pl_30_list, index)) {
+                        abyss_times_total := 9
+                    }
+                    if (list_contains_key(pl_60_list, index)) {
+                        abyss_times_total := 8
+                    }
+                    if (list_contains_key(pl_90_list, index)) {
+                        abyss_times_total := 6
+                    }
+                    if (list_contains_key(pl_77_list, index)) {
+                        abyss_times_total := 6
+                    }
+                    if (list_contains_key(pl_107_list, index)) {
+                        abyss_times_total := 5
+                    }
+                }
+
+
+                if (list_contains_key(abyss_list, index)) {
+                    go_abyss_115_door()
                     start_abyss(index, abyss_times_total)
-                } else if (list_contains_key(abyss_new_list, index)) {
-                    go_abyss_new_door()
-                    start_abyss_new(index, abyss_times_total)
-                } else if (list_contains_key(abyss_storm_list, index)) {
-                    go_abyss_door()
-                    start_storm(index, abyss_times_total)
-                } else if (list_contains_key(ss_road_list, index)) {
-                    go_ss_road_door()
-                    start_ss_road(index, abyss_times_total)
+                } else if (list_contains_key(islands_list, index)) {
+                    go_islands_door()
+                    start_qundao(index, abyss_times_total)
                 }
                 back_city()
-                chat_daily()
-                decompose()
-                finish_daily_task()
+                ; chat_daily()
+                ; decompose()
+                ; finish_daily_task()
                 ; finish_abyss_task()
             }
         } else {
             log.info("无pl")
         }
+        sleep(1000)
         back_select_character()
         sleep(4000)
         skill("right", 2000)
@@ -247,11 +326,11 @@ start(index) {
         end_time := A_Now
         log.info("当前时间:", end_time, "当前角色花费时间:", end_time - start_time)
     }
+    auto_resume(ch_count)
     return
 }
 
-
-F4::
+F2::
 {
     ; skip_list := [10,30]
 
@@ -261,43 +340,74 @@ F4::
     ;     MsgBox "no1111"
     ; }
     ; return
-    abyss_times_new_jinggai()
-    ; storm_nailuo2()
+    ; auto_resume(26)
+    ; qundao11()
+    ; point := get_current_point()
+    ; MsgBox %point%
     ; pick()
+
+    ; RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
+    ; buy_panibo()
+    ; buy_panibo2()
+    ; buy_ss_guan()
+
+    ; map1_start()
+
+
+    ; index := 26
+
+    ; current_map := get_current_map()
+    ; if (current_map == 1) {
+    ;     map1_start(index)
+    ; }
+
+    ; if (current_map == 2) {
+    ;     map2_start(index)
+    ; }
+
+    ; if (current_map == 3) {
+    ;     map3_start(index)
+    ; }
+
+    abyss_times_douluo()
+    abyss_pick()
     return
 }
 
-; F3::
-; {
-;     ; Click
-;     if have_pl()
-;         MsgBox "yes"
-;     else
-;         MsgBox "no"
-;     ; ToolTip,"BUFF ON", 200, 200, 1
-;     return
-; }
+F3::
+{
+    ; Click
+    if have_pl()
+        MsgBox "yes"
+    else
+        MsgBox "no"
+    ; ToolTip,"BUFF ON", 200, 200, 1
+    return
+}
 
 F12:: ExitApp
 
-^!r:: Reload  ; Ctrl+Alt+R
+^!r:: Reload ; Ctrl+Alt+R
 
-; MouseX := 0
-; MouseY := 0
-; mouseColor :=""
+MouseX := 0
+MouseY := 0
+mouseColor := ""
 
-; ^!z::  ; Control+Alt+Z 复制当前鼠标所在像素.
-; {
-;     global MouseX,MouseY,mouseColor
-;     MouseGetPos MouseX, MouseY
-;     mouseColor:= PixelGetColor(MouseX, MouseY)
-; }
+^!z:: ; Control+Alt+Z 复制当前鼠标所在像素.
+{
+    global MouseX, MouseY, mouseColor
+    MouseGetPos, MouseX, MouseY
+    PixelGetColor, mouseColor, %MouseX%, %MouseY%
+    return
+    ; MouseGetPos MouseX, MouseY
+    ; mouseColor:= pixel_getColor(MouseX, MouseY)
+}
 
-; ^!x::  ; Control+Alt+x 粘贴复制的像素.
-; {
-;     global MouseX,MouseY,mouseColor
-;     Send MouseX-3 "," MouseY-3 "," MouseX+3 "," MouseY+3 "," mouseColor
-; }
-
+^!x:: ; Control+Alt+x 粘贴复制的像素.
+{
+    global MouseX, MouseY, mouseColor
+    Send %MouseX%, %MouseY%, %mouseColor%
+    return
+}
 
 ;#HotIf
