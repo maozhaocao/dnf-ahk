@@ -5,21 +5,14 @@
 abyss_times_naiba() {
     skill("ctrl", 500) 
 
-    run(4500)
-    ; skill("d", 500)
-    skill("w", 1000)
-
-    if (!can_back_city()) {       
-        sleep(1000)
-    }
-
-    if (!can_back_city()) {       
-        skill("v", 1000) 
-    }
-
-    if (!can_back_city()) {       
-        sleep(1000)
-    }
+    run_left(1000)
+    run(2500)
+    skill("a", 700)
+    run(1700)
+    skill("numpad0", 1000)
+    run(1100)
+    skill("w", 500)
+    skill("v", 1000)
 
     if (!can_back_city()) {       
         sleep(1000)
@@ -34,7 +27,15 @@ abyss_times_naiba() {
     }
 
     if (!can_back_city()) {       
-        skill("d", 1000) 
+        skill("q", 2500) 
+    }
+
+    if (!can_back_city()) {       
+        skill("r", 1000) 
+    }
+
+    if (!can_back_city()) {       
+        skill("d", 2000) 
     }
 }
 

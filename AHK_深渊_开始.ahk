@@ -183,22 +183,23 @@ start(index) {
     ch_count := 55
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
-    skip_list := [2, 9]
+    skip_list := []
 
-    abyss_list := [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 34, 54, 55]
-    islands_list := [3, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+    abyss_list := [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 54, 55]
+    islands_list := [3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
-    ; abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 54, 55]
-    ; islands_list := [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 54, 55]
+    islands_list := [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
     pl_0_list := []
     pl_17_list := []
     pl_30_list := []
     pl_60_list := []
+    pl_77_list := []
     pl_90_list := []
     pl_107_list := []
 
-    if (is_thursday() or true) {
+    if (is_thursday()) {
         log.info("当天为星期四")
         pl_0_list := [28, 29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
         pl_17_list := []
@@ -217,12 +218,15 @@ start(index) {
         pl_107_list := []
     }
 
-    pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
-    pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
-    pl_30_list := []
-    pl_60_list := []
-    pl_90_list := [4, 8, 17]
-    pl_107_list := []
+    ; pl_77_list := [1,2,5,6,7,9,11,12,13,14,16]
+
+
+    ; pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+    ; pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+    ; pl_30_list := []
+    ; pl_60_list := []
+    ; pl_90_list := [4, 8, 17]
+    ; pl_107_list := []
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
@@ -232,9 +236,9 @@ start(index) {
             skip_list.Push(index)
             log.info("超6点保留PL:", index)
         }
-        if(index == 21){
-            break
-        }
+        ; if (index == 21) {
+        ;     break
+        ; }
 
 
         sleep(500)
@@ -263,6 +267,9 @@ start(index) {
                     if (list_contains_key(pl_60_list, index)) {
                         abyss_times_total := 16
                     }
+                    if (list_contains_key(pl_77_list, index)) {
+                        abyss_times_total := 13
+                    }
                     if (list_contains_key(pl_90_list, index)) {
                         abyss_times_total := 12
                     }
@@ -283,6 +290,9 @@ start(index) {
                         abyss_times_total := 8
                     }
                     if (list_contains_key(pl_90_list, index)) {
+                        abyss_times_total := 6
+                    }
+                    if (list_contains_key(pl_77_list, index)) {
                         abyss_times_total := 6
                     }
                     if (list_contains_key(pl_107_list, index)) {
@@ -359,7 +369,7 @@ F2::
     ;     map3_start(index)
     ; }
 
-    abyss_times_zhiying()
+    abyss_times_douluo()
     abyss_pick()
     return
 }
