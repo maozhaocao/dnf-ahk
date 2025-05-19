@@ -3,13 +3,21 @@
 #Include AHK_角色操作.ahk
 
 abyss_times_renying() {
-    run(2300)
+    ; 100移速
+    ; run_left(1500)
+    ; run(2700)
+    ; skill("a", 1000)
+    ; run(2300)
+    ; skill("", 1000)
+    ; run(1800)
+
+    run(2600)
     run_left(300)
     skill("a", 500)
-    run(2200)
+    run(2600)
     run_left(300)
     skill("d", 500)
-    run(800)
+    run(1100)
     skill("s", 1000)
 
     if (!can_back_city()) { 

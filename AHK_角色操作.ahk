@@ -671,7 +671,7 @@ auto_resume(ch_count) {
     clean_screen()
     back_select_character()
     sleep(4000)
-    skill_many("up", 1000, 7)
+    skill_many("up", 1000, 9)
     skill_many("left", 1000, 5)
     index := 17
     skill_many("right", 1000, index - 1)
@@ -972,6 +972,17 @@ buy_ss_guan() {
     }
 }
 
+buy_shanshanming_chuanshuo() {
+    RGB_list := [0x605251,0x80D198,0x5F556B,0xE6864B,0x5A1F0D,0x910104,0x5C0000,0xDB3A3E]
+    similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)
+    ; log.info("similarity",similarity)
+    if (similarity >= 80) {
+        move_and_click(290, 827, 500)
+        move_and_click(290, 827, 500)
+        sleep(500)
+    }
+}
+
 abyss_pick() {
     count := 8
     while (count > 0) {
@@ -983,6 +994,7 @@ abyss_pick() {
             buy_panibo()
             buy_panibo2()
             buy_ss_guan()
+            buy_shanshanming_chuanshuo()
             break
         }
         if (count <= 3) {

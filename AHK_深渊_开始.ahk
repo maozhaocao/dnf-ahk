@@ -148,7 +148,7 @@ F1::
     start_day := SubStr(A_DD, 2)
     start_hour := A_Hour
     log.info("开始时间:", start_day, start_hour)
-    start(index)
+    start(index, 55)
     end_day := SubStr(A_DD, 2)
     end_hour := A_Hour
     log.info("结束时间:", end_day, end_hour)
@@ -156,9 +156,9 @@ F1::
     clean_screen()
     back_select_character()
     sleep(4000)
-    skill_many("up", 1000, 7)
+    skill_many("up", 1000, 9)
     skill_many("left", 1000, 5)
-    skill_many("right", 1000, 19)
+    ; skill_many("right", 1000, 19)
     skill("space", 5000)
     while (true) {
         end_day := SubStr(A_DD, 2)
@@ -173,23 +173,23 @@ F1::
             sleep(1000 * 60 * 10)
             continue
         }
-        ; start(20)
+        start(1, 17)
         break
     }
     return
 }
 
-start(index) {
-    ch_count := 55
+start(index, ch_count) {
+    ; ch_count := 55
     abyss_times_total := 18
     ; skip_list := [2,6,11,12,14,15,16]
     skip_list := []
 
-    abyss_list := [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 54, 55]
-    islands_list := [3, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 54, 55]
+    islands_list := [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
-    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 54, 55]
-    islands_list := [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+    ; abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 54, 55]
+    ; islands_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
 
     pl_0_list := []
     pl_17_list := []
@@ -218,7 +218,7 @@ start(index) {
         pl_107_list := []
     }
 
-    ; pl_77_list := [1,2,5,6,7,9,11,12,13,14,16]
+    ; pl_77_list := [5]
 
 
     ; pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
@@ -232,7 +232,7 @@ start(index) {
     while (index <= ch_count) {
         end_hour := A_Hour
 
-        if (end_hour == 6) {
+        if (end_hour == 6 and index >= 28) {
             skip_list.Push(index)
             log.info("超6点保留PL:", index)
         }
@@ -350,6 +350,7 @@ F2::
     ; buy_panibo()
     ; buy_panibo2()
     ; buy_ss_guan()
+    buy_shanshanming_chuanshuo()
 
     ; map1_start()
 
@@ -369,8 +370,8 @@ F2::
     ;     map3_start(index)
     ; }
 
-    abyss_times_douluo()
-    abyss_pick()
+    ; abyss_times_douluo()
+    ; abyss_pick()
     return
 }
 
