@@ -298,3 +298,26 @@ FindMaxIndex(arr) {
     ; 返回最大值的索引
     Return maxIndex
 }
+
+NowToUnix() {
+    FormatTime, currentTime, %A_Now%, yyyyMMddHHmmss
+    EnvSub, currentTime, 19700101000000, Seconds
+    return currentTime*1000+ A_MSec
+}
+
+
+; 将逗号分隔的字符串转换为数组，并可选转为整数
+stringToArray(str, convertToInt := true) {
+    array := StrSplit(str, ",")  ; 先按逗号分割成字符串数组
+
+    ; 遍历数组，去除首尾空格，并转为整数（如果启用）
+    Loop % array.Length() {
+        value := Trim(array[A_Index])  ; 去除前后空格
+        if (convertToInt && value ~= "^\d+$")  ; 如果是纯数字
+            array[A_Index] := value + 0  ; 转为整数
+        else
+            array[A_Index] := value  ; 保持字符串
+    }
+
+    return array
+}

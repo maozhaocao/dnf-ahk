@@ -728,6 +728,7 @@ start_qundao(index, abyss_times_total) {
     sleep(4000)
 
     while (abyss_times_total > 0) {
+        updateHeartbeat()
         islands(index)
 
         abyss_times_total := abyss_times_total - 1
@@ -1020,4 +1021,208 @@ abyss_pick() {
         }
     }
     move_and_click(929, 725, 500)
+}
+
+start(index, ch_count) {
+    deleteLastHeartbeat()
+    SetTimer, CheckHeartbeat, 60000
+    abyss_times_total := 18
+    skip_list := []
+
+    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 54, 55]
+    islands_list := [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+
+    ; abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 54, 55]
+    ; islands_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+
+    pl_0_list := []
+    pl_17_list := []
+    pl_30_list := []
+    pl_60_list := []
+    pl_77_list := []
+    pl_90_list := []
+    pl_107_list := []
+
+    if (is_thursday()) {
+        log.info("当天为星期四")
+        pl_0_list := [28, 29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
+        pl_17_list := []
+        pl_30_list := [35, 40, 42]
+        pl_60_list := [22, 24, 36]
+        pl_90_list := [20, 21, 23, 25, 26, 27, 30, 38, 54, 55]
+        pl_107_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+
+    } else {
+        log.info("当天不为星期五")
+        pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+        pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+        pl_30_list := []
+        pl_60_list := []
+        pl_90_list := []
+        pl_107_list := []
+    }
+
+    ; pl_77_list := [5]
+
+    ; pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+    ; pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
+    ; pl_30_list := []
+    ; pl_60_list := []
+    ; pl_90_list := [4, 8, 17]
+    ; pl_107_list := []
+
+    log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
+    while (index <= ch_count) {
+        init_character_config(index)
+        updateHeartbeat()
+        end_hour := A_Hour
+
+        if (end_hour == 6 and index >= 28) {
+            skip_list.Push(index)
+            log.info("超6点保留PL:", index)
+        }
+
+        sleep(500)
+        log.info("--------------------")
+        start_time := A_Now
+        log.info("切换角色,当前角色id:", index, "当前时间:", start_time)
+        if (have_pl()) {
+            if (list_contains_key(skip_list, index)) {
+                log.info("配置角色跳过")
+            } else {
+                log.info("有pl,开始深渊")
+                sleep(1000)
+                abyss_times_total := 0
+
+                if (list_contains_key(abyss_list, index)) {
+                    if (list_contains_key(pl_0_list, index)) {
+                        abyss_times_total := 24
+                    }
+                    if (list_contains_key(pl_17_list, index)) {
+                        abyss_times_total := 21
+                    }
+                    if (list_contains_key(pl_30_list, index)) {
+                        abyss_times_total := 19
+                    }
+                    if (list_contains_key(pl_60_list, index)) {
+                        abyss_times_total := 16
+                    }
+                    if (list_contains_key(pl_77_list, index)) {
+                        abyss_times_total := 13
+                    }
+                    if (list_contains_key(pl_90_list, index)) {
+                        abyss_times_total := 12
+                    }
+                    if (list_contains_key(pl_107_list, index)) {
+                        abyss_times_total := 10
+                    }
+                } else if (list_contains_key(islands_list, index)) {
+                    if (list_contains_key(pl_0_list, index)) {
+                        abyss_times_total := 12
+                    }
+                    if (list_contains_key(pl_17_list, index)) {
+                        abyss_times_total := 10
+                    }
+                    if (list_contains_key(pl_30_list, index)) {
+                        abyss_times_total := 9
+                    }
+                    if (list_contains_key(pl_60_list, index)) {
+                        abyss_times_total := 8
+                    }
+                    if (list_contains_key(pl_90_list, index)) {
+                        abyss_times_total := 6
+                    }
+                    if (list_contains_key(pl_77_list, index)) {
+                        abyss_times_total := 6
+                    }
+                    if (list_contains_key(pl_107_list, index)) {
+                        abyss_times_total := 5
+                    }
+                }
+
+                if (list_contains_key(abyss_list, index)) {
+                    go_abyss_115_door()
+                    start_abyss(index, abyss_times_total)
+                } else if (list_contains_key(islands_list, index)) {
+                    go_islands_door()
+                    start_qundao(index, abyss_times_total)
+                }
+                back_city()
+            }
+        } else {
+            log.info("无pl")
+        }
+        sleep(1000)
+        back_select_character()
+        sleep(4000)
+        skill("right", 2000)
+        skill("space", 5000)
+        index := index + 1
+        end_time := A_Now
+        log.info("当前时间:", end_time, "当前角色花费时间:", end_time - start_time)
+    }
+    auto_resume(ch_count)
+    return
+}
+
+start_abyss(index, abyss_times_total) {
+    skill("space", 4000)
+    sleep(1000)
+    count := abyss_times_total
+    while (count > 0)
+    {
+        updateHeartbeat()
+
+        count := count - 1
+        abyss_times_one(index)
+        if (count == 0) {
+            run_left(500)
+        }
+        abyss_pick()
+        if (have_no_pl()) {
+            log.info("pl不足,停止继续深渊")
+            break
+        }
+        sleep(500)
+        if (have_no_ticket()) {
+            log.info("深渊票不足,停止继续深渊")
+            break
+        }
+        sleep(500)
+        if (count > 0) {
+            skill("F10", 3000)
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+
+            if (can_back_city()) {
+                skill_many("x", 200, 10)
+                skill("F10", 3000)
+            }
+        }
+    }
+    skill_many("x", 500, 15)
+    log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
 }
