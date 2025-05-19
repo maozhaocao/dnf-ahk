@@ -1,4 +1,4 @@
-﻿;#HotIf WinActive("ahk_exe DNF.exe")
+;#HotIf WinActive("ahk_exe DNF.exe")
 run_with_admin()
 #Include AHK_角色列表.ahk
 #Include abyss_reminder.ahk
@@ -186,6 +186,7 @@ start(index) {
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
+        init_character_config()
         updateHeartbeat()
         end_hour := A_Hour
 
@@ -392,6 +393,22 @@ read_config(section,key){
     return %read_value%
 }
 
+; 将逗号分隔的字符串转换为数组，并可选转为整数 
+stringToArray(str, convertToInt := true) {
+    array := StrSplit(str, ",")  ; 先按逗号分割成字符串数组 
+    
+    ; 遍历数组，去除首尾空格，并转为整数（如果启用）
+    Loop % array.Length() {
+        value := Trim(array[A_Index])  ; 去除前后空格 
+        if (convertToInt && value ~= "^\d+$")  ; 如果是纯数字 
+            array[A_Index] := value + 0  ; 转为整数 
+        else 
+            array[A_Index] := value  ; 保持字符串 
+    }
+    
+    return array 
+}
+
 init_config(){
     global skill_1  := read_config("keyboard","skill_1")
     global skill_2  := read_config("keyboard","skill_2")
@@ -422,36 +439,91 @@ init_config(){
     global key_esc  := read_config("keyboard","key_esc")
     global key_pick  := read_config("keyboard","key_pick")
 
-    global menus_x  := read_config("ui_location","menus_x")
-    global menus_y  := read_config("ui_location","menus_y")
-    global back_city_x  := read_config("ui_location","back_city_x")
-    global back_city_y  := read_config("ui_location","back_city_y")
-    global have_pl_x  := read_config("ui_location","have_pl_x")
-    global have_pl_y  := read_config("ui_location","have_pl_y")
-    global have_pl2_x  := read_config("ui_location","have_pl2_x")
-    global have_pl2_y  := read_config("ui_location","have_pl2_y")
+    global menus_x  := read_config("ui_location","menus_x") + 0
+    global menus_y  := read_config("ui_location","menus_y") + 0
+    global back_city_x  := read_config("ui_location","back_city_x") + 0
+    global back_city_y  := read_config("ui_location","back_city_y") + 0
+    global have_pl_x  := read_config("ui_location","have_pl_x") + 0
+    global have_pl_y  := read_config("ui_location","have_pl_y") + 0
+    global have_pl2_x  := read_config("ui_location","have_pl2_x") + 0
+    global have_pl2_y  := read_config("ui_location","have_pl2_y") + 0
 
-    global ch_count  := read_config("abyss","ch_count")
-    global abyss_list  := read_config("abyss","abyss_list")
-    global pl_0_list  := read_config("abyss","pl_0_list")
-    global pl_17_list  := read_config("abyss","pl_17_list")
-    global pl_30_list  := read_config("abyss","pl_30_list")
-    global pl_60_list  := read_config("abyss","pl_60_list")
+    global ch_count  := read_config("abyss","ch_count") + 0
+    global abyss_list  := stringToArray(read_config("abyss","abyss_list"))
+    global pl_0_list  := stringToArray(read_config("abyss","pl_0_list"))
+    global pl_17_list  := stringToArray(read_config("abyss","pl_17_list"))
+    global pl_30_list  := stringToArray(read_config("abyss","pl_30_list"))
+    global pl_60_list  := stringToArray(read_config("abyss","pl_60_list"))
+    global pl_77_list  := stringToArray(read_config("abyss","pl_77_list"))
+    global pl_90_list  := stringToArray(read_config("abyss","pl_90_list"))
+    global pl_107_list  := stringToArray(read_config("abyss","pl_107_list"))
+
+    ; init_character_config(1)
 }
 
 init_character_config(index){
     character_section := "character_" + index
-    global character_move_speed  := read_config(character_section,"character_move_speed")
+    global character_move_speed  := read_config(character_section,"character_move_speed") + 0
     global character_skill_1  := read_config(character_section,"character_skill_1")
-    global character_skill_1_sleep  := read_config(character_section,"character_skill_1_sleep")
+    global character_skill_1_sleep  := read_config(character_section,"character_skill_1_sleep")+0
     global character_skill_2  := read_config(character_section,"character_skill_2")
-    global character_skill_2_sleep  := read_config(character_section,"character_skill_2_sleep")
+    global character_skill_2_sleep  := read_config(character_section,"character_skill_2_sleep")+0
     global character_skill_3  := read_config(character_section,"character_skill_3")
-    global character_skill_3_sleep  := read_config(character_section,"character_skill_3_sleep")
+    global character_skill_3_sleep  := read_config(character_section,"character_skill_3_sleep")+0
     global character_skill_4  := read_config(character_section,"character_skill_4")
-    global character_skill_4_sleep  := read_config(character_section,"character_skill_4_sleep")
+    global character_skill_4_sleep  := read_config(character_section,"character_skill_4_sleep")+0
     global character_skill_5  := read_config(character_section,"character_skill_5")
-    global character_skill_5_sleep  := read_config(character_section,"character_skill_5_sleep")
+    global character_skill_5_sleep  := read_config(character_section,"character_skill_5_sleep")+0
+    ; skill(character_skill_5,character_skill_5_sleep)
+}
+
+cal_run_time(run_length,move_speed){
+    base_move_speed := 500
+    return run_length /(1 + move_speed/100)/base_move_speed*1000
+}
+
+
+abyss_times_one_with_config(){
+    room_length := 1920
+
+    run_left_time := cal_run_time(room_length*0.8, character_move_speed)
+    run_left(run_left_time)
+
+    run_time_1 := cal_run_time(room_length*1.4, character_move_speed)
+    run(run_time_1)
+    skill(character_skill_1, character_skill_1_sleep)
+
+    run_time_2 := cal_run_time(room_length*1, character_move_speed)
+    run(run_time_2)
+    skill(character_skill_2, character_skill_2_sleep)
+
+    run_time_3 := cal_run_time(room_length*1.1, character_move_speed)
+    run(run_time_3)
+    skill(character_skill_3, character_skill_3_sleep)
+
+    if (!can_back_city()) {
+        skill(character_skill_4, character_skill_4_sleep)
+    }
+
+    if (!can_back_city()) {
+        sleep(1000)
+    }
+
+    if (!can_back_city()) {
+        skill(character_skill_5, character_skill_5_sleep)
+    }
+
+    if (!can_back_city()) {
+        sleep(1000)
+    }
+
+    ; if (!can_back_city()) {
+    ;     skill("q", 1000)
+    ; }
+
+    ; if (!can_back_city()) {
+    ;     skill("t", 3000)
+    ; }
 }
 
 F3::
