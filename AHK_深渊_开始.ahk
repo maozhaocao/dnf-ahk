@@ -40,7 +40,10 @@ F1::
             sleep(1000 * 60 * 10)
             continue
         }
-        start(1, 17)
+        global enbale_abyss_reminder := read_config("option", "enbale_abyss_reminder")
+        if (enbale_abyss_reminder) {
+            start(1, 17)
+        }
         break
     }
     return
@@ -60,7 +63,7 @@ F2::
 
 F3::
 {
-    send_msg("hello")
+    CheckHeartbeat()
     return
 }
 

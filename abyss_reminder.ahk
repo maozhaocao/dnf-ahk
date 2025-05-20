@@ -2,10 +2,16 @@ filename := "abyss_reminder_token"
 
 global have_send :=false
 
+global enbale_abyss_reminder := read_config("option","enbale_abyss_reminder")
+
 ; 读取文件内容到变量token中
 FileRead, token, %filename%
 
 deleteLastHeartbeat(){
+    if(!enbale_abyss_reminder){
+        return
+    }
+
     ; 获取当前脚本所在目录
     currentDir := A_ScriptDir
     ; 构建完整文件路径
@@ -15,6 +21,9 @@ deleteLastHeartbeat(){
 
 updateHeartbeat()
 {
+    if(!enbale_abyss_reminder){
+        return
+    }
     ; 获取当前脚本所在目录
     currentDir := A_ScriptDir
     ; 构建完整文件路径
@@ -25,6 +34,10 @@ updateHeartbeat()
 }
 
 CheckHeartbeat() {
+    if(!enbale_abyss_reminder){
+        return
+    }
+
     ; 获取当前脚本所在目录
     currentDir := A_ScriptDir
     ; 构建完整文件路径
@@ -36,6 +49,7 @@ CheckHeartbeat() {
 
     timeDiff := NowToUnix() - lastAction
     log.info("timeDiff:",timeDiff)
+    log.info("have_send:",have_send)
 
     if (timeDiff > 600000 and !have_send) {
         global have_send :=true

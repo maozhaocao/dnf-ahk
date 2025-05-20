@@ -668,6 +668,12 @@ chat_daily() {
 }
 
 auto_resume(ch_count) {
+    global enbale_auto_resume := read_config("option", "enbale_auto_resume")
+    if(!enbale_auto_resume){
+        return
+    }
+
+
     clean_screen()
     back_select_character()
     sleep(4000)
@@ -1024,6 +1030,7 @@ abyss_pick() {
 }
 
 start(index, ch_count) {
+    global have_send := false
     deleteLastHeartbeat()
     SetTimer, CheckHeartbeat, 60000
     abyss_times_total := 18
@@ -1160,6 +1167,11 @@ start(index, ch_count) {
         index := index + 1
         end_time := A_Now
         log.info("当前时间:", end_time, "当前角色花费时间:", end_time - start_time)
+    }
+    global have_send :=true
+    global enbale_finish_msg := read_config("option", "enbale_finish_msg")
+    if(enbale_finish_msg){
+        send_msg("深渊已刷完")
     }
     auto_resume(ch_count)
     return
