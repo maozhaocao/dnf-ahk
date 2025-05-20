@@ -63,8 +63,9 @@ F2::
 
 F3::
 {
-     init_character_config(1)
+     init_character_config(40)
      abyss_times_one_with_config()
+     abyss_pick()
     return
 }
 
