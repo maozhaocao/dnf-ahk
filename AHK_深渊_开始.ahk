@@ -63,7 +63,8 @@ F2::
 
 F3::
 {
-    CheckHeartbeat()
+     init_character_config(1)
+     abyss_times_one_with_config()
     return
 }
 

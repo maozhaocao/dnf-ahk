@@ -72,30 +72,47 @@ init_character_config(index){
     global character_skill_4_sleep  := read_config(character_section,"character_skill_4_sleep")+0
     global character_skill_5  := read_config(character_section,"character_skill_5")
     global character_skill_5_sleep  := read_config(character_section,"character_skill_5_sleep")+0
+    global character_skill_6  := read_config(character_section,"character_skill_6")
+    global character_skill_6_sleep  := read_config(character_section,"character_skill_6_sleep")+0
     ; skill(character_skill_5,character_skill_5_sleep)
 }
 
 cal_run_time(run_length,move_speed){
-    base_move_speed := 500
+    ; 魔法师基础移速840
+    base_move_speed := 840
     return run_length /(1 + move_speed/100)/base_move_speed*1000
 }
 
 
 abyss_times_one_with_config(){
-    room_length := 1920
+    global character_move_speed  
+    global character_skill_1 
+    global character_skill_1_sleep  
+    global character_skill_2 
+    global character_skill_2_sleep  
+    global character_skill_3  
+    global character_skill_3_sleep  
+    global character_skill_4  
+    global character_skill_4_sleep  
+    global character_skill_5  
+    global character_skill_5_sleep
+    global character_skill_6  
+    global character_skill_6_sleep
 
-    run_left_time := cal_run_time(room_length*0.8, character_move_speed)
+    room_length := 3830
+
+    run_left_time := cal_run_time(2900, character_move_speed)
     run_left(run_left_time)
 
-    run_time_1 := cal_run_time(room_length*1.4, character_move_speed)
+    run_time_1 := cal_run_time(4914, character_move_speed)
     run(run_time_1)
     skill(character_skill_1, character_skill_1_sleep)
 
-    run_time_2 := cal_run_time(room_length*1, character_move_speed)
+    run_time_2 := cal_run_time(3830, character_move_speed)
     run(run_time_2)
     skill(character_skill_2, character_skill_2_sleep)
 
-    run_time_3 := cal_run_time(room_length*1.1, character_move_speed)
+    run_time_3 := cal_run_time(3830, character_move_speed)
     run(run_time_3)
     skill(character_skill_3, character_skill_3_sleep)
 
@@ -115,9 +132,9 @@ abyss_times_one_with_config(){
         sleep(1000)
     }
 
-    ; if (!can_back_city()) {
-    ;     skill("q", 1000)
-    ; }
+    if (!can_back_city()) {
+        skill(character_skill_6, character_skill_6_sleep)
+    }
 
     ; if (!can_back_city()) {
     ;     skill("t", 3000)
