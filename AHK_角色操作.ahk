@@ -673,7 +673,6 @@ auto_resume(ch_count) {
         return
     }
 
-
     clean_screen()
     back_select_character()
     sleep(4000)
@@ -1173,7 +1172,10 @@ start(index, ch_count) {
     if(enbale_finish_msg){
         send_msg("深渊已刷完")
     }
-    auto_resume(ch_count)
+    global enbale_auto_resume := read_config("option", "enbale_auto_resume")
+    if(enbale_auto_resume){
+        auto_resume(ch_count)
+    }
     return
 }
 

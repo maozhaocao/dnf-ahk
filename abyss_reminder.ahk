@@ -8,6 +8,7 @@ global enbale_abyss_reminder := read_config("option","enbale_abyss_reminder")
 FileRead, token, %filename%
 
 deleteLastHeartbeat(){
+    global enbale_abyss_reminder
     if(!enbale_abyss_reminder){
         return
     }
@@ -21,6 +22,7 @@ deleteLastHeartbeat(){
 
 updateHeartbeat()
 {
+    global enbale_abyss_reminder
     if(!enbale_abyss_reminder){
         return
     }
@@ -34,6 +36,7 @@ updateHeartbeat()
 }
 
 CheckHeartbeat() {
+    global enbale_abyss_reminder
     if(!enbale_abyss_reminder){
         return
     }
@@ -49,6 +52,7 @@ CheckHeartbeat() {
 
     timeDiff := NowToUnix() - lastAction
     log.info("timeDiff:",timeDiff)
+    global have_send
     log.info("have_send:",have_send)
 
     if (timeDiff > 600000 and !have_send) {
