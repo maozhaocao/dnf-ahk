@@ -40,8 +40,8 @@ F1::
             sleep(1000 * 60 * 10)
             continue
         }
-        global enbale_abyss_reminder := read_config("option", "enbale_abyss_reminder")
-        if (enbale_abyss_reminder) {
+        global enbale_auto_start := read_config("option", "enbale_auto_start")
+        if (enbale_auto_start) {
             start(1)
         }
         break

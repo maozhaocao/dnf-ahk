@@ -797,7 +797,7 @@ start(index) {
 
     global ch_count := read_config("abyss","ch_count") + 0
     global abyss_list := stringToArray(read_config("abyss","abyss_list"))
-    global islands_list := []
+    global islands_list := [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
     global pl_0_list := stringToArray(read_config("abyss","pl_0_list"))
     global pl_17_list := stringToArray(read_config("abyss","pl_17_list"))
     global pl_30_list := stringToArray(read_config("abyss","pl_30_list"))
