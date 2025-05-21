@@ -8,25 +8,19 @@ sleep(time){
     sleep,time
 }
 
-send_key(key) {
+send_key_by_version(key) {
     SendInput, {Blind}{%key% DownTemp}
     Sleep, 1
     SendInput, {Blind}{%key% Up}
     Sleep, 1
 }
 
-down(key) {
+down_by_version(key) {
     SendInput, {Blind}{%key% DownTemp}
 }
 
-up(key) {
+up_by_version(key) {
     SendInput, {Blind}{%key% Up}
-}
-
-down_up(key,time){
-    down(key)
-    sleep(time)
-    up(key)
 }
 
 pixel_search( X1, Y1, X2, Y2, ColorID){
