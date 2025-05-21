@@ -15,7 +15,7 @@ F1::
     start_day := SubStr(A_DD, 2)
     start_hour := A_Hour
     log.info("开始时间:", start_day, start_hour)
-    start(index, 55)
+    start(index)
     end_day := SubStr(A_DD, 2)
     end_hour := A_Hour
     log.info("结束时间:", end_day, end_hour)
@@ -42,7 +42,7 @@ F1::
         }
         global enbale_abyss_reminder := read_config("option", "enbale_abyss_reminder")
         if (enbale_abyss_reminder) {
-            start(1, 17)
+            start(1)
         }
         break
     }
@@ -63,9 +63,7 @@ F2::
 
 F3::
 {
-     init_character_config(40)
-     abyss_times_one_with_config()
-     abyss_pick()
+    send_key("right")
     return
 }
 

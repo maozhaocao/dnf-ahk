@@ -202,7 +202,9 @@ go_abyss_115_door() {
     sleep(2000)
     up("right")
     sleep(500)
-    MouseMove 265, 555
+    global abyss_door_x 
+    global abyss_door_y 
+    MouseMove abyss_door_x, abyss_door_y
     sleep(500)
     click_for_success()
     sleep(3000)
@@ -227,9 +229,11 @@ back_city() {
     clean_screen()
     ; skill("esc", 500)
     move_and_click(1505, 1041, 1000)
-    MouseMove 1135, 835
+    global back_city_x 
+    global back_city_y 
+    MouseMove back_city_x, back_city_y
     sleep(500)
-    MouseMove 1135, 835
+    MouseMove back_city_x, back_city_y
     sleep(500)
     click_for_success()
     sleep(500)
@@ -241,10 +245,12 @@ back_city() {
 back_select_character() {
     sleep(500)
     ; skill("esc", 500)
+    global back_selct_character_x 
+    global back_selct_character_y 
     move_and_click(1505, 1041, 1000)
-    MouseMove 925, 840
+    MouseMove back_selct_character_x, back_selct_character_y
     sleep(500)
-    MouseMove 925, 840
+    MouseMove back_selct_character_x, back_selct_character_y
     sleep(500)
     click_times(2)
     sleep(500)
@@ -783,54 +789,22 @@ abyss_pick() {
     move_and_click(929, 725, 500)
 }
 
-start(index, ch_count) {
+start(index) {
     global have_send := false
     deleteLastHeartbeat()
     SetTimer, CheckHeartbeat, 60000
-    abyss_times_total := 18
-    skip_list := []
+    abyss_times_total := 0
 
-    abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 54, 55]
-    islands_list := [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
-
-    ; abyss_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 54, 55]
-    ; islands_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
-
-    pl_0_list := []
-    pl_17_list := []
-    pl_30_list := []
-    pl_60_list := []
-    pl_77_list := []
-    pl_90_list := []
-    pl_107_list := []
-
-    if (is_thursday()) {
-        log.info("当天为星期四")
-        pl_0_list := [28, 29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
-        pl_17_list := []
-        pl_30_list := [35, 40, 42]
-        pl_60_list := [22, 24, 36]
-        pl_90_list := [20, 21, 23, 25, 26, 27, 30, 38, 54, 55]
-        pl_107_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
-
-    } else {
-        log.info("当天不为星期五")
-        pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
-        pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
-        pl_30_list := []
-        pl_60_list := []
-        pl_90_list := []
-        pl_107_list := []
-    }
-
-    ; pl_77_list := [5]
-
-    ; pl_0_list := [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
-    ; pl_17_list := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 34]
-    ; pl_30_list := []
-    ; pl_60_list := []
-    ; pl_90_list := [4, 8, 17]
-    ; pl_107_list := []
+    global ch_count := read_config("abyss","ch_count") + 0
+    global abyss_list := stringToArray(read_config("abyss","abyss_list"))
+    global islands_list := []
+    global pl_0_list := stringToArray(read_config("abyss","pl_0_list"))
+    global pl_17_list := stringToArray(read_config("abyss","pl_17_list"))
+    global pl_30_list := stringToArray(read_config("abyss","pl_30_list"))
+    global pl_60_list := stringToArray(read_config("abyss","pl_60_list"))
+    global pl_77_list := stringToArray(read_config("abyss","pl_77_list"))
+    global pl_90_list := stringToArray(read_config("abyss","pl_90_list"))
+    global pl_107_list := stringToArray(read_config("abyss","pl_107_list"))
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
@@ -900,6 +874,11 @@ start(index, ch_count) {
                         abyss_times_total := 5
                     }
                 }
+                global is_debug := read_config("option", "is_debug")
+                if(is_debug){
+                    abyss_times_total := 1
+                }
+                log.info("设置深渊次数：",abyss_times_total)
 
                 if (list_contains_key(abyss_list, index)) {
                     go_abyss_115_door()
@@ -993,6 +972,9 @@ start_abyss(index, abyss_times_total) {
             }
         }
     }
-    skill_many("x", 500, 15)
+    global is_debug := read_config("option", "is_debug")
+    if(!is_debug){
+        skill_many("x", 500, 15)
+    }
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
 }

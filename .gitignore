@@ -4,6 +4,7 @@ Log.txt
 .idea
 .vscode
 /logs/
+/logs_back/
 /logs/*.txt
 abyss_reminder_token
 heartbeat.ini
