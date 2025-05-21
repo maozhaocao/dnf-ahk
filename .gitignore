@@ -6,3 +6,4 @@ Log.txt
 /logs/
 /logs/*.txt
 abyss_reminder_token
+heartbeat.ini

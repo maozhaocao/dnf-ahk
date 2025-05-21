@@ -1,8 +1,8 @@
 ﻿;#HotIf WinActive("ahk_exe DNF.exe")
 run_with_admin()
-#Include AHK_角色列表.ahk
-#Include AHK_配置读取.ahk
+#Include config_read.ahk
 #Include abyss_reminder.ahk
+#include action.ahk
 
 init_config()
 

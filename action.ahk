@@ -1,7 +1,8 @@
-#Include AHK_版本v1.ahk
-#Include AHK_群岛1.ahk
-#Include AHK_群岛2.ahk
-#Include AHK_群岛3.ahk
+﻿#Include AHK_v1.ahk
+#Include character_list.ahk
+#Include islands_1.ahk
+#Include islands_2.ahk
+#Include islands_3.ahk
 
 run(time) {
     sleep(50)
@@ -936,13 +937,14 @@ start(index, ch_count) {
 start_abyss(index, abyss_times_total) {
     skill("space", 4000)
     sleep(1000)
+    init_character_config(index)
     count := abyss_times_total
     while (count > 0)
     {
         updateHeartbeat()
 
         count := count - 1
-        abyss_times_one(index)
+        abyss_times_one_with_config()
         if (count == 0) {
             run_left(500)
         }
