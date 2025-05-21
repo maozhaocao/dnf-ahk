@@ -37,6 +37,48 @@ init_config(){
     global key_esc  := read_config("keyboard","key_esc")
     global key_pick  := read_config("keyboard","key_pick")
 
+    global keyboard_dict := Object()
+
+    ; 主技能键位
+    keyboard_dict["a"] := skill_1 
+    keyboard_dict["s"] := skill_2
+    keyboard_dict["d"] := skill_3 
+    keyboard_dict["f"] := skill_4
+    keyboard_dict["g"] := skill_5 
+    keyboard_dict["v"] := skill_6
+    keyboard_dict["Lctrl"] := skill_7
+
+    ; 扩展技能键位 
+    keyboard_dict["q"] := skill_expand_1
+    keyboard_dict["w"] := skill_expand_2 
+    keyboard_dict["e"] := skill_expand_3
+    keyboard_dict["r"] := skill_expand_4 
+    keyboard_dict["Rctrl"] := skill_expand_5 
+    keyboard_dict["Numpad0"] := skill_expand_6 
+    keyboard_dict["Numpad4"] := skill_expand_7 
+
+    ; 功能键位 
+    keyboard_dict["F5"] := mall 
+    keyboard_dict["F10"] := key_continue 
+    keyboard_dict["F12"] := back_city 
+
+    ; 特殊技能键 
+    keyboard_dict["z"] := skill_z 
+    keyboard_dict["x"] := skill_x 
+    keyboard_dict["c"] := skill_c 
+    keyboard_dict["space"] := skill_space 
+
+    ; 导航键
+    keyboard_dict["enter"] := key_enter 
+    keyboard_dict["up"] := key_up 
+    keyboard_dict["down"] := key_down 
+    keyboard_dict["left"] := key_left 
+    keyboard_dict["right"] := key_right 
+
+    ; 系统键
+    keyboard_dict["esc"] := key_esc 
+    keyboard_dict["numpaddiv"] := key_pick 
+
     global menus_x  := read_config("ui_location","menus_x") + 0
     global menus_y  := read_config("ui_location","menus_y") + 0
     global back_city_x  := read_config("ui_location","back_city_x") + 0
@@ -139,4 +181,35 @@ abyss_times_one_with_config(){
     ; if (!can_back_city()) {
     ;     skill("t", 3000)
     ; }
+}
+
+transform_from_keyboard(key){
+    global keyboard_dict
+    if (keyboard_dict.HasKey(key)) {
+        trans_key := keyboard_dict[key]
+        return trans_key
+    } else {
+        return key
+    }
+}
+
+send_key(origin_key) {
+    key := transform_from_keyboard(origin_key)
+    send_key_by_version(key)
+}
+
+down(key) {
+    key := transform_from_keyboard(origin_key)
+    down_by_version(key)
+}
+
+up(key) {
+    key := transform_from_keyboard(origin_key)
+    up_by_version(key)
+}
+
+down_up(key,time){
+    down(key)
+    sleep(time)
+    up(key)
 }
