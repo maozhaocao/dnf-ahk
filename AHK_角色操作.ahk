@@ -77,179 +77,6 @@ skill_down_up(name, time, delay) {
     sleep(delay)
 }
 
-pick2() {
-    skill("numpaddiv", 2000)
-    skill_many(skill_x, 200, 10)
-    skill("esc", 500)
-}
-
-pick() {
-    count := 8
-    while (count > 0) {
-        count := count - 1
-        if (can_back_city()) {
-            sleep(1000)
-            skill("numpaddiv", 2000)
-            skill_many(skill_x, 200, 5)
-            skill("esc", 500)
-            break
-        }
-        if (count <= 3) {
-            log.info("深渊疑似卡住,执行修正流程")
-            run(3000)
-            run_left(1000)
-            if (count == 3) {
-                skill("q", 1000)
-                skill("w", 1000)
-                skill("e", 1000)
-            }
-            if (count == 2) {
-                skill("a", 1000)
-                skill("s", 1000)
-                skill("d", 1000)
-            }
-            if (count == 1) {
-                skill("r", 1000)
-                skill("f", 1000)
-                skill("g", 1000)
-            }
-        }
-        sleep(1000)
-    }
-}
-
-start_storm(index, storm_times_total) {
-    move_and_click(1270, 410, 800)
-    Sleep(2000)
-    count := storm_times_total
-    while (count > 0)
-    {
-        count := count - 1
-        storm_times_one(index)
-        check_pick_count := 8
-        while (check_pick_count > 1) {
-            check_pick_count := check_pick_count - 1
-            if (can_back_city()) {
-                sleep(1000)
-                skill("numpaddiv", 2000)
-                skill_many(skill_x, 200, 10)
-                skill("esc", 500)
-                break
-            }
-            if (check_pick_count <= 3) {
-                log.info("深渊疑似卡住,执行修正流程")
-                run_search_next(3000)
-                run_left(1000)
-                if (check_pick_count == 3) {
-                    skill_down_up("up", 500, 100)
-                    skill("Numpad4", 7000)
-                    skill("q", 1000)
-                    skill("w", 1000)
-                    skill("e", 1000)
-                }
-                if (check_pick_count == 2) {
-                    skill_down_up("down", 500, 100)
-                    skill("Numpad0", 4000)
-                    skill("a", 1000)
-                    skill("s", 1000)
-                    skill("d", 1000)
-                }
-            }
-            sleep(1000)
-        }
-        if (check_pick_count == 1) {
-            log.info("风暴卡住,执行重进流程")
-            back_city()
-            sleep(2000)
-            down("right")
-            sleep(2000)
-            up("right")
-            sleep(500)
-            move_and_click(1270, 410, 800)
-            sleep(2000)
-            continue
-        }
-        if (have_no_pl()) {
-            log.info("pl不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (have_no_ticket()) {
-            log.info("金绿不足,停止继续风暴")
-            break
-        }
-        sleep(500)
-        if (count > 0) {
-            skill(key_continue, 5000)
-        }
-    }
-    log.info("当前角色风暴已刷完,实际循环次数:", storm_times_total - count)
-}
-
-pick_no_check() {
-    global skill_space
-    count := 8
-    while (count > 1) {
-        count := count - 1
-        if (can_back_city()) {
-            sleep(1000)
-            skill("numpaddiv", 2000)
-            skill_many(skill_x, 200, 10)
-            skill("esc", 500)
-            break
-        }
-        if (count <= 3) {
-            log.info("深渊疑似卡住,执行修正流程")
-            run_search_next(3000)
-            run_left(1000)
-            if (count == 3) {
-                skill_down_up("up", 500, 100)
-                skill("Numpad4", 7000)
-                skill("q", 1000)
-                skill("w", 1000)
-                skill("e", 1000)
-            }
-            if (count == 2) {
-                skill_down_up("down", 500, 100)
-                skill("Numpad0", 4000)
-                skill("a", 1000)
-                skill("s", 1000)
-                skill("d", 1000)
-            }
-            if (count == 1) {
-                back_city()
-                sleep(2000)
-                down("right")
-                sleep(2000)
-                up("right")
-                sleep(500)
-                move_and_click(1270, 410, 800)
-                sleep(500)
-            }
-        }
-        sleep(1000)
-    }
-}
-
-try_search_next() {
-    sleep(300)
-    down("right")
-    sleep(2000)
-
-    down("up")
-    sleep(2000)
-    up("up")
-    sleep(500)
-
-    down("down")
-    sleep(1000)
-    up("down")
-    sleep(500)
-
-    up("right")
-    sleep(500)
-}
-
 buff_right_right(time) {
     global skill_space
     send_key("right")
@@ -349,59 +176,6 @@ clean_screen() {
     sleep(500)
     skill("F5", 2000)
     skill("esc", 1000)
-}
-
-go_abyss_door() {
-    global skill_space
-    down("right")
-    sleep(2000)
-    up("right")
-    sleep(500)
-    MouseMove 360, 550
-    sleep(500)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    skill("WheelUp", 100)
-    MouseMove 360, 550
-    sleep(500)
-    click_for_success()
-    skill(skill_space, 1000)
-    sleep(2000)
-    down("right")
-    sleep(2000)
-    up("right")
-    sleep(500)
-}
-
-go_abyss_new_door() {
-    global skill_space
-    skill(";", 1000)
-    move_and_click(385, 635, 1000)
-    move_and_click(915, 655, 1000)
-    move_and_click(680, 75, 1000)
-    move_and_click(680, 230, 1000)
-    move_and_click(986, 779, 1000)
-    skill(skill_space, 1000)
-    down("right")
-    sleep(2000)
-    up("right")
-    sleep(1000)
-}
-
-go_ss_road_door() {
-    move_and_click(1267, 603, 1000)
-    move_and_click(1374, 730, 1000)
-    down("up")
-    sleep(2000)
-    up("up")
-    sleep(500)
 }
 
 go_islands_door() {
@@ -520,10 +294,6 @@ have_ticket() {
     return score >= 150
 }
 
-have_no_ticket2() {
-    return !have_ticket()
-}
-
 have_no_ticket() {
     score := 0
     if (pixel_search_point(1625, 158, 0x818181)) {
@@ -576,12 +346,6 @@ can_back_city() {
     return score >= 150
 }
 
-; can_back_city2(){
-;     if (ImageSearch(&FoundX, &FoundY, 1614, 253, 1738, 290, "D:\GitProject\maozhaocao\dnf-ahk\image\bmp\返回城镇_1614_253_1738_290.bmp"))
-;         MsgBox "The icon was found at " FoundX skill_x FoundY
-;     else
-;         MsgBox "Icon could not be found on the screen."
-; }
 move_and_click(mouse_x, mouse_y, delay) {
     sleep(200)
     MouseMove mouse_x, mouse_y
@@ -942,19 +706,6 @@ islands_pick(index) {
         }
 
         skill("a", 1000)
-        ; skill("Numpad4", 1000)
-
-        ; if (count <= 2) {
-        ;     log.info("深渊疑似卡住,执行修正流程")
-        ;     run(3000)
-        ;     run_left(1000)
-        ;     if (count == 1) {
-        ;         skill("r", 1000)
-        ;         skill("f", 1000)
-        ;         ; skill("g", 1000)
-        ;     }
-        ; }
-        ; sleep(1000)
     }
 }
 
