@@ -1,4 +1,4 @@
-﻿#Include AHK_版本v1.ahk
+#Include AHK_版本v1.ahk
 #Include AHK_群岛1.ahk
 #Include AHK_群岛2.ahk
 #Include AHK_群岛3.ahk
@@ -79,7 +79,7 @@ skill_down_up(name, time, delay) {
 
 pick2() {
     skill("numpaddiv", 2000)
-    skill_many("x", 200, 10)
+    skill_many(skill_x, 200, 10)
     skill("esc", 500)
 }
 
@@ -90,7 +90,7 @@ pick() {
         if (can_back_city()) {
             sleep(1000)
             skill("numpaddiv", 2000)
-            skill_many("x", 200, 5)
+            skill_many(skill_x, 200, 5)
             skill("esc", 500)
             break
         }
@@ -132,7 +132,7 @@ start_storm(index, storm_times_total) {
             if (can_back_city()) {
                 sleep(1000)
                 skill("numpaddiv", 2000)
-                skill_many("x", 200, 10)
+                skill_many(skill_x, 200, 10)
                 skill("esc", 500)
                 break
             }
@@ -180,20 +180,21 @@ start_storm(index, storm_times_total) {
         }
         sleep(500)
         if (count > 0) {
-            skill("F10", 5000)
+            skill(key_continue, 5000)
         }
     }
     log.info("当前角色风暴已刷完,实际循环次数:", storm_times_total - count)
 }
 
 pick_no_check() {
+    global skill_space
     count := 8
     while (count > 1) {
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
             skill("numpaddiv", 2000)
-            skill_many("x", 200, 10)
+            skill_many(skill_x, 200, 10)
             skill("esc", 500)
             break
         }
@@ -250,76 +251,84 @@ try_search_next() {
 }
 
 buff_right_right(time) {
+    global skill_space
     send_key("right")
     sleep(10)
     send_key("right")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
 buff_up_up(time) {
+    global skill_space
     send_key("up")
     sleep(10)
     send_key("up")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
 buff_down_up(time) {
+    global skill_space
     send_key("down")
     sleep(10)
     send_key("up")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
 buff_up_down(time) {
+    global skill_space
     send_key("up")
     sleep(10)
     send_key("down")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
 buff_left_up_right(time) {
+    global skill_space
     send_key("left")
     sleep(10)
     send_key("up")
     sleep(10)
     send_key("right")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
 buff_left_down_right(time) {
+    global skill_space
     send_key("left")
     sleep(10)
     send_key("down")
     sleep(10)
     send_key("right")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
 buff_left_right(time) {
+    global skill_space
     send_key("left")
     sleep(10)
     send_key("right")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
 buff_right(time) {
+    global skill_space
     send_key("right")
     sleep(10)
-    send_key("space")
+    send_key(skill_space)
     sleep(time)
 }
 
@@ -343,6 +352,7 @@ clean_screen() {
 }
 
 go_abyss_door() {
+    global skill_space
     down("right")
     sleep(2000)
     up("right")
@@ -362,7 +372,7 @@ go_abyss_door() {
     MouseMove 360, 550
     sleep(500)
     click_for_success()
-    skill("space", 1000)
+    skill(skill_space, 1000)
     sleep(2000)
     down("right")
     sleep(2000)
@@ -371,13 +381,14 @@ go_abyss_door() {
 }
 
 go_abyss_new_door() {
+    global skill_space
     skill(";", 1000)
     move_and_click(385, 635, 1000)
     move_and_click(915, 655, 1000)
     move_and_click(680, 75, 1000)
     move_and_click(680, 230, 1000)
     move_and_click(986, 779, 1000)
-    skill("space", 1000)
+    skill(skill_space, 1000)
     down("right")
     sleep(2000)
     up("right")
@@ -446,6 +457,7 @@ go_abyss_115_door() {
 }
 
 back_city() {
+    global skill_space
     clean_screen()
     ; skill("esc", 500)
     move_and_click(1505, 1041, 1000)
@@ -455,7 +467,7 @@ back_city() {
     sleep(500)
     click_for_success()
     sleep(500)
-    skill("space", 2000)
+    skill(skill_space, 2000)
     skill("F12", 2000)
     clean_screen()
 }
@@ -566,7 +578,7 @@ can_back_city() {
 
 ; can_back_city2(){
 ;     if (ImageSearch(&FoundX, &FoundY, 1614, 253, 1738, 290, "D:\GitProject\maozhaocao\dnf-ahk\image\bmp\返回城镇_1614_253_1738_290.bmp"))
-;         MsgBox "The icon was found at " FoundX "x" FoundY
+;         MsgBox "The icon was found at " FoundX skill_x FoundY
 ;     else
 ;         MsgBox "Icon could not be found on the screen."
 ; }
@@ -632,6 +644,7 @@ run_search_next(time) {
 }
 
 decompose() {
+    global skill_space
     clean_screen()
     skill("esc", 500)
     move_and_click(547, 513, 800)
@@ -640,30 +653,32 @@ decompose() {
 
     move_and_click(988, 580, 800)
     skill("a", 800)
-    skill("space", 800)
+    skill(skill_space, 800)
     Sleep(3000)
     skill("esc", 500)
 }
 
 fix_decompose_machine() {
+    global skill_space
     move_and_click(1100, 580, 800)
     move_and_click(1100, 580, 800)
-    skill("space", 500)
+    skill(skill_space, 500)
 }
 
 chat_daily() {
+    global skill_space
     skill("enter", 500)
     skill("/", 500)
     skill("a", 500)
-    skill("space", 500)
-    skill("space", 500)
+    skill(skill_space, 500)
+    skill(skill_space, 500)
     skill("enter", 1500)
 
     skill("enter", 500)
     skill("/", 500)
     skill("g", 500)
-    skill("space", 500)
-    skill("space", 500)
+    skill(skill_space, 500)
+    skill(skill_space, 500)
     skill("enter", 500)
 }
 
@@ -672,6 +687,9 @@ auto_resume(ch_count) {
     if(!enbale_auto_resume){
         return
     }
+    global key_continue
+    global skill_x
+    global skill_space
 
     clean_screen()
     back_select_character()
@@ -680,7 +698,7 @@ auto_resume(ch_count) {
     skill_many("left", 1000, 5)
     index := 17
     skill_many("right", 1000, index - 1)
-    skill("space", 5000)
+    skill(skill_space, 5000)
     while (index <= ch_count) {
         sleep(500)
         check_count := 1
@@ -694,7 +712,7 @@ auto_resume(ch_count) {
         }
         back_select_character()
         skill("right", 2000)
-        skill("space", 5000)
+        skill(skill_space, 5000)
         index := index + 1
     }
 }
@@ -730,6 +748,9 @@ get_current_point() {
 }
 
 start_qundao(index, abyss_times_total) {
+    global key_continue
+    global skill_x
+    global skill_space
     sleep(4000)
 
     while (abyss_times_total > 0) {
@@ -769,7 +790,7 @@ start_qundao(index, abyss_times_total) {
         }
         sleep(500)
         if (abyss_times_total > 0) {
-            skill("F10", 6000)
+            skill(key_continue, 6000)
         }
     }
 }
@@ -901,6 +922,7 @@ go_down(action_index, index) {
 }
 
 islands_pick(index) {
+    global skill_x
     islands_skill_loc8(index)
 
     count := 7
@@ -911,7 +933,7 @@ islands_pick(index) {
             sleep(1000)
             walk_up(500)
             skill("numpaddiv", 2000)
-            skill_many("x", 200, 5)
+            skill_many(skill_x, 200, 5)
             ; buy_ticket(index)
             buy_panibo()
             buy_panibo2()
@@ -990,13 +1012,14 @@ buy_shanshanming_chuanshuo() {
 }
 
 abyss_pick() {
+    global skill_x
     count := 8
     while (count > 0) {
         count := count - 1
         if (can_back_city()) {
             sleep(1000)
             skill("numpaddiv", 2000)
-            skill_many("x", 200, 4)
+            skill_many(skill_x, 200, 4)
             buy_panibo()
             buy_panibo2()
             buy_ss_guan()
@@ -1029,6 +1052,7 @@ abyss_pick() {
 }
 
 start(index, ch_count) {
+    global skill_space
     global have_send := false
     deleteLastHeartbeat()
     SetTimer, CheckHeartbeat, 60000
@@ -1162,7 +1186,7 @@ start(index, ch_count) {
         back_select_character()
         sleep(4000)
         skill("right", 2000)
-        skill("space", 5000)
+        skill(skill_space, 5000)
         index := index + 1
         end_time := A_Now
         log.info("当前时间:", end_time, "当前角色花费时间:", end_time - start_time)
@@ -1180,7 +1204,11 @@ start(index, ch_count) {
 }
 
 start_abyss(index, abyss_times_total) {
-    skill("space", 4000)
+    global key_continue
+    global skill_x
+    global skill_space
+
+    skill(skill_space, 4000)
     sleep(1000)
     count := abyss_times_total
     while (count > 0)
@@ -1204,39 +1232,39 @@ start_abyss(index, abyss_times_total) {
         }
         sleep(500)
         if (count > 0) {
-            skill("F10", 3000)
+            skill(key_continue, 3000)
 
             if (can_back_city()) {
-                skill_many("x", 200, 10)
-                skill("F10", 3000)
+                skill_many(skill_x, 200, 10)
+                skill(key_continue, 3000)
             }
 
             if (can_back_city()) {
-                skill_many("x", 200, 10)
-                skill("F10", 3000)
+                skill_many(skill_x, 200, 10)
+                skill(key_continue, 3000)
             }
 
             if (can_back_city()) {
-                skill_many("x", 200, 10)
-                skill("F10", 3000)
+                skill_many(skill_x, 200, 10)
+                skill(key_continue, 3000)
             }
 
             if (can_back_city()) {
-                skill_many("x", 200, 10)
-                skill("F10", 3000)
+                skill_many(skill_x, 200, 10)
+                skill(key_continue, 3000)
             }
 
             if (can_back_city()) {
-                skill_many("x", 200, 10)
-                skill("F10", 3000)
+                skill_many(skill_x, 200, 10)
+                skill(key_continue, 3000)
             }
 
             if (can_back_city()) {
-                skill_many("x", 200, 10)
-                skill("F10", 3000)
+                skill_many(skill_x, 200, 10)
+                skill(key_continue, 3000)
             }
         }
     }
-    skill_many("x", 500, 15)
+    skill_many(skill_x, 500, 15)
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
 }
