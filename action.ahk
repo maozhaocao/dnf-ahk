@@ -202,8 +202,8 @@ go_abyss_115_door() {
     sleep(2000)
     up("right")
     sleep(500)
-    global abyss_door_x 
-    global abyss_door_y 
+    global abyss_door_x
+    global abyss_door_y
     MouseMove abyss_door_x, abyss_door_y
     sleep(500)
     click_for_success()
@@ -229,8 +229,8 @@ back_city() {
     clean_screen()
     ; skill("esc", 500)
     move_and_click(1505, 1041, 1000)
-    global back_city_x 
-    global back_city_y 
+    global back_city_x
+    global back_city_y
     MouseMove back_city_x, back_city_y
     sleep(500)
     MouseMove back_city_x, back_city_y
@@ -245,8 +245,8 @@ back_city() {
 back_select_character() {
     sleep(500)
     ; skill("esc", 500)
-    global back_selct_character_x 
-    global back_selct_character_y 
+    global back_selct_character_x
+    global back_selct_character_y
     move_and_click(1505, 1041, 1000)
     MouseMove back_selct_character_x, back_selct_character_y
     sleep(500)
@@ -875,6 +875,10 @@ start(index) {
                     }
                 }
                 global is_debug := read_config("option", "is_debug")
+                log.info("is_debug",is_debug)
+                global ch_count := read_config("abyss","ch_count") + 0
+                log.info("ch_count",ch_count)
+
                 if(is_debug){
                     abyss_times_total := 1
                 }

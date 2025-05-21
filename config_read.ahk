@@ -40,44 +40,44 @@ init_config(){
     global keyboard_dict := Object()
 
     ; 主技能键位
-    keyboard_dict["a"] := skill_1 
+    keyboard_dict["a"] := skill_1
     keyboard_dict["s"] := skill_2
-    keyboard_dict["d"] := skill_3 
+    keyboard_dict["d"] := skill_3
     keyboard_dict["f"] := skill_4
-    keyboard_dict["g"] := skill_5 
+    keyboard_dict["g"] := skill_5
     keyboard_dict["v"] := skill_6
     keyboard_dict["Lctrl"] := skill_7
 
-    ; 扩展技能键位 
+    ; 扩展技能键位
     keyboard_dict["q"] := skill_expand_1
-    keyboard_dict["w"] := skill_expand_2 
+    keyboard_dict["w"] := skill_expand_2
     keyboard_dict["e"] := skill_expand_3
-    keyboard_dict["r"] := skill_expand_4 
-    keyboard_dict["Rctrl"] := skill_expand_5 
-    keyboard_dict["Numpad0"] := skill_expand_6 
-    keyboard_dict["Numpad4"] := skill_expand_7 
+    keyboard_dict["r"] := skill_expand_4
+    keyboard_dict["Rctrl"] := skill_expand_5
+    keyboard_dict["Numpad0"] := skill_expand_6
+    keyboard_dict["Numpad4"] := skill_expand_7
 
-    ; 功能键位 
-    keyboard_dict["F5"] := mall 
-    keyboard_dict["F10"] := key_continue 
-    keyboard_dict["F12"] := back_city 
+    ; 功能键位
+    keyboard_dict["F5"] := mall
+    keyboard_dict["F10"] := key_continue
+    keyboard_dict["F12"] := back_city
 
-    ; 特殊技能键 
-    keyboard_dict["z"] := skill_z 
-    keyboard_dict["x"] := skill_x 
-    keyboard_dict["c"] := skill_c 
-    keyboard_dict["space"] := skill_space 
+    ; 特殊技能键
+    keyboard_dict["z"] := skill_z
+    keyboard_dict["x"] := skill_x
+    keyboard_dict["c"] := skill_c
+    keyboard_dict["space"] := skill_space
 
     ; 导航键
-    keyboard_dict["enter"] := key_enter 
-    keyboard_dict["up"] := key_up 
-    keyboard_dict["down"] := key_down 
-    keyboard_dict["left"] := key_left 
-    keyboard_dict["right"] := key_right 
+    keyboard_dict["enter"] := key_enter
+    keyboard_dict["up"] := key_up
+    keyboard_dict["down"] := key_down
+    keyboard_dict["left"] := key_left
+    keyboard_dict["right"] := key_right
 
     ; 系统键
-    keyboard_dict["esc"] := key_esc 
-    keyboard_dict["numpaddiv"] := key_pick 
+    keyboard_dict["esc"] := key_esc
+    keyboard_dict["numpaddiv"] := key_pick
 
     global abyss_door_x := read_config("ui_location","abyss_door_x") + 0
     global abyss_door_y := read_config("ui_location","abyss_door_y") + 0
@@ -132,18 +132,18 @@ cal_run_time(run_length,move_speed){
 }
 
 abyss_times_one_with_config(){
-    global character_move_speed 
-    global character_skill_1 
-    global character_skill_1_sleep 
-    global character_skill_2 
-    global character_skill_2_sleep 
-    global character_skill_3 
-    global character_skill_3_sleep 
-    global character_skill_4 
-    global character_skill_4_sleep 
-    global character_skill_5 
+    global character_move_speed
+    global character_skill_1
+    global character_skill_1_sleep
+    global character_skill_2
+    global character_skill_2_sleep
+    global character_skill_3
+    global character_skill_3_sleep
+    global character_skill_4
+    global character_skill_4_sleep
+    global character_skill_5
     global character_skill_5_sleep
-    global character_skill_6 
+    global character_skill_6
     global character_skill_6_sleep
 
     room_length := 3830
@@ -190,15 +190,15 @@ abyss_times_one_with_config(){
 
 transform_from_keyboard(key){
     key := Trim(key)
-    log.info("key:",key)
+;    log.info("key:",key)
 
     global keyboard_dict
     if (keyboard_dict.HasKey(key)) {
         trans_key := keyboard_dict[key]
-        log.info("1 trans_key:",trans_key)
+;        log.info("1 trans_key:",trans_key)
         return trans_key
     } else {
-        log.info("0 trans_key:",key)
+;        log.info("0 trans_key:",key)
         return key
     }
 }
