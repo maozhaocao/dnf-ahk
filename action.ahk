@@ -913,9 +913,21 @@ start(index) {
     return
 }
 
+not_enter_abyss() {
+    RGB_list := [0x49515A,0x485058,0x484F57,0x484E56,0x484D55,0x6D6558,0xAD8C5F,0x9D825B]
+    similarity := CalculateSimilarity(RGB_list, 1792, 995, 1870, 1002, 8)
+    ; log.info("similarity",similarity)
+    return similarity >= 80
+}
+
 start_abyss(index, abyss_times_total) {
     skill("space", 4000)
     sleep(1000)
+    if (not_enter_abyss()) {
+        log.info("深渊票不足,进入深渊失败")
+        sleep(1000)
+        return
+    }
     init_character_config(index)
     count := abyss_times_total
     while (count > 0)
