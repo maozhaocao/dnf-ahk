@@ -443,7 +443,7 @@ chat_daily() {
 
 auto_resume(ch_count) {
     global enbale_auto_resume := read_config("option", "enbale_auto_resume")
-    if(!enbale_auto_resume){
+    if (!enbale_auto_resume) {
         return
     }
 
@@ -729,7 +729,7 @@ buy_panibo2() {
 }
 
 buy_ss_guan() {
-    RGB_list := [0xC17F48,0xB46A3B,0xCB7713,0xC24710,0xC25B0A,0xDF860E,0xAF2409,0x85211C]
+    RGB_list := [0xC17F48, 0xB46A3B, 0xCB7713, 0xC24710, 0xC25B0A, 0xDF860E, 0xAF2409, 0x85211C]
     similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)
     ; log.info("similarity",similarity)
     if (similarity >= 80) {
@@ -740,7 +740,7 @@ buy_ss_guan() {
 }
 
 buy_shanshanming_chuanshuo() {
-    RGB_list := [0x605251,0x80D198,0x5F556B,0xE6864B,0x5A1F0D,0x910104,0x5C0000,0xDB3A3E]
+    RGB_list := [0x605251, 0x80D198, 0x5F556B, 0xE6864B, 0x5A1F0D, 0x910104, 0x5C0000, 0xDB3A3E]
     similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)
     ; log.info("similarity",similarity)
     if (similarity >= 80) {
@@ -795,16 +795,16 @@ start(index) {
     SetTimer, CheckHeartbeat, 60000
     abyss_times_total := 0
 
-    global ch_count := read_config("abyss","ch_count") + 0
-    global abyss_list := stringToArray(read_config("abyss","abyss_list"))
-    global islands_list := [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
-    global pl_0_list := stringToArray(read_config("abyss","pl_0_list"))
-    global pl_17_list := stringToArray(read_config("abyss","pl_17_list"))
-    global pl_30_list := stringToArray(read_config("abyss","pl_30_list"))
-    global pl_60_list := stringToArray(read_config("abyss","pl_60_list"))
-    global pl_77_list := stringToArray(read_config("abyss","pl_77_list"))
-    global pl_90_list := stringToArray(read_config("abyss","pl_90_list"))
-    global pl_107_list := stringToArray(read_config("abyss","pl_107_list"))
+    global ch_count := read_config("abyss", "ch_count") + 0
+    global abyss_list := stringToArray(read_config("abyss", "abyss_list"))
+    global islands_list := stringToArray(read_config("abyss", "islands_list"))
+    global pl_0_list := stringToArray(read_config("abyss", "pl_0_list"))
+    global pl_17_list := stringToArray(read_config("abyss", "pl_17_list"))
+    global pl_30_list := stringToArray(read_config("abyss", "pl_30_list"))
+    global pl_60_list := stringToArray(read_config("abyss", "pl_60_list"))
+    global pl_77_list := stringToArray(read_config("abyss", "pl_77_list"))
+    global pl_90_list := stringToArray(read_config("abyss", "pl_90_list"))
+    global pl_107_list := stringToArray(read_config("abyss", "pl_107_list"))
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
@@ -875,14 +875,14 @@ start(index) {
                     }
                 }
                 global is_debug := read_config("option", "is_debug")
-                log.info("is_debug",is_debug)
-                global ch_count := read_config("abyss","ch_count") + 0
-                log.info("ch_count",ch_count)
+                log.info("is_debug", is_debug)
+                global ch_count := read_config("abyss", "ch_count") + 0
+                log.info("ch_count", ch_count)
 
-                if(is_debug){
+                if (is_debug) {
                     abyss_times_total := 1
                 }
-                log.info("设置深渊次数：",abyss_times_total)
+                log.info("设置深渊次数：", abyss_times_total)
 
                 if (list_contains_key(abyss_list, index)) {
                     go_abyss_115_door()
@@ -905,20 +905,20 @@ start(index) {
         end_time := A_Now
         log.info("当前时间:", end_time, "当前角色花费时间:", end_time - start_time)
     }
-    global have_send :=true
+    global have_send := true
     global enbale_finish_msg := read_config("option", "enbale_finish_msg")
-    if(enbale_finish_msg){
+    if (enbale_finish_msg) {
         send_msg("深渊已刷完")
     }
     global enbale_auto_resume := read_config("option", "enbale_auto_resume")
-    if(enbale_auto_resume){
+    if (enbale_auto_resume) {
         auto_resume(ch_count)
     }
     return
 }
 
 not_enter_abyss() {
-    RGB_list := [0x49515A,0x485058,0x484F57,0x484E56,0x484D55,0x6D6558,0xAD8C5F,0x9D825B]
+    RGB_list := [0x49515A, 0x485058, 0x484F57, 0x484E56, 0x484D55, 0x6D6558, 0xAD8C5F, 0x9D825B]
     similarity := CalculateSimilarity(RGB_list, 1792, 995, 1870, 1002, 8)
     ; log.info("similarity",similarity)
     return similarity >= 80
@@ -989,7 +989,7 @@ start_abyss(index, abyss_times_total) {
         }
     }
     global is_debug := read_config("option", "is_debug")
-    if(!is_debug){
+    if (!is_debug) {
         skill_many("x", 500, 15)
     }
     log.info("当前角色深渊已刷完,实际循环次数:", abyss_times_total - count)
