@@ -65,7 +65,8 @@ F2::
 
 F3::
 {
-    send_key("right")
+    updateHeartbeat()
+    global have_send := false
     return
 }
 
