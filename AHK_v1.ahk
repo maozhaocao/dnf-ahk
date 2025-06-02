@@ -2,7 +2,7 @@
 ; log.is_out_console := true
 log.is_out_file := true
 log.is_use_editor := true
-log.level := log.level_debug
+log.level := log.level_info
 
 sleep(time){
     sleep,time
@@ -111,6 +111,30 @@ is_friday() {
         return true
     }
     if (day == 6 and cur_hour < 6) {
+        return true
+    }
+    return false
+}
+
+is_saturday() {
+    day := A_WDay ;1 位数表示的当前星期几（1-7）。 在所有区域设置中 1 都表示星期天.
+    cur_hour := A_Hour
+    if (day == 7 and cur_hour >= 6) {
+        return true
+    }
+    if (day == 1 and cur_hour < 6) {
+        return true
+    }
+    return false
+}
+
+is_sunday() {
+    day := A_WDay ;1 位数表示的当前星期几（1-7）。 在所有区域设置中 1 都表示星期天.
+    cur_hour := A_Hour
+    if (day == 1 and cur_hour >= 6) {
+        return true
+    }
+    if (day == 2 and cur_hour < 6) {
         return true
     }
     return false

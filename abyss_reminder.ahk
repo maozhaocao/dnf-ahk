@@ -48,12 +48,12 @@ CheckHeartbeat() {
 
     ; 获取最后操作时间
     IniRead, lastAction, %heartbeatPath%, Activity, LastAction
-    log.info("lastAction:",lastAction)
+    log.debug("lastAction:",lastAction)
 
     timeDiff := NowToUnix() - lastAction
-    log.info("timeDiff:",timeDiff)
+    log.debug("timeDiff:",timeDiff)
     global have_send
-    log.info("have_send:",have_send)
+    log.debug("have_send:",have_send)
 
     if (timeDiff > 600000 and !have_send) {
         global have_send :=true

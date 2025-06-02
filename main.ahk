@@ -42,6 +42,9 @@ F1::
         }
         global enbale_auto_start := read_config("option", "enbale_auto_start")
         if (enbale_auto_start) {
+            back_select_character()
+            sleep(4000)
+            skill("space",5000)
             start(1)
         }
         break
@@ -54,11 +57,11 @@ F2::
 {
     ; RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
     ; buy_shanshanming_chuanshuo()
-    init_character_config(42)
-    abyss_times_one_with_config()
+    ; init_character_config(42)
+    ; abyss_times_one_with_config()
 
-    ; abyss_times_douluo()
-    abyss_pick()
+    ; ; abyss_times_douluo()
+    ; abyss_pick()
     return
 }
 
