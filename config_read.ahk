@@ -1,8 +1,24 @@
 
-read_config(section,key){
+read_env(section,key){
     currentDir := A_ScriptDir
     ; 构建完整文件路径
-    keyboardPath := currentDir . "\keyboard.ini"
+    keyboardPath := currentDir . "\env.ini"
+    IniRead, read_value, %keyboardPath%, %section%, %key%
+    return %read_value%
+}
+
+init_env(){
+    global token := read_env("env","abyss_reminder_token")
+    global api_uri := read_env("env","api_uri")
+    global keyboard_env := read_env("env","keyboard_env")
+}
+
+
+read_config(section,key){
+    global keyboard_env
+    currentDir := A_ScriptDir
+    ; 构建完整文件路径
+    keyboardPath := currentDir . "\keyboard_" . keyboard_env . ".ini"
     IniRead, read_value, %keyboardPath%, %section%, %key%
     return %read_value%
 }
