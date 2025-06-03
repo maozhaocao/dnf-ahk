@@ -65,7 +65,7 @@ send_msg(msg){
     global keyboard_env
     whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
     whr.Option(6) := false
-    full_url := api_uri . "/abyss/send_abyss_info?user_id=" . keyboard_env ."&msg=" . msg . "&token=" . token
+    full_url := api_uri . "/abyss/send_abyss_info?user_id=" . keyboard_env . "&msg=" . msg . "&token=" . token
     log.info("full_url: ",full_url)
 
     whr.Open("GET", full_url, false)
