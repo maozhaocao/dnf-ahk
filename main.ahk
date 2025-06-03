@@ -1,9 +1,9 @@
-﻿;#HotIf WinActive("ahk_exe DNF.exe")
+;#HotIf WinActive("ahk_exe DNF.exe")
 run_with_admin()
 #Include config_read.ahk
 #Include abyss_reminder.ahk
 #include action.ahk
-
+init_env()
 init_config()
 
 F1::
