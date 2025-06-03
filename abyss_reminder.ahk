@@ -1,11 +1,6 @@
-filename := "abyss_reminder_token"
 
 global have_send :=false
-
 global enbale_abyss_reminder := read_config("option","enbale_abyss_reminder")
-
-; 读取文件内容到变量token中
-FileRead, token, %filename%
 
 deleteLastHeartbeat(){
     global enbale_abyss_reminder
@@ -33,6 +28,7 @@ updateHeartbeat()
     ; 写入时间戳
     current_time := NowToUnix()
     IniWrite, %current_time%, %heartbeatPath%, Activity, LastAction
+    report_heartbeat()
 }
 
 CheckHeartbeat() {
@@ -65,14 +61,30 @@ CheckHeartbeat() {
 
 send_msg(msg){
     global token
-    log.info("token ",token)
-    log.info("msg ",msg)
+    global api_uri
+    global keyboard_env
     whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
     whr.Option(6) := false
-    full_url := "http://1.94.20.64:20216/abyss/send_abyss_info?user_id=1317818309&msg=" . msg . "&token=" . token
+    full_url := api_uri . "/abyss/send_abyss_info?user_id=" . keyboard_env ."&msg=" . msg . "&token=" . token
     log.info("full_url: ",full_url)
 
     whr.Open("GET", full_url, false)
+    whr.Send()
+    response := whr.ResponseText
+
+    log.info("response: ",response)
+}
+
+report_heartbeat(){
+    global token
+    global api_uri
+    global keyboard_env
+    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+    whr.Option(6) := false
+    full_url := api_uri . "/abyss/report_heartbeat?app_name=" . keyboard_env . "&token=" . token
+    log.info("full_url: ",full_url)
+
+    whr.Open("POST", full_url, false)
     whr.Send()
     response := whr.ResponseText
 
