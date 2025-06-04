@@ -835,6 +835,19 @@ start(index) {
     ;     pl_107_list := []
     ; }
 
+    if (is_thursday()) {
+        global ch_count := read_config("abyss_4", "ch_count") + 0
+        global abyss_list := stringToArray(read_config("abyss_4", "abyss_list"))
+        global islands_list := stringToArray(read_config("abyss_4", "islands_list"))
+        global pl_0_list := stringToArray(read_config("abyss_4", "pl_0_list"))
+        global pl_17_list := stringToArray(read_config("abyss_4", "pl_17_list"))
+        global pl_30_list := stringToArray(read_config("abyss_4", "pl_30_list"))
+        global pl_60_list := stringToArray(read_config("abyss_4", "pl_60_list"))
+        global pl_77_list := stringToArray(read_config("abyss_4", "pl_77_list"))
+        global pl_90_list := stringToArray(read_config("abyss_4", "pl_90_list"))
+        global pl_107_list := stringToArray(read_config("abyss_4", "pl_107_list"))
+    }
+
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
     while (index <= ch_count) {
