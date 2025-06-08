@@ -751,6 +751,8 @@ buy_shanshanming_chuanshuo() {
 }
 
 abyss_pick() {
+
+    cycle_times := 0
     count := 8
     while (count > 0) {
         count := count - 1
@@ -782,7 +784,16 @@ abyss_pick() {
                 skill("r", 1000)
                 skill("f", 1000)
                 skill("g", 1000)
-                count := 8
+                global enable_abyss_pick_check_cycle := read_config("option", "enable_abyss_pick_check_cycle")
+                if (enable_abyss_pick_check_cycle) {
+                    count := 8
+                } else {
+                    count := 8
+                    cycle_times := cycle_times + 1
+                    if (cycle_times >= 5) {
+                        break
+                    }
+                }
             }
         }
     }
@@ -848,7 +859,7 @@ start(index) {
         global pl_107_list := stringToArray(read_config("abyss_4", "pl_107_list"))
     }
 
-    if (is_saturday()) {
+    if (is_sunday()) {
         global ch_count := read_config("abyss_6", "ch_count") + 0
         global abyss_list := stringToArray(read_config("abyss_6", "abyss_list"))
         global islands_list := stringToArray(read_config("abyss_6", "islands_list"))
