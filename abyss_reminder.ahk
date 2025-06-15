@@ -63,30 +63,38 @@ send_msg(msg){
     global token
     global api_uri
     global keyboard_env
-    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-    whr.Option(6) := false
-    full_url := api_uri . "/abyss/send_abyss_info?user_id=" . keyboard_env . "&msg=" . msg . "&token=" . token
-    log.info("full_url: ",full_url)
+    try{
+        whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+        whr.Option(6) := false
+        full_url := api_uri . "/abyss/send_abyss_info?user_id=" . keyboard_env . "&msg=" . msg . "&token=" . token
+        log.info("full_url: ",full_url)
 
-    whr.Open("GET", full_url, false)
-    whr.Send()
-    response := whr.ResponseText
+        whr.Open("GET", full_url, false)
+        whr.Send()
+        response := whr.ResponseText
 
-    log.info("response: ",response)
+        log.info("response: ",response)
+    }Catch e{
+        log.error("send_msg faild: ",msg)
+    }
 }
 
 report_heartbeat(){
     global token
     global api_uri
     global keyboard_env
-    whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
-    whr.Option(6) := false
-    full_url := api_uri . "/abyss/report_heartbeat?app_name=" . keyboard_env . "&token=" . token
-    log.info("full_url: ",full_url)
+    try{
+        whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
+        whr.Option(6) := false
+        full_url := api_uri . "/abyss/report_heartbeat?app_name=" . keyboard_env . "&token=" . token
+        log.info("full_url: ",full_url)
 
-    whr.Open("POST", full_url, false)
-    whr.Send()
-    response := whr.ResponseText
+        whr.Open("POST", full_url, false)
+        whr.Send()
+        response := whr.ResponseText
 
-    log.info("response: ",response)
+        log.info("response: ",response)
+    } Catch e{
+        log.error("report_heartbeat faild")
+    }
 }

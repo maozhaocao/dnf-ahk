@@ -818,6 +818,7 @@ start(index) {
     global pl_107_list := stringToArray(read_config("abyss", "pl_107_list"))
     ; skip_list :=[ 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
     skip_list := []
+    skip_list := stringToArray(read_config("abyss", "islands_list"))
 
 
     ; pl_0_list := [29, 31, 32, 33, 37, 39, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53]
@@ -859,18 +860,18 @@ start(index) {
         global pl_107_list := stringToArray(read_config("abyss_4", "pl_107_list"))
     }
 
-    if (is_sunday()) {
-        global ch_count := read_config("abyss_6", "ch_count") + 0
-        global abyss_list := stringToArray(read_config("abyss_6", "abyss_list"))
-        global islands_list := stringToArray(read_config("abyss_6", "islands_list"))
-        global pl_0_list := stringToArray(read_config("abyss_6", "pl_0_list"))
-        global pl_17_list := stringToArray(read_config("abyss_6", "pl_17_list"))
-        global pl_30_list := stringToArray(read_config("abyss_6", "pl_30_list"))
-        global pl_60_list := stringToArray(read_config("abyss_6", "pl_60_list"))
-        global pl_77_list := stringToArray(read_config("abyss_6", "pl_77_list"))
-        global pl_90_list := stringToArray(read_config("abyss_6", "pl_90_list"))
-        global pl_107_list := stringToArray(read_config("abyss_6", "pl_107_list"))
-    }
+    ; if (is_saturday()) {
+    ;     global ch_count := read_config("abyss_6", "ch_count") + 0
+    ;     global abyss_list := stringToArray(read_config("abyss_6", "abyss_list"))
+    ;     global islands_list := stringToArray(read_config("abyss_6", "islands_list"))
+    ;     global pl_0_list := stringToArray(read_config("abyss_6", "pl_0_list"))
+    ;     global pl_17_list := stringToArray(read_config("abyss_6", "pl_17_list"))
+    ;     global pl_30_list := stringToArray(read_config("abyss_6", "pl_30_list"))
+    ;     global pl_60_list := stringToArray(read_config("abyss_6", "pl_60_list"))
+    ;     global pl_77_list := stringToArray(read_config("abyss_6", "pl_77_list"))
+    ;     global pl_90_list := stringToArray(read_config("abyss_6", "pl_90_list"))
+    ;     global pl_107_list := stringToArray(read_config("abyss_6", "pl_107_list"))
+    ; }
 
 
     log.info("设置当前角色id:", index, ",设置深渊次数:", abyss_times_total)
