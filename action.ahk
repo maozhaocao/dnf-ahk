@@ -1002,6 +1002,7 @@ start_abyss(index, abyss_times_total) {
     }
     init_character_config(index)
     count := abyss_times_total
+    buff_right_right(2000)
     while (count > 0)
     {
         updateHeartbeat()
