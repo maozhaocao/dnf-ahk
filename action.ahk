@@ -899,7 +899,7 @@ start(index) {
 
                 if (list_contains_key(abyss_list, index)) {
                     if (list_contains_key(pl_0_list, index)) {
-                        abyss_times_total := 24
+                        abyss_times_total := 26
                     }
                     if (list_contains_key(pl_17_list, index)) {
                         abyss_times_total := 21
@@ -921,7 +921,7 @@ start(index) {
                     }
                 } else if (list_contains_key(islands_list, index)) {
                     if (list_contains_key(pl_0_list, index)) {
-                        abyss_times_total := 12
+                        abyss_times_total := 14
                     }
                     if (list_contains_key(pl_17_list, index)) {
                         abyss_times_total := 10
