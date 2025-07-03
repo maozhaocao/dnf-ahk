@@ -265,7 +265,7 @@ CalculateSimilarity(targetRGBList, x1, y1, x2, y2, sampleCount) {
         point := sampledPoints[A_Index]
         pointX := point[1]
         pointY := point[2]
-        targetColor := targetRGBList[A_Index] 
+        targetColor := targetRGBList[A_Index]
         ; log.info("targetColor",targetColor)
         ; log.info("similarPointsCount",similarPointsCount)
 
@@ -323,7 +323,6 @@ NowToUnix() {
     return currentTime*1000+ A_MSec
 }
 
-
 ; 将逗号分隔的字符串转换为数组，并可选转为整数
 stringToArray(str, convertToInt := true) {
     array := StrSplit(str, ",")  ; 先按逗号分割成字符串数组
@@ -338,4 +337,64 @@ stringToArray(str, convertToInt := true) {
     }
 
     return array
+}
+
+
+; ===== AHK v1 专用函数实现 ===== 
+read_ini_value(ini_path, section, key){
+    IniRead, read_value, %ini_path%, %section%, %key%, %A_Space%  ; 空值默认返回空格 
+    
+    ; 异常处理机制 
+    if (ErrorLevel) {
+        if (ErrorLevel = 1)
+            throw Exception("INI 文件访问失败", -1, ini_path)
+        else if (ErrorLevel = 2)
+            throw Exception("节不存在", -1, section)
+        else 
+            throw Exception("键值读取错误", -1, key)
+    }
+    
+    ; 处理特殊返回值 
+    if (read_value = "ERROR") {
+        throw Exception("键不存在", -1, key)
+    }
+    
+    return read_value 
+}
+
+
+toggle_pause() {
+    global isPaused
+    isPaused := !isPaused
+    if isPaused {
+        Pause, On, 1 
+        SoundBeep, 500, 300
+    } else {
+        Pause, Off, 1 
+        TrayTip, 脚本状态, 已恢复, 1, 1
+    }
+    return
+}
+ 
+exit_app() {
+    ExitApp 
+    return
+}
+ 
+reload_script() {
+    Reload 
+    return
+}
+ 
+copy_pixel() {
+    global MouseX, MouseY, mouseColor 
+    MouseGetPos, MouseX, MouseY
+    PixelGetColor, mouseColor, %MouseX%, %MouseY%
+    return 
+}
+ 
+paste_pixel() {
+    global MouseX, MouseY, mouseColor
+    Send %MouseX%, %MouseY%, %mouseColor%
+    return 
 }
