@@ -452,7 +452,7 @@ auto_resume(ch_count) {
     sleep(4000)
     skill_many("up", 1000, 9)
     skill_many("left", 1000, 5)
-    index := 17
+    index := 1
     skill_many("right", 1000, index - 1)
     skill("space", 5000)
     while (index <= ch_count) {
