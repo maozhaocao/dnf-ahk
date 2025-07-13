@@ -728,6 +728,17 @@ buy_panibo2() {
     }
 }
 
+buy_cs_guan() {
+    RGB_list := [0xB68556,0x931C0A,0xBB2A10,0x922017,0x97502C,0xB96C43,0x782829,0x57171E]
+    similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)
+    if (similarity >= 80) {
+        move_and_click(290, 827, 500)
+        move_and_click(290, 827, 500)
+        sleep(500)
+    }
+}
+
+
 buy_ss_guan() {
     RGB_list := [0xC17F48, 0xB46A3B, 0xCB7713, 0xC24710, 0xC25B0A, 0xDF860E, 0xAF2409, 0x85211C]
     similarity := CalculateSimilarity(RGB_list, 275, 820, 290, 845, 8)

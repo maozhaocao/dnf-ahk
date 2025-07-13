@@ -55,8 +55,8 @@ F1::
 
 F2::
 {
-    ; RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
-    ; buy_shanshanming_chuanshuo()
+    RGBList := GetRectSampledRGBList(275, 820, 290, 845, 8)
+    ; buy_cs_guan()
     ; init_character_config(42)
     ; abyss_times_one_with_config()
 
